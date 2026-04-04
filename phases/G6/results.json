@@ -1,0 +1,582 @@
+{
+  "graphs": [
+    {
+      "name": "star_5",
+      "N": 5,
+      "S_norm": 0.8277,
+      "rho_k": 1.25
+    },
+    {
+      "name": "clique_5",
+      "N": 5,
+      "S_norm": 0.8614,
+      "rho_k": 1.0
+    },
+    {
+      "name": "path_5",
+      "N": 5,
+      "S_norm": 0.759,
+      "rho_k": 1.0825
+    },
+    {
+      "name": "cycle_5",
+      "N": 5,
+      "S_norm": 0.797,
+      "rho_k": 1.0
+    },
+    {
+      "name": "star_10",
+      "N": 10,
+      "S_norm": 0.9398,
+      "rho_k": 1.6667
+    },
+    {
+      "name": "clique_10",
+      "N": 10,
+      "S_norm": 0.9542,
+      "rho_k": 1.0
+    },
+    {
+      "name": "path_10",
+      "N": 10,
+      "S_norm": 0.8498,
+      "rho_k": 1.0661
+    },
+    {
+      "name": "cycle_10",
+      "N": 10,
+      "S_norm": 0.8657,
+      "rho_k": 1.0
+    },
+    {
+      "name": "star_20",
+      "N": 20,
+      "S_norm": 0.9769,
+      "rho_k": 2.2942
+    },
+    {
+      "name": "clique_20",
+      "N": 20,
+      "S_norm": 0.9829,
+      "rho_k": 1.0
+    },
+    {
+      "name": "path_20",
+      "N": 20,
+      "S_norm": 0.8911,
+      "rho_k": 1.0409
+    },
+    {
+      "name": "cycle_20",
+      "N": 20,
+      "S_norm": 0.8975,
+      "rho_k": 1.0
+    },
+    {
+      "name": "star_50",
+      "N": 50,
+      "S_norm": 0.9929,
+      "rho_k": 3.5714
+    },
+    {
+      "name": "clique_50",
+      "N": 50,
+      "S_norm": 0.9948,
+      "rho_k": 1.0
+    },
+    {
+      "name": "path_50",
+      "N": 50,
+      "S_norm": 0.9196,
+      "rho_k": 1.0185
+    },
+    {
+      "name": "cycle_50",
+      "N": 50,
+      "S_norm": 0.9216,
+      "rho_k": 1.0
+    },
+    {
+      "name": "star_100",
+      "N": 100,
+      "S_norm": 0.997,
+      "rho_k": 5.0252
+    },
+    {
+      "name": "clique_100",
+      "N": 100,
+      "S_norm": 0.9978,
+      "rho_k": 1.0
+    },
+    {
+      "name": "path_100",
+      "N": 100,
+      "S_norm": 0.9325,
+      "rho_k": 1.0096
+    },
+    {
+      "name": "cycle_100",
+      "N": 100,
+      "S_norm": 0.9334,
+      "rho_k": 1.0
+    },
+    {
+      "name": "star_200",
+      "N": 200,
+      "S_norm": 0.9987,
+      "rho_k": 7.0888
+    },
+    {
+      "name": "clique_200",
+      "N": 200,
+      "S_norm": 0.9991,
+      "rho_k": 1.0
+    },
+    {
+      "name": "path_200",
+      "N": 200,
+      "S_norm": 0.9417,
+      "rho_k": 1.0049
+    },
+    {
+      "name": "cycle_200",
+      "N": 200,
+      "S_norm": 0.9421,
+      "rho_k": 1.0
+    },
+    {
+      "name": "bintree_d3",
+      "N": 15,
+      "S_norm": 0.8944,
+      "rho_k": 1.2258
+    },
+    {
+      "name": "bintree_d4",
+      "N": 31,
+      "S_norm": 0.9188,
+      "rho_k": 1.2656
+    },
+    {
+      "name": "bintree_d5",
+      "N": 63,
+      "S_norm": 0.9334,
+      "rho_k": 1.2947
+    },
+    {
+      "name": "bintree_d6",
+      "N": 127,
+      "S_norm": 0.9434,
+      "rho_k": 1.3169
+    },
+    {
+      "name": "bintree_d7",
+      "N": 255,
+      "S_norm": 0.9506,
+      "rho_k": 1.3342
+    },
+    {
+      "name": "barbell_10",
+      "N": 21,
+      "S_norm": 0.9666,
+      "rho_k": 1.0298
+    },
+    {
+      "name": "lollipop_10",
+      "N": 20,
+      "S_norm": 0.9307,
+      "rho_k": 1.6384
+    },
+    {
+      "name": "wheel_10",
+      "N": 10,
+      "S_norm": 0.9211,
+      "rho_k": 1.1562
+    },
+    {
+      "name": "ladder_10",
+      "N": 20,
+      "S_norm": 0.9254,
+      "rho_k": 1.0425
+    },
+    {
+      "name": "barbell_25",
+      "N": 51,
+      "S_norm": 0.9897,
+      "rho_k": 1.0168
+    },
+    {
+      "name": "lollipop_25",
+      "N": 50,
+      "S_norm": 0.9555,
+      "rho_k": 1.8463
+    },
+    {
+      "name": "wheel_25",
+      "N": 25,
+      "S_norm": 0.9554,
+      "rho_k": 1.5625
+    },
+    {
+      "name": "ladder_25",
+      "N": 50,
+      "S_norm": 0.9462,
+      "rho_k": 1.0224
+    },
+    {
+      "name": "barbell_50",
+      "N": 101,
+      "S_norm": 0.9956,
+      "rho_k": 1.0092
+    },
+    {
+      "name": "lollipop_50",
+      "N": 100,
+      "S_norm": 0.9645,
+      "rho_k": 1.9216
+    },
+    {
+      "name": "wheel_50",
+      "N": 50,
+      "S_norm": 0.9665,
+      "rho_k": 2.0589
+    },
+    {
+      "name": "ladder_50",
+      "N": 100,
+      "S_norm": 0.9552,
+      "rho_k": 1.0122
+    },
+    {
+      "name": "Kbip_2_50",
+      "N": 52,
+      "S_norm": 0.9933,
+      "rho_k": 2.6
+    },
+    {
+      "name": "Kbip_5_100",
+      "N": 105,
+      "S_norm": 0.9972,
+      "rho_k": 2.3479
+    },
+    {
+      "name": "Kbip_1_200",
+      "N": 201,
+      "S_norm": 0.9987,
+      "rho_k": 7.1064
+    },
+    {
+      "name": "ER_tiny_N4",
+      "N": 4,
+      "S_norm": 0.7028,
+      "rho_k": 1.0787
+    },
+    {
+      "name": "ER_tiny_N6",
+      "N": 6,
+      "S_norm": 0.8644,
+      "rho_k": 1.1866
+    },
+    {
+      "name": "ER_tiny_N8",
+      "N": 8,
+      "S_norm": 0.9003,
+      "rho_k": 1.0162
+    },
+    {
+      "name": "ER_tiny_N10",
+      "N": 10,
+      "S_norm": 0.9181,
+      "rho_k": 1.116
+    },
+    {
+      "name": "ER_tiny_N12",
+      "N": 12,
+      "S_norm": 0.9353,
+      "rho_k": 1.1157
+    },
+    {
+      "name": "ER_tiny_N14",
+      "N": 14,
+      "S_norm": 0.9485,
+      "rho_k": 1.1109
+    },
+    {
+      "name": "ER_tiny_N16",
+      "N": 16,
+      "S_norm": 0.9568,
+      "rho_k": 1.1111
+    },
+    {
+      "name": "ER_tiny_N18",
+      "N": 18,
+      "S_norm": 0.962,
+      "rho_k": 1.1337
+    },
+    {
+      "name": "ER_tiny_N20",
+      "N": 20,
+      "S_norm": 0.9675,
+      "rho_k": 1.1016
+    },
+    {
+      "name": "ER_tiny_N22",
+      "N": 22,
+      "S_norm": 0.9709,
+      "rho_k": 1.0868
+    },
+    {
+      "name": "ER_tiny_N24",
+      "N": 24,
+      "S_norm": 0.9738,
+      "rho_k": 1.0566
+    },
+    {
+      "name": "ER_tiny_N26",
+      "N": 26,
+      "S_norm": 0.9764,
+      "rho_k": 1.0624
+    },
+    {
+      "name": "ER_tiny_N28",
+      "N": 28,
+      "S_norm": 0.9781,
+      "rho_k": 1.0457
+    },
+    {
+      "name": "ER_tiny_N30",
+      "N": 30,
+      "S_norm": 0.9799,
+      "rho_k": 1.0395
+    },
+    {
+      "name": "petersen",
+      "N": 10,
+      "S_norm": 0.9108,
+      "rho_k": 1.0
+    },
+    {
+      "name": "dodecahedron",
+      "N": 20,
+      "S_norm": 0.9345,
+      "rho_k": 1.0
+    },
+    {
+      "name": "icosahedron",
+      "N": 12,
+      "S_norm": 0.9425,
+      "rho_k": 1.0
+    },
+    {
+      "name": "tutte",
+      "N": 46,
+      "S_norm": 0.9489,
+      "rho_k": 1.0
+    },
+    {
+      "name": "caterpillar_20",
+      "N": 40,
+      "S_norm": 0.9246,
+      "rho_k": 1.2283
+    },
+    {
+      "name": "caterpillar_50",
+      "N": 100,
+      "S_norm": 0.9412,
+      "rho_k": 1.2177
+    },
+    {
+      "name": "unequal_5_95",
+      "N": 100,
+      "S_norm": 0.9958,
+      "rho_k": 1.05
+    },
+    {
+      "name": "unequal_3_197",
+      "N": 200,
+      "S_norm": 0.9983,
+      "rho_k": 1.015
+    },
+    {
+      "name": "almost_discon_50",
+      "N": 100,
+      "S_norm": 0.983,
+      "rho_k": 1.1082
+    },
+    {
+      "name": "almost_discon_100",
+      "N": 200,
+      "S_norm": 0.9925,
+      "rho_k": 1.0689
+    }
+  ],
+  "destruction": [
+    {
+      "base": "ER_100",
+      "frac": 0.3,
+      "N": 100,
+      "S_norm": 0.9819,
+      "S_base": 0.9872
+    },
+    {
+      "base": "ER_100",
+      "frac": 0.5,
+      "N": 98,
+      "S_norm": 0.9751,
+      "S_base": 0.9872
+    },
+    {
+      "base": "ER_100",
+      "frac": 0.7,
+      "N": 98,
+      "S_norm": 0.9576,
+      "S_base": 0.9872
+    },
+    {
+      "base": "ER_100",
+      "frac": 0.8,
+      "N": 74,
+      "S_norm": 0.9441,
+      "S_base": 0.9872
+    },
+    {
+      "base": "ER_100",
+      "frac": 0.9,
+      "N": 29,
+      "S_norm": 0.9173,
+      "S_base": 0.9872
+    },
+    {
+      "base": "ER_100",
+      "frac": 0.95,
+      "N": 5,
+      "S_norm": 0.759,
+      "S_base": 0.9872
+    },
+    {
+      "base": "BA_100",
+      "frac": 0.3,
+      "N": 98,
+      "S_norm": 0.9753,
+      "S_base": 0.9824
+    },
+    {
+      "base": "BA_100",
+      "frac": 0.5,
+      "N": 90,
+      "S_norm": 0.969,
+      "S_base": 0.9824
+    },
+    {
+      "base": "BA_100",
+      "frac": 0.7,
+      "N": 71,
+      "S_norm": 0.9539,
+      "S_base": 0.9824
+    },
+    {
+      "base": "BA_100",
+      "frac": 0.8,
+      "N": 45,
+      "S_norm": 0.9325,
+      "S_base": 0.9824
+    },
+    {
+      "base": "BA_100",
+      "frac": 0.9,
+      "N": 18,
+      "S_norm": 0.9139,
+      "S_base": 0.9824
+    },
+    {
+      "base": "BA_100",
+      "frac": 0.95,
+      "N": 4,
+      "S_norm": 0.7028,
+      "S_base": 0.9824
+    },
+    {
+      "base": "WS_100",
+      "frac": 0.3,
+      "N": 100,
+      "S_norm": 0.9823,
+      "S_base": 0.9871
+    },
+    {
+      "base": "WS_100",
+      "frac": 0.5,
+      "N": 99,
+      "S_norm": 0.9754,
+      "S_base": 0.9871
+    },
+    {
+      "base": "WS_100",
+      "frac": 0.7,
+      "N": 96,
+      "S_norm": 0.961,
+      "S_base": 0.9871
+    },
+    {
+      "base": "WS_100",
+      "frac": 0.8,
+      "N": 78,
+      "S_norm": 0.9473,
+      "S_base": 0.9871
+    },
+    {
+      "base": "WS_100",
+      "frac": 0.9,
+      "N": 10,
+      "S_norm": 0.8633,
+      "S_base": 0.9871
+    },
+    {
+      "base": "WS_100",
+      "frac": 0.95,
+      "N": 3,
+      "S_norm": 0.5794,
+      "S_base": 0.9871
+    },
+    {
+      "base": "grid_10",
+      "frac": 0.3,
+      "N": 100,
+      "S_norm": 0.9485,
+      "S_base": 0.9642
+    },
+    {
+      "base": "grid_10",
+      "frac": 0.5,
+      "N": 40,
+      "S_norm": 0.9247,
+      "S_base": 0.9642
+    },
+    {
+      "base": "grid_10",
+      "frac": 0.7,
+      "N": 11,
+      "S_norm": 0.8647,
+      "S_base": 0.9642
+    },
+    {
+      "base": "grid_10",
+      "frac": 0.8,
+      "N": 9,
+      "S_norm": 0.8563,
+      "S_base": 0.9642
+    },
+    {
+      "base": "grid_10",
+      "frac": 0.9,
+      "N": 5,
+      "S_norm": 0.759,
+      "S_base": 0.9642
+    },
+    {
+      "base": "grid_10",
+      "frac": 0.95,
+      "N": 3,
+      "S_norm": 0.5794,
+      "S_base": 0.9642
+    }
+  ]
+}

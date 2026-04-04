@@ -75,3 +75,39 @@ Pas de biais théorique. Exploration exhaustive, orientée machine :
 ## Licence
 
 MIT
+
+### Phase G6 — Falsification Hardcore
+
+**Objectif :** Détruire nos propres lois. Tester contre graphes extrêmes, pathologiques, bruit extrême, et le null le plus stupide.
+
+- **68 graphes extrêmes** (étoiles, cliques, paths, bipartites, arbres dégénérés, N=4 à 500)
+- **24 scénarios de destruction** (suppression 30% à 99% des arêtes)
+- **Test de trivialité** (comparaison avec matrices aléatoires)
+
+**Verdict :**
+
+| LOI | Statut post-falsification |
+|---|---|
+| LOI 1 (entropie spectrale) | ❌ 70% triviale — effet de concentration |
+| LOI 2 (vulnérabilité) | ⚠️ Descriptif, connu |
+| LOI 3 (C × L) | ❌ Connu |
+| LOI 4 (ρ/⟨k⟩) | ✅ Vraie, mais connue (Perron-Frobenius) |
+| LOI 5 (SLC) | ⚠️ Standard |
+| LOI 6 (λ₂ × D) | ❌ Connu |
+
+**0 résultat véritablement nouveau sur 6.**
+
+→ Voir `NEXT_AGENT_BRIEFING.md` pour la direction recommandée : **inventer de nouvelles métriques**.
+
+## Next Steps
+
+Voir le document complet : [`NEXT_AGENT_BRIEFING.md`](NEXT_AGENT_BRIEFING.md)
+
+Direction recommandée : **Option 2 — Nouvelles métriques non-standard**
+
+Priorités :
+1. Métriques de réponse dynamique (diffusion de chaleur, marches aléatoires)
+2. Courbure de Ricci discrète (Ollivier/Forman)
+3. Entropie de Von Neumann
+4. Homologie persistante (TDA)
+5. Complexité par compression
