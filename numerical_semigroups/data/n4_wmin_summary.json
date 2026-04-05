@@ -1,0 +1,11 @@
+{
+  "description": "Summary of N4 results: sharp Wilf bounds by (m,e) family",
+  "conjectures": {
+    "A": {"d": 1, "bound": "m-3", "family": "T_m = <m, m+1, 2m+3, ..., 3m-1>", "verified_exhaustive": "m=3..12", "verified_algebraic": "m=3..29"},
+    "B": {"d": 2, "bound": "2m-8", "family": "U_m = <m, 2m-2, 2m-1, 3m+1, ..., 4m-5>", "verified_exhaustive": "m=5..9", "verified_algebraic": "m=5..29"},
+    "C": {"d": 3, "bound": "2m-12", "family": "A_m = <m, 2m-3, 2m-2, 3m-1, 3m+1, ..., 4m-7>", "verified_exhaustive": "m=8..10", "verified_algebraic": "m=8..24"}
+  },
+  "total_semigroups_enumerated": 258582,
+  "max_genus": 22,
+  "oeis_verified": true
+}
