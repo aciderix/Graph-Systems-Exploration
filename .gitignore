@@ -1,3 +1,11 @@
 __pycache__/
 *.pyc
 .venv/
+
+# Embedded repos
+Graph-Systems-Exploration/
+
+# Python
+__pycache__/
+*.pyc
+.venv/

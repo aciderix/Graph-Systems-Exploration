@@ -1,180 +1,249 @@
-# BRIEFING COMPLET — Projet Graph Systems Exploration
+# BRIEFING COMPLET — Projet Exploration Computationnelle
 
 ## Destinataire : Prochain agent de travail
 
-**Date :** 5 avril 2025 (mis à jour avril 2026)
+**Date :** 5 avril 2026
 **Auteur :** Agent précédent (Tasklet)
 **Repo GitHub :** https://github.com/aciderix/Graph-Systems-Exploration
+**Token GitHub :** `[TOKEN_REMOVED]`
 
 ---
 
 ## RÉSUMÉ EN 30 SECONDES
 
-16 phases d'exploration computationnelle sur les graphes finis. ~250 000 calculs. 114 métriques (31 standard + 83 non-standard). 14 opérations de transformation. Lois de conservation ET de transformation cherchées. Puis 5 phases post-spectrales : compression, eigenvectors, trajectoires, graphes pondérés, familles paramétriques, morphismes, complexité computationnelle, graphons. Falsification systématique à chaque étape. **Résultat : 0 loi fondamentalement nouvelle.** L'espace des lois algébriques simples sur les graphes finis est saturé — y compris dans les directions post-spectrales.
+Ce projet a deux phases historiques (résultats négatifs de haute qualité) et trois nouvelles directions de recherche.
+
+**Phase Riemann (terminée) :** 18 phases sur la fonction zêta → toutes les routes par troncature fermées, α=3/4 = artefact Dickman.
+
+**Phase Graphes (terminée) :** 16 phases, ~250 000 calculs, 114 métriques, 14 opérations → **0 loi fondamentalement nouvelle**. L'espace des lois algébriques simples sur les graphes finis est saturé.
+
+**Nouvelles directions (à explorer) :**
+1. 🥇 **Semigroupes numériques** — `numerical_semigroups/`
+2. 🥈 **Groupes critiques (sandpile)** — `sandpile_groups/`
+3. 🥉 **Invariants de nœuds** — `knot_invariants/`
 
 ---
 
-## PHILOSOPHIE OBLIGATOIRE
+## RÈGLES DE COMPORTEMENT — OBLIGATOIRES
 
-> **Se comporter comme un système exploratoire cherchant à cartographier un espace inconnu — PAS comme un mathématicien cherchant une preuve.**
+### Philosophie
+> Se comporter comme un système exploratoire cherchant à cartographier un espace inconnu — PAS comme un mathématicien cherchant une preuve.
 
-- Penser comme une machine, pas comme un humain
-- Couverture maximale — tester même les pistes improbables
-- Refuser les explications faciles
-- Falsifier systématiquement — une loi n'est intéressante que si elle survit à la destruction
+- Explorer des chemins **inconnus, inattendus, contre-intuitifs**
+- Penser comme une **machine**, pas comme un humain
+- **Résultats dans le chat**, pas dans des fichiers de rapport (sauf très longs contenus)
+- Ne pas se comporter comme un cheerleader — **attaquer chaque résultat positif immédiatement**
+- **Falsifier systématiquement** et immédiatement
 - Documenter les échecs aussi clairement que les succès
-- **Ne pas créer de fichiers de rapport** — afficher les résultats dans le chat
-- **Vérifier l'inédit de chaque claim** avant de l'exploiter
+- Ne pas écouter aveuglément les suggestions d'autres LLMs
+- **Copier en `/tmp/` avant les opérations lourdes** (FUSE mount `/agent/` est lent)
+- Utiliser **pur numpy** (sklearn ne compile pas sur Alpine)
 
----
-
-## CE QUI A ÉTÉ FAIT (G1→G11)
-
-### Tableau synthétique
-
-| Phase | Quoi | Volume | Verdict |
-|---|---|---|---|
-| G1 | 356 graphes, 21 familles, 31 métriques | 11 036 mesures | Base de données |
-| G2 | 5 déformations × 13 niveaux × 12 graphes | ~780 trajectoires | Transitions connues |
-| G3 | Percolation fine (3 modes × 14 graphes) | ~4 200 points | Standard |
-| G4 | Combinaisons algébriques + PCA | ~50 000 combos | Rien de nouveau |
-| G5 | Validation croisée 6 lois | 6 candidats | — |
-| G6 | Falsification : 68 graphes extrêmes | 24 scénarios | **6/6 cassées ou connues** |
-| G7 | 83 nouvelles métriques non-standard | 29 548 mesures | 3 survivantes → frameworks connus |
-| G8.5 | Stabilité spec_complexity_per_node | — | **CASSÉ** (star/complete) |
-| G8.6 | Transition betti0_mean_persistence | — | **PAS de transition propre** |
-| G8.7 | 4 processus dynamiques | 30 graphes × 4 | Kuramoto r=0.955 avec spectre → **CONNU** |
-| G8.8 | ML classifier | 27 vs 83 features | Standard écrase (72% vs 47%) |
-| G9 | Lois de conservation (SVD null-space) | 91 graphes × 8 ops × 29 métriques | **8 lois réelles mais dérivables** |
-| G10 | Faille spectrale + ops exotiques | 80 graphes × 6 ops × 24 métriques | **0 loi non-spectrale** |
-| G11 | Lois de transformation (régression) | 64 graphes × 7 ops × 14 cibles | **6 survivantes, triviales ou approx** |
-| G12 | 3 propositions post-spectrales | Eigenvectors + compression + trajectoires | Compression gap seul candidat viable |
-| G13 | Approfondissement 4 fronts | IPR skew + gap + hlf + pondérés | IPR instable, hlf trivial (R²=0.87 avg_deg), Anderson 1958 |
-| G14 | Compression gap deep dive | Scaling + fonctionnel + falsification + cross | Gap = outil descriptif, scaling = mirage |
-| G15 | Test critique universalité b | b vs ⟨k⟩, algo, décomposition | **b dépend de ⟨k⟩ (R²=0.92), algo (66% spread), et convergence spectrale** |
-| G16 | 4 pivots radicaux | Paramétrique + morphismes + complexité + graphons | **Tout converge vers le connu** |
-
-### Les 5 méta-résultats
-
-1. **Les lois exactes simples = spectrales = connues** (G1-G9)
-2. **L'espace non-spectral est prédictible mais sans lois exactes** (G10-G11)
-3. **Le spectre est une hiérarchie** : adjacence < Laplacien < normalisé < signless (G10)
-4. **La compression ne produit pas de loi intrinsèque** — dépend de l'algorithme et du degré moyen (G12-G15)
-5. **L'exploration post-spectrale converge aussi vers le connu** — familles paramétriques, morphismes, complexité computationnelle et graphons retombent tous sur de la théorie existante (G16)
-
----
-
-## CE QUI A ÉCHOUÉ — LEÇONS CRITIQUES
-
-### Erreurs commises (à NE PAS répéter)
-
-| Erreur | Phase | Leçon |
-|---|---|---|
-| Mesurer des métriques standard | G1-G5 | Résultats connus garantis |
-| Falsifier trop tard | G1-G5 → G6 | Falsifier **immédiatement** à chaque découverte |
-| Ne pas tester contre le null stupide | G1 (LOI 1) | L'entropie spectrale = 70% artefact de concentration |
-| Surinterpréter les corrélations | G8.7 | Kuramoto r=0.955 → médiatisé par le spectral gap |
-| Recalculer les JSON existants | G11 | Les JSON contiennent les métriques ; ne régénérer que si calcul NOUVEAU |
-| Écouter aveuglément les suggestions d'autres LLMs | G11 | Régression symbolique = marginal sur la linéaire |
-| Utiliser sklearn sur Alpine | G11 | Ne compile pas ; préférer pur numpy |
-| Croire à l'universalité sans varier les paramètres | G15 | b≈−0.026 "universel" → dépend de ⟨k⟩ (R²=0.92). Toujours tester sur ⟨k⟩ variés |
-| Utiliser la compression comme métrique intrinsèque | G15 | Le résultat change de 66% entre zlib/bzip2/lzma. Pas intrinsèque au graphe |
-| Confondre "sépare les familles" et "nouveau" | G13 | half_life sépare bien mais R²=0.87 avec avg_degree = trivial |
-| Chercher des invariants fonctoriels par force brute | G16 | Seuls les invariants triviaux sont préservés (max_deg sous subdivision) |
-| Croire que le CLT n'explique pas les scaling laws | G16 | α(clustering)/α(transitivity)≈1.0 = conséquence triviale du CLT (Janson 2004) |
-
-### Règles de falsification OBLIGATOIRES
-
+### 11 règles de falsification OBLIGATOIRES
 1. **Baseline linéaire** avant toute méthode sophistiquée
-2. **Graphes frais** (non vus) pour toute validation
-3. **Filtrage des tautologies** (deg_sum=2m, trace identities, etc.)
-4. **Test de trivialité** (comparaison avec graphes/matrices aléatoires)
+2. **Objets frais** (non vus) pour toute validation
+3. **Filtrage des tautologies** (identités algébriques triviales)
+4. **Test de trivialité** (comparaison avec objets aléatoires)
 5. **Vérification littérature** avant toute claim d'originalité
 6. **Complexité minimale** : si une explication simple existe, la préférer
-7. **Varier les paramètres de famille** (⟨k⟩, p, m) pour toute claim d'universalité
-8. **Varier la méthode de mesure** (algo de compression, encodage, discrétisation) pour toute métrique basée sur un algorithme
-9. **Décomposer le résultat** en ses composantes avant de conclure (ex: gap = adj_slope − spec_slope)
-10. **Test config_model** : si config_model(même degré seq) donne le même résultat, c'est la distribution de degrés qui drive, pas la topologie fine
+7. **Varier les paramètres** pour toute claim d'universalité
+8. **Varier la méthode de mesure** pour toute métrique basée sur un algorithme
+9. **Décomposer le résultat** en ses composantes avant de conclure
+10. **Test null model** : si un modèle nul donne le même résultat, c'est artefactuel
 11. **Vérifier contre le CLT/U-statistics** pour tout scaling law faible
 
 ---
 
-## DONNÉES DISPONIBLES
+## CONTEXTE : POURQUOI CES 3 DIRECTIONS ?
 
-### Fichiers JSON (dans data/)
-
-| Fichier | Contenu | Taille |
+### Le diagnostic
+| Projet précédent | Problème | Leçon |
 |---|---|---|
-| g1_results.json | 356 graphes × 31 métriques | 349 KB |
-| g2_trajectories.json | Trajectoires de déformation | 314 KB |
-| g3_results.json | Courbes de percolation | 263 KB |
-| g6_results.json | 68 graphes extrêmes | — |
-| g7_*.json | 83 nouvelles métriques sur 356 graphes | — |
-| g8_*.json | Résultats G8.5-G8.8 | — |
-| g9_conservation_laws.json | 8 lois de conservation | — |
-| g10_spectral_gap.json | 7 paires cospectrales | — |
-| g10_exotic_ops.json | 6 ops exotiques × 80 graphes | — |
-| g11_transformation_laws.json | 6 lois de transformation | — |
+| Riemann | Trop **dur** — patterns à échelle calculable connus depuis 150 ans | Ne pas attaquer des problèmes où le calcul ne peut pas atteindre les échelles utiles |
+| Graphes | Trop **saturé** — l'espace est dominé par spectre + degrés | Ne pas attaquer des espaces théoriquement clos |
 
-### Format type (g1_results.json)
+### Le sweet spot
+La méthode (générer → mesurer → patterns → falsifier) nécessite :
+> **Un domaine où la théorie est INCOMPLÈTE mais les objets sont CALCULABLES.**
 
-```json
-{
-  "name": "erdos_renyi",
-  "params": {"n": 50, "p": 0.01},
-  "n": 50, "m": 15, "density": 0.012,
-  "deg_mean": 0.6, "deg_std": 0.63, "deg_min": 0, "deg_max": 2,
-  "clustering_avg": 0.0, "avg_shortest_path": 1.67, "diameter": 3,
-  "spectral_radius": ..., "algebraic_connectivity": ...,
-  ...
-}
-```
-
-### Scripts (dans phases/)
-
-Chaque phase a ses scripts Python dans `phases/Gx/`. Ils sont autonomes et reproductibles.
+### Analyse critique des suggestions LLM externes (session précédente)
+- **Gemini** proposait pseudospectres, sheaf Laplacians, marches quantiques → des domaines existants habillés en "ruptures"
+- **ChatGPT** proposait Kolmogorov structurelle → incalculable (théorème de Rice), artefactuel en pratique
+- Les deux font la même erreur : "changer l'objet suffit" — mais le projet graphes a montré que chaque enrichissement converge vers le connu **si le domaine est théoriquement saturé**
 
 ---
 
-## PISTES FUTURES — ÉVALUATION HONNÊTE
+## 🥇 DIRECTION 1 : SEMIGROUPES NUMÉRIQUES
 
-### ❌ DEAD ENDS (NE PAS RETENTER)
+**Répertoire :** `numerical_semigroups/`
+**Priorité :** HAUTE — meilleur rapport effort/chance de résultat
 
-| Piste | Raison | Prouvé en |
-|---|---|---|
-| Plus de métriques sur graphes finis statiques | Espace spectral saturé | G1-G11 |
-| Algorithme génétique de métriques | Combine des quantités spectrales → espace fermé | G4, G7 |
-| PCA / réduction dimensionnelle | Fait en G4, résultat connu | G4 |
-| Régression symbolique plus profonde | Gain marginal sur linéaire | G11 |
-| Hypergraphes naïvement | Même piège G1-G11 sur objet différent | — |
-| **Compression comme invariant/loi** | Dépend de l'algo (66% spread zlib/bzip2/lzma), pas intrinsèque | **G15** |
-| **IPR skew scaling** | CV=0.56–1.46, trop instable ; littérature (Pastor-Satorras 2016) | **G12-G13** |
-| **Half_life_frac** | R²=0.87 avec avg_degree, trivial | **G13** |
-| **Graphes pondérés (poids aléatoires)** | Localisation d'Anderson (1958), ultra-connu | **G13** |
-| **Scaling laws via compression** | ln(n) = convergence spectrale ; b dépend de ⟨k⟩ | **G14-G15** |
-| **Morphismes fonctoriels** | Seuls les invariants triviaux (max_deg sous subdivision) sont préservés | **G16** |
-| **Familles paramétriques metric(p)** | Transitions = seuils de connectivité connus, 0/13 universalité | **G16** |
-| **Exposants de fluctuation α / ratios** | CLT pour U-statistiques (Janson 2004), trivial | **G16** |
-| **Complexité computationnelle comme invariant** | Signal existe mais = Markov chain theory (Levin, Peres & Wilmer 2009) | **G16** |
+### Qu'est-ce que c'est ?
+Un semigroupe numérique S est un sous-ensemble de ℕ contenant 0, fermé par addition, avec un nombre fini de trous.
 
-### ⚠️ PISTES VIABLES (après filtrage G12-G16)
+### Pourquoi c'est le bon choix
+| Critère | Score |
+|---|---|
+| Objets calculables | ✅ Tous les semigroupes par genus jusqu'à g≈60-70 |
+| Théorie incomplète | ✅ **Conjecture de Wilf (1978) OUVERTE** |
+| Invariants non-saturés | ✅ ~30 invariants, relations pas toutes connues |
+| Conjecturation automatique faite ? | ❌ **NON** — Graffiti/AGX n'ont pas touché ce domaine |
+| FunSearch/AlphaEvolve ? | ❌ NON — pas de compétition DeepMind |
+| Publiable | ✅ Experimental Mathematics, Semigroup Forum |
 
-> **Note :** Les pistes A (scaling), B (pondérés), C (transitions) et D (opérations) de la version précédente ont été explorées et fermées en G12-G16. Restent 3 directions, toutes nécessitant un changement de paradigme.
+### Cible principale : Conjecture de Wilf
+**Énoncé :** W(S) = e(S)·l(S) − c(S) ≥ 0 pour tout semigroupe numérique S.
+- e(S) = embedding dimension, l(S) = left elements, c(S) = conductor
+- Vérifiée jusqu'à genus ~60, pas prouvée
+- **Un contre-exemple serait une publication majeure**
+- Même sans contre-exemple : nouvelles inégalités entre invariants = publiable
 
-#### 1. Preuves formelles guidées par le numérique
-- Utiliser les ~250K calculs comme guide pour formuler et **prouver** des théorèmes
-- Exemple : prouver que le compression gap est borné inférieurement par f(distribution de degrés)
-- Risque : nécessite des compétences mathématiques, pas du calcul brut
+### Plan
+1. **N1 :** Énumérer par genus (g=1 à 50+), calculer ~25 invariants → `data/n1_results.json`
+2. **N2 :** Scan systématique : corrélations, inégalités candidates, identités
+3. **N3 :** Falsification sur genus supérieurs + littérature
+4. **N4 :** Formalisation des conjectures survivantes
 
-#### 2. Graphes réels (réseaux biologiques, sociaux, technologiques)
-- Les modèles théoriques (ER, BA, WS) sont des approximations trop propres
-- Les vrais réseaux ont motifs, hiérarchies, corrélations temporelles
-- Risque : overfitting sur datasets spécifiques, difficulté de généralisation
+### Script de démarrage
+`phases/N1_enumerate.py` — énumération par arbre + calcul d'invariants. **Tester d'abord sur genus 15 pour vérifier contre OEIS A007323.**
 
-#### 3. Information quantique sur graphes
-- Marches quantiques, intrication dans les graphes d'états, quantum entanglement entropy
-- Les interférences quantiques produisent des invariants inaccessibles à la théorie classique
-- Risque : domaine actif, bien publié — la Von Neumann entropy classique est déjà testée (G7, redondante)
+### Bibliographie essentielle
+- Rosales & García-Sánchez (2009). *Numerical Semigroups*. Springer.
+- Kaplan (2017). "Counting numerical semigroups by genus and some cases of Wilf."
+- Fromentin & Hivert (2016). "Exploring the tree of numerical semigroups."
+- Bras-Amorós (2008). "Fibonacci-like behavior of the number of numerical semigroups of a given genus."
+- Delgado & García-Sánchez (2016). *numericalsgps* — GAP package.
+
+### Dépendances
+```
+numpy
+# Optionnel : gap-system pour vérification croisée
+```
+
+---
+
+## 🥈 DIRECTION 2 : GROUPES CRITIQUES (SANDPILE)
+
+**Répertoire :** `sandpile_groups/`
+**Priorité :** MOYENNE — réutilise l'infrastructure graphes, accède à l'info non-spectrale
+
+### Qu'est-ce que c'est ?
+Le groupe critique K(G) d'un graphe G est un groupe abélien fini calculé via la Smith Normal Form du Laplacien. Son ordre = nombre d'arbres couvrants, mais sa **structure de groupe** (facteurs invariants) contient de l'information **non-spectrale**.
+
+### Pourquoi c'est pertinent
+- C'est littéralement l'information non-spectrale que le projet graphes cherchait
+- Les eigenvalues réelles du Laplacien → déterminant = |K(G)|
+- Mais la décomposition en facteurs invariants (divisibilité entière) n'est PAS dans le spectre
+- **Réutilise les 356 graphes de G1** et les 7 paires cospectrales de G10
+
+### Problèmes ouverts ciblés
+1. **Pour quels graphes K(G) est cyclique ?** → pas de caractérisation générale
+2. **K(grille n×m) ?** → inconnu en général
+3. **Distribution de K(G) pour graphes aléatoires** → conjectures de Melanie Wood (2017+)
+
+### Plan
+1. **S1 :** Calculer SNF + facteurs invariants pour les 356 graphes de G1
+2. **S2 :** Comparer les graphes cospectraux de G10 — la SNF les sépare-t-elle ?
+3. **S3 :** Scan systématique : relations entre invariants du sandpile group et du graphe
+4. **S4 :** Grilles n×m : patterns dans les facteurs
+
+### Script de démarrage
+`phases/S1_smith_normal_form.py` — framework SNF + calcul d'invariants. Démo incluse avec K4, C5, K3,3.
+
+### ⚠️ Attention technique
+La SNF nécessite de l'arithmétique entière exacte. Utiliser `sympy.matrices.normalforms` ou l'implémentation custom fournie (pas numpy float).
+
+### Bibliographie
+- Biggs (1999). "Chip-firing and the critical group of a graph."
+- Wood (2017). "The distribution of sandpile groups of random graphs."
+- Corry & Perkinson (2018). *Divisors and Sandpiles*. AMS.
+- Stanley (2016). "Smith normal form in combinatorics."
+
+### Dépendances
+```
+networkx
+numpy
+sympy  # Pour SNF exacte
+```
+
+---
+
+## 🥉 DIRECTION 3 : INVARIANTS DE NŒUDS
+
+**Répertoire :** `knot_invariants/`
+**Priorité :** EXPLORATOIRE — plus riche mais plus dur
+
+### Qu'est-ce que c'est ?
+Les nœuds mathématiques (plongements de S¹ dans ℝ³) ont des dizaines d'invariants de types très différents (polynomiaux, géométriques, homologiques). Contrairement aux graphes, **aucun invariant unique ne domine**.
+
+### Pourquoi c'est intéressant
+- Espace d'invariants RICHE et NON saturé par un seul
+- Question à un million de dollars : le Jones polynomial détecte-t-il l'unknot ?
+- Base KnotInfo : ~13 000 nœuds × ~80 invariants pré-calculés
+- DeepMind (2021, Nature) a montré que le ML trouve des relations sur les nœuds → mais la falsification systématique n'a pas été faite
+
+### Plan
+1. **K1 :** Acquérir les données KnotInfo (package Python `knotinfo` ou scraping)
+2. **K2 :** Scan systématique : PCA, corrélations, le spectre domine-t-il ici ?
+3. **K3 :** Recherche de lois : inégalités, identités sur les évaluations polynomiales
+4. **K4 :** Falsification + littérature
+
+### Script de démarrage
+`phases/K1_acquire_data.py` — acquisition de données (stub + instructions pour package complet)
+
+### ⚠️ Risques
+- Courbe d'apprentissage en topologie
+- Certains invariants (Khovanov) sont exponentiels à calculer
+- Les relations "faciles" entre invariants classiques sont peut-être déjà connues
+
+### Dépendances
+```
+knotinfo    # Package Python pour la base de données
+snappy      # Volume hyperbolique (optionnel)
+numpy
+```
+
+---
+
+## HISTORIQUE DU PROJET GRAPHES (pour référence)
+
+### Résumé exécutif
+16 phases, ~250K calculs, 0 loi nouvelle. L'espace des graphes finis est saturé par le spectre + degrés.
+
+### Les 5 méta-résultats
+1. Lois exactes simples = spectrales = connues
+2. L'espace non-spectral est prédictible mais sans lois exactes
+3. Le spectre est une hiérarchie : Adjacence < Laplacien < normalisé < signless
+4. La compression ne produit pas de loi intrinsèque (dépend de l'algo à 66%)
+5. Toute direction post-spectrale converge vers de la théorie existante
+
+### 14 impasses confirmées
+Métriques non-standard, algo génétique, PCA, régression symbolique, hypergraphes naïfs, compression naïve, half_life_frac (≈avg_degree), graphes pondérés (Anderson 1958), familles paramétriques (0 universalité), morphismes fonctoriels (trivial), complexité algo (Markov theory), graphons/α (CLT), IPR skew scaling (artefact densité), compression gap scaling (artefact algo+densité).
+
+### Données disponibles
+| Fichier | Contenu |
+|---|---|
+| `data/g1_results.json` | 356 graphes × 31 métriques |
+| `data/g2_trajectories.json` | Trajectoires de déformation |
+| `data/g3_results.json` | Courbes de percolation |
+| `data/g6_results.json` | 68 graphes extrêmes |
+| `data/g7_*.json` | 83 nouvelles métriques |
+| `data/g8_*.json` | Résultats G8 |
+| `data/g9_conservation_laws.json` | 8 lois de conservation |
+| `data/g10_*.json` | Spectral gap + ops exotiques |
+| `data/g11_transformation_laws.json` | 6 lois de transformation |
+
+### Scripts
+Dans `phases/G1/` à `phases/G9/`. Autonomes et reproductibles.
+
+---
+
+## HISTORIQUE DU PROJET RIEMANN (pour référence)
+
+- 18 phases sur la fonction zêta et les produits d'Euler tronqués
+- Résultat : toutes les routes par troncature fermées, α = 3/4 = artefact Dickman
+- Archive : `/agent/home/Maths-Riemann-Research.tar.gz`
+- Repo : https://github.com/aciderix/Maths-Riemann-Research
 
 ---
 
@@ -183,41 +252,37 @@ Chaque phase a ses scripts Python dans `phases/Gx/`. Ils sont autonomes et repro
 | Outil | Usage |
 |---|---|
 | Python 3.12 | Langage principal |
-| NetworkX ≥ 3.0 | Graphes |
+| NetworkX ≥ 3.0 | Graphes (direction 2 principalement) |
 | NumPy ≥ 1.24 | Algèbre linéaire |
 | SciPy ≥ 1.10 | Eigenvalues, stats |
+| SymPy | Smith Normal Form exacte (direction 2) |
 
-**⚠️ scikit-learn ne compile pas toujours sur Alpine Linux.** Préférer pur numpy.
-**⚠️ Copier en /tmp/ avant les opérations lourdes** (git, gros I/O) — le FUSE mount de /agent/ est lent.
+**⚠️ scikit-learn ne compile PAS sur Alpine Linux.** Préférer pur numpy.
+**⚠️ Copier en /tmp/ avant les opérations lourdes** (FUSE mount /agent/ est lent).
+**⚠️ Ne pas recalculer ce qui existe dans les JSON** — ne régénérer que pour du NOUVEAU.
 
 ---
 
-## CONTEXTE HISTORIQUE
+## UTILISATEUR
 
-### Projet Riemann (précédent)
-- 18 phases sur la fonction zêta et les produits d'Euler tronqués
-- Résultat : toutes les routes par troncature fermées, α = 3/4 = artefact Dickman
-- Archive : `/agent/home/Maths-Riemann-Research.tar.gz`
-- Repo : https://github.com/aciderix/Maths-Riemann-Research
-
-### Utilisateur
-- Pseudonyme : Djdn / Karim
-- Email : tedimat142@availors.com
+- Pseudonyme : Wkwk / Karim
+- Email : tipovi1368@availors.com
 - Attentes : exploration de chemins **inconnus, inattendus, contre-intuitifs**
-- Exigence : ne pas penser comme un humain mais comme une machine
-- A consulté d'autres LLMs (ChatGPT) pendant le projet — leurs suggestions doivent être filtrées avec la même rigueur que les nôtres
+- Exigence : résultats dans le chat, pas de cheerleading, falsification immédiate
+- A consulté d'autres LLMs (ChatGPT, Gemini) — leurs suggestions doivent être filtrées avec la même rigueur
 
 ---
 
-## RÉSUMÉ EXÉCUTIF FINAL
+## RECOMMANDATION DE DÉMARRAGE
 
-**Où on en est :** 16 phases, ~250K calculs, 0 loi nouvelle. L'espace des graphes finis statiques est un espace clos — **y compris dans les directions post-spectrales** (compression, complexité, graphons, morphismes).
+**Commencer par les semigroupes numériques (Direction 1).** C'est le territoire le plus vierge avec le meilleur rapport effort/chance de résultat. Le script N1 est prêt à tourner.
 
-**Ce qui a de la valeur :** Le pipeline de falsification lui-même (méthodologie) + la démonstration empirique de la saturation spectrale + la démonstration que les approches post-spectrales convergent aussi vers le connu.
+Séquence recommandée :
+1. Lancer `N1_enumerate.py` avec genus=15 pour vérifier (devrait matcher OEIS A007323)
+2. Monter à genus=40-50 (quelques minutes de calcul)
+3. Scanner les invariants pour des patterns
+4. Falsifier immédiatement tout candidat
 
-**Ce qui reste :** Preuves formelles guidées par les données, graphes réels, ou information quantique. Toutes requièrent un changement de paradigme — pas plus de calcul brut.
+Si les semigroupes s'avèrent aussi saturés → passer aux sandpile groups (Direction 2), qui réutilise l'infrastructure graphes existante.
 
-**L'objectif reste :** Un invariant ou une loi qui est (1) non trivial, (2) résistant à la falsification, (3) absent de la littérature, (4) théoriquement explicable.
-
-**Le théorème empirique renforcé :**
-> Sur les graphes finis, les lois algébriques simples vivent dans l'espace spectral et sont connues. L'espace post-spectral (compression, complexité, convergence, morphismes) est prédictible mais ne contient pas de lois exactes simples inconnues. Pour trouver du nouveau, il faut soit changer l'objet (graphes réels, quantiques), soit passer aux preuves formelles.
+Les nœuds (Direction 3) sont le backup le plus riche mais le plus coûteux en apprentissage.
