@@ -107,10 +107,28 @@ Algebraic verification of A_m for m = 8, ..., 24.
 2. **L = 3 ⟹ W ≥ m−3**: When L=3, the Apéry structure forces c ≤ 2m,
    so W = (m−1)·3 − c ≥ 3m−3−2m = m−3.
 
-### What remains:
-3. **L ≥ 4 ⟹ W ≥ m−3**: Need to show c ≤ (m−1)·L − m + 3.
-   This requires bounding c as a function of L when e = m−1.
-   The argument should follow from Kunz coordinate constraints but is not yet formalized.
+### New structural insight (session 2):
+The bound W ≥ m−3 is **tight at two L values**, not one:
+
+| L | c_max (observed) | W_min | Tight? |
+|---|------------------|-------|--------|
+| 3 | 2m | m−3 | YES — same as T_m |
+| 4 | 3m−1 | m−3 | YES — different achiever! |
+| 5 | 3m | 2m−5 | NO — large slack (m−2) |
+| L≥5 | grows sub-linearly in L | >> m−3 | NO — increasing slack |
+
+Verified for m=8..12 (16K−39K semigroups each).
+
+The c_max = 3m−1 pattern at L=4 is exact for all tested m.
+
+### Proof roadmap:
+The proof decomposes into 3 cases:
+1. **L=3**: c ≤ 2m → W ≥ m−3 ✅ (PROVED)
+2. **L=4**: Need to show c ≤ 3m−1 when e=m−1. This is the HARDEST case.
+   Apéry structure for L=4: S ∩ [0,F] = {0, m, x, y} with exactly 2 non-trivial elements.
+   The constraint e=m−1 (exactly 1 decomposable) should force c ≤ 3m−1.
+3. **L≥5**: Need c ≤ (m−1)L − m + 3, but actual c_max grows much slower.
+   Large slack makes this the easiest case to prove.
 
 ## Historical Note: Failed Earlier Formula
 
