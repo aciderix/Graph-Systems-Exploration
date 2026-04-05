@@ -58,13 +58,27 @@ happened to agree for d=1..5 but diverges at d=6 (predicts 6, actual is 5).
 All minimizers (tight families) share the same structure:
 
 - **Conductor:** c = 2m (i.e., F = 2m−1)
-- **Apéry set structure:** ⌊d/2⌋+1 elements at level 1, the rest at level 2
+- **Apéry set structure:** k level-1 elements, (m−1−k) level-2 elements
+- **k = k_min(d):** smallest k such that k(k+1)/2 ≥ d (triangular number constraint)
 
 This yields:
 - Level 1 Apéry elements: contribute 1 to L each (since m+i ≤ F = 2m−1)
 - Level 2 Apéry elements: contribute 0 to L each (since 2m+i > F)
 - Column 0: contributes 2 (elements 0 and m)
-- **Total: L = 2 + (⌊d/2⌋ + 1) = ⌊d/2⌋ + 3 ✓**
+- **Total: L = 2 + k_min(d) = ⌈(√(8d+1)−1)/2⌉ + 2**
+
+**Why triangular numbers?** Each decomposable generator (at level 2) is the sum of
+two level-1 Apéry elements modulo m. With k elements at level 1, the number of
+distinct pairwise sums (including self-sums) is at most k(k+1)/2. Since d generators
+must be decomposable, we need k(k+1)/2 ≥ d.
+
+| k (level-1) | T(k)=k(k+1)/2 | d range | L = k+2 |
+|---|---|---|---|
+| 1 | 1 | d=1 | 3 |
+| 2 | 3 | d=2,3 | 4 |
+| 3 | 6 | d=4,5,6 | 5 |
+| 4 | 10 | d=7,8,9,10 | 6 |
+| 5 | 15 | d=11..15 | 7 |
 
 ## Individual Conjectures with Tight Families
 
@@ -143,69 +157,20 @@ The proof decomposes into 3 cases:
 3. **L≥5**: Need c ≤ (m−1)L − m + 3, but actual c_max grows much slower.
    Large slack makes this the easiest case to prove.
 
-## CRITICAL UPDATE: Formula breaks at d=6 (session 2)
+## Evolution of the Formula (Session History)
 
-### The formula L(d) = ⌊d/2⌋ + 3 is ONLY valid for d ≤ 5!
+The formula went through three iterations, each corrected by falsification:
 
-Exhaustive verification at d=6 shows:
-- m=11,12 (small m): L=6 achiever, EXACT ✅ (formula works)
-- **m=13..17 (large m): L=5 achiever, NOT L=6!** Formula OVER-predicts.
+1. **L = 2d+1** (session 1): Failed for d ≥ 3.
+2. **L(d) = ⌊d/2⌋+3** (session 1): Held for d=1..5, but **broke at d=6** where it
+   predicted L=6 but the actual stabilized minimizer has L=5.
+3. **L(d) = ⌈(√(8d+1)−1)/2⌉ + 2** (session 2, current): The triangular number
+   formula. Correctly predicts L=5 for d=6 (since T(3)=6≥6) and L=6 for d=7
+   (since T(3)=6<7, T(4)=10≥7). Verified exhaustively for d=0..8.
 
-Actual W_min(m,6) = (m−6)·5 − 2m = **3m − 30** (slope 3, not 4)
-
-The true pattern of L(d) for the stabilized minimizer:
-
-| d range | L | Slope | Confirmed range |
-|---------|---|-------|-----------------|
-| 0 (MED) | 1 | 0 | known |
-| 1 | 3 | 1 | m=3..16 ✅ |
-| 2, 3 | 4 | 2 | m=4..18 ✅ |
-| 4, 5 | 5 | 3 | m=8..18 ✅ |
-| 6+ | 5 (not 6!) | 3 | m=13..17 ✅ |
-
-**L does NOT increase indefinitely** — it stabilizes at 5 for d ≥ 4 (in the large-m regime).
-The ⌊d/2⌋+3 formula was an artifact of the small-d data (d=1..5).
-
-### Why does L cap at 5?
-
-The Kunz level explanation: with c=2m, each non-zero Apéry element is at level 1
-(value in [m+1, 2m−1]) or level 2 (value = 2m+r, outside [0, F=2m−1]).
-- Level 1 elements: contribute 1 to L (they're ≤ F)
-- Level 2 elements: contribute 0 to L (they're > F)
-- Max level-1 slots: m−1 Apéry elements, each can be level 1 or 2
-
-For the minimizer to have low W, it wants low L. L = 2 + (# level-1 Apéry).
-Minimum useful L = 3 (with just 1 level-1 element), giving maximum e·L flex.
-But decomposability constraints from d force a minimum number of level-1 elements.
-
-The data suggests that for d ≥ 4, having 3 level-1 elements (L=5) is optimal
-regardless of d, because adding more level-1 elements increases L but doesn't
-decrease c=2m, so it increases W.
-
-### Implication for the unified formula
-
-**The formula W_min(m,d) = (m−d)·L(d) − 2m still holds, but L(d) is:**
-
-```
-L(d) = 3      if d = 1
-L(d) = 4      if d = 2 or 3
-L(d) = 5      if d ≥ 4  (stabilized)
-```
-
-This gives:
-```
-d=1: W = m − 3
-d=2: W = 2m − 8
-d=3: W = 2m − 12
-d=4: W = 3m − 20
-d=5: W = 3m − 25
-d=6: W = 3m − 30
-d=k (k≥4): W = 3m − 5k
-```
-
-**For d ≥ 4, the unified formula simplifies to: W_min = 3m − 5d**
-
-This needs verification for d=7, 8, 9... 
+The key insight came from testing d=6: the linear formula ⌊d/2⌋+3 was an
+approximation of a sub-linear (square-root) function that happened to agree
+for small d by coincidence.
 
 ## Historical Note: Earlier Failed Formulas
 
