@@ -10,7 +10,7 @@
 
 ## RÉSUMÉ EN 30 SECONDES
 
-11 phases d'exploration computationnelle sur les graphes finis. ~200 000 calculs. 114 métriques (31 standard + 83 non-standard). 14 opérations de transformation. Lois de conservation ET de transformation cherchées. Falsification systématique à chaque étape. **Résultat : 0 loi fondamentalement nouvelle.** L'espace des lois algébriques simples sur les graphes finis est saturé.
+16 phases d'exploration computationnelle sur les graphes finis. ~250 000 calculs. 114 métriques (31 standard + 83 non-standard). 14 opérations de transformation. Lois de conservation ET de transformation cherchées. Puis 5 phases post-spectrales : compression, eigenvectors, trajectoires, graphes pondérés, familles paramétriques, morphismes, complexité computationnelle, graphons. Falsification systématique à chaque étape. **Résultat : 0 loi fondamentalement nouvelle.** L'espace des lois algébriques simples sur les graphes finis est saturé — y compris dans les directions post-spectrales.
 
 ---
 
@@ -48,12 +48,19 @@
 | G9 | Lois de conservation (SVD null-space) | 91 graphes × 8 ops × 29 métriques | **8 lois réelles mais dérivables** |
 | G10 | Faille spectrale + ops exotiques | 80 graphes × 6 ops × 24 métriques | **0 loi non-spectrale** |
 | G11 | Lois de transformation (régression) | 64 graphes × 7 ops × 14 cibles | **6 survivantes, triviales ou approx** |
+| G12 | 3 propositions post-spectrales | Eigenvectors + compression + trajectoires | Compression gap seul candidat viable |
+| G13 | Approfondissement 4 fronts | IPR skew + gap + hlf + pondérés | IPR instable, hlf trivial (R²=0.87 avg_deg), Anderson 1958 |
+| G14 | Compression gap deep dive | Scaling + fonctionnel + falsification + cross | Gap = outil descriptif, scaling = mirage |
+| G15 | Test critique universalité b | b vs ⟨k⟩, algo, décomposition | **b dépend de ⟨k⟩ (R²=0.92), algo (66% spread), et convergence spectrale** |
+| G16 | 4 pivots radicaux | Paramétrique + morphismes + complexité + graphons | **Tout converge vers le connu** |
 
-### Les 3 méta-résultats
+### Les 5 méta-résultats
 
 1. **Les lois exactes simples = spectrales = connues** (G1-G9)
 2. **L'espace non-spectral est prédictible mais sans lois exactes** (G10-G11)
 3. **Le spectre est une hiérarchie** : adjacence < Laplacien < normalisé < signless (G10)
+4. **La compression ne produit pas de loi intrinsèque** — dépend de l'algorithme et du degré moyen (G12-G15)
+5. **L'exploration post-spectrale converge aussi vers le connu** — familles paramétriques, morphismes, complexité computationnelle et graphons retombent tous sur de la théorie existante (G16)
 
 ---
 
@@ -70,6 +77,11 @@
 | Recalculer les JSON existants | G11 | Les JSON contiennent les métriques ; ne régénérer que si calcul NOUVEAU |
 | Écouter aveuglément les suggestions d'autres LLMs | G11 | Régression symbolique = marginal sur la linéaire |
 | Utiliser sklearn sur Alpine | G11 | Ne compile pas ; préférer pur numpy |
+| Croire à l'universalité sans varier les paramètres | G15 | b≈−0.026 "universel" → dépend de ⟨k⟩ (R²=0.92). Toujours tester sur ⟨k⟩ variés |
+| Utiliser la compression comme métrique intrinsèque | G15 | Le résultat change de 66% entre zlib/bzip2/lzma. Pas intrinsèque au graphe |
+| Confondre "sépare les familles" et "nouveau" | G13 | half_life sépare bien mais R²=0.87 avec avg_degree = trivial |
+| Chercher des invariants fonctoriels par force brute | G16 | Seuls les invariants triviaux sont préservés (max_deg sous subdivision) |
+| Croire que le CLT n'explique pas les scaling laws | G16 | α(clustering)/α(transitivity)≈1.0 = conséquence triviale du CLT (Janson 2004) |
 
 ### Règles de falsification OBLIGATOIRES
 
@@ -79,6 +91,11 @@
 4. **Test de trivialité** (comparaison avec graphes/matrices aléatoires)
 5. **Vérification littérature** avant toute claim d'originalité
 6. **Complexité minimale** : si une explication simple existe, la préférer
+7. **Varier les paramètres de famille** (⟨k⟩, p, m) pour toute claim d'universalité
+8. **Varier la méthode de mesure** (algo de compression, encodage, discrétisation) pour toute métrique basée sur un algorithme
+9. **Décomposer le résultat** en ses composantes avant de conclure (ex: gap = adj_slope − spec_slope)
+10. **Test config_model** : si config_model(même degré seq) donne le même résultat, c'est la distribution de degrés qui drive, pas la topologie fine
+11. **Vérifier contre le CLT/U-statistics** pour tout scaling law faible
 
 ---
 
@@ -123,39 +140,41 @@ Chaque phase a ses scripts Python dans `phases/Gx/`. Ils sont autonomes et repro
 
 ### ❌ DEAD ENDS (NE PAS RETENTER)
 
-| Piste | Raison |
-|---|---|
-| Plus de métriques sur graphes finis statiques | Espace spectral saturé |
-| Algorithme génétique de métriques | Combine des quantités spectrales → espace fermé |
-| PCA / réduction dimensionnelle | Fait en G4, résultat connu |
-| Régression symbolique plus profonde | Gain marginal sur linéaire (G11) |
-| Hypergraphes naïvement | Même piège G1-G11 sur objet différent |
+| Piste | Raison | Prouvé en |
+|---|---|---|
+| Plus de métriques sur graphes finis statiques | Espace spectral saturé | G1-G11 |
+| Algorithme génétique de métriques | Combine des quantités spectrales → espace fermé | G4, G7 |
+| PCA / réduction dimensionnelle | Fait en G4, résultat connu | G4 |
+| Régression symbolique plus profonde | Gain marginal sur linéaire | G11 |
+| Hypergraphes naïvement | Même piège G1-G11 sur objet différent | — |
+| **Compression comme invariant/loi** | Dépend de l'algo (66% spread zlib/bzip2/lzma), pas intrinsèque | **G15** |
+| **IPR skew scaling** | CV=0.56–1.46, trop instable ; littérature (Pastor-Satorras 2016) | **G12-G13** |
+| **Half_life_frac** | R²=0.87 avec avg_degree, trivial | **G13** |
+| **Graphes pondérés (poids aléatoires)** | Localisation d'Anderson (1958), ultra-connu | **G13** |
+| **Scaling laws via compression** | ln(n) = convergence spectrale ; b dépend de ⟨k⟩ | **G14-G15** |
+| **Morphismes fonctoriels** | Seuls les invariants triviaux (max_deg sous subdivision) sont préservés | **G16** |
+| **Familles paramétriques metric(p)** | Transitions = seuils de connectivité connus, 0/13 universalité | **G16** |
+| **Exposants de fluctuation α / ratios** | CLT pour U-statistiques (Janson 2004), trivial | **G16** |
+| **Complexité computationnelle comme invariant** | Signal existe mais = Markov chain theory (Levin, Peres & Wilmer 2009) | **G16** |
 
-### ⚠️ PISTES VIABLES (avec réserves)
+### ⚠️ PISTES VIABLES (après filtrage G12-G16)
 
-#### A. Lois de scaling (n → ∞)
-- Chercher des **exposants** (F(G_n) ∝ n^α) au lieu d'invariants
-- Beaucoup d'exposants connus → vérifier littérature d'abord
-- Faisable computationnellement
+> **Note :** Les pistes A (scaling), B (pondérés), C (transitions) et D (opérations) de la version précédente ont été explorées et fermées en G12-G16. Restent 3 directions, toutes nécessitant un changement de paradigme.
 
-#### B. Graphes pondérés continus
-- Les poids brisent les symétries spectrales
-- Espace de recherche plus grand → risque de surapprentissage
-- Besoin de contraintes claires sur les poids
+#### 1. Preuves formelles guidées par le numérique
+- Utiliser les ~250K calculs comme guide pour formuler et **prouver** des théorèmes
+- Exemple : prouver que le compression gap est borné inférieurement par f(distribution de degrés)
+- Risque : nécessite des compétences mathématiques, pas du calcul brut
 
-#### C. Transitions de phase sous contraintes
-- Fixer une propriété, faire varier une autre
-- Domaine actif (seuil k-SAT, etc.)
-- Computationnellement coûteux
+#### 2. Graphes réels (réseaux biologiques, sociaux, technologiques)
+- Les modèles théoriques (ER, BA, WS) sont des approximations trop propres
+- Les vrais réseaux ont motifs, hiérarchies, corrélations temporelles
+- Risque : overfitting sur datasets spécifiques, difficulté de généralisation
 
-#### D. Opérations sans théorie spectrale connue
-- Rewiring conditionnel, contraction par métrique, évolution stochastique
-- Si trop stochastique → bruit → pas de loi exacte
-
-#### E. Changer le TYPE de question
-- Information-théorique : compression optimale des graphes
-- Algorithmique : complexité des invariants
-- Catégorique : foncteurs préservant la structure
+#### 3. Information quantique sur graphes
+- Marches quantiques, intrication dans les graphes d'états, quantum entanglement entropy
+- Les interférences quantiques produisent des invariants inaccessibles à la théorie classique
+- Risque : domaine actif, bien publié — la Von Neumann entropy classique est déjà testée (G7, redondante)
 
 ---
 
@@ -192,10 +211,13 @@ Chaque phase a ses scripts Python dans `phases/Gx/`. Ils sont autonomes et repro
 
 ## RÉSUMÉ EXÉCUTIF FINAL
 
-**Où on en est :** 11 phases, ~200K calculs, 0 loi nouvelle. L'espace des graphes finis statiques est un espace clos.
+**Où on en est :** 16 phases, ~250K calculs, 0 loi nouvelle. L'espace des graphes finis statiques est un espace clos — **y compris dans les directions post-spectrales** (compression, complexité, graphons, morphismes).
 
-**Ce qui a de la valeur :** Le pipeline de falsification lui-même (méthodologie) + la démonstration empirique de la saturation spectrale.
+**Ce qui a de la valeur :** Le pipeline de falsification lui-même (méthodologie) + la démonstration empirique de la saturation spectrale + la démonstration que les approches post-spectrales convergent aussi vers le connu.
 
-**Pour trouver quelque chose de nouveau :** Il faut changer l'OBJET (pas la méthode) ou changer le TYPE de question (pas juste "quelle métrique sur quel graphe").
+**Ce qui reste :** Preuves formelles guidées par les données, graphes réels, ou information quantique. Toutes requièrent un changement de paradigme — pas plus de calcul brut.
 
 **L'objectif reste :** Un invariant ou une loi qui est (1) non trivial, (2) résistant à la falsification, (3) absent de la littérature, (4) théoriquement explicable.
+
+**Le théorème empirique renforcé :**
+> Sur les graphes finis, les lois algébriques simples vivent dans l'espace spectral et sont connues. L'espace post-spectral (compression, complexité, convergence, morphismes) est prédictible mais ne contient pas de lois exactes simples inconnues. Pour trouver du nouveau, il faut soit changer l'objet (graphes réels, quantiques), soit passer aux preuves formelles.
