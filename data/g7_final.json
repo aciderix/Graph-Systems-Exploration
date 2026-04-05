@@ -1,0 +1,217 @@
+{
+  "final": [
+    {
+      "cvs": {
+        "edge_removal": 0.36675146655773694,
+        "edge_addition": 0.2893316200890456,
+        "rewiring": 0.32452422537377695,
+        "node_removal": 0.1791218783770999,
+        "degree_attack": 0.6068465893396805
+      },
+      "mean_cv": 0.353315155947468,
+      "transitions": [],
+      "cohens_d": 1.1065106394039212,
+      "best_old_r": 0.5771685635363291,
+      "piste": "A",
+      "key": "forman_frac_negative",
+      "id": "A:forman_frac_negative"
+    },
+    {
+      "cvs": {
+        "edge_removal": 0.11291845556675752,
+        "edge_addition": 0.10493603445767768,
+        "rewiring": 0.10580815267435772,
+        "node_removal": 0.1132716669996789,
+        "degree_attack": 0.19155501007733863
+      },
+      "mean_cv": 0.12569786395516208,
+      "transitions": [],
+      "cohens_d": 0.8615920392892837,
+      "best_old_r": 0.5918574491356561,
+      "piste": "J",
+      "key": "spec_complexity_per_node",
+      "id": "J:spec_complexity_per_node"
+    },
+    {
+      "cvs": {
+        "edge_removal": 0.07513827349505599,
+        "edge_addition": 0.12751859012261782,
+        "rewiring": 0.08820665044194786,
+        "node_removal": 0.05938058200872784,
+        "degree_attack": 0.23508734338592363
+      },
+      "mean_cv": 0.11706628789085463,
+      "transitions": [
+        "edge_addition",
+        "rewiring"
+      ],
+      "cohens_d": 0.7699023561917249,
+      "best_old_r": 0.6477483259951605,
+      "piste": "E",
+      "key": "betti0_mean_persistence",
+      "id": "E:betti0_mean_persistence"
+    }
+  ],
+  "all_results": {
+    "B:free_energy_beta1.0": {
+      "cvs": {
+        "edge_removal": 0.12299847943167186,
+        "edge_addition": 0.15571628230456544,
+        "rewiring": 0.09492188237585215,
+        "node_removal": 0.17673947508954313,
+        "degree_attack": 0.4845763736344176
+      },
+      "mean_cv": 0.20699049856721002,
+      "transitions": [],
+      "cohens_d": 1.1151166135709913,
+      "best_old_r": 0.7163752070493349,
+      "piste": "B",
+      "key": "free_energy_beta1.0"
+    },
+    "A:forman_frac_negative": {
+      "cvs": {
+        "edge_removal": 0.36675146655773694,
+        "edge_addition": 0.2893316200890456,
+        "rewiring": 0.32452422537377695,
+        "node_removal": 0.1791218783770999,
+        "degree_attack": 0.6068465893396805
+      },
+      "mean_cv": 0.353315155947468,
+      "transitions": [],
+      "cohens_d": 1.1065106394039212,
+      "best_old_r": 0.5771685635363291,
+      "piste": "A",
+      "key": "forman_frac_negative"
+    },
+    "F:heat_entropy_t1.0": {
+      "cvs": {
+        "edge_removal": 0.10911458852485084,
+        "edge_addition": 0.05751601742318188,
+        "rewiring": 0.03785914768953628,
+        "node_removal": 0.23334379194092555,
+        "degree_attack": 0.42874677240880055
+      },
+      "mean_cv": 0.17331606359745902,
+      "transitions": [
+        "degree_attack"
+      ],
+      "cohens_d": 1.0135726621209817,
+      "best_old_r": 0.7895805726914082,
+      "piste": "F",
+      "key": "heat_entropy_t1.0"
+    },
+    "F:heat_decay_100_10": {
+      "cvs": {
+        "edge_removal": 0.34082021117688927,
+        "edge_addition": 0.3084965022228915,
+        "rewiring": 0.2616251000712107,
+        "node_removal": 0.38964740647304547,
+        "degree_attack": 0.34346270064807777
+      },
+      "mean_cv": 0.32881038411842295,
+      "transitions": [
+        "edge_addition",
+        "rewiring"
+      ],
+      "cohens_d": 0.9487015280310958,
+      "best_old_r": 0.7820120658943067,
+      "piste": "F",
+      "key": "heat_decay_100_10"
+    },
+    "A:forman_frac_positive": {
+      "cvs": {
+        "edge_removal": 0.3290901312508163,
+        "edge_addition": 0.389018807602338,
+        "rewiring": 0.47298327124907663,
+        "node_removal": 0.2526380686194285,
+        "degree_attack": 0.6268492490202338
+      },
+      "mean_cv": 0.4141159055483786,
+      "transitions": [
+        "rewiring"
+      ],
+      "cohens_d": 0.9444085106526164,
+      "best_old_r": 0.8137093063361353,
+      "piste": "A",
+      "key": "forman_frac_positive"
+    },
+    "F:heat_entropy_t10.0": {
+      "cvs": {
+        "edge_removal": 0.18537884439649063,
+        "edge_addition": 0.5640597829033699,
+        "rewiring": 0.4263871020184646,
+        "node_removal": 0.29883688101226324,
+        "degree_attack": 0.6294387758334549
+      },
+      "mean_cv": 0.4208202772328087,
+      "transitions": [],
+      "cohens_d": 0.9315610018058782,
+      "best_old_r": 0.7768425069567896,
+      "piste": "F",
+      "key": "heat_entropy_t10.0"
+    },
+    "F:heat_decay_10_1": {
+      "cvs": {
+        "edge_removal": 0.167208465453938,
+        "edge_addition": 0.23937786063516328,
+        "rewiring": 0.1900577594871332,
+        "node_removal": 0.20537248335976055,
+        "degree_attack": 0.4617776035064584
+      },
+      "mean_cv": 0.2527588344884907,
+      "transitions": [],
+      "cohens_d": 0.865386083238816,
+      "best_old_r": 0.7807997243599869,
+      "piste": "F",
+      "key": "heat_decay_10_1"
+    },
+    "J:spec_complexity_per_node": {
+      "cvs": {
+        "edge_removal": 0.11291845556675752,
+        "edge_addition": 0.10493603445767768,
+        "rewiring": 0.10580815267435772,
+        "node_removal": 0.1132716669996789,
+        "degree_attack": 0.19155501007733863
+      },
+      "mean_cv": 0.12569786395516208,
+      "transitions": [],
+      "cohens_d": 0.8615920392892837,
+      "best_old_r": 0.5918574491356561,
+      "piste": "J",
+      "key": "spec_complexity_per_node"
+    },
+    "B:free_energy_beta10.0": {
+      "cvs": {
+        "edge_removal": 0.2883632234080798,
+        "edge_addition": 0.7353970236103283,
+        "rewiring": 0.5204001476589364,
+        "node_removal": 0.41678594736403274,
+        "degree_attack": 0.7238884866645643
+      },
+      "mean_cv": 0.5369669657411883,
+      "transitions": [],
+      "cohens_d": 0.8579248983873751,
+      "best_old_r": 0.7378012785576524,
+      "piste": "B",
+      "key": "free_energy_beta10.0"
+    },
+    "E:betti0_mean_persistence": {
+      "cvs": {
+        "edge_removal": 0.07513827349505599,
+        "edge_addition": 0.12751859012261782,
+        "rewiring": 0.08820665044194786,
+        "node_removal": 0.05938058200872784,
+        "degree_attack": 0.23508734338592363
+      },
+      "mean_cv": 0.11706628789085463,
+      "transitions": [
+        "edge_addition",
+        "rewiring"
+      ],
+      "cohens_d": 0.7699023561917249,
+      "best_old_r": 0.6477483259951605,
+      "piste": "E",
+      "key": "betti0_mean_persistence"
+    }
+  }
+}

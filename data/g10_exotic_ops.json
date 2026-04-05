@@ -1,0 +1,1268 @@
+{
+  "kcore_2": {
+    "n_graphs": 74,
+    "svd_laws": [
+      {
+        "singular_value": 2.2098776184945705e-16,
+        "coefficients": {
+          "avg_clustering": -0.07316338361669733,
+          "betweenness_std": -0.9887407867808131,
+          "deg_min": -0.05798315179468914,
+          "edge_connectivity": -0.05798315179468914,
+          "node_connectivity": -0.05798315179468914
+        },
+        "n_terms": 5,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 1.0496635807757452e-16,
+        "coefficients": {
+          "avg_clustering": -0.5776075175020912,
+          "avg_path_length": 0.45535450283209905,
+          "betweenness_max": -0.32076704051428734,
+          "betweenness_mean": -0.0770019010422371,
+          "closeness_std": 0.14327417764844316,
+          "clustering_std": 0.3807174464009382,
+          "deg_max": 0.08108813901261999,
+          "deg_min": 0.05751718859676162,
+          "deg_std": 0.27079884900414347,
+          "density": 0.13321572077549165,
+          "diameter": -0.06539731535374509,
+          "edge_connectivity": 0.05751718859676162,
+          "max_matching": 0.07925994309871118,
+          "node_connectivity": 0.05751718859676162,
+          "p3_count": 0.1473571908909592,
+          "transitivity": -0.20394433656687688
+        },
+        "n_terms": 16,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 7.347931093901847e-17,
+        "coefficients": {
+          "avg_clustering": -0.5245096760880273,
+          "avg_path_length": -0.6556332840775083,
+          "betweenness_max": -0.13421650731335338,
+          "closeness_mean": 0.05737908071962657,
+          "closeness_std": -0.15654878671390854,
+          "deg_max": -0.10701455179236674,
+          "deg_min": -0.055831178468835535,
+          "deg_skew": 0.2147189826672918,
+          "deg_std": -0.1793378904705033,
+          "density": 0.25382660625719655,
+          "diameter": -0.1963535158936908,
+          "edge_connectivity": -0.055831178468835535,
+          "max_matching": 0.18272270903764126,
+          "node_connectivity": -0.055831178468835535,
+          "p3_count": -0.09158897923633236,
+          "transitivity": -0.05119130882275403
+        },
+        "n_terms": 16,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 3.306935449949792e-17,
+        "coefficients": {
+          "avg_clustering": -0.15491351223846025,
+          "avg_path_length": -0.16544424959288792,
+          "betweenness_max": 0.1589737339845926,
+          "betweenness_mean": -0.06439393412852176,
+          "closeness_std": -0.15056236245282445,
+          "clustering_std": 0.09424213698342974,
+          "deg_max": 0.41899146474595633,
+          "deg_skew": -0.34059197568147587,
+          "deg_std": 0.12177715271075187,
+          "density": 0.05893868616547273,
+          "diameter": -0.20875752972001352,
+          "max_matching": -0.6998433217831483,
+          "p3_count": -0.20492883111288482
+        },
+        "n_terms": 13,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 9.74107301018094e-33,
+        "coefficients": {
+          "avg_clustering": 0.2799759435340613,
+          "avg_path_length": -0.09551258874452492,
+          "betweenness_max": 0.12425591096623939,
+          "betweenness_mean": -0.19899760413446044,
+          "closeness_mean": 0.07022564147546675,
+          "clustering_std": -0.18372752547707968,
+          "deg_max": 0.2145334609679881,
+          "deg_std": 0.5878911745885932,
+          "density": 0.5047913193323296,
+          "diameter": -0.25270092985281434,
+          "max_matching": 0.3125682445675739,
+          "p3_count": 0.09573714614957045
+        },
+        "n_terms": 12,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 4.04386581379191e-33,
+        "coefficients": {
+          "avg_path_length": -0.28368859564353965,
+          "betweenness_max": -0.07770302106455802,
+          "betweenness_mean": -0.09201280475367002,
+          "closeness_mean": -0.6986338813310587,
+          "closeness_std": 0.0833133512450545,
+          "clustering_std": 0.13436917263784798,
+          "deg_max": 0.09678146181242038,
+          "deg_mean": 0.06532118038191304,
+          "deg_std": 0.3137988616904577,
+          "density": -0.39574034397120894,
+          "max_matching": 0.1343221849066792,
+          "transitivity": 0.2949779152180442,
+          "wiener_index": -0.10803415889744712
+        },
+        "n_terms": 13,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 3.485944200913873e-33,
+        "coefficients": {
+          "avg_clustering": -0.07486669721271233,
+          "avg_path_length": -0.060619163299212894,
+          "betweenness_max": 0.1598209787579215,
+          "betweenness_mean": -0.4393688600908659,
+          "closeness_mean": 0.14546797243501133,
+          "closeness_std": 0.05907208324184226,
+          "clustering_std": 0.11428770634315018,
+          "deg_max": -0.6998284872770466,
+          "deg_skew": -0.10229143706828306,
+          "deg_std": 0.3047082150152005,
+          "diameter": 0.16978347255510193,
+          "max_matching": -0.19637546999323977,
+          "p3_count": -0.1736726281038261,
+          "transitivity": 0.1196192890487117,
+          "wiener_index": -0.15459943403768914
+        },
+        "n_terms": 15,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 2.0159020806654602e-33,
+        "coefficients": {
+          "avg_path_length": 0.08723023317755225,
+          "betweenness_max": 0.4703329941874786,
+          "betweenness_mean": -0.2366909024343524,
+          "closeness_mean": -0.2819660553536175,
+          "closeness_std": -0.07274188229071328,
+          "clustering_std": 0.3650160212724039,
+          "deg_max": 0.16833405022379405,
+          "deg_skew": -0.06348198162701686,
+          "deg_std": -0.3478562442248915,
+          "density": 0.3835920247174252,
+          "diameter": 0.31962293013360643,
+          "max_matching": 0.22863220996015446,
+          "p3_count": -0.15769599109596322,
+          "transitivity": 0.0808424889389837,
+          "wiener_index": 0.05499566499736889
+        },
+        "n_terms": 15,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 2.9599823242832363e-49,
+        "coefficients": {
+          "avg_path_length": 0.1050215793836834,
+          "betweenness_max": 0.13042558228826495,
+          "closeness_std": -0.05115678259400879,
+          "clustering_std": -0.06490002641669788,
+          "common_neighbor_pairs": 0.8340779474814286,
+          "deg_mean": 0.4229817701332639,
+          "deg_skew": 0.05132429613783588,
+          "density": -0.05662750398316374,
+          "diameter": -0.09788625932516618,
+          "max_matching": 0.058997923118072684,
+          "p3_count": -0.10676562092441717,
+          "transitivity": -0.1308660001825115,
+          "wiener_index": -0.19674348408448478
+        },
+        "n_terms": 13,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 2.4487411030297094e-49,
+        "coefficients": {
+          "avg_path_length": 0.10740848609544816,
+          "betweenness_max": 0.11221075791712676,
+          "betweenness_mean": -0.6550118814418333,
+          "closeness_mean": 0.0774358638904073,
+          "closeness_std": -0.10020475465971299,
+          "deg_max": 0.10062135712643948,
+          "deg_mean": -0.16753209673243472,
+          "deg_skew": 0.18458162782562565,
+          "deg_std": -0.26900711101559105,
+          "density": -0.30604086785107343,
+          "diameter": -0.46516918690454806,
+          "p3_count": 0.25069614463308204,
+          "wiener_index": -0.06631870233884182
+        },
+        "n_terms": 13,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 1.523745994984884e-65,
+        "coefficients": {
+          "avg_clustering": 0.11575322619144342,
+          "avg_path_length": -0.3963659735502308,
+          "betweenness_max": 0.16194385316228252,
+          "closeness_mean": 0.07982811412545876,
+          "closeness_std": 0.40652922717248435,
+          "clustering_std": 0.21393042926674116,
+          "deg_mean": -0.05357540718079396,
+          "deg_skew": -0.2644448501861096,
+          "density": -0.1282398493368113,
+          "diameter": 0.1249744750888131,
+          "edge_connectivity": 0.09977725857498135,
+          "max_matching": 0.05757469720081001,
+          "node_connectivity": 0.09977725857498135,
+          "p3_count": 0.31873600117466916,
+          "transitivity": -0.5826341987643551,
+          "wiener_index": -0.11525352141257326
+        },
+        "n_terms": 16,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 1.0666410547210562e-65,
+        "coefficients": {
+          "avg_path_length": -0.06001537664666176,
+          "betweenness_max": -0.36840739779795845,
+          "betweenness_mean": -0.22398000684238592,
+          "closeness_mean": -0.10107449284393283,
+          "closeness_std": -0.18404500886438116,
+          "clustering_std": -0.2296080730243745,
+          "common_neighbor_pairs": 0.11670834899077528,
+          "deg_mean": 0.06612662906993284,
+          "deg_min": -0.056951074622651525,
+          "deg_skew": -0.2658914155013784,
+          "deg_std": -0.17408035451505957,
+          "density": 0.2618253294780197,
+          "diameter": 0.3369401013376102,
+          "max_matching": -0.14827162001795324,
+          "p3_count": 0.5437503779250401,
+          "transitivity": 0.18419251610195417,
+          "wiener_index": -0.23542404454380922
+        },
+        "n_terms": 17,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 5.581155180937538e-82,
+        "coefficients": {
+          "avg_path_length": -0.1270544191335592,
+          "betweenness_max": -0.05768382950393812,
+          "betweenness_mean": -0.078544106551407,
+          "closeness_mean": 0.2797958645884888,
+          "closeness_std": -0.3409578432783999,
+          "clustering_std": 0.2025972541013977,
+          "deg_max": 0.13278592295509006,
+          "deg_mean": 0.0794356499629554,
+          "deg_min": 0.6421558956574376,
+          "deg_skew": -0.06474764877182237,
+          "deg_std": 0.1321696204977762,
+          "density": -0.22882937881236337,
+          "diameter": 0.23698961176213537,
+          "edge_connectivity": -0.2552688005088409,
+          "max_matching": 0.14334872230525106,
+          "node_connectivity": -0.25526880050884077,
+          "wiener_index": 0.12920882058386132
+        },
+        "n_terms": 17,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 2.0275464528774148e-82,
+        "coefficients": {
+          "avg_clustering": 0.06405948264888704,
+          "avg_path_length": 0.08036353914624716,
+          "betweenness_max": -0.13025566000077052,
+          "betweenness_mean": -0.19872222394037173,
+          "closeness_mean": -0.23341761344653703,
+          "closeness_std": 0.24243331053892828,
+          "clustering_std": -0.24021508330222333,
+          "common_neighbor_pairs": -0.38418969906942724,
+          "deg_mean": 0.5587783420687884,
+          "deg_min": 0.22152771541824398,
+          "deg_std": -0.1697541329167362,
+          "density": 0.10557763750579624,
+          "diameter": -0.05147083074265906,
+          "edge_connectivity": -0.16660631281307034,
+          "node_connectivity": -0.1666063128130704,
+          "p3_count": -0.23206924655164055,
+          "transitivity": -0.30207073112248123,
+          "wiener_index": -0.08304591596537919
+        },
+        "n_terms": 18,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 0.0,
+        "coefficients": {
+          "avg_path_length": -0.10030382287773318,
+          "betweenness_max": -0.12749790242346665,
+          "betweenness_mean": -0.14023962888939065,
+          "closeness_mean": 0.14150076954621701,
+          "closeness_std": 0.6383465226779924,
+          "common_neighbor_pairs": 0.2463050900449576,
+          "deg_max": 0.07264740784173446,
+          "deg_min": 0.18071051240609654,
+          "deg_std": -0.1514050827971918,
+          "density": 0.0868608154834137,
+          "diameter": -0.07945703481967914,
+          "edge_connectivity": -0.14312561338905982,
+          "max_matching": -0.09259108540863104,
+          "transitivity": 0.4093278250112858,
+          "wiener_index": 0.43562055878316486
+        },
+        "n_terms": 15,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 0.0,
+        "coefficients": {
+          "avg_path_length": 0.0720812027404187,
+          "betweenness_max": 0.050739193732220085,
+          "betweenness_mean": 0.15269569222959273,
+          "closeness_mean": -0.3499163261647986,
+          "closeness_std": 0.09325564761421742,
+          "clustering_std": -0.14084898014880545,
+          "common_neighbor_pairs": 0.17556263932301172,
+          "deg_max": -0.18356618816321077,
+          "deg_mean": -0.5541566902399806,
+          "deg_min": 0.39282822484987323,
+          "deg_skew": 0.06199559315411141,
+          "density": 0.20724583015364398,
+          "diameter": -0.1589299117416095,
+          "edge_connectivity": -0.32730357831467444,
+          "max_matching": -0.14150573586541007,
+          "node_connectivity": -0.15950690633306647,
+          "transitivity": -0.17166440111232187,
+          "wiener_index": -0.18953868256925552
+        },
+        "n_terms": 18,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 0.0,
+        "coefficients": {
+          "betweenness_max": 0.34256958795131526,
+          "betweenness_mean": 0.24884132106950954,
+          "closeness_mean": -0.12665453078527236,
+          "closeness_std": -0.12388884345470758,
+          "clustering_std": 0.2091309751296608,
+          "common_neighbor_pairs": -0.11851126057680895,
+          "deg_max": -0.26425794678908754,
+          "deg_mean": 0.37762864123054685,
+          "deg_min": 0.0977858560366337,
+          "deg_skew": 0.14976122049224583,
+          "density": 0.10289115877562759,
+          "diameter": -0.22991874699493503,
+          "edge_connectivity": -0.10958985348911919,
+          "max_matching": -0.21654626804145483,
+          "node_connectivity": 0.06827276932735804,
+          "p3_count": 0.5476711206870851,
+          "transitivity": 0.08446272470171673,
+          "wiener_index": 0.22908519710685823
+        },
+        "n_terms": 18,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 0.0,
+        "coefficients": {
+          "closeness_std": -0.07777391093546976,
+          "deg_min": -0.0836304449750262,
+          "diameter": 0.059162655643071084,
+          "edge_connectivity": -0.65153567082769,
+          "max_matching": 0.057019871767170244,
+          "node_connectivity": 0.7299172307938225,
+          "p3_count": -0.07648014026755359,
+          "wiener_index": -0.06270238948368119
+        },
+        "n_terms": 8,
+        "n_graphs": 40
+      },
+      {
+        "singular_value": 0.0,
+        "coefficients": {
+          "avg_clustering": -0.23468161680965308,
+          "betweenness_max": 0.3095607338477207,
+          "betweenness_mean": 0.211187786404957,
+          "closeness_mean": 0.2759904830826417,
+          "closeness_std": 0.25094505632446606,
+          "clustering_std": -0.07385013614035542,
+          "common_neighbor_pairs": -0.17545691731193053,
+          "deg_max": 0.1455969225843029,
+          "deg_mean": 0.0770936269705284,
+          "deg_min": 0.09653788146148229,
+          "deg_skew": -0.0940088034870038,
+          "density": -0.06131488930099618,
+          "diameter": -0.05838640427802998,
+          "edge_connectivity": -0.10222099446813825,
+          "max_matching": 0.16444042532834516,
+          "node_connectivity": -0.10222099446813822,
+          "p3_count": 0.09011557961470952,
+          "transitivity": 0.37266120712088946,
+          "wiener_index": -0.6152215821602743
+        },
+        "n_terms": 19,
+        "n_graphs": 40
+      }
+    ],
+    "direct_laws": [
+      {
+        "type": "proportional",
+        "metric": "deg_mean",
+        "ratio_mean": 1.005076343977206,
+        "ratio_std": 0.02086616853298263,
+        "cv": 0.020760779674121783,
+        "n_graphs": 74
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "edge_connectivity",
+        "before_metric": "node_connectivity",
+        "alpha": 0.9669270449521005,
+        "beta": 0.19773028739867327,
+        "r2": 0.9884417668223922,
+        "residual_std": 0.26025081472716566,
+        "n_graphs": 74
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "deg_min",
+        "before_metric": "edge_connectivity",
+        "alpha": 0.9635961680176863,
+        "beta": 0.2229918938835666,
+        "r2": 0.9867171636542462,
+        "residual_std": 0.2782738151502781,
+        "n_graphs": 74
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "deg_min",
+        "before_metric": "node_connectivity",
+        "alpha": 0.9635961680176863,
+        "beta": 0.2229918938835666,
+        "r2": 0.9867171636542462,
+        "residual_std": 0.2782738151502781,
+        "n_graphs": 74
+      }
+    ]
+  },
+  "kcore_3": {
+    "n_graphs": 58,
+    "svd_laws": [
+      {
+        "singular_value": 1.8854230112856372e-16,
+        "coefficients": {
+          "avg_clustering": -0.6129246210528327,
+          "avg_path_length": 0.06595714507289578,
+          "betweenness_max": -0.09626551690616622,
+          "betweenness_mean": -0.0976430792682424,
+          "betweenness_std": 0.22525277531676544,
+          "closeness_std": -0.14241968907231062,
+          "clustering_std": 0.28508087729082754,
+          "common_neighbor_pairs": -0.40766963400793327,
+          "deg_skew": -0.08935745237108779,
+          "deg_std": -0.08005062342454908,
+          "diameter": -0.2205365438040681,
+          "max_matching": -0.08907685076656224,
+          "p3_count": -0.34082892257836306,
+          "radius": 0.12472586347023212,
+          "triangle_count": 0.27376147230427217
+        },
+        "n_terms": 15,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 1.1527267813840455e-16,
+        "coefficients": {
+          "avg_path_length": -0.281201453710755,
+          "betweenness_max": -0.21426084533066564,
+          "betweenness_mean": 0.2652545265939426,
+          "betweenness_std": -0.1174218673383957,
+          "closeness_mean": -0.19141748138451406,
+          "closeness_std": 0.14876532547034232,
+          "clustering_std": 0.12371476564748297,
+          "common_neighbor_pairs": -0.05523000048381357,
+          "deg_mean": -0.07880411447157754,
+          "deg_min": 0.11577038555049592,
+          "deg_skew": -0.13641970973350212,
+          "deg_std": 0.5122071717299124,
+          "density": 0.059399648821977985,
+          "diameter": -0.10417446730300724,
+          "edge_connectivity": 0.11577038555049621,
+          "max_matching": 0.34367181505179706,
+          "node_connectivity": 0.11577038555049621,
+          "p3_count": -0.31754795726030755,
+          "radius": 0.1848314280723931,
+          "transitivity": 0.2291580203104226,
+          "triangle_count": -0.2453605771169239,
+          "wiener_index": 0.07842979975871182
+        },
+        "n_terms": 22,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 5.598787479650946e-17,
+        "coefficients": {
+          "avg_path_length": -0.3780441074923942,
+          "betweenness_max": -0.27417147595089764,
+          "betweenness_mean": -0.20707498295004678,
+          "betweenness_std": 0.3475215398530253,
+          "closeness_mean": -0.4168222993666029,
+          "closeness_std": -0.061375322380877735,
+          "clustering_std": -0.15083380810863772,
+          "common_neighbor_pairs": 0.1141051020775007,
+          "deg_std": -0.17136553435642687,
+          "density": 0.07611854593449263,
+          "diameter": 0.3051397654792699,
+          "max_matching": -0.23357468054042366,
+          "p3_count": -0.2514226837703333,
+          "radius": -0.32073357037852057,
+          "transitivity": 0.16271327025431262,
+          "triangle_count": -0.11928244425786924,
+          "wiener_index": 0.0862639706629127
+        },
+        "n_terms": 17,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 4.1100454289316884e-17,
+        "coefficients": {
+          "betweenness_max": -0.45832840543533304,
+          "betweenness_mean": 0.0886343608956162,
+          "betweenness_std": 0.4988751355678314,
+          "closeness_mean": 0.37451074490093067,
+          "clustering_std": -0.11971133326728857,
+          "common_neighbor_pairs": 0.07553256799618285,
+          "deg_mean": -0.08694907986745744,
+          "deg_skew": -0.17974872040803822,
+          "density": -0.14485846429939864,
+          "diameter": 0.06899444817594137,
+          "max_matching": 0.24550247016438478,
+          "p3_count": 0.21938715685418334,
+          "radius": 0.06644509781190372,
+          "wiener_index": -0.42903357493428035
+        },
+        "n_terms": 14,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 3.1091403665988665e-17,
+        "coefficients": {
+          "avg_clustering": -0.08930464954412366,
+          "avg_path_length": -0.32798807697734933,
+          "betweenness_max": 0.05413603956144386,
+          "betweenness_mean": 0.3981122018325925,
+          "betweenness_std": -0.22858750742932102,
+          "closeness_mean": 0.14063811289070027,
+          "closeness_std": 0.13103885554309563,
+          "clustering_std": -0.2323967932598214,
+          "common_neighbor_pairs": -0.42763551198853306,
+          "deg_min": -0.13624253243073306,
+          "deg_skew": 0.2007598031696637,
+          "deg_std": -0.1592285416907114,
+          "diameter": 0.26278384044555014,
+          "edge_connectivity": -0.136242532430733,
+          "max_matching": 0.22311015134359793,
+          "node_connectivity": -0.136242532430733,
+          "radius": -0.26072217887446464,
+          "transitivity": 0.09531498631776386,
+          "triangle_count": 0.2636496472491307,
+          "wiener_index": -0.09453906342561806
+        },
+        "n_terms": 20,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 1.5679859085770744e-17,
+        "coefficients": {
+          "avg_path_length": -0.5590442084405165,
+          "betweenness_max": 0.06771917026686831,
+          "betweenness_mean": 0.05442402941540511,
+          "betweenness_std": 0.0566413956534285,
+          "closeness_mean": 0.5921792572349882,
+          "closeness_std": -0.11165306526203893,
+          "clustering_std": 0.08553604343127122,
+          "common_neighbor_pairs": 0.15790249683732593,
+          "deg_std": 0.0906372034883331,
+          "density": -0.10728450915743133,
+          "diameter": -0.07766507809268454,
+          "max_matching": -0.3194353565339193,
+          "p3_count": -0.09651930678620117,
+          "radius": 0.062291016451394954,
+          "transitivity": -0.14169830038427544,
+          "wiener_index": 0.3426258064343517
+        },
+        "n_terms": 16,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 1.2204502006842918e-17,
+        "coefficients": {
+          "avg_clustering": 0.1148835313816466,
+          "avg_path_length": 0.07309948968629816,
+          "betweenness_max": -0.09511435061444867,
+          "betweenness_mean": 0.5264905092853224,
+          "betweenness_std": 0.1646511642843437,
+          "closeness_mean": -0.19843139829467124,
+          "closeness_std": 0.23176259691627166,
+          "clustering_std": 0.15371556130662556,
+          "common_neighbor_pairs": -0.2660356343563266,
+          "deg_mean": 0.21413779569659416,
+          "deg_std": -0.13459612882303557,
+          "density": -0.3069238050500067,
+          "diameter": -0.15975491349027382,
+          "max_matching": -0.38235857560466363,
+          "p3_count": 0.10231797652699673,
+          "radius": -0.05443544434677505,
+          "transitivity": -0.22072409759629086,
+          "triangle_count": -0.2920086812260798
+        },
+        "n_terms": 18,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 4.513184813934943e-18,
+        "coefficients": {
+          "avg_clustering": 0.1221229967511497,
+          "betweenness_max": -0.13374085417193315,
+          "betweenness_mean": -0.24694942908379655,
+          "betweenness_std": -0.05044402388391108,
+          "closeness_mean": 0.08987630083870085,
+          "clustering_std": -0.075332947593891,
+          "common_neighbor_pairs": -0.4695333687395662,
+          "deg_mean": -0.12336907976075386,
+          "deg_std": 0.4521456546363704,
+          "density": 0.3400447090436452,
+          "diameter": 0.2162871664141306,
+          "max_matching": -0.2973680656833198,
+          "p3_count": 0.13785728331467864,
+          "transitivity": -0.32558711118704686,
+          "triangle_count": -0.18995380087616995,
+          "wiener_index": -0.176869153439902
+        },
+        "n_terms": 16,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 9.133405702685619e-33,
+        "coefficients": {
+          "avg_clustering": 0.06910166484920553,
+          "betweenness_mean": 0.19115380055118822,
+          "closeness_mean": -0.20220598096162373,
+          "closeness_std": 0.10334640007419503,
+          "common_neighbor_pairs": 0.1207264254198022,
+          "deg_max": 0.2856331904372602,
+          "deg_mean": -0.7072226883952002,
+          "deg_min": 0.29950860098233134,
+          "edge_connectivity": -0.06632855751529253,
+          "max_matching": -0.19165433921063071,
+          "node_connectivity": -0.06632855751529264,
+          "p3_count": 0.05664429891226796,
+          "transitivity": -0.11956232785782778,
+          "triangle_count": 0.3858041251683683
+        },
+        "n_terms": 14,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 7.964825049776715e-33,
+        "coefficients": {
+          "avg_clustering": -0.17241999808108474,
+          "avg_path_length": -0.1967408184399489,
+          "betweenness_max": 0.11708780557132517,
+          "betweenness_mean": -0.06977039107183332,
+          "closeness_mean": -0.0565032012151009,
+          "clustering_std": 0.1092043109577921,
+          "common_neighbor_pairs": -0.1505691711540797,
+          "deg_max": -0.1999691629944209,
+          "deg_mean": -0.21699595394103383,
+          "deg_min": -0.08209950920221322,
+          "diameter": -0.13709982963680317,
+          "max_matching": -0.20347247300279506,
+          "p3_count": 0.5753227403407564,
+          "radius": 0.08965036758690083,
+          "transitivity": 0.598151097102077,
+          "triangle_count": -0.12002488949113783
+        },
+        "n_terms": 16,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 2.9447608862310426e-33,
+        "coefficients": {
+          "avg_path_length": -0.3274804401866056,
+          "betweenness_max": 0.08953386037856122,
+          "betweenness_mean": -0.0836309623554346,
+          "betweenness_std": -0.05101550818500775,
+          "closeness_mean": -0.27099139566126595,
+          "closeness_std": -0.06829136149953174,
+          "deg_max": -0.09812003373588622,
+          "deg_mean": -0.19737302525577616,
+          "deg_min": -0.5592962588709173,
+          "deg_std": -0.08741454062484098,
+          "density": -0.18185990051323367,
+          "diameter": -0.09338679737298368,
+          "edge_connectivity": 0.2717823744223539,
+          "max_matching": 0.13164157539347388,
+          "node_connectivity": 0.2717823744223537,
+          "p3_count": 0.060916968802933714,
+          "radius": 0.15082937141484615,
+          "transitivity": -0.3842730718210073,
+          "triangle_count": 0.08087584225398571,
+          "wiener_index": -0.1954582982801864
+        },
+        "n_terms": 20,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 2.2374118961053366e-33,
+        "coefficients": {
+          "avg_clustering": -0.05987794763091164,
+          "avg_path_length": -0.3495612252060702,
+          "betweenness_max": 0.12740023771956446,
+          "betweenness_mean": -0.2576689576090475,
+          "betweenness_std": -0.09987059905186299,
+          "closeness_mean": -0.18665560131008294,
+          "closeness_std": -0.11890378600388583,
+          "common_neighbor_pairs": -0.07808023865687998,
+          "deg_max": 0.41599147633852007,
+          "deg_mean": 0.2702504486962208,
+          "deg_min": 0.33636356691952646,
+          "density": -0.3491471790786076,
+          "diameter": -0.05921081634699736,
+          "edge_connectivity": -0.20581113605776272,
+          "max_matching": 0.09218481578760583,
+          "node_connectivity": -0.20581113605776272,
+          "p3_count": 0.17883321916966954,
+          "radius": 0.17614298615714125,
+          "transitivity": -0.05743321106131604,
+          "triangle_count": -0.05621676747216488,
+          "wiener_index": -0.27754088049194336
+        },
+        "n_terms": 21,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 1.0839412530565499e-33,
+        "coefficients": {
+          "betweenness_mean": -0.10174148044831856,
+          "closeness_mean": 0.18584867698549984,
+          "common_neighbor_pairs": -0.1742855485010567,
+          "deg_max": 0.23932600538194815,
+          "deg_mean": -0.44712458514459574,
+          "deg_std": -0.4225961233707093,
+          "edge_connectivity": -0.0895485602873844,
+          "max_matching": 0.22208371788344458,
+          "node_connectivity": -0.08954856028738561,
+          "p3_count": -0.14312579918681298,
+          "triangle_count": -0.6115589557882191,
+          "wiener_index": 0.12839635728319654
+        },
+        "n_terms": 12,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 3.017982366335577e-34,
+        "coefficients": {
+          "avg_path_length": 0.20039243530481182,
+          "betweenness_std": -0.060280910951403754,
+          "closeness_mean": 0.13192852517677886,
+          "deg_max": 0.6486126110437813,
+          "deg_min": -0.3799734852106807,
+          "deg_std": 0.2027938032467913,
+          "density": -0.2529389060203565,
+          "diameter": 0.1238562868743125,
+          "edge_connectivity": 0.20333378192311932,
+          "max_matching": -0.19244035700636375,
+          "node_connectivity": 0.20333378192312188,
+          "p3_count": -0.09047531917939398,
+          "radius": -0.13045547590699583,
+          "transitivity": 0.31498877990240237
+        },
+        "n_terms": 14,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 6.649563029169977e-35,
+        "coefficients": {
+          "avg_path_length": -0.11934396467994433,
+          "betweenness_mean": 0.17028873753132873,
+          "betweenness_std": 0.1802381366635807,
+          "closeness_mean": -0.06971547830960671,
+          "common_neighbor_pairs": 0.05627280040515833,
+          "deg_max": 0.4666629500058883,
+          "deg_mean": 0.23557570122786015,
+          "deg_min": -0.08739103067007166,
+          "deg_std": -0.15777246097807823,
+          "density": 0.6576335201127591,
+          "diameter": -0.15821803403717968,
+          "edge_connectivity": 0.06356090057480947,
+          "max_matching": 0.1291982400149697,
+          "node_connectivity": 0.06356090057480356,
+          "p3_count": 0.26440615006047385,
+          "radius": 0.11995327025945038,
+          "transitivity": -0.11420905480708653,
+          "wiener_index": 0.16465587240022747
+        },
+        "n_terms": 18,
+        "n_graphs": 32
+      },
+      {
+        "singular_value": 3.8082990169446695e-49,
+        "coefficients": {
+          "edge_connectivity": -0.7071067811865477,
+          "node_connectivity": 0.7071067811865476
+        },
+        "n_terms": 2,
+        "n_graphs": 32
+      }
+    ],
+    "direct_laws": [
+      {
+        "type": "proportional",
+        "metric": "deg_max",
+        "ratio_mean": 1.0,
+        "ratio_std": 2.009430701834211e-16,
+        "cv": 2.0094307018342087e-16,
+        "n_graphs": 58
+      },
+      {
+        "type": "proportional",
+        "metric": "deg_mean",
+        "ratio_mean": 1.0014626975833871,
+        "ratio_std": 0.010365213698619178,
+        "cv": 0.01035007466941234,
+        "n_graphs": 58
+      },
+      {
+        "type": "proportional",
+        "metric": "avg_path_length",
+        "ratio_mean": 0.9867295431590335,
+        "ratio_std": 0.03713999579863787,
+        "cv": 0.03763948901310224,
+        "n_graphs": 58
+      },
+      {
+        "type": "proportional",
+        "metric": "closeness_mean",
+        "ratio_mean": 1.014056110463445,
+        "ratio_std": 0.04031592471443559,
+        "cv": 0.039757094601018006,
+        "n_graphs": 58
+      }
+    ]
+  },
+  "clique_graph": {
+    "n_graphs": 75,
+    "svd_laws": [
+      {
+        "singular_value": 0.02867832701121536,
+        "coefficients": {
+          "avg_path_length": 0.6269192905713232,
+          "betweenness_mean": -0.17914291322393497,
+          "closeness_mean": -0.514955223735492,
+          "deg_mean": -0.3272042920419393,
+          "deg_min": 0.07928574693458208,
+          "edge_connectivity": 0.07928574693458192,
+          "node_connectivity": -0.16151469507886373,
+          "p3_count": 0.12315683596496771,
+          "transitivity": -0.07386794191902271,
+          "triangle_count": 0.18371973345032938,
+          "wiener_index": -0.3212172836042211
+        },
+        "n_terms": 11,
+        "n_graphs": 33
+      },
+      {
+        "singular_value": 0.004780073132572535,
+        "coefficients": {
+          "avg_path_length": -0.19391669776655956,
+          "closeness_mean": 0.09691487843298628,
+          "deg_mean": -0.6938610140020112,
+          "density": 0.6147154461258364,
+          "transitivity": -0.074380294911609,
+          "triangle_count": 0.07654481891327132,
+          "wiener_index": 0.2823920353190926
+        },
+        "n_terms": 7,
+        "n_graphs": 33
+      },
+      {
+        "singular_value": 0.0030681518286943877,
+        "coefficients": {
+          "avg_path_length": 0.6444317996898046,
+          "closeness_mean": 0.7612548806716029
+        },
+        "n_terms": 2,
+        "n_graphs": 33
+      },
+      {
+        "singular_value": 4.658157010360127e-17,
+        "coefficients": {
+          "deg_min": -0.7071067811865475,
+          "edge_connectivity": 0.7071067811865476
+        },
+        "n_terms": 2,
+        "n_graphs": 33
+      }
+    ],
+    "direct_laws": [
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "deg_mean",
+        "before_metric": "triangle_count",
+        "alpha": 0.17622344209032012,
+        "beta": 3.8761679336492927,
+        "r2": 0.9826858157382401,
+        "residual_std": 2.934619245223093,
+        "n_graphs": 75
+      }
+    ]
+  },
+  "mycielskian": {
+    "n_graphs": 80,
+    "svd_laws": [
+      {
+        "singular_value": 0.023568507073775922,
+        "coefficients": {
+          "avg_path_length": -0.2605234414271715,
+          "betweenness_mean": 0.17651623420609752,
+          "closeness_mean": 0.29594978874508315,
+          "deg_mean": -0.5446741882842113,
+          "density": -0.6505746687988841,
+          "max_matching": 0.05380970038828388,
+          "p3_count": -0.08809214717474187,
+          "transitivity": -0.10867799263471974,
+          "triangle_count": 0.23481825619693675,
+          "wiener_index": -0.0927265055906113
+        },
+        "n_terms": 10,
+        "n_graphs": 42
+      },
+      {
+        "singular_value": 0.010534052916375049,
+        "coefficients": {
+          "avg_path_length": -0.6295854662822742,
+          "betweenness_mean": 0.05212649323224128,
+          "closeness_mean": 0.1415550589962179,
+          "deg_mean": 0.4784401679879793,
+          "density": -0.2837351830087976,
+          "transitivity": 0.2193679417507674,
+          "triangle_count": -0.3717272063300345,
+          "wiener_index": 0.2864597338490616
+        },
+        "n_terms": 8,
+        "n_graphs": 42
+      },
+      {
+        "singular_value": 0.004070687609438243,
+        "coefficients": {
+          "avg_path_length": 0.4497681457349301,
+          "closeness_mean": 0.8348662896825016,
+          "transitivity": 0.11171981700612998,
+          "triangle_count": -0.20967070363043774,
+          "wiener_index": 0.20191790564773252
+        },
+        "n_terms": 5,
+        "n_graphs": 42
+      },
+      {
+        "singular_value": 0.000703496031025193,
+        "coefficients": {
+          "avg_path_length": -0.3942479444790356,
+          "closeness_mean": 0.07104001531117578,
+          "deg_mean": -0.5732090981754466,
+          "density": 0.559552519823246,
+          "triangle_count": -0.13629567592790956,
+          "wiener_index": 0.42321810756423184
+        },
+        "n_terms": 6,
+        "n_graphs": 42
+      },
+      {
+        "singular_value": 2.3655595670407003e-17,
+        "coefficients": {
+          "deg_min": 0.8138384720101108,
+          "edge_connectivity": -0.463929814910959,
+          "node_connectivity": -0.3499086570991517
+        },
+        "n_terms": 3,
+        "n_graphs": 42
+      },
+      {
+        "singular_value": 7.03079863379005e-18,
+        "coefficients": {
+          "deg_min": -0.0658301461559592,
+          "edge_connectivity": -0.6718897182598872,
+          "node_connectivity": 0.7377198644158464
+        },
+        "n_terms": 3,
+        "n_graphs": 42
+      }
+    ],
+    "direct_laws": [
+      {
+        "type": "additive",
+        "metric": "deg_min",
+        "diff_mean": 1.0,
+        "diff_std": 0.0,
+        "cv": 0.0,
+        "n_graphs": 80
+      },
+      {
+        "type": "output_constant",
+        "metric": "radius",
+        "const_mean": 2.0,
+        "const_std": 0.0,
+        "cv": 0.0,
+        "n_graphs": 80
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "radius",
+        "before_metric": "wiener_index",
+        "alpha": -4.430868028247979e-19,
+        "beta": 1.9999999999999993,
+        "r2": 1.0,
+        "residual_std": 1.4344558384918383e-16,
+        "n_graphs": 80
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "radius",
+        "before_metric": "transitivity",
+        "alpha": -4.561538069122984e-16,
+        "beta": 2.0000000000000004,
+        "r2": 1.0,
+        "residual_std": 1.8166655038013926e-16,
+        "n_graphs": 80
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "radius",
+        "before_metric": "triangle_count",
+        "alpha": -1.5671190692024087e-18,
+        "beta": 1.9999999999999996,
+        "r2": 1.0,
+        "residual_std": 2.141140733258647e-16,
+        "n_graphs": 80
+      },
+      {
+        "type": "proportional",
+        "metric": "max_matching",
+        "ratio_mean": 2.052633928571429,
+        "ratio_std": 0.08412942315810526,
+        "cv": 0.04098608231456875,
+        "n_graphs": 80
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "deg_min",
+        "before_metric": "edge_connectivity",
+        "alpha": 0.9972918933967762,
+        "beta": 1.0215383057882619,
+        "r2": 0.9980010607325921,
+        "residual_std": 0.11089848440230073,
+        "n_graphs": 80
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "deg_min",
+        "before_metric": "node_connectivity",
+        "alpha": 0.9972918933967762,
+        "beta": 1.0215383057882619,
+        "r2": 0.9980010607325921,
+        "residual_std": 0.11089848440230073,
+        "n_graphs": 80
+      },
+      {
+        "type": "cross_metric_linear",
+        "after_metric": "edge_connectivity",
+        "before_metric": "node_connectivity",
+        "alpha": 0.9972918933967762,
+        "beta": 1.0215383057882619,
+        "r2": 0.9980010607325921,
+        "residual_std": 0.11089848440230073,
+        "n_graphs": 80
+      }
+    ]
+  },
+  "betw_contraction": {
+    "n_graphs": 80,
+    "svd_laws": [
+      {
+        "singular_value": 0.025482590248212957,
+        "coefficients": {
+          "avg_path_length": -0.4936458176454425,
+          "betweenness_mean": 0.3697872012611711,
+          "closeness_mean": 0.5498739518186687,
+          "density": -0.2860555710156245,
+          "p3_count": -0.20576130621722585,
+          "transitivity": -0.33413922007907754,
+          "triangle_count": 0.26829546080782407
+        },
+        "n_terms": 7,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 0.01257719995975385,
+        "coefficients": {
+          "avg_clustering": 0.06430410506814589,
+          "avg_path_length": -0.32913248432422776,
+          "betweenness_mean": -0.07573901637082021,
+          "closeness_mean": 0.38344271118904516,
+          "deg_mean": 0.2543406860246584,
+          "density": 0.09272975083311578,
+          "p3_count": 0.10756265884939897,
+          "transitivity": 0.5263455501755133,
+          "triangle_count": -0.5109469443499629,
+          "wiener_index": 0.3263523585416481
+        },
+        "n_terms": 10,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 0.0036923912316880574,
+        "coefficients": {
+          "avg_path_length": 0.34882918565968835,
+          "closeness_mean": 0.5025939558651324,
+          "deg_mean": -0.5501240633623442,
+          "density": 0.5155411396245683,
+          "transitivity": -0.058642167077495436,
+          "triangle_count": 0.054250502467391715,
+          "wiener_index": 0.2252718161519518
+        },
+        "n_terms": 7,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 0.002325529234044691,
+        "coefficients": {
+          "avg_path_length": 0.6620888772341067,
+          "closeness_mean": 0.46404019865901447,
+          "deg_mean": 0.39227276608842043,
+          "density": -0.38946974058634565,
+          "wiener_index": -0.19384426278117595
+        },
+        "n_terms": 5,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 6.420599669832298e-17,
+        "coefficients": {
+          "deg_min": 0.816063804998955,
+          "edge_connectivity": -0.38501235367743447,
+          "node_connectivity": -0.43105145132152056
+        },
+        "n_terms": 3,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 1.5258869436708324e-17,
+        "coefficients": {
+          "edge_connectivity": -0.7200223289471159,
+          "node_connectivity": 0.6934416435290552
+        },
+        "n_terms": 2,
+        "n_graphs": 41
+      }
+    ],
+    "direct_laws": [
+      {
+        "type": "proportional",
+        "metric": "avg_path_length",
+        "ratio_mean": 0.9405369282673771,
+        "ratio_std": 0.038267481692089725,
+        "cv": 0.04068684656814554,
+        "n_graphs": 80
+      },
+      {
+        "type": "proportional",
+        "metric": "closeness_mean",
+        "ratio_mean": 1.0664423634088307,
+        "ratio_std": 0.04473345481856059,
+        "cv": 0.04194643456920846,
+        "n_graphs": 80
+      }
+    ]
+  },
+  "local_complement": {
+    "n_graphs": 80,
+    "svd_laws": [
+      {
+        "singular_value": 0.04861111605332349,
+        "coefficients": {
+          "avg_path_length": -0.08404953341976368,
+          "betweenness_mean": -0.09567717118794207,
+          "closeness_mean": 0.10891786240241463,
+          "closeness_std": 0.1005107210079349,
+          "deg_mean": 0.25884116197132584,
+          "density": 0.25884116197132284,
+          "max_matching": -0.07544847039095118,
+          "p3_count": 0.1728106899044177,
+          "transitivity": 0.6773759811465078,
+          "triangle_count": -0.5678674543697421,
+          "wiener_index": -0.08404953341975605
+        },
+        "n_terms": 11,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 0.009002076890063491,
+        "coefficients": {
+          "avg_path_length": 0.36449174999143436,
+          "closeness_mean": 0.8556094754521008,
+          "wiener_index": 0.3644917499914941
+        },
+        "n_terms": 3,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 1.2267807949586858e-15,
+        "coefficients": {
+          "avg_path_length": 0.706828828811823,
+          "wiener_index": -0.7068288288117861
+        },
+        "n_terms": 2,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 4.0205111627343734e-16,
+        "coefficients": {
+          "deg_mean": 0.7056827726268167,
+          "density": -0.7056827726268182
+        },
+        "n_terms": 2,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 7.789837877661727e-17,
+        "coefficients": {
+          "deg_min": 0.8143619549890936,
+          "edge_connectivity": -0.4346244103688058,
+          "node_connectivity": -0.37973754462028797
+        },
+        "n_terms": 3,
+        "n_graphs": 41
+      },
+      {
+        "singular_value": 1.119010290735519e-17,
+        "coefficients": {
+          "edge_connectivity": -0.6908575212154032,
+          "node_connectivity": 0.7222717899661584
+        },
+        "n_terms": 2,
+        "n_graphs": 41
+      }
+    ],
+    "direct_laws": []
+  }
+}

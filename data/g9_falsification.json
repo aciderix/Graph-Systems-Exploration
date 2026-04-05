@@ -1,0 +1,491 @@
+{
+  "surviving": [
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "complement",
+        "coefficients": {
+          "energy_over_n": 0.4298,
+          "energy": 0.4298,
+          "adj_rank": -0.4209,
+          "energy_over_m": 0.3501,
+          "lap_energy": 0.3281,
+          "max_deg": 0.221
+        },
+        "sigma": 0.14586924,
+        "residual_std": 0.0274655,
+        "n": 28,
+        "formula": "0.4298*log(\u0394energy_over_n) + 0.4298*log(\u0394energy) + -0.4209*log(\u0394adj_rank) + 0.3501*log(\u0394energy_over_m) + 0.3281*log(\u0394lap_energy) + 0.221*log(\u0394max_deg) \u2248 0  [T=complement]"
+      },
+      "new_std": 0.206497805902728,
+      "new_mean": 0.1812042307465757,
+      "orig_sigma": 0.14586924,
+      "n_test": 82
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "complement",
+        "coefficients": {
+          "lap_max_over_max_deg": -0.5938,
+          "lap_max": -0.5927,
+          "sr_over_avg_deg": 0.292,
+          "spectral_radius": 0.2911,
+          "transitivity": -0.2317,
+          "lap_energy": 0.1339
+        },
+        "sigma": 0.08726045,
+        "residual_std": 0.01601845,
+        "n": 28,
+        "formula": "-0.5938*log(\u0394lap_max_over_max_deg) + -0.5927*log(\u0394lap_max) + 0.292*log(\u0394sr_over_avg_deg) + 0.2911*log(\u0394spectral_radius) + -0.2317*log(\u0394transitivity) + 0.1339*log(\u0394lap_energy) \u2248 0  [T=complement]"
+      },
+      "new_std": 0.1734172029646883,
+      "new_mean": -0.17159623646568525,
+      "orig_sigma": 0.08726045,
+      "n_test": 51
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "corona",
+        "coefficients": {
+          "transitivity": -0.4439,
+          "max_deg": 0.4197,
+          "lap_energy": 0.3116,
+          "lap_max": 0.3003,
+          "deg_std": -0.2726,
+          "n": -0.2245
+        },
+        "sigma": 0.08554738,
+        "residual_std": 0.01425775,
+        "n": 36,
+        "formula": "-0.4439*log(\u0394transitivity) + 0.4197*log(\u0394max_deg) + 0.3116*log(\u0394lap_energy) + 0.3003*log(\u0394lap_max) + -0.2726*log(\u0394deg_std) + -0.2245*log(\u0394n) \u2248 0  [T=corona]"
+      },
+      "new_std": 0.08533266647505644,
+      "new_mean": 0.2033852976056043,
+      "orig_sigma": 0.08554738,
+      "n_test": 43
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "corona",
+        "coefficients": {
+          "max_deg": 0.6238,
+          "transitivity": 0.5812,
+          "lap_max_over_max_deg": -0.3507,
+          "lap_max": 0.2731,
+          "energy_over_m": -0.1193,
+          "lap_energy": -0.1077
+        },
+        "sigma": 0.05179308,
+        "residual_std": 0.00863218,
+        "n": 36,
+        "formula": "0.6238*log(\u0394max_deg) + 0.5812*log(\u0394transitivity) + -0.3507*log(\u0394lap_max_over_max_deg) + 0.2731*log(\u0394lap_max) + -0.1193*log(\u0394energy_over_m) + -0.1077*log(\u0394lap_energy) \u2248 0  [T=corona]"
+      },
+      "new_std": 0.02406443116402614,
+      "new_mean": -0.23166377977305855,
+      "orig_sigma": 0.05179308,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "corona",
+        "coefficients": {
+          "lap_max_over_max_deg": 0.5301,
+          "density": -0.4965,
+          "lap_max": 0.3641,
+          "sr_over_avg_deg": -0.276,
+          "transitivity": 0.2221,
+          "n": -0.2048
+        },
+        "sigma": 0.03112658,
+        "residual_std": 0.00518776,
+        "n": 36,
+        "formula": "0.5301*log(\u0394lap_max_over_max_deg) + -0.4965*log(\u0394density) + 0.3641*log(\u0394lap_max) + -0.276*log(\u0394sr_over_avg_deg) + 0.2221*log(\u0394transitivity) + -0.2048*log(\u0394n) \u2248 0  [T=corona]"
+      },
+      "new_std": 0.06332702380815049,
+      "new_mean": 0.2329240386225741,
+      "orig_sigma": 0.03112658,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "cart_K2",
+        "coefficients": {
+          "max_deg": 0.6816,
+          "lap_max_over_max_deg": -0.3813,
+          "transitivity": 0.3347,
+          "lap_max": 0.3003,
+          "density": 0.2251,
+          "sr_over_avg_deg": -0.1678
+        },
+        "sigma": 0.05218599,
+        "residual_std": 0.00869766,
+        "n": 36,
+        "formula": "0.6816*log(\u0394max_deg) + -0.3813*log(\u0394lap_max_over_max_deg) + 0.3347*log(\u0394transitivity) + 0.3003*log(\u0394lap_max) + 0.2251*log(\u0394density) + -0.1678*log(\u0394sr_over_avg_deg) \u2248 0  [T=cart_K2]"
+      },
+      "new_std": 0.0303375517454945,
+      "new_mean": -0.12001233702394512,
+      "orig_sigma": 0.05218599,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "cart_K2",
+        "coefficients": {
+          "lap_max_over_max_deg": 0.6585,
+          "lap_max": 0.4573,
+          "spanning_trees_log": -0.3176,
+          "transitivity": 0.2616,
+          "max_deg": -0.2012,
+          "sr_over_avg_deg": -0.187
+        },
+        "sigma": 0.03276726,
+        "residual_std": 0.00546121,
+        "n": 36,
+        "formula": "0.6585*log(\u0394lap_max_over_max_deg) + 0.4573*log(\u0394lap_max) + -0.3176*log(\u0394spanning_trees_log) + 0.2616*log(\u0394transitivity) + -0.2012*log(\u0394max_deg) + -0.187*log(\u0394sr_over_avg_deg) \u2248 0  [T=cart_K2]"
+      },
+      "new_std": 0.06446265480624673,
+      "new_mean": -0.28843038488367784,
+      "orig_sigma": 0.03276726,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "cart_K2",
+        "coefficients": {
+          "density": -0.5218,
+          "spanning_trees_log": -0.3728,
+          "spectral_radius": 0.297,
+          "tri_over_m": -0.2775,
+          "avg_deg": 0.2775,
+          "m_over_n": 0.2775
+        },
+        "sigma": 0.01949243,
+        "residual_std": 0.00324874,
+        "n": 36,
+        "formula": "-0.5218*log(\u0394density) + -0.3728*log(\u0394spanning_trees_log) + 0.297*log(\u0394spectral_radius) + -0.2775*log(\u0394tri_over_m) + 0.2775*log(\u0394avg_deg) + 0.2775*log(\u0394m_over_n) \u2248 0  [T=cart_K2]"
+      },
+      "new_std": 0.017961333396295295,
+      "new_mean": 0.14815804449644837,
+      "orig_sigma": 0.01949243,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "double",
+        "coefficients": {
+          "max_deg": 0.6816,
+          "lap_max_over_max_deg": -0.3813,
+          "transitivity": 0.3347,
+          "lap_max": 0.3003,
+          "density": 0.2251,
+          "sr_over_avg_deg": -0.1678
+        },
+        "sigma": 0.05218599,
+        "residual_std": 0.00869766,
+        "n": 36,
+        "formula": "0.6816*log(\u0394max_deg) + -0.3813*log(\u0394lap_max_over_max_deg) + 0.3347*log(\u0394transitivity) + 0.3003*log(\u0394lap_max) + 0.2251*log(\u0394density) + -0.1678*log(\u0394sr_over_avg_deg) \u2248 0  [T=double]"
+      },
+      "new_std": 0.030337551745494504,
+      "new_mean": -0.12001233702394505,
+      "orig_sigma": 0.05218599,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "double",
+        "coefficients": {
+          "lap_max_over_max_deg": 0.6585,
+          "lap_max": 0.4573,
+          "spanning_trees_log": -0.3176,
+          "transitivity": 0.2616,
+          "max_deg": -0.2012,
+          "sr_over_avg_deg": -0.187
+        },
+        "sigma": 0.03276726,
+        "residual_std": 0.00546121,
+        "n": 36,
+        "formula": "0.6585*log(\u0394lap_max_over_max_deg) + 0.4573*log(\u0394lap_max) + -0.3176*log(\u0394spanning_trees_log) + 0.2616*log(\u0394transitivity) + -0.2012*log(\u0394max_deg) + -0.187*log(\u0394sr_over_avg_deg) \u2248 0  [T=double]"
+      },
+      "new_std": 0.06446265480624669,
+      "new_mean": -0.28843038488367784,
+      "orig_sigma": 0.03276726,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "double",
+        "coefficients": {
+          "density": -0.5218,
+          "spanning_trees_log": -0.3728,
+          "spectral_radius": 0.297,
+          "tri_over_m": -0.2775,
+          "avg_deg": 0.2775,
+          "m_over_n": 0.2775
+        },
+        "sigma": 0.01949243,
+        "residual_std": 0.00324874,
+        "n": 36,
+        "formula": "-0.5218*log(\u0394density) + -0.3728*log(\u0394spanning_trees_log) + 0.297*log(\u0394spectral_radius) + -0.2775*log(\u0394tri_over_m) + 0.2775*log(\u0394avg_deg) + 0.2775*log(\u0394m_over_n) \u2248 0  [T=double]"
+      },
+      "new_std": 0.017961333396295354,
+      "new_mean": 0.14815804449644823,
+      "orig_sigma": 0.01949243,
+      "n_test": 57
+    }
+  ],
+  "killed": [
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "line",
+        "coefficients": {
+          "spanning_trees_log": 0.4746,
+          "transitivity": 0.4216,
+          "lap_energy": 0.3901,
+          "sr_over_avg_deg": -0.3109,
+          "spectral_radius": -0.2768,
+          "adj_rank": -0.2682
+        },
+        "sigma": 0.11516581,
+        "residual_std": 0.01919363,
+        "n": 36,
+        "formula": "0.4746*log(\u0394spanning_trees_log) + 0.4216*log(\u0394transitivity) + 0.3901*log(\u0394lap_energy) + -0.3109*log(\u0394sr_over_avg_deg) + -0.2768*log(\u0394spectral_radius) + -0.2682*log(\u0394adj_rank) \u2248 0  [T=line]"
+      },
+      "new_std": 0.23858489382316783,
+      "new_mean": 0.8901874419578929,
+      "orig_sigma": 0.11516581,
+      "n_test": 53
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "line",
+        "coefficients": {
+          "sr_over_avg_deg": 0.4408,
+          "spectral_radius": 0.435,
+          "lap_max_over_max_deg": 0.4134,
+          "deg_std": -0.406,
+          "lap_max": 0.3596,
+          "lap_energy": 0.2596
+        },
+        "sigma": 0.06998782,
+        "residual_std": 0.01166377,
+        "n": 36,
+        "formula": "0.4408*log(\u0394sr_over_avg_deg) + 0.435*log(\u0394spectral_radius) + 0.4134*log(\u0394lap_max_over_max_deg) + -0.406*log(\u0394deg_std) + 0.3596*log(\u0394lap_max) + 0.2596*log(\u0394lap_energy) \u2248 0  [T=line]"
+      },
+      "new_std": 0.27511636684408336,
+      "new_mean": 0.5190437110756357,
+      "orig_sigma": 0.06998782,
+      "n_test": 56
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "complement",
+        "coefficients": {
+          "lap_max_over_max_deg": -0.4267,
+          "transitivity": 0.358,
+          "sr_over_avg_deg": -0.3501,
+          "max_deg": 0.3475,
+          "spectral_radius": -0.3212,
+          "energy_over_m": -0.2867
+        },
+        "sigma": 0.10839455,
+        "residual_std": 0.02034918,
+        "n": 28,
+        "formula": "-0.4267*log(\u0394lap_max_over_max_deg) + 0.358*log(\u0394transitivity) + -0.3501*log(\u0394sr_over_avg_deg) + 0.3475*log(\u0394max_deg) + -0.3212*log(\u0394spectral_radius) + -0.2867*log(\u0394energy_over_m) \u2248 0  [T=complement]"
+      },
+      "new_std": 0.4746114079763187,
+      "new_mean": 0.41129105878177147,
+      "orig_sigma": 0.10839455,
+      "n_test": 51
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "square",
+        "coefficients": {
+          "spanning_trees_log": -0.6427,
+          "lap_max_over_max_deg": 0.352,
+          "spectral_gap": 0.2738,
+          "adj_rank": 0.2655,
+          "lap_energy": -0.2487,
+          "energy_over_m": 0.2278
+        },
+        "sigma": 0.14897522,
+        "residual_std": 0.02866932,
+        "n": 27,
+        "formula": "-0.6427*log(\u0394spanning_trees_log) + 0.352*log(\u0394lap_max_over_max_deg) + 0.2738*log(\u0394spectral_gap) + 0.2655*log(\u0394adj_rank) + -0.2487*log(\u0394lap_energy) + 0.2278*log(\u0394energy_over_m) \u2248 0  [T=square]"
+      },
+      "new_std": 0.7090671993304832,
+      "new_mean": -0.4824834495445348,
+      "orig_sigma": 0.14897522,
+      "n_test": 86
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "square",
+        "coefficients": {
+          "transitivity": -0.5241,
+          "sr_over_avg_deg": 0.4286,
+          "spectral_radius": 0.3813,
+          "lap_max": -0.3503,
+          "lap_max_over_max_deg": -0.2614,
+          "spectral_gap": -0.2145
+        },
+        "sigma": 0.09010719,
+        "residual_std": 0.01734059,
+        "n": 27,
+        "formula": "-0.5241*log(\u0394transitivity) + 0.4286*log(\u0394sr_over_avg_deg) + 0.3813*log(\u0394spectral_radius) + -0.3503*log(\u0394lap_max) + -0.2614*log(\u0394lap_max_over_max_deg) + -0.2145*log(\u0394spectral_gap) \u2248 0  [T=square]"
+      },
+      "new_std": 0.27359553695218913,
+      "new_mean": -0.644310119067784,
+      "orig_sigma": 0.09010719,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "square",
+        "coefficients": {
+          "transitivity": -0.531,
+          "spectral_radius": -0.5292,
+          "sr_over_avg_deg": -0.4521,
+          "tri_over_m": 0.2667,
+          "adj_trace_cube": 0.1896,
+          "triangles": 0.1896
+        },
+        "sigma": 0.04379358,
+        "residual_std": 0.00842797,
+        "n": 27,
+        "formula": "-0.531*log(\u0394transitivity) + -0.5292*log(\u0394spectral_radius) + -0.4521*log(\u0394sr_over_avg_deg) + 0.2667*log(\u0394tri_over_m) + 0.1896*log(\u0394adj_trace_cube) + 0.1896*log(\u0394triangles) \u2248 0  [T=square]"
+      },
+      "new_std": 0.26770384394643626,
+      "new_mean": 0.5871100322500289,
+      "orig_sigma": 0.04379358,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "subdivision",
+        "coefficients": {
+          "density": -0.7067,
+          "n": -0.3767,
+          "m_over_n": 0.2856,
+          "avg_deg": 0.2856,
+          "energy_over_n": 0.2504,
+          "spectral_radius": 0.1899
+        },
+        "sigma": 0.05084685,
+        "residual_std": 0.0064061,
+        "n": 63,
+        "formula": "-0.7067*log(\u0394density) + -0.3767*log(\u0394n) + 0.2856*log(\u0394m_over_n) + 0.2856*log(\u0394avg_deg) + 0.2504*log(\u0394energy_over_n) + 0.1899*log(\u0394spectral_radius) \u2248 0  [T=subdivision]"
+      },
+      "new_std": 0.08676683509173579,
+      "new_mean": 0.341081221270903,
+      "orig_sigma": 0.05084685,
+      "n_test": 86
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "mycielskian",
+        "coefficients": {
+          "density": 0.5748,
+          "transitivity": -0.4325,
+          "spectral_gap": -0.3203,
+          "adj_rank": -0.31,
+          "lap_max": -0.2088,
+          "avg_deg": 0.1998
+        },
+        "sigma": 0.10820278,
+        "residual_std": 0.01803379,
+        "n": 36,
+        "formula": "0.5748*log(\u0394density) + -0.4325*log(\u0394transitivity) + -0.3203*log(\u0394spectral_gap) + -0.31*log(\u0394adj_rank) + -0.2088*log(\u0394lap_max) + 0.1998*log(\u0394avg_deg) \u2248 0  [T=mycielskian]"
+      },
+      "new_std": 0.10504026130420177,
+      "new_mean": -0.40483095134942043,
+      "orig_sigma": 0.10820278,
+      "n_test": 57
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "mycielskian",
+        "coefficients": {
+          "adj_rank": -0.8633,
+          "density": -0.3312,
+          "energy_over_n": -0.1663,
+          "n": 0.1277,
+          "lap_max_over_max_deg": 0.1117,
+          "energy_over_m": -0.1042
+        },
+        "sigma": 0.07389128,
+        "residual_std": 0.01231521,
+        "n": 36,
+        "formula": "-0.8633*log(\u0394adj_rank) + -0.3312*log(\u0394density) + -0.1663*log(\u0394energy_over_n) + 0.1277*log(\u0394n) + 0.1117*log(\u0394lap_max_over_max_deg) + -0.1042*log(\u0394energy_over_m) \u2248 0  [T=mycielskian]"
+      },
+      "new_std": 0.057691150048065326,
+      "new_mean": -0.49006838103605876,
+      "orig_sigma": 0.07389128,
+      "n_test": 86
+    },
+    {
+      "law": {
+        "strat": 3,
+        "type": "nonlinear",
+        "op": "mycielskian",
+        "coefficients": {
+          "transitivity": -0.7009,
+          "lap_energy": 0.4139,
+          "deg_std": -0.2786,
+          "density": -0.2122,
+          "energy_over_m": 0.1995,
+          "sr_over_avg_deg": 0.1642
+        },
+        "sigma": 0.056543,
+        "residual_std": 0.00942383,
+        "n": 36,
+        "formula": "-0.7009*log(\u0394transitivity) + 0.4139*log(\u0394lap_energy) + -0.2786*log(\u0394deg_std) + -0.2122*log(\u0394density) + 0.1995*log(\u0394energy_over_m) + 0.1642*log(\u0394sr_over_avg_deg) \u2248 0  [T=mycielskian]"
+      },
+      "new_std": 0.06531157326297579,
+      "new_mean": 0.6067503116303772,
+      "orig_sigma": 0.056543,
+      "n_test": 43
+    }
+  ],
+  "total_tested": 21,
+  "fresh_graphs": 86
+}
