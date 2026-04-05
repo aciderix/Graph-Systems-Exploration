@@ -27,11 +27,11 @@ in the stabilized regime.
 | d = m−e | W_min (stabilized) | Slope | L(d) | Verified range |
 |---------|-------------------|-------|------|----------------|
 | 0 (MED) | 0 | 0 | — | known (trivial) |
-| 1 | m − 3 | 1 | 3 | m=3..14 exhaustive ✅ |
-| 2 | 2m − 8 | 2 | 4 | m=4..11 exhaustive ✅ |
-| 3 | 2m − 12 | 2 | 4 | m=7..10 exhaustive ✅ |
-| 4 | 3m − 20 | 3 | 5 | m=8..13 exhaustive ✅ |
-| 5 | 3m − 25 | 3 | 5 | m=9+ ✅ |
+| 1 | m − 3 | 1 | 3 | m=3..16 exhaustive (415K semigroups) ✅ |
+| 2 | 2m − 8 | 2 | 4 | m=4..18 exhaustive ✅ |
+| 3 | 2m − 12 | 2 | 4 | m=7..17 exhaustive ✅ |
+| 4 | 3m − 20 | 3 | 5 | m=8..18 exhaustive ✅ |
+| 5 | 3m − 25 | 3 | 5 | m=9..17 exhaustive ✅ |
 
 **Algebraic check for each d:**
 - d=1: (m−1)·3 − 2m = 3m−3−2m = **m−3** ✓
@@ -63,9 +63,10 @@ This yields:
 - e = m−1, g = 2m−3, F = 2m−1, L = 3, c = 2m
 - W = (m−1)·3 − 2m = **m − 3**
 
-**Verification:** Exhaustive for m = 3, ..., 12 (38,958 semigroups, genus ≤ 22).
-Algebraic verification of T_m for m = 3, ..., 29.
-Extended to m=14 with genus ≤ 25 cap (m=15 artefact: T_15 has g=27 > 25 cap).
+**Verification:** Exhaustive for m = 3, ..., 16 (~415,000 semigroups via Kunz enumeration).
+- m=3..11: from genus ≤ 20 census (93K semigroups)
+- m=12..16: targeted Kunz enumeration with genus caps 36-40
+Algebraic verification of T_m for m = 3, ..., 50.
 
 ### Conjecture B: Sharp bound for e = m−2 (d=2)
 
@@ -79,7 +80,8 @@ Extended to m=14 with genus ≤ 25 cap (m=15 artefact: T_15 has g=27 > 25 cap).
 but both give the same W_min = 2m−8. The unified formula describes the generic tight structure;
 named families may achieve the same bound via different (L, c) parameters.
 
-**Verification:** Exhaustive for m = 5, ..., 9 (genus ≤ 22).
+**Verification:** Exhaustive for m = 4, ..., 18 via Kunz enumeration.
+The actual minimizer for d=2 has L=4, c=2m (not U_m which has L=5, c=3m−2).
 Algebraic verification of U_m for m = 5, ..., 29.
 
 ### Conjecture C: Sharp bound for e = m−3 (d=3)
@@ -93,7 +95,8 @@ Algebraic verification of U_m for m = 5, ..., 29.
 **Note:** Same situation as Conjecture B — A_m achieves the bound with different parameters
 than the unified formula's generic minimizer.
 
-**Verification:** Exhaustive for m = 8, ..., 10 (genus ≤ 22).
+**Verification:** Exhaustive for m = 7, ..., 17 via Kunz enumeration.
+The actual minimizer for d=3 has L=4, c=2m (not A_m which has L=5, c=3m−3).
 Algebraic verification of A_m for m = 8, ..., 24.
 
 ## Partial Proof (Conjecture A)
