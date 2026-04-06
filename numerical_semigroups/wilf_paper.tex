@@ -7,6 +7,7 @@
 \usepackage{array}
 \usepackage{hyperref}
 \usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
 
 % Theorem environments
 \newtheorem{theorem}{Theorem}[section]
@@ -166,7 +167,7 @@ The \emph{Ap\'ery set} of $S$ with respect to $m$ is
 where $w_i$ is the smallest element of $S$ congruent to $i$ modulo $m$,
 with $w_0 = 0$.
 
-\begin{definition}[Kunz coordinates]\label{def:kunz}
+\begin{definition}[Kunz coordinates {\cite{Kunz1987}}]\label{def:kunz}
 For $i \in \{1, \ldots, m-1\}$, the \emph{Kunz coordinate} (or \emph{level})
 of residue $i$ is $k_i = w_i / m$.  One has $k_i \ge 1$ for all $i \ge 1$.
 \end{definition}
@@ -232,15 +233,16 @@ Ap\'ery table that lie below the Frobenius number.
 We denote the total residue contribution by $\Sigma\delta = \sum_{i=1}^{m-1} \delta_i$,
 so that $L = k^* + \Sigma\delta$.
 
-\subsection{Sylvester's formula}
+\subsection{Two-generator semigroups}
 
 For a two-generator semigroup $S = \langle m, a \rangle$ with $\gcd(m, a) = 1$,
-the Frobenius number is $F = (m-1)(a-1) - 1$ and the Wilf number satisfies
-(see, e.g., \cite{Sylvester1884}):
-\begin{equation}\label{eq:sylvester}
-  W(S) = \frac{c(S) \cdot (m - 3)}{2}.
+the Frobenius number is $F = ma - m - a$ (Sylvester~\cite{Sylvester1884}),
+the genus is $g = (m-1)(a-1)/2$, and therefore $L = c - g = c/2$.
+Since $e = 2$, the Wilf number is
+\begin{equation}\label{eq:two-gen}
+  W(S) = 2L - c = 2 \cdot \frac{c}{2} - c = 0.
 \end{equation}
-In particular, $W(S) = 0$ when $m = 3$.
+That is, every two-generator numerical semigroup has $W(S) = 0$.
 
 %% ====================================================================
 \section{Theorem~A: The case \texorpdfstring{$d = 1$}{d = 1}}\label{sec:thmA}
@@ -317,7 +319,7 @@ We divide into subcases.
 \smallskip
 \textit{Subcase 3a: $m = 3$.}
 Then $e = 2$ and $S = \langle 3, a \rangle$ for some $a$ with $\gcd(3, a) = 1$.
-By~\eqref{eq:sylvester}, $W = 0 = m - 3$.
+By~\eqref{eq:two-gen}, $W = 0 = m - 3$.
 
 \smallskip
 \textit{Subcase 3b: $m \ge 4$, $k^* \le 3$.}
@@ -644,7 +646,7 @@ whence $W = 3L - c \ge 24 - 16 - r^* \ge 24 - 20 = 4 \ge 2$.
 \medskip
 \emph{Subcase $m = 4$:}
 Then $e = 2$, so $S = \langle 4, g \rangle$ with $\gcd(4, g) = 1$.
-By~\eqref{eq:sylvester}, $W = c(4 - 3)/2 = c/2 \ge 0 = 2 \cdot 4 - 8$.
+By~\eqref{eq:two-gen}, $W = 0 = 2 \cdot 4 - 8$.
 \end{proof}
 
 \subsection{Sharpness}
@@ -677,7 +679,8 @@ For $d = 2$ and $m \ge 5$, the Wilf number is strictly positive: $W(S) > 0$.
 %% ====================================================================
 
 We performed an exhaustive computational verification of Theorems~A and~B
-on the complete census of numerical semigroups of genus~$\le 22$.
+on the complete census of numerical semigroups of genus~$\le 22$,
+enumerated via the tree method of Bras-Amor\'os~\cite{BrasAmoros2008}.
 The total number of such semigroups is 258{,}582, consistent with the
 values recorded in OEIS sequence~A007323.
 The computation was completed in 7.2~seconds.
@@ -769,13 +772,50 @@ Deficit Lemma (Lem.~\ref{lem:deficit}), $d=2$, $k^*\ge 4$ & 4{,}443 & 0 \\
 
 \subsection{Tight examples}
 
-For Theorem~A, the tight examples ($W = m - 3$) all share a common structure:
-$k^* = 2$, $r^* = m - 1$, $c = 2m$, $L = 3$.  An explicit tight example is
+For Theorem~A, the tight examples ($W = m - 3$) arise from two families:
+(i)~$k^* = 2$, $L = 3$, $c = 2m$ (the $T_m$ family, for $m \ge 4$);
+and (ii)~$k^* = 3$, $L = 4$, $r^* \le m - 2$ (for small~$m$).
+An explicit tight example is
 $\langle 6, 11, 19, 20, 21 \rangle$ with $W = 3$.
 
 For Theorem~B, tight examples ($W = 2m - 8$) arise from two families:
 (i)~$k^* = 2$, $L = 4$, $c = 2m$; and (ii)~$k^* = 3$, $L = 5$, $c = 3m - 2$.
 An example is $\langle 9, 16, 17, 28, 29, 30, 31 \rangle$ with $W = 10 = 2 \cdot 9 - 8$.
+
+\subsection{Figures}
+
+Figure~\ref{fig:scatter} displays the Wilf number of all $d = 1$ and $d = 2$
+semigroups from the census, together with the sharp lower bounds.
+Figure~\ref{fig:fan} shows the fan of minimal Wilf numbers by defect,
+confirming the unified conjecture.
+Figure~\ref{fig:slack} shows the distribution of slack $W - (m - 3)$
+for $d = 1$, illustrating that most semigroups lie far above the bound.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{fig1_scatter_bounds.png}
+\caption{Sharp lower bounds on the Wilf number by defect.
+  Each dot is a numerical semigroup from the genus $\le 22$ census.
+  The solid line is Theorem~A ($W = m - 3$), the dashed line is Theorem~B ($W = 2m - 8$).}
+\label{fig:scatter}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{fig2_wmin_fan.png}
+\caption{Fan of minimal Wilf numbers by defect.
+  Solid lines connect observed $W_{\min}(m, d)$; dotted lines show the
+  predicted formula $(m - d) \cdot \mathcal{L}(d) - 2m$.}
+\label{fig:fan}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\textwidth]{fig3_slack_distribution.png}
+\caption{Distribution of slack $W(S) - (m - 3)$ for $d = 1$ semigroups.
+  The dashed red line marks the tight bound (slack $= 0$).}
+\label{fig:slack}
+\end{figure}
 
 %% ====================================================================
 \section{A unified conjecture}\label{sec:conjecture}
