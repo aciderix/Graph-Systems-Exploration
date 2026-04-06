@@ -115,8 +115,8 @@ W = (m−1)L − c ≥ (m−1)·5 − 3m = 5m − 5 − 3m = 2m − 5 ≥ m − 
 
 **Cas B** : Le résidu contributeur j vérifie j > r\* et kⱼ = 2 (contribution = 4 − 1 − 2 = 1). Tous les résidus i ≤ r\* ont kᵢ = 4, et tous i > r\*, i ≠ j ont kᵢ ≥ 3.
 
-Paires ne contenant pas j : somme ≥ 3 + 3 = 6 > 4. ❌  
-Paires (j, a) avec a ≠ j : somme ≥ 2 + 3 = 5 > 4. ❌  
+Paires ne contenant pas j : kₐ + k_b + ε ≥ 3 + 3 + 0 = 6 > 4 = k\*. ❌  
+Paires (j, a) avec a ≠ j : kⱼ + kₐ + ε ≥ 2 + 3 + 0 = 5 > 4 = k\*. ❌  
 Auto-somme (j, j) : somme = 2 + 2 + ε = 4 + ε.
 - Si 2j ≥ m (ε = 1) : somme = 5 > 4. ❌
 - Si 2j < m (ε = 0) : somme = 4 = k\*. Ceci décompose le résidu 2j, avec k_{2j} = 4. Or j > r\* implique 2j > 2r\* > r\*. Et k_{2j} = 4 = k\* avec 2j > r\* contredit r\* = max{i : kᵢ = k\*}. ❌
@@ -127,7 +127,7 @@ Aucune décomposition possible. d = 0. ❌
 
 ### Sous-cas 3d : m ≥ 4, k\* = 4, L ≥ 6
 
-c ≤ 3m + (m−1) + 1 = 4m.
+c = (k\*−1)m + r\* + 1 ≤ 3m + (m−1) + 1 = 4m (car k\* = 4, r\* ≤ m − 1).
 
 W ≥ (m−1)·6 − 4m = 6m − 6 − 4m = 2m − 6 ≥ m − 3 pour m ≥ 3. ✅
 
@@ -166,25 +166,44 @@ Dans tous les cas : δₐ + δ_b ≥ k\* − 2. **QED (Lemme)** □
 
 ---
 
-**Application** : Puisque L = k\* + D et D ≥ δₐ + δ_b ≥ k\* − 2 :
+**Application** : On note d'abord que c = (k\*−1)m + r\* + 1 ≤ k\*m (car r\* ≤ m − 1). On distingue deux cas selon que la paire de décomposition est composée d'éléments distincts ou non.
 
-L ≥ k\* + (k\* − 2) = 2k\* − 2
+**Cas a ≠ b.** Les résidus a et b sont distincts, donc D = Σ δᵢ ≥ δₐ + δ_b. Par le Lemme : D ≥ k\* − 2, d'où L ≥ 2k\* − 2.
 
-Donc :
+W = (m−1)L − c ≥ (m−1)(2k\*−2) − k\*m = k\*(m − 2) − 2(m − 1).
 
-W = (m−1)L − c ≥ (m−1)(2k\*−2) − k\*·m
+Pour k\* ≥ 5 : W ≥ 5(m − 2) − 2(m − 1) = **3m − 8** ≥ m − 3 (car 2m ≥ 5 pour m ≥ 3). ✅
 
-= 2(m−1)k\* − 2(m−1) − k\*m
+**Cas a = b (auto-somme).** Le résidu a n'apparaît qu'une fois dans D = Σ δᵢ, donc on ne peut affirmer que D ≥ δₐ + δ_b = 2δₐ ; on a seulement D ≥ δₐ. Du Lemme : 2δₐ ≥ k\* − 2, soit δₐ ≥ ⌈(k\*−2)/2⌉. L'inégalité L ≥ 2k\* − 2 n'est plus garantie directement ; il faut affiner.
 
-= k\*(2m − 2 − m) − 2(m−1)
+De la condition de décomposition 2kₐ + ε ≤ k\*, on tire kₐ ≤ ⌊k\*/2⌋.
 
-= **k\*(m − 2) − 2(m − 1)**
+*(i) Si a ≤ r\* :* δₐ = k\* − kₐ ≥ k\* − ⌊k\*/2⌋ = ⌈k\*/2⌉ ≥ 3 pour k\* ≥ 5.
 
-Puisque k\* ≥ 5 :
+Donc D ≥ ⌈k\*/2⌉ et L ≥ k\* + ⌈k\*/2⌉. En utilisant ⌈k\*/2⌉ ≥ k\*/2 :
 
-W ≥ 5(m − 2) − 2(m − 1) = 5m − 10 − 2m + 2 = **3m − 8**
+W ≥ (m−1)(k\* + k\*/2) − k\*m = **k\*(m − 3)/2**.
 
-Et 3m − 8 ≥ m − 3 ⟺ 2m ≥ 5, ce qui est vrai pour m ≥ 3 (et a fortiori pour m ≥ 4). ✅
+Pour k\* ≥ 5 et m ≥ 4 : k\*(m−3)/2 ≥ 5(m−3)/2 ≥ m − 3 (car 5/2 > 1). ✅
+
+*(ii) Si a > r\* et m = 4 :* Puisque a > r\* ≥ 1 et a ≤ m − 1 = 3, on a 2a ≥ 4 = m, donc ε = 1. Alors kₐ ≤ ⌊(k\*−1)/2⌋ et δₐ = k\* − 1 − kₐ ≥ ⌈(k\*−1)/2⌉. On a L ≥ k\* + ⌈(k\*−1)/2⌉.
+
+W ≥ 3(k\* + ⌈(k\*−1)/2⌉) − 4k\* = 3⌈(k\*−1)/2⌉ − k\*.
+
+Pour k\* = 5 : W ≥ 3·2 − 5 = 1 = m − 3. ✅
+Pour k\* ≥ 6 : 3⌈(k\*−1)/2⌉ − k\* est croissant (pente nette ≥ 1/2) et ≥ 2. ✅
+
+*(iii) Si a > r\* et m ≥ 5 :* δₐ = k\* − 1 − kₐ ≥ ⌈k\*/2⌉ − 1 ≥ 2 pour k\* ≥ 5. Donc D ≥ 2 et L ≥ k\* + 2.
+
+— Si k\* ≤ m + 1 : W ≥ (m−1)(k\*+2) − k\*m = 2(m−1) − k\* ≥ 2(m−1) − (m+1) = m − 3. ✅
+
+— Si k\* ≥ m + 2 : On utilise D ≥ (k\*−2)/2 et L ≥ (3k\*−2)/2. Alors :
+
+W ≥ (m−1)(3k\*−2)/2 − k\*m = (k\*(m−3) − 2(m−1))/2.
+
+Il suffit de vérifier k\*(m−3) ≥ 4(m−2). Pour m = 5 : k\* ≥ 6, or k\* ≥ 7 > 6. ✅ Pour m ≥ 6 : 4(m−2)/(m−3) < 6 ≤ k\*. ✅
+
+**Dans tous les sous-cas de l'auto-somme : W ≥ m − 3.** ✅
 
 ---
 
@@ -201,7 +220,7 @@ Les six cas couvrent exhaustivement toutes les configurations possibles pour d =
 | 3b | L ≥ 5, m ≥ 4, k\* ≤ 3 | W ≥ 2m − 5 ≥ m − 3 | c ≤ 3m |
 | 3c | L ≥ 5, m ≥ 4, k\* = 4, L = 5 | Impossible | Analyse structurelle |
 | 3d | L ≥ 5, m ≥ 4, k\* = 4, L ≥ 6 | W ≥ 2m − 6 ≥ m − 3 | c ≤ 4m |
-| 3e | L ≥ 5, m ≥ 4, k\* ≥ 5 | W ≥ 3m − 8 ≥ m − 3 | Lemme de Paire |
+| 3e | L ≥ 5, m ≥ 4, k\* ≥ 5 | W ≥ m − 3 | Lemme de Paire + sous-cas auto-somme |
 
 **Pour tout semigroupe numérique S avec d = 1 : W(S) ≥ m − 3. □**
 
@@ -217,7 +236,7 @@ La preuve a été vérifiée sur l'ensemble des 93 141 semigroupes numériques d
 | k\* = 4, L = 5 impossible | ✅ 0 cas |
 | Lemme de Paire (k\* ≥ 5) | ✅ 0 violations / 1 537 |
 | r\* ≤ m−2 pour k\*=3, L=4 | ✅ 0 violations / 55 |
-| L ≥ 2k\*−2 pour m ≥ 4, k\* ≥ 5 | ✅ 0 violations / 1 528 |
+| L ≥ 2k\*−2 pour m ≥ 4, k\* ≥ 5 (note : tient computationnellement même pour auto-sommes) | ✅ 0 violations / 1 528 |
 
 ---
 

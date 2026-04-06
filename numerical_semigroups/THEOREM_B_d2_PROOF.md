@@ -157,11 +157,15 @@ Vérifions : k_a = 1, a > r\*. Paire 1 : 1+k_{b₁}+ε₁ ≤ k\*, k_{b₁} ≤ 
 
 Si ε₁ = 1 : 1+k_{b₁}+1 ≤ k\*, k_{b₁} ≤ k\*−2. Résidu = a+b₁−m < a (puisque b₁ < m). Ce résidu pourrait être ≤ r\*, auquel cas δ = k\*−k_cible ≥ ... mais on ne le compte pas dans la paire. Le point est que δ_{b₁} ≥ k\*−1−(k\*−2) = 1, donnant total ≥ k\*−1 > k\*−2. **Contradiction.** ❌
 
-Donc **dans tous les sous-cas**, Σδ ≤ k\*−2 implique d ≤ 1. □
+Donc **dans tous les sous-cas**, Σδ ≤ k\*−2 implique qu'il existe au plus une paire de décomposition valide dans tout le semigroupe.
+
+**Clarification (paires → résidus) :** Chaque résidu décomposable nécessite au moins une paire de décomposition. Donc ≤ 1 paire implique d ≤ 1 résidu décomposable.
+
+**Remarque (auto-sommes) :** Si une paire de décomposition est une auto-somme (a, a), le résidu a ne contribue qu'une fois à Σδ (et non 2δₐ). Cela affecte le Sous-cas C : si la paire 1 est (a, a), la paire 2 doit soit (α) partager l'élément a — revenant au cas d'overlap avec b₁ = a, où la preuve ci-dessus montre un total ≥ k\*−1 > k\*−2 — soit (β) être disjointe, nécessitant un défaut supplémentaire ≥ k\*−2 (Sous-cas C appliqué à la paire 2), pour un total ≥ δₐ + (k\*−2) ≥ (k\*−2)/2 + (k\*−2) = 3(k\*−2)/2 > k\*−2 pour k\* ≥ 4. Dans les deux cas, Σδ > k\*−2 : contradiction. □
 
 ### Sous-cas 3a : m ≥ 6.
 
-c ≤ k\*·m. L ≥ 2k\*−1.
+c = (k\*−1)m + r\* + 1 ≤ k\*m (car r\* ≤ m − 1). L ≥ 2k\*−1 (par le Lemme 3.1).
 
 W ≥ (m−2)(2k\*−1) − k\*m = k\*(m−4) − (m−2).
 
