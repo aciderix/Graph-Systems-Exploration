@@ -51,6 +51,21 @@ _C_LIB_PATH = os.path.join(_HERE, "kunz_core.so")
 _C_LIB = None
 
 
+MAX_M_C = 64
+
+
+class KunzResultC(ctypes.Structure):
+    _fields_ = [
+        ("counts", ctypes.c_int * MAX_M_C),
+        ("W_neg", ctypes.c_int * MAX_M_C),
+        ("W_min", ctypes.c_longlong * MAX_M_C),
+        ("argmin_k", (ctypes.c_int * MAX_M_C) * MAX_M_C),
+        ("leaves_raw", ctypes.c_longlong),
+        ("leaves_valid", ctypes.c_longlong),
+        ("leaves_kept", ctypes.c_longlong),
+    ]
+
+
 def _try_load_c() -> Optional[ctypes.CDLL]:
     if not os.path.exists(_C_SRC):
         return None
@@ -71,12 +86,67 @@ def _try_load_c() -> Optional[ctypes.CDLL]:
             ctypes.POINTER(ctypes.c_int),
         ]
         lib.invariants.restype = None
+        lib.run_enum.argtypes = [
+            ctypes.c_int, ctypes.c_int,
+            ctypes.c_int, ctypes.c_int,
+            ctypes.c_longlong, ctypes.c_int,
+            ctypes.POINTER(KunzResultC),
+        ]
+        lib.run_enum.restype = None
         return lib
     except Exception:
         return None
 
 
 _C_LIB = _try_load_c()
+
+
+def run_c(
+    m: int,
+    K_max: int,
+    d_min: Optional[int] = None,
+    d_max: Optional[int] = None,
+    w_max: Optional[int] = None,
+) -> dict:
+    """Pure-C enumeration. Returns the same summary shape as run()."""
+    if _C_LIB is None:
+        raise RuntimeError("C extension not loaded")
+    if m < 2 or m > MAX_M_C:
+        raise ValueError(f"m must be in [2, {MAX_M_C}]")
+    res = KunzResultC()
+    t0 = time.time()
+    _C_LIB.run_enum(
+        m, K_max,
+        d_min if d_min is not None else 0,
+        d_max if d_max is not None else m,
+        w_max if w_max is not None else 0,
+        1 if w_max is not None else 0,
+        ctypes.byref(res),
+    )
+    elapsed = time.time() - t0
+    per_d = {}
+    for d in range(m):
+        if res.counts[d] == 0:
+            continue
+        per_d[str(d)] = {
+            "count": int(res.counts[d]),
+            "W_min": int(res.W_min[d]),
+            "W_neg_count": int(res.W_neg[d]),
+            "argmin_k": [int(res.argmin_k[d][i]) for i in range(m - 1)],
+        }
+    return {
+        "m": m,
+        "K_max": K_max,
+        "d_min": d_min,
+        "d_max": d_max,
+        "w_max": w_max,
+        "elapsed_sec": round(elapsed, 3),
+        "leaves_raw": int(res.leaves_raw),
+        "leaves_valid": int(res.leaves_valid),
+        "leaves_kept": int(res.leaves_kept),
+        "per_defect": per_d,
+        "backend": "C",
+    }
 
 
 def invariants_from_k(k, m: int) -> dict:
@@ -300,7 +370,15 @@ def main() -> None:
     p.add_argument("--w-max", type=int, default=None)
     p.add_argument("--out", type=str, default=None)
     p.add_argument("--summary-only", action="store_true")
+    p.add_argument("--backend", choices=["py", "c", "auto"], default="auto")
     args = p.parse_args()
+
+    use_c = args.backend == "c" or (args.backend == "auto" and _C_LIB is not None)
+    if use_c:
+        summary = run_c(args.m, args.K_max,
+                        d_min=args.d_min, d_max=args.d_max, w_max=args.w_max)
+        print(json.dumps(summary, indent=2))
+        return
 
     summary = run(
         m=args.m,
