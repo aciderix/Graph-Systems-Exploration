@@ -71,14 +71,15 @@ def _try_load_c() -> Optional[ctypes.CDLL]:
         return None
     if (not os.path.exists(_C_LIB_PATH)
             or os.path.getmtime(_C_SRC) > os.path.getmtime(_C_LIB_PATH)):
+        base = ["gcc", "-O3", "-march=native", "-fPIC", "-shared",
+                _C_SRC, "-o", _C_LIB_PATH]
         try:
-            subprocess.run(
-                ["gcc", "-O3", "-march=native", "-fPIC", "-shared",
-                 _C_SRC, "-o", _C_LIB_PATH],
-                check=True, capture_output=True,
-            )
+            subprocess.run(base + ["-fopenmp"], check=True, capture_output=True)
         except Exception:
-            return None
+            try:
+                subprocess.run(base, check=True, capture_output=True)
+            except Exception:
+                return None
     try:
         lib = ctypes.CDLL(_C_LIB_PATH)
         lib.invariants.argtypes = [
@@ -93,6 +94,15 @@ def _try_load_c() -> Optional[ctypes.CDLL]:
             ctypes.POINTER(KunzResultC),
         ]
         lib.run_enum.restype = None
+        if hasattr(lib, "run_enum_omp"):
+            lib.run_enum_omp.argtypes = [
+                ctypes.c_int, ctypes.c_int,
+                ctypes.c_int, ctypes.c_int,
+                ctypes.c_longlong, ctypes.c_int,
+                ctypes.c_int,
+                ctypes.POINTER(KunzResultC),
+            ]
+            lib.run_enum_omp.restype = None
         return lib
     except Exception:
         return None
@@ -107,22 +117,40 @@ def run_c(
     d_min: Optional[int] = None,
     d_max: Optional[int] = None,
     w_max: Optional[int] = None,
+    omp_threads: Optional[int] = None,
 ) -> dict:
-    """Pure-C enumeration. Returns the same summary shape as run()."""
+    """Pure-C enumeration. Returns the same summary shape as run().
+
+    If omp_threads is not None and the loaded library exposes run_enum_omp,
+    the parallel kernel is used (one worker per value of k_1). Pass 0 to
+    use the OMP_NUM_THREADS / default runtime choice.
+    """
     if _C_LIB is None:
         raise RuntimeError("C extension not loaded")
     if m < 2 or m > MAX_M_C:
         raise ValueError(f"m must be in [2, {MAX_M_C}]")
     res = KunzResultC()
+    use_omp = omp_threads is not None and hasattr(_C_LIB, "run_enum_omp")
     t0 = time.time()
-    _C_LIB.run_enum(
-        m, K_max,
-        d_min if d_min is not None else 0,
-        d_max if d_max is not None else m,
-        w_max if w_max is not None else 0,
-        1 if w_max is not None else 0,
-        ctypes.byref(res),
-    )
+    if use_omp:
+        _C_LIB.run_enum_omp(
+            m, K_max,
+            d_min if d_min is not None else 0,
+            d_max if d_max is not None else m,
+            w_max if w_max is not None else 0,
+            1 if w_max is not None else 0,
+            int(omp_threads),
+            ctypes.byref(res),
+        )
+    else:
+        _C_LIB.run_enum(
+            m, K_max,
+            d_min if d_min is not None else 0,
+            d_max if d_max is not None else m,
+            w_max if w_max is not None else 0,
+            1 if w_max is not None else 0,
+            ctypes.byref(res),
+        )
     elapsed = time.time() - t0
     per_d = {}
     for d in range(m):
@@ -145,7 +173,7 @@ def run_c(
         "leaves_valid": int(res.leaves_valid),
         "leaves_kept": int(res.leaves_kept),
         "per_defect": per_d,
-        "backend": "C",
+        "backend": "C-OMP" if use_omp else "C",
     }
 
 
@@ -371,12 +399,18 @@ def main() -> None:
     p.add_argument("--out", type=str, default=None)
     p.add_argument("--summary-only", action="store_true")
     p.add_argument("--backend", choices=["py", "c", "auto"], default="auto")
+    p.add_argument("--omp", type=int, default=None,
+                   help="use OpenMP kernel with N threads (0 = runtime default)")
     args = p.parse_args()
 
     use_c = args.backend == "c" or (args.backend == "auto" and _C_LIB is not None)
     if use_c:
         summary = run_c(args.m, args.K_max,
-                        d_min=args.d_min, d_max=args.d_max, w_max=args.w_max)
+                        d_min=args.d_min, d_max=args.d_max, w_max=args.w_max,
+                        omp_threads=args.omp)
+        if args.out:
+            with open(args.out, "w") as f:
+                json.dump(summary, f, indent=1)
         print(json.dumps(summary, indent=2))
         return
 
