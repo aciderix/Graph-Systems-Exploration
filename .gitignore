@@ -9,3 +9,4 @@ Graph-Systems-Exploration/
 __pycache__/
 *.pyc
 .venv/
+numerical_semigroups/phases/kunz_core.so
