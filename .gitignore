@@ -11,7 +11,3 @@ __pycache__/
 .venv/
 numerical_semigroups/phases/kunz_core.so
 numerical_semigroups/kunz_wilf_verification/phases/kunz_core.so
-
-# Intermediate prefix-restricted enumeration chunks; merged result is
-# committed instead.
-numerical_semigroups/kunz_wilf_verification/results/*_chunks/
