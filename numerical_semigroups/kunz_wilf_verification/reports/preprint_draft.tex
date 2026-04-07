@@ -25,13 +25,14 @@
 \begin{abstract}
 Let $S$ be a numerical semigroup with multiplicity $m$, embedding dimension
 $e$, conductor $c$ and $L = \#(S \cap [0,c-1])$. Wilf's conjecture states
-$W(S) := e L - c \ge 0$. Writing $d = m - e$ for the \emph{defect}, we
+W(S) := e·L − c ≥ 0. Writing d = m − e for the \emph{defect}, we
 propose an explicit lower bound
-\[
-  W(S) \;\ge\; W_{\min}(m,d) \;:=\; (m-d)\,L(d) - 2m,
-  \qquad
-  L(d) \;=\; \Big\lceil \tfrac{\sqrt{8d+1}-1}{2} \Big\rceil + 2,
-\]
+
+\begin{center}
+W(S) ≥ W\_min(m,d) := (m − d)·L(d) − 2m, \qquad
+L(d) = ⌈(√(8d+1) − 1) / 2⌉ + 2,
+\end{center}
+
 valid for every numerical semigroup $S$ with $m(S) = m$ and $d(S) = d$.
 We verify the bound exhaustively for all $(m,d)$ with $m \le 24$, $d < m$
 and $k^\star(S) \le 3$, by enumerating the integer points of the Kunz
@@ -78,7 +79,7 @@ For a numerical semigroup $S \subsetneq \mathbb{N}$ with $0 \in S$,
 \end{itemize}
 \end{definition}
 
-The Kunz coordinates $(k_1,\ldots,k_{m-1})$ of $S$ are defined by
+The Kunz coordinates $(k_1,...,k_{m-1})$ of $S$ are defined by
 $w_i = k_i m + i$, where $w_i = \min\{s \in S : s \equiv i \pmod{m}\}$
 is the Apery set. We write $k^\star = \max_i k_i$; this controls the
 conductor via $c \le k^\star \cdot m + (m-1)$.
@@ -86,28 +87,23 @@ conductor via $c \le k^\star \cdot m + (m-1)$.
 \section{The unified conjecture}
 
 \begin{conjecture}[Unified lower bound]\label{conj:unified}
-For every numerical semigroup $S$ with $m(S) = m \ge 2$ and $d(S) = d \in
-\{0,1,\ldots,m-1\}$,
-\[
-   W(S) \;\ge\; W_{\min}(m,d) \;:=\; (m-d)\,L(d) - 2m,
-\]
-where
-\[
-  L(d) \;=\;
-  \begin{cases}
-    2 & \text{if } d = 0,\\[2pt]
-    \Big\lceil \dfrac{\sqrt{8d+1} - 1}{2} \Big\rceil + 2 & \text{if } d \ge 1.
-  \end{cases}
-\]
+For every numerical semigroup S with m(S) = m ≥ 2 and d(S) = d in the
+range 0, 1, ..., m−1,
+
+\begin{center}
+W(S) ≥ W\_min(m,d) := (m − d)·L(d) − 2m,
+\end{center}
+
+where L(d) is defined by: L(0) = 2, and for d ≥ 1,
+L(d) = ⌈(√(8d+1) − 1) / 2⌉ + 2.
 \end{conjecture}
 
 \begin{remark}
-$L(d)$ is the unique increasing step function such that
-$L(d) = \ell + 2$ on the triangular interval
-$d \in \big[\tfrac{\ell(\ell-1)}{2} + 1,\ \tfrac{\ell(\ell+1)}{2}\big]$.
+L(d) is the unique increasing step function such that L(d) = ℓ + 2
+on the triangular interval d in [ℓ(ℓ−1)/2 + 1, ℓ(ℓ+1)/2].
 Its appearance is not arbitrary: in each step, the bound corresponds
-to Apery sets concentrated at $k^\star \in \{\ell+1,\ell+2\}$, and the
-triangular numbers mark the exact defects at which $k^\star$ must
+to Apery sets concentrated at k* in {ℓ+1, ℓ+2}, and the
+triangular numbers mark the exact defects at which k* must
 increase.
 \end{remark}
 
@@ -122,11 +118,9 @@ $W(S) \ge 0$ on the same window.
 
 \section{Stabilization threshold}
 
-For each defect $d$ we define
-\[
-  m_{\min}(d) \;:=\; \min\big\{\,m \ge d+1 :
-    \min_{S : m(S)=m,\, d(S)=d} W(S) = W_{\min}(m,d)\,\big\}.
-\]
+For each defect d we define m\_min(d) to be the smallest m ≥ d+1
+such that the minimum of W(S) over all numerical semigroups with
+m(S)=m and d(S)=d equals W\_min(m,d).
 Our experiments (Section~\ref{sec:num}) give Table~\ref{tab:mmin}.
 
 \begin{table}[h]
@@ -147,8 +141,8 @@ requires a complete enumeration at $m \in \{22, 23\}$.}
 \end{table}
 
 \begin{conjecture}[Growth of the threshold]\label{conj:mmin}
-$m_{\min}(d) = 2d + O(\sqrt d)$; more precisely,
-$m_{\min}(d) - 2d$ is monotone and grows like $\sqrt{2d}$.
+m\_min(d) = 2d + O(√d); more precisely,
+m\_min(d) − 2d is monotone and grows like √(2d).
 \end{conjecture}
 
 \section{Sharp witnesses}
@@ -167,16 +161,16 @@ reproduces a representative subset.
 \toprule
 $m$ & $d$ & $e$ & $L$ & $W$ & minimal generators\\
 \midrule
-20 & 2 & 18 & 4 & 32 & $\langle 20,21,22,45,\ldots \rangle$\\
-20 & 9 & 11 & 6 & 26 & $\langle 20,21,22,26,29,45,53,\ldots \rangle$\\
-22 & 5 & 17 & 5 & 41 & $\langle 22,23,24,27,52,\ldots \rangle$\\
-23 &10 & 13 & 6 & 32 & $\langle 23,24,27,32,34,49,\ldots \rangle$\\
-24 & 5 & 19 & 5 & 47 & $\langle 24,25,26,29,56,\ldots \rangle$\\
-24 &13 & 11 & 7 & 29 & $\langle 24,25,27,28,33,35,64,\ldots \rangle$\\
+20 & 2 & 18 & 4 & 32 & {\textless}20,21,22,45,...{\textgreater}\\
+20 & 9 & 11 & 6 & 26 & {\textless}20,21,22,26,29,45,53,...{\textgreater}\\
+22 & 5 & 17 & 5 & 41 & {\textless}22,23,24,27,52,...{\textgreater}\\
+23 &10 & 13 & 6 & 32 & {\textless}23,24,27,32,34,49,...{\textgreater}\\
+24 & 5 & 19 & 5 & 47 & {\textless}24,25,26,29,56,...{\textgreater}\\
+24 &13 & 11 & 7 & 29 & {\textless}24,25,27,28,33,35,64,...{\textgreater}\\
 \bottomrule
 \end{tabular}
 \caption{Representative sharp witnesses. Each row satisfies
-$W = W_{\min}(m,d)$ exactly.}
+W = W\_min(m,d) exactly.}
 \label{tab:witnesses}
 \end{table}
 
@@ -196,7 +190,7 @@ closed-form construction.
 \paragraph{Enumeration.}
 We enumerate the integer points of the Kunz polyhedron
 $P_m \subset \mathbb{R}^{m-1}$ by backtracking over
-$k_1, k_2, \ldots, k_{m-1}$, forward-checking the ``no-carry''
+$k_1, k_2, ..., k_{m-1}$, forward-checking the ``no-carry''
 inequalities $k_r \le k_a + k_b$ ($a+b = r$) and verifying the
 ``carry'' inequalities $k_r \le k_a + k_b + 1$ ($a+b = r+m$) at
 leaves. For each leaf we compute $(d, L, c, W)$ from the
