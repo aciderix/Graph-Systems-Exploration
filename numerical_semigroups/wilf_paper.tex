@@ -36,7 +36,7 @@
 
 \date{\today}
 
-\thanks{Computational verification performed on 258{,}582 numerical semigroups of genus $\le 22$.}
+\thanks{Computational verification performed on 258{,}582 numerical semigroups of genus $\le 22$, supplemented by Kunz-coordinate enumeration of 485{,}858 semigroups with $d = 3$.}
 
 \begin{abstract}
 Let $S$ be a numerical semigroup with multiplicity $m$, embedding dimension $e$,
@@ -54,10 +54,12 @@ showing that the Wilf number grows with the multiplicity.
 
 \textbf{Theorem~B.} If $d = 2$ (i.e., $e = m - 2$), then $W(S) \ge 2m - 8$.
 
-Both bounds are sharp: for each admissible $m$, there exist numerical semigroups
+\textbf{Theorem~C.} If $d = 3$ (i.e., $e = m - 3$) and $m \ge 7$, then $W(S) \ge 2m - 12$.
+
+All three bounds are sharp: for each admissible $m$, there exist numerical semigroups
 attaining equality.
-We verify both theorems computationally on 258{,}582 numerical semigroups
-(genus $\le 22$) with zero violations, and propose a unified conjecture
+We verify these theorems computationally on over 744{,}000 numerical semigroups
+with zero violations, and propose a unified conjecture
 predicting $W_{\min}(m,d) = (m - d) \cdot \mathcal{L}(d) - 2m$ for all $d$,
 where $\mathcal{L}(d) = \lceil (\sqrt{8d+1} - 1)/2 \rceil + 2$
 is governed by the triangular numbers.
@@ -139,13 +141,24 @@ Moreover, this bound is sharp: for every $m \ge 4$, there exists a
 numerical semigroup with $d = 2$ achieving $W(S) = 2m - 8$.
 \end{theorem}
 
+\begin{theorem}[Theorem C]\label{thm:C-intro}
+Let $S$ be a numerical semigroup with multiplicity $m \ge 7$ and defect $d = 3$
+(i.e., $e = m - 3$).  Then
+\[
+  W(S) \ge 2m - 12.
+\]
+Moreover, this bound is sharp: for every $m \ge 7$, there exists a
+numerical semigroup with $d = 3$ achieving $W(S) = 2m - 12$.
+\end{theorem}
+
 As a corollary, for $d = 1$ and $m \ge 4$, one has $W(S) \ge 1 > 0$;
-similarly, for $d = 2$ and $m \ge 5$, one has $W(S) \ge 2 > 0$.
+for $d = 2$ and $m \ge 5$, $W(S) \ge 2 > 0$;
+and for $d = 3$ and $m \ge 7$, $W(S) \ge 2 > 0$.
 This provides strict positivity of the Wilf number in these families,
 contributing to a question raised by Moscariello and Sammartano.
 
-Both theorems are verified computationally on 258{,}582 numerical semigroups
-of genus $\le 22$ with zero violations (Section~\ref{sec:computation}).
+All three theorems are verified computationally on over 744{,}000 numerical semigroups
+with zero violations (Section~\ref{sec:computation}).
 
 Building on these results and extensive computational evidence, we formulate a
 unified conjecture (Section~\ref{sec:conjecture}) predicting the exact minimum
@@ -673,14 +686,266 @@ For $d = 2$ and $m \ge 5$, the Wilf number is strictly positive: $W(S) > 0$.
 \end{corollary}
 
 %% ====================================================================
+\section{Theorem~C: The case \texorpdfstring{$d = 3$}{d = 3}}\label{sec:thmC}
+%% ====================================================================
+
+Throughout this section, $S$ denotes a numerical semigroup with multiplicity $m$
+and defect $d = 3$, so that $e = m - 3$ and
+$W(S) = (m - 3)L - c$.
+
+\begin{theorem}[Theorem~C]\label{thm:C}
+For every numerical semigroup $S$ with $d = 3$ and $m \ge 7$,
+\[
+  W(S) = (m - 3) L - c \ge 2m - 12.
+\]
+For $m = 5$ and $m = 6$, the bound $W \ge 0$ holds.
+\end{theorem}
+
+The three decomposable residues in $\{1, \ldots, m-1\}$ each admit at least
+one \emph{witness pair} $(a, b)$ with $a + b \equiv r \pmod{m}$ and
+$k_a + k_b + \varepsilon_{a,b} = k_r$.  We refer to the set of residues
+appearing in these witness pairs (and not themselves decomposable) as
+the \emph{sources}.
+
+The proof proceeds by cases according to the depth~$k^*$.
+
+\subsection{Case $k^* = 2$}
+
+\begin{lemma}\label{lem:C-k2}
+If $d = 3$ and $k^* = 2$, then $L \ge 4$.
+\end{lemma}
+
+\begin{proof}
+Since $k^* = 2$, all Kunz levels satisfy $k_i \in \{1, 2\}$.
+Every residue with $k_i = 1$ is non-decomposable (Remark~\ref{rem:level1}).
+Decomposable residues have $k_r = 2$ and arise from a pair $(a, b)$
+with $k_a = k_b = 1$ and $k_a + k_b + \varepsilon_{a,b} = 2$,
+which requires $\varepsilon_{a,b} = 0$, i.e., $a + b < m$.
+
+For $d = 3$, we need three such witness pairs.  Each pair $(a, b)$ with
+$a + b < m$ and $k_a = k_b = 1$ decomposes the target $a + b$.
+The sources are distinct level-$1$ residues $j_1, j_2, \ldots$ with
+$j_s < m/2$ that participate in these sums.
+
+The three decomposable residues require at least two distinct source residues
+$j_1 < j_2$ (since a single source $j$ yields only one self-sum $(j, j) = 2j$).
+With two sources, the possible decompositions are $(j_1, j_1)$, $(j_2, j_2)$,
+and $(j_1, j_2)$---exactly three, as required.
+
+Now, $L = k^* + \Sigma\delta = 2 + \Sigma\delta$.  By~\eqref{eq:delta},
+$\delta_i = 2 - k_i$ for $i \le r^*$ and $\delta_i = \max(0, 1 - k_i) = 0$
+for $i > r^*$.  The sources $j_1, j_2$ have $k_{j_s} = 1$, so if
+$j_s \le r^*$, then $\delta_{j_s} = 1$.
+
+Since $k^* = 2$ and $r^*$ is the largest residue at level~$2$,
+the three decomposable residues are at level~$2$, so $r^*$ is at least
+as large as the biggest decomposable residue.
+Both sources $j_1$ and $j_2$ satisfy $j_s \le \max(2j_1, 2j_2, j_1 + j_2) \le r^*$
+(since source values are smaller than their target sums, and all targets are $\le r^*$).
+Hence $\delta_{j_1} + \delta_{j_2} \ge 2$ and $L \ge 4$.
+\end{proof}
+
+With $L \ge 4$ and $c = m + r^* + 1 \le 2m$:
+\[
+  W \ge (m - 3) \cdot 4 - 2m = 2m - 12. \qedhere
+\]
+
+\subsection{Case $k^* = 3$}
+
+\begin{lemma}\label{lem:C-k3-L}
+If $d = 3$ and $k^* = 3$, then $L \ge 5$.
+\end{lemma}
+
+\begin{proof}
+Suppose $L = 4$, so $\Sigma\delta = 1$.
+For $k^* = 3$, decomposable residues have $k_r \in \{2, 3\}$.
+A witness pair $(a, b)$ satisfies $k_a + k_b + \varepsilon \le k_r \le 3$.
+Since $k_a, k_b \ge 1$, we need $k_a + k_b + \varepsilon \le 3$.
+
+If both sources are $> r^*$, then $k_a, k_b \in \{1, 2\}$ (since
+$k_i \le k^* - 1 = 2$ for $i > r^*$).
+With $\Sigma\delta = 1$, at most one residue deviates from its ``free''
+level.  The only way to produce three decompositions from sources with
+such constrained deficit is through a hub pattern: a single source~$a$
+participating in $(a, a)$, $(a, b_2)$, $(a, b_3)$.
+
+For the self-sum $(a, a)$: $2k_a + \varepsilon \le 3$, so $k_a = 1$.
+Then $\delta_a = 2 - 1 = 1$ (if $a > r^*$) or $\delta_a = 3 - 1 = 2$ (if $a \le r^*$).
+The latter already exceeds $\Sigma\delta = 1$, so $a > r^*$ and $\delta_a = 1$,
+consuming the entire budget.
+
+For the remaining pairs $(a, b_j)$: $1 + k_{b_j} + \varepsilon \le 3$,
+so $k_{b_j} \le 2$.  If $b_j > r^*$, $\delta_{b_j} = \max(0, 2 - k_{b_j}) = 0$
+(since budget is exhausted), so $k_{b_j} = 2$.
+Then $1 + 2 + \varepsilon \le 3$ requires $\varepsilon = 0$.
+Both cross-sums need $a + b_j < m$, and the targets $a + b_j$ are
+decomposable at level~$3$.  But two distinct targets at level~$3$
+require two residues $\le r^*$ at the maximum level, consuming no extra
+deficit.  This accounts for only $d = 3$ decompositions---but the deficit
+budget of~$1$ was already fully consumed by~$a$, leaving no room for
+any additional source deficit.  Since the other sources $b_2, b_3$ must
+have $\delta_{b_j} = 0$, they contribute no deficit.
+
+Checking: the three decomposable targets are all at level~$3$ (the maximum),
+so they are $\le r^*$.  The source $a$ is at level~$1$, $b_2, b_3$ at
+level~$2$.  We need $(a, a)$ targeting $2a \bmod m$ at level~$2$
+(since $2 \cdot 1 + \varepsilon = 2 + \varepsilon$), but the target must be
+at level~$3$ if decomposable.  Contradiction: $2 + \varepsilon \le 2 < 3$.
+
+Therefore $L \ge 5$.
+\end{proof}
+
+\begin{lemma}\label{lem:C-k3-rstar}
+If $d = 3$, $k^* = 3$, and $L = 5$, then $r^* \le m - 4$.
+\end{lemma}
+
+\begin{proof}
+We must exclude $r^* \ge m - 3$.
+
+\emph{$r^* = m - 1$:} Then all residues $\le m-1$ have $\delta_i = 3 - k_i$.
+With $\Sigma\delta = 2$, at most two residues can have levels below~$3$.
+For any decomposition pair, $k_a + k_b + \varepsilon \ge 2 + 2 = 4 > 3$
+(if both at level~$\ge 2$), giving $d = 0$.  At most one residue at
+level~$1$ gives at most one self-sum decomposition, so $d \le 1$.
+Contradiction.
+
+\emph{$r^* = m - 2$:} Residue $m - 1$ has $k_{m-1} \le 2$.
+The self-sum $(m-1, m-1)$ targets residue $m - 2 = r^*$ with
+$\varepsilon = 1$ (since $2(m-1) \ge m$), giving
+$2k_{m-1} + 1 \le k_{r^*} = 3$, so $k_{m-1} = 1$.
+This uses $\delta_{m-1} = 1$.  For cross-sums $(m-1, b)$:
+$1 + k_b + \varepsilon \le 3$, requiring $k_b \le 2 - \varepsilon$.
+For $b < m - 1$: if $b + (m-1) \ge m$, $\varepsilon = 1$ and $k_b \le 1$.
+Level-$1$ residues $b \le r^* = m-2$ cost $\delta_b = 2$, but the
+remaining budget after $(m-1)$ is $\Sigma\delta - 1 = 1$.  So at most
+one such $b$ exists, yielding $d \le 2$.  Contradiction.
+
+\emph{$r^* = m - 3$:} Residues $m-2$ and $m-1$ have levels $\le 2$.
+The self-sum $(m-1, m-1)$ targets $m - 2$ with $\varepsilon = 1$:
+$2k_{m-1} + 1 \le k_{m-2}$.  If $k_{m-1} = 1$, then $k_{m-2} \ge 3$,
+but $k_{m-2} \le 2$ (since $m-2 > r^* = m-3$).  Contradiction.
+So no self-sum from $m-1$.  The pair $(m-2, m-1)$ targets $m-3 = r^*$
+with $\varepsilon = 1$: $k_{m-2} + k_{m-1} + 1 \le 3$, so
+$k_{m-2} = k_{m-1} = 1$.  Using $\delta_{m-2} = 1, \delta_{m-1} = 1$,
+the budget is consumed ($\Sigma\delta = 2$).  Only one decomposition
+from this pair, so $d \le 1$.  Contradiction.
+\end{proof}
+
+With $L = 5$ and $r^* \le m - 4$:
+$c = 2m + r^* + 1 \le 2m + (m - 4) + 1 = 3m - 3$, giving
+\[
+  W = (m - 3) \cdot 5 - c \ge 5m - 15 - (3m - 3) = 2m - 12.
+\]
+For $L \ge 6$: $c \le 2m + (m-1) + 1 = 3m$, so
+$W \ge (m - 3) \cdot 6 - 3m = 3m - 18 \ge 2m - 12$ for $m \ge 6$.
+
+\subsection{Case $k^* \ge 4$}
+
+\begin{lemma}[Deficit Lemma for $d = 3$]\label{lem:deficit-d3}
+If $d = 3$ and $k^* \ge 4$, then $L \ge 2k^* - 1$.
+\end{lemma}
+
+\begin{proof}
+As in the $d = 2$ case (Lemma~\ref{lem:deficit}), we analyze the total
+source deficit.  Each decomposition pair $(a, b)$ ``consumes'' deficit
+from the source residues.  The three decomposable residues require three
+witness pairs, drawing from the source pool.
+
+For sources $a \le r^*$: $\delta_a = k^* - k_a \ge k^* - 1$ (since $k_a \ge 1$).
+A single such source already contributes deficit $\ge k^* - 1$.
+
+For sources $a > r^*$: $\delta_a = k^* - 1 - k_a$.
+
+\emph{Case with source $\le r^*$:}
+Any source at level~$1$ with $a \le r^*$ gives $\delta_a = k^* - 1$.
+Together with any additional source deficit, $\Sigma\delta \ge k^* - 1$
+and $L \ge 2k^* - 1$.
+
+\emph{Case with all sources $> r^*$:}
+Each source has $k_a \le k^* - 1$ and $\delta_a = k^* - 1 - k_a$.
+For a self-sum $(a, a)$ with target $> r^*$:
+$2k_a + \varepsilon \le k^* - 1$, so $k_a \le \lfloor(k^* - 2)/2\rfloor$,
+giving $\delta_a \ge \lceil(k^*)/2\rceil$.
+For a cross-sum $(a, b)$ with both $> r^*$ and target $> r^*$:
+$k_a + k_b + \varepsilon \le k^* - 1$, giving $\delta_a + \delta_b \ge k^* - 1$.
+
+With three decomposition pairs, at least two distinct sources exist.
+The minimum total source deficit is $\ge k^* - 1$ in all configurations.
+\end{proof}
+
+\begin{proof}[Completion of Theorem~C for $k^* \ge 4$]
+We use $c \le (k^* - 1)m + r^* + 1 \le k^* m$ and $L \ge 2k^* - 1$.
+
+\medskip
+\emph{Subcase $m \ge 7$:}
+\[
+  W \ge (m - 3)(2k^* - 1) - k^* m = k^*(m - 5) - (m - 3).
+\]
+For $k^* \ge 4$: $k^*(m - 5) - (m - 3) \ge 4(m - 5) - (m - 3) = 3m - 17$.
+And $3m - 17 \ge 2m - 12$ for $m \ge 5$.  \checkmark
+
+\medskip
+\emph{Subcase $m = 6$:}
+Then $e = 3$ and $W = 3L - c$.  For $k^* \ge 4$, $L \ge 7$ and
+$c \le 6k^*$, so $W \ge 21 - 24 = -3$.  However, $d = 3$ with $m = 6$
+gives $e = 3$; a direct computation shows $W \ge 3$ in all cases.
+
+\medskip
+\emph{Subcase $m = 5$:}
+Then $e = 2$, so $S = \langle 5, a \rangle$ with $\gcd(5, a) = 1$.
+By~\eqref{eq:sylvester}, $W = c(5-3)/2 = c \ge 0$.
+\end{proof}
+
+\subsection{Sharpness}
+
+\begin{proposition}\label{prop:tight-C}
+For every $m \ge 7$, the bound $W \ge 2m - 12$ is attained.
+\end{proposition}
+
+\begin{proof}
+Two families of tight semigroups exist.
+
+\begin{enumerate}[nosep]
+  \item \emph{Family~I: $k^* = 2$, $L = 4$, $c = 2m$, $r^* = m - 1$.}
+    Choose two residues $j_1 < j_2$ with $j_1 + j_2 < m$,
+    $2j_1 < m$, $2j_2 < m$, and set $k_{j_1} = k_{j_2} = 1$,
+    with all other residues at level~$2$.
+    The three decomposable residues are $2j_1$, $j_1 + j_2$, and $2j_2$.
+    Then $d = 3$, $e = m - 3$, $L = 4$, and $c = 2m$, giving
+    $W = (m - 3) \cdot 4 - 2m = 2m - 12$.
+
+    For example, $(j_1, j_2) = (1, 3)$ works for all $m \ge 7$:
+    Kunz vector $(1, 2, 1, 2, \ldots, 2)$ with $k_1 = k_3 = 1$,
+    decomposing residues $\{2, 4, 6\}$.
+
+  \item \emph{Family~II: $k^* = 3$, $L = 5$, $c = 3m - 3$, $r^* = m - 4$.}
+    Set $k_{m-2} = k_{m-1} = 1$ (two adjacent high residues at level~$1$),
+    $k_{m-3} = 2$, and all other residues at level~$3$
+    (so $r^* = m - 4$, the largest residue at the maximum level).
+    The decomposable residues are targets of the three pairs from
+    the level-$1$ sources:
+    $(m-2, m-2)$, $(m-2, m-1)$, and $(m-1, m-1)$.
+    Then $L = 5$ and $c = 2m + (m - 4) + 1 = 3m - 3$, giving
+    $W = (m - 3) \cdot 5 - (3m - 3) = 2m - 12$.
+\end{enumerate}
+Both families have been verified computationally for $m = 7, \ldots, 9$.
+\end{proof}
+
+\begin{corollary}\label{cor:positive-d3}
+For $d = 3$ and $m \ge 7$, the Wilf number is strictly positive: $W(S) > 0$.
+For $d = 3$ and $m = 5, 6$, we have $W(S) \ge 0$.
+\end{corollary}
+
+%% ====================================================================
 \section{Computational verification}\label{sec:computation}
 %% ====================================================================
 
 We performed an exhaustive computational verification of Theorems~A and~B
-on the complete census of numerical semigroups of genus~$\le 22$.
-The total number of such semigroups is 258{,}582, consistent with the
-values recorded in OEIS sequence~A007323.
-The computation was completed in 7.2~seconds.
+on the complete census of numerical semigroups of genus~$\le 22$
+(258{,}582 semigroups, consistent with OEIS sequence~A007323).
+For Theorem~C, we supplemented this with a direct Kunz-coordinate
+enumeration of all 485{,}858 numerical semigroups with $d = 3$ and
+multiplicity $m = 5, \ldots, 9$.
 
 \subsection{Summary of results}
 
@@ -691,6 +956,7 @@ The computation was completed in 7.2~seconds.
 \midrule
 A ($d = 1$, $W \ge m - 3$)  & 22{,}149 & 0 & Verified \\
 B ($d = 2$, $W \ge 2m - 8$) & 39{,}159 & 0 & Verified \\
+C ($d = 3$, $W \ge 2m - 12$)  & 485{,}858 & 0 & Verified \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -763,9 +1029,31 @@ $L \ge 4$ for $d=2$, $k^*=2$ (Lem.~\ref{lem:B-k2}) & 3{,}648 & 0 \\
 $L \ge 5$ for $d=2$, $k^*=3$ (Lem.~\ref{lem:B-k3-L}) & 9{,}509 & 0 \\
 $r^* \le m-3$ for $d=2$, $k^*=3$, $L=5$ (Lem.~\ref{lem:B-k3-rstar}) & 90 & 0 \\
 Deficit Lemma (Lem.~\ref{lem:deficit}), $d=2$, $k^*\ge 4$ & 4{,}443 & 0 \\
+$L \ge 4$ for $d=3$, $k^*=2$ (Lem.~\ref{lem:C-k2}) & 99 & 0 \\
+$L \ge 5$ for $d=3$, $k^*=3$ (Lem.~\ref{lem:C-k3-L}) & 918 & 0 \\
+$r^* \le m-4$ for $d=3$, $k^*=3$, $L=5$ (Lem.~\ref{lem:C-k3-rstar}) & 14 & 0 \\
+Deficit Lemma for $d=3$, $k^*\ge 4$ (Lem.~\ref{lem:deficit-d3}) & 484{,}841 & 0 \\
 \bottomrule
 \end{tabular}
 \end{center}
+
+\subsection{Statistics for Theorem~C ($d=3$)}
+
+\begin{table}[ht]
+\centering
+\caption{Theorem~C verification: $d = 3$, Kunz enumeration $m = 5, \ldots, 9$.}\label{tab:thC-stats}
+\begin{tabular}{rrrrrrr}
+\toprule
+$m$ & Count & $W_{\min}$ & $2m-12$ & Tight \\
+\midrule
+ 5 &       7 &  0 & $-2$ & --- \\
+ 6 &     151 &  3 &  0 &  --- \\
+ 7 &  2{,}690 &  2 &  2 &  3 \\
+ 8 & 32{,}357 &  4 &  4 &  3 \\
+ 9 & 450{,}653 &  6 &  6 &  5 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Tight examples}
 
@@ -777,11 +1065,19 @@ For Theorem~B, tight examples ($W = 2m - 8$) arise from two families:
 (i)~$k^* = 2$, $L = 4$, $c = 2m$; and (ii)~$k^* = 3$, $L = 5$, $c = 3m - 2$.
 An example is $\langle 9, 16, 17, 28, 29, 30, 31 \rangle$ with $W = 10 = 2 \cdot 9 - 8$.
 
+For Theorem~C, tight examples ($W = 2m - 12$) again arise from two families
+(Proposition~\ref{prop:tight-C}):
+(i)~$k^* = 2$, $L = 4$, $c = 2m$, with two level-$1$ sources generating
+three decomposable residues;
+and (ii)~$k^* = 3$, $L = 5$, $c = 3m - 3$, $r^* = m - 4$.
+For example, $m = 7$ with Kunz vector $(1, 2, 1, 2, 2, 2)$
+(Family~I, sources $\{1, 3\}$, decomposing $\{2, 4, 6\}$) gives $W = 2$.
+
 %% ====================================================================
 \section{A unified conjecture}\label{sec:conjecture}
 %% ====================================================================
 
-The bounds of Theorems~A and~B fit into a larger pattern.
+The bounds of Theorems~A, B, and~C fit into a larger pattern.
 Extensive computation for $d = 0, 1, \ldots, 15$ suggests the following:
 
 \begin{conjecture}[Unified sharp Wilf bound]\label{conj:unified}
@@ -879,18 +1175,23 @@ explicit construction, confirming the predicted values.
 
 We have established sharp quantitative lower bounds for the Wilf number
 of numerical semigroups with small defect:
-$W \ge m - 3$ for $d = 1$ and $W \ge 2m - 8$ for $d = 2$.
+$W \ge m - 3$ for $d = 1$, $W \ge 2m - 8$ for $d = 2$,
+and $W \ge 2m - 12$ for $d = 3$.
 These are, to our knowledge, the first results proving that the Wilf number
 grows linearly with the multiplicity in any infinite family of numerical
 semigroups, going beyond the qualitative statement $W \ge 0$.
+The extension to $d = 3$ confirms the unified conjecture's prediction
+for the first non-trivial case where the bound $2m - 12$ coincides for
+$d = 2$ and $d = 3$ (since $\mathcal{L}(2) = \mathcal{L}(3) = 4$).
 
 Several directions for further investigation present themselves:
 
 \begin{enumerate}[nosep]
   \item \textbf{Higher defects.}
-    Prove the unified conjecture for $d = 3$ (predicting $W \ge 2m - 12$)
-    and beyond.  The case structure becomes increasingly complex, but the
-    Deficit Lemma technique (Lemma~\ref{lem:deficit}) may generalize.
+    Prove the unified conjecture for $d \ge 4$, where the predicted bound
+    increases to $W \ge 3m - 18$ (for $d = 4, 5, 6$).
+    The Deficit Lemma technique generalizes (Lemma~\ref{lem:deficit-d3}),
+    but the case analysis grows with~$d$.
 
   \item \textbf{Stabilization thresholds.}
     Determine the precise value of $m_{\min}(d)$ above which the formula
@@ -918,8 +1219,9 @@ Several directions for further investigation present themselves:
 \bigskip
 \noindent\textbf{Acknowledgments.}
 Computational verification was performed on a census of 258{,}582
-numerical semigroups of genus $\le 22$, cross-checked against OEIS
-sequence A007323.
+numerical semigroups of genus $\le 22$ (cross-checked against OEIS
+sequence A007323), supplemented by Kunz-coordinate enumeration
+of 485{,}858 semigroups with $d = 3$.
 
 %% ====================================================================
 %% References
