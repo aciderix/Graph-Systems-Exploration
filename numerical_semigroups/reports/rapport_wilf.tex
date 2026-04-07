@@ -24,8 +24,8 @@ de recherche headless développés dans \texttt{numerical\_semigroups/phases/}
 de la conjecture unifiée). Sur plus de $1.2\cdot 10^{10}$ feuilles Kunz énumérées
 exhaustivement pour $m\in\{20,22,23,24\}$ à $K_{\max}=3$ et $m=20$ à $K_{\max}=4$,
 \emph{aucune} violation de la conjecture de Wilf n'a été observée.
-La formule unifiée $W_{\min}(m,d)=(m-d)\,L(d)-2m$ avec
-$L(d)=\lceil(\sqrt{8d+1}-1)/2\rceil+2$ est vérifiée partout au-dessus
+La formule unifiée \(W_{\min}(m,d)=(m-d)\,L(d)-2m\) avec
+\(L(d)=\lceil(\sqrt{8d+1}-1)/2\rceil+2\) est vérifiée partout au-dessus
 de son seuil de stabilisation, et le seuil prédit $m_{\min}(10)=23$
 est confirmé empiriquement.
 \end{abstract}
@@ -48,10 +48,10 @@ le polyèdre de Kunz $P_m$; le défaut est $d=m-e$. Nous notons
 \section{Conjecture unifiée testée}
 
 On teste la formule proposée (\texttt{CONJECTURES.md}) :
-\[
+\begin{equation*}
   L(d)=\left\lceil\frac{\sqrt{8d+1}-1}{2}\right\rceil+2,\qquad
   W_{\mathrm{pred}}(m,d)=(m-d)\,L(d)-2m.
-\]
+\end{equation*}
 Elle est censée être \emph{exacte} dès que $m\ge m_{\min}(d)$, avec
 \emph{entre autres} $m_{\min}(10)=23$.
 
@@ -207,9 +207,9 @@ d'information linéaire au-delà de ce qui est déjà connu.
 $(m,e,F,g,L,c,t)$ à partir d'un jeu de générateurs, via clôture BFS et
 construction explicite de l'ensemble d'Apéry, puis compare aux valeurs
 stockées dans \texttt{n1\_results\_g20.json}.
-\[
-  \boxed{\text{1000\,/\,1000 concordances exactes.}}
-\]
+\begin{center}
+\fbox{\textbf{1000 / 1000 concordances exactes.}}
+\end{center}
 Cela applique la règle n\textsuperscript{o}\,8 du briefing
 (\emph{varier la méthode de mesure}) et exclut un bug silencieux dans
 le pipeline principal.
