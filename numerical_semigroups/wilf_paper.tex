@@ -826,9 +826,18 @@ $2k_{m-1} + 1 \le k_{m-2}$.  If $k_{m-1} = 1$, then $k_{m-2} \ge 3$,
 but $k_{m-2} \le 2$ (since $m-2 > r^* = m-3$).  Contradiction.
 So no self-sum from $m-1$.  The pair $(m-2, m-1)$ targets $m-3 = r^*$
 with $\varepsilon = 1$: $k_{m-2} + k_{m-1} + 1 \le 3$, so
-$k_{m-2} = k_{m-1} = 1$.  Using $\delta_{m-2} = 1, \delta_{m-1} = 1$,
-the budget is consumed ($\Sigma\delta = 2$).  Only one decomposition
-from this pair, so $d \le 1$.  Contradiction.
+$k_{m-2} = k_{m-1} = 1$.  This consumes $\delta_{m-2} = 1$ and
+$\delta_{m-1} = 1$, exhausting the budget ($\Sigma\delta = 2$).
+
+The self-sum $(m-2, m-2)$ targets $m-4$ with $\varepsilon = 1$:
+$2k_{m-2} + 1 = 3 \le k_{m-4} = 3$ (since $m - 4 \le r^*$), so this
+yields a second decomposition.  No further decompositions are possible:
+any additional witness pair $(a, b)$ with $a \notin \{m-2, m-1\}$
+requires $k_a \le 2$, hence $\delta_a \ge 1$ (if $a \le r^*$) or
+$\delta_a \ge 0$ (if $a > r^*$), but the deficit budget is already
+exhausted.  For $a \le r^*$: $k_a = 3$ (budget forces all such residues
+to the maximum level), so $k_a + k_b + \varepsilon \ge 3 + 1 + 0 = 4 > 3$.
+Thus $d \le 2 < 3$.  Contradiction.
 \end{proof}
 
 With $L = 5$ and $r^* \le m - 4$:
@@ -842,35 +851,107 @@ $W \ge (m - 3) \cdot 6 - 3m = 3m - 18 \ge 2m - 12$ for $m \ge 6$.
 \subsection{Case $k^* \ge 4$}
 
 \begin{lemma}[Deficit Lemma for $d = 3$]\label{lem:deficit-d3}
-If $d = 3$ and $k^* \ge 4$, then $L \ge 2k^* - 1$.
+If $d = 3$ and $k^* \ge 4$, then $\Sigma\delta \ge k^* - 1$,
+i.e., $L \ge 2k^* - 1$.
 \end{lemma}
 
 \begin{proof}
-As in the $d = 2$ case (Lemma~\ref{lem:deficit}), we analyze the total
-source deficit.  Each decomposition pair $(a, b)$ ``consumes'' deficit
-from the source residues.  The three decomposable residues require three
-witness pairs, drawing from the source pool.
+We prove the contrapositive: if $\Sigma\delta \le k^* - 2$, then $d \le 2$.
 
-For sources $a \le r^*$: $\delta_a = k^* - k_a \ge k^* - 1$ (since $k_a \ge 1$).
-A single such source already contributes deficit $\ge k^* - 1$.
+For each decomposable residue~$r$, fix a witness pair $(a_r, b_r)$
+with $k_{a_r} + k_{b_r} + \varepsilon_{a_r, b_r} = k_r$.
+Let $\mathcal{S}$ denote the set of all residues appearing in these
+witness pairs that are \emph{not themselves decomposable}
+(the ``pure sources'').
 
-For sources $a > r^*$: $\delta_a = k^* - 1 - k_a$.
+\medskip
+\textbf{Key observation.}
+Every pure source~$s$ contributes deficit $\delta_s \ge 1$: if $s \le r^*$,
+then $k_s \le k^* - 1$ (since $s$ participates in a sum $\le k_r \le k^*$
+with another element of level $\ge 1$, forcing $k_s < k^*$), so
+$\delta_s = k^* - k_s \ge 1$; if $s > r^*$, then $k_s \le k^* - 1$
+and the witness pair constraint forces $k_s \le k^* - 1 - \varepsilon$,
+giving $\delta_s = k^* - 1 - k_s \ge 0$, with $\delta_s \ge 1$
+whenever $k_s \le k^* - 2$.
 
-\emph{Case with source $\le r^*$:}
-Any source at level~$1$ with $a \le r^*$ gives $\delta_a = k^* - 1$.
-Together with any additional source deficit, $\Sigma\delta \ge k^* - 1$
-and $L \ge 2k^* - 1$.
+We analyze by the number of distinct pure sources.
 
-\emph{Case with all sources $> r^*$:}
-Each source has $k_a \le k^* - 1$ and $\delta_a = k^* - 1 - k_a$.
-For a self-sum $(a, a)$ with target $> r^*$:
-$2k_a + \varepsilon \le k^* - 1$, so $k_a \le \lfloor(k^* - 2)/2\rfloor$,
-giving $\delta_a \ge \lceil(k^*)/2\rceil$.
-For a cross-sum $(a, b)$ with both $> r^*$ and target $> r^*$:
-$k_a + k_b + \varepsilon \le k^* - 1$, giving $\delta_a + \delta_b \ge k^* - 1$.
+\medskip
+\emph{Case 1: $|\mathcal{S}| \ge 3$ with at least one source $s \le r^*$.}
+Then $\delta_s = k^* - k_s \ge k^* - 1$.  Since $k^* - 1 \ge 3 > k^* - 2$
+for $k^* \ge 4$, we already have $\Sigma\delta > k^* - 2$.
 
-With three decomposition pairs, at least two distinct sources exist.
-The minimum total source deficit is $\ge k^* - 1$ in all configurations.
+\medskip
+\emph{Case 2: All pure sources $> r^*$ (any number).}
+For a pure source $s > r^*$, $\delta_s = k^* - 1 - k_s$.
+The witness pair constraint on a decomposable residue~$r$ (with $k_r \le k^*$)
+gives $k_{a_r} + k_{b_r} + \varepsilon \le k^*$.
+
+\emph{Subcase 2a: Self-sum $(a, a)$ with target~$r$ and both $a, r > r^*$.}
+Then $2k_a + \varepsilon \le k_r \le k^* - 1$ (since $r > r^*$),
+so $k_a \le \lfloor(k^* - 2)/2\rfloor$ and
+$\delta_a \ge \lceil k^*/2 \rceil$.
+
+\emph{Subcase 2b: Cross-sum $(a, b)$, $a \ne b$, target~$r$, all three $> r^*$.}
+Then $k_a + k_b + \varepsilon \le k^* - 1$, so $\delta_a + \delta_b \ge k^* - 1$.
+
+\emph{Subcase 2c: Self-sum $(a, a)$ with target~$r \le r^*$.}
+Then $2k_a + \varepsilon \le k_r = k^*$, giving $k_a \le \lfloor(k^* - 1)/2\rfloor$
+and $\delta_a \ge \lceil(k^* - 1)/2\rceil$.
+
+\emph{Subcase 2d: Cross-sum $(a, b)$ with target~$r \le r^*$.}
+Then $k_a + k_b + \varepsilon \le k^*$, so $\delta_a + \delta_b \ge k^* - 2$.
+
+\medskip
+Now consider the three witness pairs under the budget $\Sigma\delta \le k^* - 2$.
+
+A single pair in Subcase~2a or~2b already costs $\ge \lceil k^*/2\rceil$
+or $\ge k^* - 1$, respectively.  For $k^* \ge 4$, two such pairs would
+cost $\ge k^* > k^* - 2$, leaving room for at most one.
+
+The cheapest configuration is two pure sources $j_1, j_2 > r^*$ with
+three self/cross-sums: $(j_1, j_1)$, $(j_2, j_2)$, $(j_1, j_2)$.
+All targets are $\le r^*$ (which minimizes the level constraint) or all
+targets are $> r^*$.
+
+\emph{If all three targets $> r^*$:}
+$(j_1, j_1)$: $\delta_{j_1} \ge \lceil k^*/2 \rceil$ (Subcase~2a).
+$(j_2, j_2)$: $\delta_{j_2} \ge \lceil k^*/2 \rceil$ (Subcase~2a).
+Total: $\Sigma\delta \ge 2\lceil k^*/2 \rceil \ge k^*$.
+For $k^* \ge 4$: $k^* > k^* - 2$.
+
+\emph{If all three targets $\le r^*$:}
+Each pair uses Subcase~2c or~2d.  The self-sums give
+$\delta_{j_i} \ge \lceil(k^* - 1)/2\rceil$, so
+$\Sigma\delta \ge 2\lceil(k^* - 1)/2\rceil = k^* - 1 > k^* - 2$
+for $k^* \ge 4$.
+
+\emph{Mixed targets:}
+At least one pair has target $> r^*$ (cost $\ge \lceil k^*/2\rceil$
+from one source), and another has target $\le r^*$ (cost
+$\ge \lceil(k^* - 1)/2\rceil$ from the other source).
+Total $\ge \lceil k^*/2\rceil + \lceil(k^* - 1)/2\rceil = k^* > k^* - 2$.
+
+\medskip
+\emph{Case 3: Two pure sources, one or both $\le r^*$, plus decomposable sources.}
+If a pure source $s \le r^*$ has $k_s = 1$: $\delta_s = k^* - 1 \ge 3$.
+This alone exceeds $k^* - 2$ (for $k^* \ge 4$).
+If $k_s \ge 2$: $\delta_s = k^* - k_s \ge k^* - (k^* - 2) = 2$
+(since $k_s \le k^* - 2$ is needed for any witness pair with this source
+and another element at level $\ge 1$ to produce a target at level $\le k^*$).
+Together with any second source deficit $\ge 1$,
+total $\ge 2 + 1 = 3 > k^* - 2$ only if $k^* \le 4$.
+For $k^* = 5$: need $\delta \ge 3$ from one source $\le r^*$.
+Since $k_s \le k^* - 2 = 3$ (forced by the witness pair), $\delta_s = 5 - 3 = 2$.
+A second source $\le r^*$ at level $\le 3$: total $\ge 4 > 3 = k^* - 2$. \checkmark
+For general $k^*$: two sources $\le r^*$ contribute
+$\ge 2(k^* - (k^* - 2)) = 4$ if both are forced to $k_s \le k^* - 2$;
+but also $\ge k^* - 1$ if either is at level~$1$.  In all cases,
+$\Sigma\delta > k^* - 2$.
+
+\medskip
+In every case, $\Sigma\delta \le k^* - 2$ forces $d \le 2$, completing
+the contrapositive.
 \end{proof}
 
 \begin{proof}[Completion of Theorem~C for $k^* \ge 4$]
