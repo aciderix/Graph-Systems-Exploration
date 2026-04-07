@@ -103,6 +103,15 @@ def _try_load_c() -> Optional[ctypes.CDLL]:
                 ctypes.POINTER(KunzResultC),
             ]
             lib.run_enum_omp.restype = None
+        if hasattr(lib, "run_enum_prefix"):
+            lib.run_enum_prefix.argtypes = [
+                ctypes.c_int, ctypes.c_int,
+                ctypes.c_int, ctypes.c_int,
+                ctypes.c_longlong, ctypes.c_int,
+                ctypes.POINTER(ctypes.c_int), ctypes.c_int,
+                ctypes.POINTER(KunzResultC),
+            ]
+            lib.run_enum_prefix.restype = None
         return lib
     except Exception:
         return None
@@ -118,19 +127,30 @@ def run_c(
     d_max: Optional[int] = None,
     w_max: Optional[int] = None,
     omp_threads: Optional[int] = None,
+    k_prefix: Optional[list] = None,
 ) -> dict:
     """Pure-C enumeration. Returns the same summary shape as run().
 
     If omp_threads is not None and the loaded library exposes run_enum_omp,
     the parallel kernel is used (one worker per value of k_1). Pass 0 to
     use the OMP_NUM_THREADS / default runtime choice.
+
+    If k_prefix is provided (a list of values for k_1, k_2, ...), only the
+    subtree where the leading coordinates are pinned to those values is
+    enumerated. The union over all valid prefixes of a fixed length covers
+    the same leaves as an unrestricted run, so prefix-restricted runs can
+    be merged into a complete enumeration.
     """
     if _C_LIB is None:
         raise RuntimeError("C extension not loaded")
     if m < 2 or m > MAX_M_C:
         raise ValueError(f"m must be in [2, {MAX_M_C}]")
     res = KunzResultC()
-    use_omp = omp_threads is not None and hasattr(_C_LIB, "run_enum_omp")
+    use_omp = (omp_threads is not None and hasattr(_C_LIB, "run_enum_omp")
+               and not k_prefix)
+    use_prefix = bool(k_prefix) and hasattr(_C_LIB, "run_enum_prefix")
+    if k_prefix and not use_prefix:
+        raise RuntimeError("run_enum_prefix not available in C extension")
     t0 = time.time()
     if use_omp:
         _C_LIB.run_enum_omp(
@@ -140,6 +160,18 @@ def run_c(
             w_max if w_max is not None else 0,
             1 if w_max is not None else 0,
             int(omp_threads),
+            ctypes.byref(res),
+        )
+    elif use_prefix:
+        plen = len(k_prefix)
+        prefix_arr = (ctypes.c_int * plen)(*[int(x) for x in k_prefix])
+        _C_LIB.run_enum_prefix(
+            m, K_max,
+            d_min if d_min is not None else 0,
+            d_max if d_max is not None else m,
+            w_max if w_max is not None else 0,
+            1 if w_max is not None else 0,
+            prefix_arr, plen,
             ctypes.byref(res),
         )
     else:
@@ -173,7 +205,8 @@ def run_c(
         "leaves_valid": int(res.leaves_valid),
         "leaves_kept": int(res.leaves_kept),
         "per_defect": per_d,
-        "backend": "C-OMP" if use_omp else "C",
+        "backend": "C-OMP" if use_omp else ("C-prefix" if use_prefix else "C"),
+        "k_prefix": list(k_prefix) if k_prefix else None,
     }
 
 
@@ -401,13 +434,19 @@ def main() -> None:
     p.add_argument("--backend", choices=["py", "c", "auto"], default="auto")
     p.add_argument("--omp", type=int, default=None,
                    help="use OpenMP kernel with N threads (0 = runtime default)")
+    p.add_argument("--k-prefix", type=str, default=None,
+                   help="comma-separated values pinning k_1, k_2, ... "
+                        "(enables prefix-restricted enumeration for chunking)")
     args = p.parse_args()
 
     use_c = args.backend == "c" or (args.backend == "auto" and _C_LIB is not None)
     if use_c:
+        prefix = None
+        if args.k_prefix:
+            prefix = [int(x) for x in args.k_prefix.split(",") if x.strip()]
         summary = run_c(args.m, args.K_max,
                         d_min=args.d_min, d_max=args.d_max, w_max=args.w_max,
-                        omp_threads=args.omp)
+                        omp_threads=args.omp, k_prefix=prefix)
         if args.out:
             with open(args.out, "w") as f:
                 json.dump(summary, f, indent=1)

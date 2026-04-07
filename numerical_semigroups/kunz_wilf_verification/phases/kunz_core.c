@@ -229,6 +229,56 @@ void run_enum(int m, int k_max,
     reduce_into(out, &ctx.res, m);
 }
 
+/* Enumerate only the subtree where (k_1, ..., k_{plen}) is fixed to the
+ * given prefix. Used for chunking long enumerations into independent jobs:
+ * the union of all valid prefix-restricted runs reproduces run_enum exactly.
+ *
+ * The prefix must already satisfy the no-carry constraints internally
+ * (k_r <= k_a + k_b for a+b=r within the prefix). Invalid prefixes simply
+ * yield zero leaves.
+ */
+void run_enum_prefix(int m, int k_max,
+                     int d_min, int d_max,
+                     long long w_max, int has_w_max,
+                     const int *prefix, int plen,
+                     kunz_result_t *out) {
+    if (m < 2 || m > MAX_M) return;
+    if (plen < 0 || plen >= m) return;
+    memset(out, 0, sizeof(*out));
+
+    kunz_ctx_t ctx;
+    memset(&ctx, 0, sizeof(ctx));
+    ctx.m = m;
+    ctx.k_max = k_max;
+    ctx.d_min = d_min;
+    ctx.d_max = d_max;
+    ctx.w_max = w_max;
+    ctx.has_w_max = has_w_max;
+
+    /* Validate prefix against the no-carry forward constraints. */
+    for (int r = 1; r <= plen; r++) {
+        int v = prefix[r - 1];
+        if (v < 1 || v > k_max) return;
+        for (int a = 1; a < r; a++) {
+            int b = r - a;
+            if (v > prefix[a - 1] + prefix[b - 1]) return;
+        }
+        ctx.K[r - 1] = v;
+    }
+
+    if (plen == m - 1) {
+        /* Whole tuple fixed: just verify carry and record. */
+        ctx.res.leaves_raw++;
+        if (ctx_verify_carry(&ctx)) {
+            ctx.res.leaves_valid++;
+            ctx_compute_and_record(&ctx);
+        }
+    } else {
+        ctx_rec(&ctx, plen + 1);
+    }
+    reduce_into(out, &ctx.res, m);
+}
+
 /* OpenMP parallel variant. Splits the outer loop over k_1 across threads
  * (each value of k_1 is an independent subtree). Falls back to serial when
  * compiled without -fopenmp. */
