@@ -32,62 +32,109 @@ invariant computation, which is vectorized via numpy.
 """
 
 import argparse
+import ctypes
 import json
+import os
+import subprocess
 import sys
 import time
 from typing import Callable, Iterator, Optional
 
 import numpy as np
 
+# ----------------------------------------------------------------------
+# Optional C extension. Compile on first import if gcc is available.
+# ----------------------------------------------------------------------
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_C_SRC = os.path.join(_HERE, "kunz_core.c")
+_C_LIB_PATH = os.path.join(_HERE, "kunz_core.so")
+_C_LIB = None
 
-def invariants_from_k(k: np.ndarray, m: int) -> dict:
+
+def _try_load_c() -> Optional[ctypes.CDLL]:
+    if not os.path.exists(_C_SRC):
+        return None
+    if (not os.path.exists(_C_LIB_PATH)
+            or os.path.getmtime(_C_SRC) > os.path.getmtime(_C_LIB_PATH)):
+        try:
+            subprocess.run(
+                ["gcc", "-O3", "-march=native", "-fPIC", "-shared",
+                 _C_SRC, "-o", _C_LIB_PATH],
+                check=True, capture_output=True,
+            )
+        except Exception:
+            return None
+    try:
+        lib = ctypes.CDLL(_C_LIB_PATH)
+        lib.invariants.argtypes = [
+            ctypes.POINTER(ctypes.c_int), ctypes.c_int,
+            ctypes.POINTER(ctypes.c_int),
+        ]
+        lib.invariants.restype = None
+        return lib
+    except Exception:
+        return None
+
+
+_C_LIB = _try_load_c()
+
+
+def invariants_from_k(k, m: int) -> dict:
     """Compute (d, L, k*, r*, F, c, W, e) from a Kunz tuple k of length m-1.
 
-    k[0] = k_1, k[1] = k_2, ..., k[m-2] = k_{m-1}.
-    """
-    k_star = int(k.max())
-    # r* is the LARGEST residue achieving k*; residues are 1..m-1
-    r_star = int(np.flatnonzero(k == k_star).max()) + 1  # +1 because k[0]=k_1
+    k[0] = k_1, ..., k[m-2] = k_{m-1}. Accepts list, tuple, or ndarray.
 
-    # delta_i = k* - k_i if i <= r*, else max(0, k*-1-k_i)
-    idx = np.arange(1, m)  # residues 1..m-1
-    delta_le = k_star - k
-    delta_gt = np.maximum(0, k_star - 1 - k)
-    delta = np.where(idx <= r_star, delta_le, delta_gt)
-    L = k_star + int(delta.sum())
+    Uses the C extension if available (~10-50x faster), else pure Python.
+    """
+    if _C_LIB is not None:
+        return _invariants_c(k, m)
+    return _invariants_py(k, m)
+
+
+def _invariants_py(k, m: int) -> dict:
+    k_star = max(k)
+    # r* = largest residue (1-indexed) achieving k*
+    r_star = 0
+    for i in range(m - 1):
+        if k[i] == k_star:
+            r_star = i + 1
+
+    L = k_star
+    for i in range(m - 1):
+        if (i + 1) <= r_star:
+            L += k_star - k[i]
+        else:
+            d_i = k_star - 1 - k[i]
+            if d_i > 0:
+                L += d_i
 
     F = (k_star - 1) * m + r_star
     c = F + 1
 
-    # Defect: number of decomposable residues
-    # r is decomposable iff EXISTS (a,b) with a+b ≡ r (mod m) and
-    # k_a + k_b + eps <= k_r.
-    # Compute via pairwise sums.
-    # Index convention: k[i-1] is k_i for i in 1..m-1.
     d = 0
     for r in range(1, m):
         kr = k[r - 1]
         decomposable = False
         for a in range(1, m):
-            b_nocarry = r - a
-            b_carry = r + m - a
-            if 1 <= b_nocarry <= m - 1:
-                if k[a - 1] + k[b_nocarry - 1] <= kr:
+            b_nc = r - a
+            if 1 <= b_nc <= m - 1:
+                if k[a - 1] + k[b_nc - 1] <= kr:
                     decomposable = True
                     break
-            if 1 <= b_carry <= m - 1:
-                if k[a - 1] + k[b_carry - 1] + 1 <= kr:
+            b_c = r + m - a
+            if 1 <= b_c <= m - 1:
+                if k[a - 1] + k[b_c - 1] + 1 <= kr:
                     decomposable = True
                     break
         if decomposable:
             d += 1
 
-    e = m - d  # embedding dimension
+    e = m - d
     W = e * L - c
 
     return {
         "m": m,
-        "k": k.tolist(),
+        "k": [int(x) for x in k],
         "d": d,
         "e": e,
         "k_star": k_star,
@@ -96,6 +143,24 @@ def invariants_from_k(k: np.ndarray, m: int) -> dict:
         "F": F,
         "c": c,
         "W": W,
+    }
+
+
+def _invariants_c(k, m: int) -> dict:
+    arr = (ctypes.c_int * (m - 1))(*[int(x) for x in k])
+    out = (ctypes.c_int * 8)()
+    _C_LIB.invariants(arr, m, out)
+    return {
+        "m": m,
+        "k": [int(x) for x in k],
+        "d": int(out[0]),
+        "e": int(out[1]),
+        "k_star": int(out[2]),
+        "r_star": int(out[3]),
+        "L": int(out[4]),
+        "F": int(out[5]),
+        "c": int(out[6]),
+        "W": int(out[7]),
     }
 
 

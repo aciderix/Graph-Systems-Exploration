@@ -51,9 +51,7 @@ CANONICAL_FIELDS = [
     "wilf_number", "depth",
 ]
 
-# Known identities that must not be rediscovered.
-# Each is a lambda from record -> residual; if residual is identically 0
-# across the dataset, the candidate is a tautology.
+# Known identities (exact) that must not be rediscovered as inequalities.
 KNOWN_IDENTITIES = [
     ("c = F + 1",
      lambda r: r["conductor"] - r["frobenius"] - 1),
@@ -62,6 +60,71 @@ KNOWN_IDENTITIES = [
     ("W = e*L - c",
      lambda r: r["wilf_number"] - r["embedding_dimension"] * r["left_elements"] + r["conductor"]),
 ]
+
+# Known trivial / classical inequalities. Any candidate that is implied by
+# one of these (i.e., is a non-negative integer combination of these together
+# with the identities) should be filtered. We test it pointwise: if a
+# candidate is a positive integer multiple of one of these (modulo the
+# identities), drop it.
+#
+# Each entry is (name, lambda r -> residual >= 0). The residual gives the
+# slack of the known inequality on each record.
+KNOWN_INEQUALITIES = [
+    # Embedding dimension <= multiplicity (classical)
+    ("e <= m",
+     lambda r: r["multiplicity"] - r["embedding_dimension"]),
+    # Multiplicity >= 2 for non-trivial S
+    ("m >= 2",
+     lambda r: r["multiplicity"] - 2),
+    # Embedding dimension >= 2 for non-trivial S
+    ("e >= 2",
+     lambda r: r["embedding_dimension"] - 2),
+    # Frobenius >= 1 (since multiplicity >= 2)
+    ("F >= 1",
+     lambda r: r["frobenius"] - 1),
+    # Type >= 1
+    ("t >= 1",
+     lambda r: r["type"] - 1),
+    # Genus >= 1
+    ("g >= 1",
+     lambda r: r["genus"] - 1),
+    # L >= 1 (0 is in S, so L >= 1)
+    ("L >= 1",
+     lambda r: r["left_elements"] - 1),
+    # F >= m - 1 (multiplicity is the smallest nonzero element of S, so the
+    # gaps {1,...,m-1} are all gaps, hence F >= m-1)
+    ("F >= m - 1",
+     lambda r: r["frobenius"] - r["multiplicity"] + 1),
+    # g >= m - 1 (same reason)
+    ("g >= m - 1",
+     lambda r: r["genus"] - r["multiplicity"] + 1),
+    # 2g >= F + 1 (every gap x has F-x in S OR is a gap, so 2g >= F + 1
+    # is equivalent to S being non-symmetric or symmetric; for symmetric
+    # 2g = F+1, otherwise 2g > F+1). So 2g >= F+1 = c.
+    ("2g >= c",
+     lambda r: 2 * r["genus"] - r["conductor"]),
+    # Wilf trivial bound: W >= 0 holds for d <= 2 (Eliahou et al.) and is the
+    # central conjecture; we don't filter it because it's the target.
+]
+
+
+def is_filtered_by_known(coefs, fields, const, records, ineq_residuals):
+    """Return True if the candidate inequality is implied (pointwise) by a
+    non-negative integer combination of KNOWN_INEQUALITIES (slack >=0 already
+    computed in ineq_residuals). We use a cheap test: if the candidate's
+    residual on every record is >= the residual of one single known
+    inequality (after normalizing), it's strictly weaker than that known
+    inequality and we drop it."""
+    cand_res = []
+    for r in records:
+        s = const
+        for c, f in zip(coefs, fields):
+            s += c * r[f]
+        cand_res.append(s)
+    for name, residuals in ineq_residuals.items():
+        if all(cand >= ref for cand, ref in zip(cand_res, residuals)):
+            return name
+    return None
 
 # Names mapping (some JSON producers use 'wilf_number', others 'W', etc.)
 ALIASES = {
@@ -165,7 +228,16 @@ def scan(
         print("Not enough records for TRAIN/HOLDOUT split.")
         return []
 
+    # Precompute residuals of every known inequality on the full dataset.
+    ineq_residuals = {}
+    for name, fn in KNOWN_INEQUALITIES:
+        try:
+            ineq_residuals[name] = [fn(r) for r in records]
+        except KeyError:
+            pass
+
     survivors = []
+    filtered_by_known = 0
     coef_range = list(range(-max_coef, max_coef + 1))
     const_range = list(range(-3 * max_coef, 3 * max_coef + 1))
 
@@ -200,6 +272,11 @@ def scan(
             # Tautology filter: constant residual across dataset?
             if tight_full == len(records):
                 continue  # exact identity
+            # Filter by known inequalities (weaker-than)
+            implied = is_filtered_by_known(coefs, fields, const, records, ineq_residuals)
+            if implied is not None:
+                filtered_by_known += 1
+                continue
             survivors.append({
                 "coefs": list(coefs),
                 "fields": list(fields),
@@ -211,7 +288,8 @@ def scan(
             })
 
     if verbose:
-        print(f"Tested {n_tested} candidates on fields {fields}.")
+        print(f"Tested {n_tested} candidates on fields {fields}, "
+              f"filtered_by_known={filtered_by_known}, survivors={len(survivors)}.")
     return survivors
 
 
