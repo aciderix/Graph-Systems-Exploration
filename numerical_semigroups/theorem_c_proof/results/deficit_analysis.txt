@@ -1,3 +1,636 @@
 DEFICIT LEMMA: EXHAUSTIVE CONFIGURATION ANALYSIS
 d=3, k*>=4
 ======================================================================
+
+Distinct configuration patterns found:
+
+  Pattern: 1 pure sources, 2 decomp sources, positions=('<=r*',), self-sum=True
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=7, kunz=(1, 2, 3, 4, 3, 3)
+    decomp=[2, 3, 4], pure_src=[1], decomp_src=[2, 3]
+      target 2 (level 2): pairs [(1, 1)]
+      target 3 (level 3): pairs [(1, 2)]
+      target 4 (level 4): pairs [(1, 3), (2, 2)]
+
+  Pattern: 1 pure sources, 2 decomp sources, positions=('>r*',), self-sum=True
+    min Σδ = 6, k* = 5, L = 11
+    Example: m=7, kunz=(5, 1, 4, 2, 4, 3)
+    decomp=[1, 4, 6], pure_src=[2], decomp_src=[4, 6]
+      target 1 (level 5): pairs [(2, 6), (4, 4)]
+      target 4 (level 2): pairs [(2, 2)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 2 pure sources, 0 decomp sources, positions=('<=r*', '<=r*'), self-sum=True
+    min Σδ = 4, k* = 4, L = 8
+    Example: m=7, kunz=(2, 4, 2, 4, 4, 4)
+    decomp=[2, 4, 6], pure_src=[1, 3], decomp_src=[]
+      target 2 (level 4): pairs [(1, 1)]
+      target 4 (level 4): pairs [(1, 3)]
+      target 6 (level 4): pairs [(3, 3)]
+
+  Pattern: 2 pure sources, 0 decomp sources, positions=('<=r*', '>r*'), self-sum=True
+    min Σδ = 4, k* = 4, L = 8
+    Example: m=7, kunz=(2, 4, 3, 3, 1, 3)
+    decomp=[2, 3, 6], pure_src=[1, 5], decomp_src=[]
+      target 2 (level 4): pairs [(1, 1)]
+      target 3 (level 3): pairs [(5, 5)]
+      target 6 (level 3): pairs [(1, 5)]
+
+  Pattern: 2 pure sources, 0 decomp sources, positions=('>r*', '>r*'), self-sum=True
+    min Σδ = 4, k* = 5, L = 9
+    Example: m=7, kunz=(5, 2, 2, 4, 4, 4)
+    decomp=[4, 5, 6], pure_src=[2, 3], decomp_src=[]
+      target 4 (level 4): pairs [(2, 2)]
+      target 5 (level 4): pairs [(2, 3)]
+      target 6 (level 4): pairs [(3, 3)]
+
+  Pattern: 2 pure sources, 1 decomp sources, positions=('<=r*', '<=r*'), self-sum=True
+    min Σδ = 5, k* = 4, L = 9
+    Example: m=7, kunz=(3, 1, 4, 2, 3, 3)
+    decomp=[3, 4, 6], pure_src=[1, 2], decomp_src=[4]
+      target 3 (level 4): pairs [(1, 2)]
+      target 4 (level 2): pairs [(2, 2)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 2 pure sources, 1 decomp sources, positions=('<=r*', '>r*'), self-sum=True
+    min Σδ = 5, k* = 4, L = 9
+    Example: m=7, kunz=(2, 4, 1, 3, 3, 2)
+    decomp=[2, 4, 6], pure_src=[1, 3], decomp_src=[6]
+      target 2 (level 4): pairs [(1, 1), (3, 6)]
+      target 4 (level 3): pairs [(1, 3)]
+      target 6 (level 2): pairs [(3, 3)]
+
+  Pattern: 2 pure sources, 1 decomp sources, positions=('>r*', '>r*'), self-sum=True
+    min Σδ = 4, k* = 4, L = 8
+    Example: m=7, kunz=(4, 1, 2, 2, 3, 3)
+    decomp=[4, 5, 6], pure_src=[2, 3], decomp_src=[4]
+      target 4 (level 2): pairs [(2, 2)]
+      target 5 (level 3): pairs [(2, 3)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 2 pure sources, 2 decomp sources, positions=('<=r*', '<=r*'), self-sum=True
+    min Σδ = 8, k* = 4, L = 12
+    Example: m=7, kunz=(1, 2, 2, 3, 4, 3)
+    decomp=[2, 4, 5], pure_src=[1, 3], decomp_src=[2, 4]
+      target 2 (level 2): pairs [(1, 1)]
+      target 4 (level 3): pairs [(1, 3)]
+      target 5 (level 4): pairs [(1, 4), (2, 3)]
+
+  Pattern: 2 pure sources, 2 decomp sources, positions=('<=r*', '>r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=7, kunz=(3, 1, 4, 1, 3, 2)
+    decomp=[1, 3, 6], pure_src=[2, 4], decomp_src=[1, 6]
+      target 1 (level 3): pairs [(4, 4)]
+      target 3 (level 4): pairs [(1, 2), (4, 6)]
+      target 6 (level 2): pairs [(2, 4)]
+
+  Pattern: 2 pure sources, 2 decomp sources, positions=('>r*', '>r*'), self-sum=True
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=9, kunz=(4, 1, 3, 1, 3, 2, 3, 2)
+    decomp=[1, 6, 8], pure_src=[2, 4], decomp_src=[6, 8]
+      target 1 (level 4): pairs [(2, 8), (4, 6)]
+      target 6 (level 2): pairs [(2, 4)]
+      target 8 (level 2): pairs [(4, 4)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*'), self-sum=False
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=7, kunz=(2, 2, 4, 2, 4, 4)
+    decomp=[3, 5, 6], pure_src=[1, 2, 4], decomp_src=[]
+      target 3 (level 4): pairs [(1, 2)]
+      target 5 (level 4): pairs [(1, 4)]
+      target 6 (level 4): pairs [(2, 4)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=7, kunz=(2, 2, 2, 4, 4, 4)
+    decomp=[4, 5, 6], pure_src=[1, 2, 3], decomp_src=[]
+      target 4 (level 4): pairs [(1, 3), (2, 2)]
+      target 5 (level 4): pairs [(2, 3)]
+      target 6 (level 4): pairs [(3, 3)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '>r*'), self-sum=False
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=7, kunz=(2, 2, 4, 1, 3, 3)
+    decomp=[3, 5, 6], pure_src=[1, 2, 4], decomp_src=[]
+      target 3 (level 4): pairs [(1, 2)]
+      target 5 (level 3): pairs [(1, 4)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=7, kunz=(2, 2, 4, 4, 3, 1)
+    decomp=[3, 4, 5], pure_src=[1, 2, 6], decomp_src=[]
+      target 3 (level 4): pairs [(1, 2)]
+      target 4 (level 4): pairs [(2, 2)]
+      target 5 (level 3): pairs [(6, 6)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('<=r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=7, kunz=(4, 3, 1, 4, 2, 1)
+    decomp=[1, 2, 4], pure_src=[3, 5, 6], decomp_src=[]
+      target 1 (level 4): pairs [(3, 5)]
+      target 2 (level 3): pairs [(3, 6)]
+      target 4 (level 4): pairs [(5, 6)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 5, k* = 4, L = 9
+    Example: m=7, kunz=(2, 4, 3, 2, 1, 3)
+    decomp=[2, 3, 6], pure_src=[1, 4, 5], decomp_src=[]
+      target 2 (level 4): pairs [(1, 1), (4, 5)]
+      target 3 (level 3): pairs [(5, 5)]
+      target 6 (level 3): pairs [(1, 5)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('>r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 5, k* = 4, L = 9
+    Example: m=7, kunz=(4, 4, 2, 3, 1, 1)
+    decomp=[1, 2, 4], pure_src=[3, 5, 6], decomp_src=[]
+      target 1 (level 4): pairs [(3, 5)]
+      target 2 (level 4): pairs [(3, 6)]
+      target 4 (level 3): pairs [(5, 6)]
+
+  Pattern: 3 pure sources, 0 decomp sources, positions=('>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 4, k* = 4, L = 8
+    Example: m=9, kunz=(4, 2, 3, 2, 3, 1, 3, 3)
+    decomp=[1, 3, 8], pure_src=[2, 4, 6], decomp_src=[]
+      target 1 (level 4): pairs [(4, 6)]
+      target 3 (level 3): pairs [(6, 6)]
+      target 8 (level 3): pairs [(2, 6)]
+
+  Pattern: 3 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=7, kunz=(3, 3, 2, 1, 4, 4)
+    decomp=[1, 5, 6], pure_src=[2, 3, 4], decomp_src=[1]
+      target 1 (level 3): pairs [(4, 4)]
+      target 5 (level 4): pairs [(1, 4)]
+      target 6 (level 4): pairs [(2, 4), (3, 3)]
+
+  Pattern: 3 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=9, kunz=(3, 4, 2, 4, 1, 4, 3, 2)
+    decomp=[1, 4, 6], pure_src=[3, 5, 8], decomp_src=[1]
+      target 1 (level 3): pairs [(5, 5)]
+      target 4 (level 4): pairs [(5, 8)]
+      target 6 (level 4): pairs [(1, 5), (3, 3)]
+
+  Pattern: 3 pure sources, 1 decomp sources, positions=('<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=7, kunz=(2, 4, 1, 1, 3, 2)
+    decomp=[2, 5, 6], pure_src=[1, 3, 4], decomp_src=[6]
+      target 2 (level 4): pairs [(1, 1), (3, 6)]
+      target 5 (level 3): pairs [(1, 4)]
+      target 6 (level 2): pairs [(3, 3)]
+
+  Pattern: 3 pure sources, 1 decomp sources, positions=('>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=7, kunz=(4, 1, 2, 2, 1, 3)
+    decomp=[1, 4, 6], pure_src=[2, 3, 5], decomp_src=[4]
+      target 1 (level 4): pairs [(3, 5)]
+      target 4 (level 2): pairs [(2, 2)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 3 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 10, k* = 4, L = 14
+    Example: m=7, kunz=(1, 2, 2, 2, 3, 4)
+    decomp=[2, 5, 6], pure_src=[1, 3, 4], decomp_src=[2, 5]
+      target 2 (level 2): pairs [(1, 1)]
+      target 5 (level 3): pairs [(1, 4)]
+      target 6 (level 4): pairs [(1, 5), (2, 4), (3, 3)]
+
+  Pattern: 3 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=7, kunz=(3, 2, 1, 4, 1, 2)
+    decomp=[1, 4, 6], pure_src=[2, 3, 5], decomp_src=[1, 6]
+      target 1 (level 3): pairs [(3, 5)]
+      target 4 (level 4): pairs [(1, 3), (2, 2), (5, 6)]
+      target 6 (level 2): pairs [(3, 3)]
+
+  Pattern: 3 pure sources, 2 decomp sources, positions=('<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=7, kunz=(1, 2, 3, 4, 2, 1)
+    decomp=[2, 3, 4], pure_src=[1, 5, 6], decomp_src=[2, 3]
+      target 2 (level 2): pairs [(1, 1)]
+      target 3 (level 3): pairs [(1, 2)]
+      target 4 (level 4): pairs [(1, 3), (2, 2), (5, 6)]
+
+  Pattern: 3 pure sources, 2 decomp sources, positions=('>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 10, k* = 5, L = 15
+    Example: m=7, kunz=(5, 1, 2, 2, 2, 3)
+    decomp=[1, 4, 6], pure_src=[2, 3, 5], decomp_src=[4, 6]
+      target 1 (level 5): pairs [(2, 6), (3, 5), (4, 4)]
+      target 4 (level 2): pairs [(2, 2)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*'), self-sum=False
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=8, kunz=(3, 3, 3, 1, 4, 4, 4)
+    decomp=[5, 6, 7], pure_src=[1, 2, 3, 4], decomp_src=[]
+      target 5 (level 4): pairs [(1, 4)]
+      target 6 (level 4): pairs [(2, 4)]
+      target 7 (level 4): pairs [(3, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=8, kunz=(3, 3, 2, 1, 4, 4, 3)
+    decomp=[5, 6, 7], pure_src=[1, 2, 3, 4], decomp_src=[]
+      target 5 (level 4): pairs [(1, 4)]
+      target 6 (level 4): pairs [(2, 4), (3, 3)]
+      target 7 (level 3): pairs [(3, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*'), self-sum=False
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=8, kunz=(3, 3, 4, 1, 4, 4, 2)
+    decomp=[3, 5, 6], pure_src=[1, 2, 4, 7], decomp_src=[]
+      target 3 (level 4): pairs [(4, 7)]
+      target 5 (level 4): pairs [(1, 4)]
+      target 6 (level 4): pairs [(2, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 8, k* = 4, L = 12
+    Example: m=8, kunz=(2, 2, 2, 4, 1, 3, 3)
+    decomp=[4, 6, 7], pure_src=[1, 2, 3, 5], decomp_src=[]
+      target 4 (level 4): pairs [(1, 3), (2, 2)]
+      target 6 (level 3): pairs [(1, 5)]
+      target 7 (level 3): pairs [(2, 5)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=8, kunz=(3, 4, 4, 1, 4, 2, 2)
+    decomp=[2, 3, 5], pure_src=[1, 4, 6, 7], decomp_src=[]
+      target 2 (level 4): pairs [(4, 6)]
+      target 3 (level 4): pairs [(4, 7)]
+      target 5 (level 4): pairs [(1, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=8, kunz=(2, 2, 4, 3, 2, 1, 3)
+    decomp=[3, 4, 7], pure_src=[1, 2, 5, 6], decomp_src=[]
+      target 3 (level 4): pairs [(1, 2), (5, 6)]
+      target 4 (level 3): pairs [(6, 6)]
+      target 7 (level 3): pairs [(1, 6)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=8, kunz=(4, 2, 4, 1, 2, 3, 2)
+    decomp=[1, 3, 6], pure_src=[2, 4, 5, 7], decomp_src=[]
+      target 1 (level 4): pairs [(4, 5)]
+      target 3 (level 4): pairs [(4, 7)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=8, kunz=(2, 4, 2, 1, 3, 2, 3)
+    decomp=[2, 5, 7], pure_src=[1, 3, 4, 6], decomp_src=[]
+      target 2 (level 4): pairs [(1, 1), (4, 6)]
+      target 5 (level 3): pairs [(1, 4)]
+      target 7 (level 3): pairs [(3, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('>r*', '>r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 5, k* = 4, L = 9
+    Example: m=8, kunz=(4, 2, 2, 1, 2, 3, 3)
+    decomp=[1, 6, 7], pure_src=[2, 3, 4, 5], decomp_src=[]
+      target 1 (level 4): pairs [(4, 5)]
+      target 6 (level 3): pairs [(2, 4)]
+      target 7 (level 3): pairs [(3, 4)]
+
+  Pattern: 4 pure sources, 0 decomp sources, positions=('>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 6, k* = 4, L = 10
+    Example: m=8, kunz=(4, 2, 2, 3, 1, 1, 3)
+    decomp=[1, 4, 7], pure_src=[2, 3, 5, 6], decomp_src=[]
+      target 1 (level 4): pairs [(3, 6)]
+      target 4 (level 3): pairs [(6, 6)]
+      target 7 (level 3): pairs [(2, 5)]
+
+  Pattern: 4 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=8, kunz=(3, 3, 2, 2, 1, 4, 4)
+    decomp=[2, 6, 7], pure_src=[1, 3, 4, 5], decomp_src=[2]
+      target 2 (level 3): pairs [(5, 5)]
+      target 6 (level 4): pairs [(1, 5), (3, 3)]
+      target 7 (level 4): pairs [(2, 5), (3, 4)]
+
+  Pattern: 4 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=9, kunz=(3, 2, 4, 2, 1, 4, 2, 3)
+    decomp=[1, 3, 6], pure_src=[2, 4, 5, 7], decomp_src=[1]
+      target 1 (level 3): pairs [(5, 5)]
+      target 3 (level 4): pairs [(5, 7)]
+      target 6 (level 4): pairs [(1, 5), (2, 4)]
+
+  Pattern: 4 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 8, k* = 4, L = 12
+    Example: m=9, kunz=(3, 1, 4, 2, 2, 3, 1, 3)
+    decomp=[3, 4, 6], pure_src=[1, 2, 5, 7], decomp_src=[4]
+      target 3 (level 4): pairs [(1, 2), (5, 7)]
+      target 4 (level 2): pairs [(2, 2)]
+      target 6 (level 3): pairs [(2, 4)]
+
+  Pattern: 4 pure sources, 1 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 8, k* = 4, L = 12
+    Example: m=9, kunz=(2, 4, 4, 1, 1, 2, 3, 2)
+    decomp=[2, 3, 8], pure_src=[1, 4, 5, 6], decomp_src=[8]
+      target 2 (level 4): pairs [(1, 1), (5, 6)]
+      target 3 (level 4): pairs [(4, 8)]
+      target 8 (level 2): pairs [(4, 4)]
+
+  Pattern: 4 pure sources, 1 decomp sources, positions=('>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=8, kunz=(4, 2, 1, 2, 1, 2, 3)
+    decomp=[1, 6, 7], pure_src=[2, 3, 4, 5], decomp_src=[6]
+      target 1 (level 4): pairs [(3, 6), (4, 5)]
+      target 6 (level 2): pairs [(3, 3)]
+      target 7 (level 3): pairs [(2, 5), (3, 4)]
+
+  Pattern: 4 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 12, k* = 4, L = 16
+    Example: m=8, kunz=(1, 2, 2, 2, 2, 3, 4)
+    decomp=[2, 6, 7], pure_src=[1, 3, 4, 5], decomp_src=[2, 6]
+      target 2 (level 2): pairs [(1, 1)]
+      target 6 (level 3): pairs [(1, 5)]
+      target 7 (level 4): pairs [(1, 6), (2, 5), (3, 4)]
+
+  Pattern: 4 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 11, k* = 4, L = 15
+    Example: m=8, kunz=(2, 3, 1, 2, 4, 2, 1)
+    decomp=[2, 5, 6], pure_src=[1, 3, 4, 7], decomp_src=[2, 6]
+      target 2 (level 3): pairs [(3, 7)]
+      target 5 (level 4): pairs [(1, 4), (2, 3), (6, 7)]
+      target 6 (level 2): pairs [(3, 3)]
+
+  Pattern: 4 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 11, k* = 4, L = 15
+    Example: m=8, kunz=(1, 2, 2, 3, 4, 2, 1)
+    decomp=[2, 4, 5], pure_src=[1, 3, 6, 7], decomp_src=[2, 4]
+      target 2 (level 2): pairs [(1, 1)]
+      target 4 (level 3): pairs [(1, 3)]
+      target 5 (level 4): pairs [(1, 4), (2, 3), (6, 7)]
+
+  Pattern: 4 pure sources, 2 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 10, k* = 4, L = 14
+    Example: m=8, kunz=(3, 1, 4, 2, 1, 2, 1)
+    decomp=[1, 3, 4], pure_src=[2, 5, 6, 7], decomp_src=[1, 4]
+      target 1 (level 3): pairs [(2, 7)]
+      target 3 (level 4): pairs [(1, 2), (4, 7), (5, 6)]
+      target 4 (level 2): pairs [(2, 2)]
+
+  Pattern: 4 pure sources, 2 decomp sources, positions=('>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=8, kunz=(4, 1, 2, 2, 1, 1, 2)
+    decomp=[1, 4, 7], pure_src=[2, 3, 5, 6], decomp_src=[4, 7]
+      target 1 (level 4): pairs [(2, 7), (3, 6), (4, 5)]
+      target 4 (level 2): pairs [(2, 2)]
+      target 7 (level 2): pairs [(2, 5)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '<=r*'), self-sum=False
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=9, kunz=(3, 3, 1, 3, 4, 1, 4, 4)
+    decomp=[5, 7, 8], pure_src=[1, 2, 3, 4, 6], decomp_src=[]
+      target 5 (level 4): pairs [(2, 3)]
+      target 7 (level 4): pairs [(1, 6), (3, 4)]
+      target 8 (level 4): pairs [(2, 6)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 10, k* = 4, L = 14
+    Example: m=9, kunz=(2, 2, 2, 2, 2, 4, 4, 4)
+    decomp=[6, 7, 8], pure_src=[1, 2, 3, 4, 5], decomp_src=[]
+      target 6 (level 4): pairs [(1, 5), (2, 4), (3, 3)]
+      target 7 (level 4): pairs [(2, 5), (3, 4)]
+      target 8 (level 4): pairs [(3, 5), (4, 4)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '>r*'), self-sum=False
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=9, kunz=(3, 3, 1, 4, 4, 1, 4, 2)
+    decomp=[4, 5, 7], pure_src=[1, 2, 3, 6, 8], decomp_src=[]
+      target 4 (level 4): pairs [(1, 3)]
+      target 5 (level 4): pairs [(2, 3), (6, 8)]
+      target 7 (level 4): pairs [(1, 6)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=9, kunz=(3, 2, 2, 4, 4, 1, 4, 2)
+    decomp=[4, 5, 7], pure_src=[1, 2, 3, 6, 8], decomp_src=[]
+      target 4 (level 4): pairs [(2, 2)]
+      target 5 (level 4): pairs [(2, 3), (6, 8)]
+      target 7 (level 4): pairs [(1, 6)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=9, kunz=(2, 2, 4, 2, 4, 4, 2, 1)
+    decomp=[3, 5, 6], pure_src=[1, 2, 4, 7, 8], decomp_src=[]
+      target 3 (level 4): pairs [(1, 2), (4, 8)]
+      target 5 (level 4): pairs [(1, 4)]
+      target 6 (level 4): pairs [(2, 4), (7, 8)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=9, kunz=(2, 2, 2, 4, 1, 3, 3, 2)
+    decomp=[4, 6, 7], pure_src=[1, 2, 3, 5, 8], decomp_src=[]
+      target 4 (level 4): pairs [(1, 3), (2, 2), (5, 8)]
+      target 6 (level 3): pairs [(1, 5)]
+      target 7 (level 3): pairs [(2, 5)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 8, k* = 4, L = 12
+    Example: m=9, kunz=(3, 4, 1, 4, 2, 1, 2, 3)
+    decomp=[2, 4, 8], pure_src=[1, 3, 5, 6, 7], decomp_src=[]
+      target 2 (level 4): pairs [(5, 6)]
+      target 4 (level 4): pairs [(1, 3), (6, 7)]
+      target 8 (level 3): pairs [(3, 5)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 8, k* = 4, L = 12
+    Example: m=9, kunz=(2, 2, 4, 4, 1, 3, 2, 2)
+    decomp=[3, 4, 6], pure_src=[1, 2, 5, 7, 8], decomp_src=[]
+      target 3 (level 4): pairs [(1, 2), (5, 7)]
+      target 4 (level 4): pairs [(2, 2), (5, 8)]
+      target 6 (level 3): pairs [(1, 5)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 8, k* = 4, L = 12
+    Example: m=9, kunz=(4, 2, 4, 2, 2, 3, 1, 1)
+    decomp=[1, 3, 6], pure_src=[2, 4, 5, 7, 8], decomp_src=[]
+      target 1 (level 4): pairs [(2, 8)]
+      target 3 (level 4): pairs [(4, 8), (5, 7)]
+      target 6 (level 3): pairs [(7, 8)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=9, kunz=(2, 4, 4, 4, 1, 2, 2, 2)
+    decomp=[2, 3, 4], pure_src=[1, 5, 6, 7, 8], decomp_src=[]
+      target 2 (level 4): pairs [(1, 1), (5, 6)]
+      target 3 (level 4): pairs [(5, 7)]
+      target 4 (level 4): pairs [(5, 8)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('>r*', '>r*', '>r*', '>r*', '>r*'), self-sum=False
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=9, kunz=(4, 2, 1, 2, 2, 1, 3, 3)
+    decomp=[1, 7, 8], pure_src=[2, 3, 4, 5, 6], decomp_src=[]
+      target 1 (level 4): pairs [(4, 6)]
+      target 7 (level 3): pairs [(3, 4)]
+      target 8 (level 3): pairs [(2, 6), (3, 5)]
+
+  Pattern: 5 pure sources, 0 decomp sources, positions=('>r*', '>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 7, k* = 4, L = 11
+    Example: m=9, kunz=(4, 2, 2, 2, 3, 1, 1, 3)
+    decomp=[1, 5, 8], pure_src=[2, 3, 4, 6, 7], decomp_src=[]
+      target 1 (level 4): pairs [(3, 7), (4, 6)]
+      target 5 (level 3): pairs [(7, 7)]
+      target 8 (level 3): pairs [(2, 6)]
+
+  Pattern: 5 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 12, k* = 4, L = 16
+    Example: m=9, kunz=(2, 2, 4, 1, 2, 2, 4, 2)
+    decomp=[3, 7, 8], pure_src=[1, 2, 4, 5, 6], decomp_src=[8]
+      target 3 (level 4): pairs [(1, 2), (4, 8)]
+      target 7 (level 4): pairs [(1, 6), (2, 5)]
+      target 8 (level 2): pairs [(4, 4)]
+
+  Pattern: 5 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 12, k* = 4, L = 16
+    Example: m=9, kunz=(3, 2, 2, 2, 1, 4, 3, 1)
+    decomp=[1, 6, 7], pure_src=[2, 3, 4, 5, 8], decomp_src=[1]
+      target 1 (level 3): pairs [(5, 5)]
+      target 6 (level 4): pairs [(1, 5), (2, 4), (3, 3)]
+      target 7 (level 3): pairs [(2, 5), (8, 8)]
+
+  Pattern: 5 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 11, k* = 4, L = 15
+    Example: m=9, kunz=(3, 2, 2, 4, 1, 4, 1, 2)
+    decomp=[1, 4, 6], pure_src=[2, 3, 5, 7, 8], decomp_src=[1]
+      target 1 (level 3): pairs [(5, 5)]
+      target 4 (level 4): pairs [(2, 2), (5, 8)]
+      target 6 (level 4): pairs [(1, 5), (3, 3), (7, 8)]
+
+  Pattern: 5 pure sources, 1 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 10, k* = 4, L = 14
+    Example: m=9, kunz=(2, 2, 4, 1, 1, 3, 2, 2)
+    decomp=[3, 6, 8], pure_src=[1, 2, 4, 5, 7], decomp_src=[8]
+      target 3 (level 4): pairs [(1, 2), (4, 8), (5, 7)]
+      target 6 (level 3): pairs [(1, 5), (2, 4)]
+      target 8 (level 2): pairs [(4, 4)]
+
+  Pattern: 5 pure sources, 1 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 9, k* = 4, L = 13
+    Example: m=9, kunz=(2, 4, 4, 1, 1, 2, 2, 2)
+    decomp=[2, 3, 8], pure_src=[1, 4, 5, 6, 7], decomp_src=[8]
+      target 2 (level 4): pairs [(1, 1), (4, 7), (5, 6)]
+      target 3 (level 4): pairs [(4, 8), (5, 7)]
+      target 8 (level 2): pairs [(4, 4)]
+
+  Pattern: 5 pure sources, 1 decomp sources, positions=('>r*', '>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 13, k* = 5, L = 18
+    Example: m=9, kunz=(3, 5, 2, 2, 1, 4, 2, 2)
+    decomp=[1, 2, 6], pure_src=[3, 4, 5, 7, 8], decomp_src=[1]
+      target 1 (level 3): pairs [(5, 5)]
+      target 2 (level 5): pairs [(3, 8), (4, 7)]
+      target 6 (level 4): pairs [(1, 5), (3, 3)]
+
+  Pattern: 5 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '<=r*'), self-sum=True
+    min Σδ = 14, k* = 4, L = 18
+    Example: m=9, kunz=(1, 2, 2, 2, 2, 2, 3, 4)
+    decomp=[2, 7, 8], pure_src=[1, 3, 4, 5, 6], decomp_src=[2, 7]
+      target 2 (level 2): pairs [(1, 1)]
+      target 7 (level 3): pairs [(1, 6)]
+      target 8 (level 4): pairs [(1, 7), (2, 6), (3, 5), (4, 4)]
+
+  Pattern: 5 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '<=r*', '<=r*', '>r*'), self-sum=True
+    min Σδ = 13, k* = 4, L = 17
+    Example: m=9, kunz=(2, 3, 2, 1, 2, 4, 1, 2)
+    decomp=[2, 6, 8], pure_src=[1, 3, 4, 5, 7], decomp_src=[2, 8]
+      target 2 (level 3): pairs [(4, 7)]
+      target 6 (level 4): pairs [(1, 5), (2, 4), (3, 3), (7, 8)]
+      target 8 (level 2): pairs [(4, 4)]
+
+  Pattern: 5 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '<=r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 13, k* = 4, L = 17
+    Example: m=9, kunz=(1, 2, 2, 2, 3, 4, 2, 1)
+    decomp=[2, 5, 6], pure_src=[1, 3, 4, 7, 8], decomp_src=[2, 5]
+      target 2 (level 2): pairs [(1, 1)]
+      target 5 (level 3): pairs [(1, 4)]
+      target 6 (level 4): pairs [(1, 5), (2, 4), (3, 3), (7, 8)]
+
+  Pattern: 5 pure sources, 2 decomp sources, positions=('<=r*', '<=r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 12, k* = 4, L = 16
+    Example: m=9, kunz=(3, 2, 1, 4, 1, 1, 2, 2)
+    decomp=[1, 4, 8], pure_src=[2, 3, 5, 6, 7], decomp_src=[1, 8]
+      target 1 (level 3): pairs [(5, 5)]
+      target 4 (level 4): pairs [(1, 3), (2, 2), (5, 8), (6, 7)]
+      target 8 (level 2): pairs [(3, 5)]
+
+  Pattern: 5 pure sources, 2 decomp sources, positions=('<=r*', '>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 11, k* = 4, L = 15
+    Example: m=9, kunz=(2, 4, 1, 1, 2, 1, 2, 2)
+    decomp=[2, 7, 8], pure_src=[1, 3, 4, 5, 6], decomp_src=[7, 8]
+      target 2 (level 4): pairs [(1, 1), (3, 8), (4, 7), (5, 6)]
+      target 7 (level 2): pairs [(3, 4)]
+      target 8 (level 2): pairs [(4, 4)]
+
+  Pattern: 5 pure sources, 2 decomp sources, positions=('>r*', '>r*', '>r*', '>r*', '>r*'), self-sum=True
+    min Σδ = 14, k* = 5, L = 19
+    Example: m=9, kunz=(5, 1, 2, 2, 2, 2, 2, 3)
+    decomp=[1, 4, 8], pure_src=[2, 3, 5, 6, 7], decomp_src=[4, 8]
+      target 1 (level 5): pairs [(2, 8), (3, 7), (4, 6), (5, 5)]
+      target 4 (level 2): pairs [(2, 2)]
+      target 8 (level 3): pairs [(2, 6)]
+
+======================================================================
+MINIMUM Σδ CASES (k*>=4)
+======================================================================
+
+  m=7: 2632 sgs with k*>=4
+    kunz=(2, 4, 2, 4, 4, 4), k*=4, Σδ=4, L=8, W=4
+    pure_src=[1, 3] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 4: pairs [(1, 3)]
+      target 6: pairs [(3, 3)]
+    kunz=(2, 4, 3, 3, 1, 3), k*=4, Σδ=4, L=8, W=8
+    pure_src=[1, 5] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 3: pairs [(5, 5)]
+      target 6: pairs [(1, 5)]
+    kunz=(4, 1, 2, 2, 3, 3), k*=4, Σδ=4, L=8, W=9
+    pure_src=[2, 3] (deficit=3), decomp_src=[4]
+      target 4: pairs [(2, 2)]
+      target 5: pairs [(2, 3)]
+      target 6: pairs [(2, 4)]
+
+  m=8: 32139 sgs with k*>=4
+    kunz=(2, 4, 2, 4, 4, 4, 3), k*=4, Σδ=4, L=8, W=9
+    pure_src=[1, 3] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 4: pairs [(1, 3)]
+      target 6: pairs [(3, 3)]
+    kunz=(2, 4, 2, 4, 4, 4, 4), k*=4, Σδ=4, L=8, W=8
+    pure_src=[1, 3] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 4: pairs [(1, 3)]
+      target 6: pairs [(3, 3)]
+    kunz=(2, 4, 3, 3, 3, 1, 3), k*=4, Σδ=4, L=8, W=13
+    pure_src=[1, 6] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 4: pairs [(6, 6)]
+      target 7: pairs [(1, 6)]
+
+  m=9: 449916 sgs with k*>=4
+    kunz=(2, 4, 2, 4, 4, 4, 3, 3), k*=4, Σδ=4, L=8, W=14
+    pure_src=[1, 3] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 4: pairs [(1, 3)]
+      target 6: pairs [(3, 3)]
+    kunz=(2, 4, 2, 4, 4, 4, 4, 3), k*=4, Σδ=4, L=8, W=13
+    pure_src=[1, 3] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 4: pairs [(1, 3)]
+      target 6: pairs [(3, 3)]
+    kunz=(2, 4, 2, 4, 4, 4, 4, 4), k*=4, Σδ=4, L=8, W=12
+    pure_src=[1, 3] (deficit=4), decomp_src=[]
+      target 2: pairs [(1, 1)]
+      target 4: pairs [(1, 3)]
+      target 6: pairs [(3, 3)]
+
+======================================================================
+VERIFICATION: Σδ >= k*-1 for all k*>=4?
+======================================================================
+  Total violations of Σδ >= k*-1: 0
+
+  Verification: L >= 2k*-1 for all k*>=4?
+  Total violations of L >= 2k*-1: 0
