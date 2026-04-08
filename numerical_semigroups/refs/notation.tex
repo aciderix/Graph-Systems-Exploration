@@ -1,0 +1,37 @@
+% ===========================================
+Most of the notation and terminology used appears in the book by Rosales and García-Sánchez~\cite{RosalesGarcia2009Book-Numerical}. Results referred as well known can be found in the same reference.
+
+Let~$S$ be a numerical semigroup. 
+Recall that a numerical semigroup $S$ is a subset of $\mathbb{N}$ (the set of nonnegative integers) such that $0 \in S$, $S$ is closed under addition and the complement $\mathbb{N} \setminus S$ is finite (possibly empty).
+Throughout the paper, when the letter $S$ appears and nothing else is said, it should be understood as being a numerical semigroup. 
+
+The \emph{minimal generators} of~$S$ are also known as \emph{primitive elements} of~$S$.
+The set of primitive elements of~$S$ is denoted $\primitivesoper(S)$. It is well known to be finite. When there is no possible confusion on which is the semigroup in hand, the notation is often simplified and we write  $\primitivesoper$ instead of $\primitivesoper(S)$. This kind of simplification in the notation is made for all the other combinatorial invariants introduced along the paper.
+
+The \emph{multiplicity} of~$S$ is the least positive integer of~$S$ and is denoted $\multiplicityoper(S)$, or simply~$\multiplicityoper$.
+The \emph{Frobenius number} of~$S$ is the largest integer that does not belong to $S$, and is denoted $\Frobeniusoper(S)$.
+The \emph{conductor} of~$S$ is simply $\Frobeniusoper(S) +1$. Wilf's notation will be used for the conductor: $\conductoroper(S)$, or simply~$\conductoroper$. Note that $\conductoroper(S)$ is the smallest integer in~$S$ from which all the larger integers belong to~$S$. Let $\qoper(S)=\lceil \conductoroper(S)/\multiplicityoper(S)\rceil$ be the smallest integer greater than or equal to $\conductoroper(S)/\multiplicityoper(S)$. This number is called the \emph{depth} of~$S$ and is frequently denoted just by~$\qoper$. It is worth to keep in mind that $\conductoroper(S)\le \multiplicityoper(S)\qoper(S)$.
+
+The set of \emph{left elements} of~$S$ consists of the elements of~$S$ that are smaller than $\conductoroper(S)$. It is denoted $\leftsoper(S)$ (or simply~$\leftsoper$).
+A positive integer that does not belong to $S$ is said to be a \emph{gap} of $S$ (\emph{omitting value} in Wilf's terminology). The cardinality of the set of gaps is said to be the \emph{genus} of $S$ and, following Wilf, is denoted by $\genusoper(S)$, or simply by $\genusoper$. 
+
+If $x\in S$, then $\Frobeniusoper(S)-x\not \in S$. Thus, the following well known remark holds.
+
+\begin{remark}%\cite[Lemma 2.14]{RosalesGarcia2009Book-Numerical}
+Let $S$ be a numerical semigroup. Then $\genusoper(S)\ge \conductoroper(S)/2$. 
+\end{remark}
+
+As usual, $\lvert X\rvert$ denotes the cardinality of a set $X$.
+It is immediate that $\genusoper(S)+\left|\leftsoper(S)\right| =\conductoroper(S)$.
+From the above remark it follows that $\conductoroper(S)\ge 2\left|\leftsoper(S)\right|$.
+
+The number of primitives of $S$ is  called the \emph{embedding dimension} of~$S$. As it is just the cardinality of $\primitivesoper(S)$, it can be denoted $\lvert \primitivesoper(S)\rvert $, but in this paper I will mainly use the notation $\embeddingdimensionoper(S)$, or simply~$\embeddingdimensionoper$; $\embeddingdimensionoper$ stands for \emph{dimension} (a short for embedding dimension). 
+
+An integer $x$ is said to be a \emph{pseudo-Frobenius number} of $S$ if $x\not\in S$ and $x+s\in S$, for all $s\in S\setminus{\{0\}}$. The cardinality of the set of pseudo-Frobenius numbers of $S$ is said to be the \emph{type} of $S$ and is denoted by $\typeoper(S)$. The notion of type has been an important ingredient in the discovery of various families of numerical semigroups satisfying Wilf's conjecture, due to Proposition~\ref{prop:type} below.
+Another important tool, which is used in a crucial (and frequently rather technical) way in the proofs of some results presented in this survey is the \emph{Apéry set (with respect to the multiplicity)}: $\Aperyoper(S,\multiplicityoper)=\{s\in S\mid s-\multiplicityoper\not\in S\}$.
+
+Let $X$ be a set of positive integers. The notation $\langle X\rangle_{t}$ is used to represent the smallest numerical semigroup that contains $X$ and all the integers greater than or equal to~$t$. 
+
+For a numerical semigroup $S$, the interval of integers starting in $\conductoroper(S)$ and having $\multiplicityoper(S)$ elements is called the \emph{threshold interval} of $S$ (following a suggestion of Eliahou).
+% ===========================================
+

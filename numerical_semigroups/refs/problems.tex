@@ -1,0 +1,103 @@
+% ===========================================
+This section starts with a few words on Wilf's paper~\cite{Wilf1978AMM-circle}, including a transcript of the two problems that Wilf left open. Then, a little about each problem is said.
+\subsection{Wilf's paper}
+Wilf's concern was: 
+to present an algorithm, which, given a numerical semigroup $S$ and a finite generating set for $S$, finds the conductor of $S$, decides whether a given integer is representable (in terms of the elements of the generating set), finds a representation of an element of $S$, and determines the number of omitted values of $S$.
+
+These are problems that many researchers interested in combinatorial problems related to numerical semigroups are nowadays still concerned with. In a somewhat more modern language, one would say that Wilf was concerned with \emph{the Frobenius problem} (see~\cite{Ramirez-Alfonsin2005Book-Diophantine}), the membership problem, factorization problems (see~\cite{GeroldingerHalter-Koch2006}) and the problem of determining the genus.
+These problems continue to be (are at the base of) active fields of research. 
+
+The circle of lights algorithm explicitly given in~\cite{Wilf1978AMM-circle} determines both the conductor and the genus of a numerical semigroup provided that a finite generating set is at hand. Wilf also suggests a few changes to the circle of lights algorithm in order test membership and also to find a factorization. He also observed that to test membership, a suggestion of Brauer~\cite{Brauer1942AJM-problem} should be incorporated: it involves the use of the Apéry set (relative to the multiplicity).
+Another observation that I would like to make is that the (space and time) complexity is explicitly given, which is a relevant contribution to the overall quality of Wilf's paper. It is extremely agreeable to read and this without doubt contributes to the success of the problems stated in it.
+
+At the end of Wilf's article one finds the following two problems.
+It should be understood that the positive integer $k$ represents the embedding dimension of some numerical semigroup. 
+
+\begin{problem}[\cite{Wilf1978AMM-circle}]\label{prob:wilf-a-b}
+	Wilf asked:
+    \begin{itemize}
+        \item[$(a)$] Is it true that for a fixed $k$ the fraction $\Omega/\chi$ of omitted values is at most $1-(1/k)$ with equality only for the generators $k,k+1,\ldots,2k-1$?
+        \item[$(b)$] Let $f(n)$ be the number of semigroups whose conductor is $n$. What is the order of magnitude of $f(n)$ for $n\to\infty$?
+    \end{itemize}
+\end{problem}
+
+The first problem consists in fact of two problems. They can be stated explicitly as follows:
+\begin{problem}\label{prob:wilf-a1-a2} Wilf's problem (a) splits into two problems.
+	\begin{itemize}
+		\item[$(a.i)$] Is it true that for a fixed $k$ the fraction $\Omega/\chi$ of omitted values is at most $1-(1/k)$?
+		\item[$(a.ii)$] Is it true that for a fixed $k$ the fraction $\Omega/\chi$ of omitted values is $1-(1/k)$ only for the generators $k,k+1,\ldots,2k-1$?
+    \end{itemize}
+\end{problem}
+
+Problem ($a.i$) is nowadays known as \emph{Wilf's conjecture}.
+Sylvester's result (which is mentioned in the first page of Wilf's paper) gives counter examples to Problem~$(a.ii)$. Apparently Wilf forgot about them. Nowadays there are other counter examples known, but a characterization of those semigroups for which the equality holds is an open problem (see Section~\ref{sec:wilf-a2}).
+
+ %%%%%%%%%%
+\subsection{Problem (\emph{a.i}): Wilf's conjecture}\label{sec:wilf-a1}
+To a numerical semigroup~$S$ one can associate the following number denoted $\wilfoper(S)$ and called the \emph{Wilf number of~$S$}:
+\begin{equation}\label{eq:wilf-number}
+    \wilfoper(S) = \lvert \primitivesoper(S) \rvert\lvert \leftsoper(S) \rvert-\conductoroper(S).
+\end{equation}
+
+A numerical semigroup is said to be a \emph{Wilf semigroup} if and only if its Wilf number is nonnegative.
+\emph{Wilf's conjecture} can be stated as follows:
+\begin{conjecture}[Wilf, 1978]\label{conj:wilf}
+  Every numerical semigroup is a Wilf semigroup.
+\end{conjecture}
+It is a simple exercise to verify that Conjecture~\ref{conj:wilf} is precisely Problem~\ref{prob:wilf-a1-a2}~($a.i$).
+\medskip
+
+There is another number that can be associated to a numerical semigroup, just as Wilf number is, and which has revealed great importance in recent research (as the reader will be able to confirm, in particular when reading Section~\ref{sec:large-mult}).
+Let $S$ be a numerical semigroup and let $D= \primitivesoper(S)\cap \{\conductoroper,\dots,\conductoroper+\multiplicityoper-1\}$ be the set of non primitives in the threshold interval.
+Eliahou~\cite{Eliahou2018JEMS-Wilfs} associated to $S$ the number $\eliahouoper(S)$ that appears in Equation~(\ref{eq:eliahou-number}) below and used the notation $\wilfoper_0(S)$ to represent it. I prefer the notation $\eliahouoper(S)$, and use the terminology \emph{Eliahou number of~$S$}:
+\begin{equation}\label{eq:eliahou-number}
+\eliahouoper(S) = \lvert \primitivesoper\cap \leftsoper\rvert\lvert \leftsoper \rvert - {\qoper} \lvert D\rvert + \qoper\multiplicityoper - \conductoroper.
+\end{equation}
+
+Eliahou~\cite[Pg.~2112]{Eliahou2018JEMS-Wilfs} observed that there are numerical semigroups with negative Eliahou number and stated the following problem which is still open.
+\begin{problem}
+	Give a characterization of the class of numerical semigroups whose Eliahou number is negative.
+\end{problem}
+
+%%%%%%%%%%
+\subsection{Problem ($\emph{a.ii}$): another open problem}\label{sec:wilf-a2}
+A very nice result of Sylvester~\cite{Sylvester1984ET-Mathematical} gives a formula for the Frobenius number of a numerical semigroup of embedding dimension $2$. A closed formula (of a certain type) for the Frobenius number of a numerical semigroup of higher embedding dimension is not at reach for semigroups of bigger embedding dimension (see~\cite{Curtis1990MS-formulas} or \cite[Cor. 2.2.2]{Ramirez-Alfonsin2005Book-Diophantine}). Sylvester's results can be written as follows (see~\cite{RosalesGarcia2009Book-Numerical}): if $S = \langle a, b\rangle$ is a numerical semigroup of embedding dimension $2$, then  $\Frobeniusoper(S) = ab-a-b$, and $\genusoper(S)=\conductoroper(S)/2$. From this, it is immediate that for a numerical semigroup $S$ of embedding dimension $2$, $\wilfoper(S)=0$.
+The fact that numerical semigroups of the form $\langle \multiplicityoper, k\multiplicityoper+1,\ldots k\multiplicityoper+\multiplicityoper-1\rangle$ (which are of maximal embedding dimension and generated by some generalized arithmetic sequences) have Wilf number equal to $0$ is straightforward (see~\cite{FroebergGottliebHaeggkvist1987SF-numerical,MoscarielloSammartano2015MZ-conjecture}). 
+
+Whether these are the only numerical semigroups for which Wilf number is $0$ is a slight modification of Problem~\ref{prob:wilf-a1-a2}($a.ii$) and is open. I rephrase the question stated by  Moscariello and Sammartano.
+
+\begin{problem}[{\cite[Question~8]{MoscarielloSammartano2015MZ-conjecture}}]\label{prob:wilf-equality}
+	\label{quest:W-equal-0}
+	Let $S=\langle \multiplicityoper, g_2,\ldots,g_{\embeddingdimensionoper}\rangle$ be a numerical semigroup with multiplicity~$\multiplicityoper$ and embedding dimension~$\embeddingdimensionoper$. Is it true that if $\wilfoper(S)=0$, then $\embeddingdimensionoper(S)=2$ or $\embeddingdimensionoper(S)=\multiplicityoper(S)$ and there exists an integer $k>1$ such that $g_i=k\multiplicityoper+(i-1)$, for $i\in\{2,\ldots,\embeddingdimensionoper\}$? 
+\end{problem}
+
+Moscariello and Sammartano observed that in order to answer affirmatively this question it suffices to prove that for a semigroup with Wilf number equal to $0$, either its embedding dimension is $2$ or it has maximal embedding dimension.
+
+They also observed that no numerical semigroup of genus up to $35$ provides a negative answer to the question.
+
+Kaplan~\cite[Prop.~26]{Kaplan2012JPAA-Counting} has shown that Problem~\ref{prob:wilf-equality} has a positive answer in the case of numerical semigroups whose multiplicity is at least half of the conductor. The same holds for numerical semigroups of depth $3$ (see a remark by Sammartano in~\cite[Rem.~6.6]{Eliahou2018JEMS-Wilfs}), thus concluding that there are no counter examples among the semigroups satisfying $\conductoroper\le 3\multiplicityoper$.
+
+%%%%%%%%%%%%
+\subsection{Problem (b): counting numerical semigroups}
+
+Wilf's Problem~\ref{prob:wilf-a-b}($b$) can be viewed as a problem about counting numerical semigroups by conductor. Backelin~\cite{Backelin1990MS-number} addressed this problem. A slight modification consists on counting by genus. Great attention has been given to this problem after Bras-Amorós~\cite{Bras-Amoros2008SF-Fibonacci} proposed some conjectures on the theme. Some of these conjectures were solved by Zhai~\cite{Zhai2012SF-Fibonacci}, while others remain open.
+For an excellent survey (which in particular contains references for counting by conductor and has an outline of Zhai's proofs), see Kaplan~\cite{Kaplan2017AMM-Counting}.
+
+Denote respectively by $N(g)$ and $t(g)$ the number of numerical semigroups of genus $g$ and the number of numerical semigroups of genus $g$ satisfying $\conductoroper(S) \le 3\multiplicityoper(S)$.
+
+In the paper where he proved some of the conjectures of Bras-Amorós (one of them being that the sequence $\big(N(g)\big)$ behaves like the Fibonacci sequence), Zhai also proved that the proportion of numerical semigroups such that $\conductoroper(S) \le 3\multiplicityoper(S)$ tends to $1$ as $g$ tends to infinity, as conjectured by Zhao~\cite{Zhao2010SF-Constructing}.
+
+\begin{proposition}[\cite{Zhai2012SF-Fibonacci}]\label{prop:Zhao-Zhai}
+	With the notation introduced, the following holds:
+	$$\lim_{g\to\infty} \frac{t(g)}{N(g)}=1.$$
+\end{proposition}
+
+I will leave here a question that can be stated in a similar way to Zhao's conjecture. It will be better appreciated when reading Section~\ref{sec:large-emb-dim} (and confronting with Section~\ref{sec:large-mult}).
+
+Denote by $p(g)$ the number of numerical semigroups of genus $g$ satisfying $\embeddingdimensionoper(S) \ge \multiplicityoper(S)/3$.
+\begin{question}\label{quest:emb-dim-asymptotics}
+	Does $\lim_{g\to\infty} \frac{p(g)}{N(g)}$ exist?
+\end{question}
+% ===========================================
+
+

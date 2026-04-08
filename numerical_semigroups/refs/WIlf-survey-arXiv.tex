@@ -1,0 +1,208 @@
+%\documentclass[graybox]{svmult}
+%\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper]{article}
+\documentclass[11pt]{amsart} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% ``commonly used packages`` %%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts,amsmath,amsthm,amssymb}
+\usepackage{enumerate} 
+\usepackage{enumitem} 
+\usepackage{fullpage}
+%%%%%%%%%%%%%%%%%%% end of ``commonly used packages`` %%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% for references %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% to use bibtex, comment the following lines and adapt the end of the document
+%%%%%%%%%
+%\usepackage[backend=biber,style=numeric,hyperref=true,isbn=false,doi=false,backref=true]{biblatex}
+% \usepackage[backend=biber,style=numeric,hyperref=true,isbn=false,doi=false]{biblatex}
+% %%\addbibresource{/home/mdelgado/git/bib/NumericalS-bib/numericals.bib}
+%  \addbibresource{../../../bib/NumericalS-bib/numericals.bib}
+%  \addbibresource{../../../bib/NumericalS-bib/preprints.bib}
+%  \addbibresource{../../../bib/NumericalS-bib/software.bib}
+%  \addbibresource{../../../bib/NumericalS-bib/slides.bib}
+
+\usepackage[hidelinks,linktoc=all]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% "for drawings" %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pgf} 
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{floatrow}
+\floatsetup[figure]{margins=raggedright}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  end of"for drawings" %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% "for comments" %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% comments in blue %%
+% Select what to do with the commands \commentblue and \commentbluebf:  
+% \newcommand{\commentblue}[1]{}  %the comment is not shown
+\newcommand{\commentblue}[1]{{\color{blue} #1}} %the comment is shown
+% \newcommand{\commentbluebf}[1]{}  %the comment is not shown
+\newcommand{\commentbluebf}[1]{\par {\bfseries \color{blue} #1 \par}} %the comment is shown
+%% comments in red %%
+% Select what to do with the commands \commentred and \commentredbf:  
+% \newcommand{\commentred}[1]{}  %the comment is not shown
+\newcommand{\commentred}[1]{{\color{red} #1}} %the comment is shown
+% \newcommand{\commentredbf}[1]{}  %the comment is not shown
+\newcommand{\commentredbf}[1]{\par {\bfseries \color{red} #1 \par}} %the comment is shown
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of "for comments" %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ``operators`` %%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\gapsoper}{gaps} %Gaps
+\DeclareMathOperator{\wilfoper}{W} %Wilf number
+\DeclareMathOperator{\eliahouoper}{E} %Eliahou number
+\DeclareMathOperator{\Frobeniusoper}{F} %Frobenius
+\DeclareMathOperator{\multiplicityoper}{m} %multiplicity
+\DeclareMathOperator{\conductoroper}{\chi} %conductor -- notation used by Wilf 
+%\DeclareMathOperator{\conductoroper}{c} %conductor
+\DeclareMathOperator{\genusoper}{\Omega} %genus -- notation used by Wilf 
+%\DeclareMathOperator{\genusoper}{genus} %genus
+\DeclareMathOperator{\qoper}{q} %q
+\DeclareMathOperator{\rhooper}{\rho} %rho
+\DeclareMathOperator{\Dqoper}{D_{\qoper}} %rho
+ 
+\DeclareMathOperator{\leftsoper}{L} %lefts
+\DeclareMathOperator{\leftscardinalityoper}{\lvert \leftsoper \rvert} %number of left elements
+
+\DeclareMathOperator{\primitivesoper}{P} %primitives
+%\DeclareMathOperator{\embeddingdimensionoper}{\lvert \primitivesoper\rvert} %number of primitives %embeding dimension
+\DeclareMathOperator{\embeddingdimensionoper}{d} %number of primitives %embeding dimension
+
+\DeclareMathOperator{\alphaoper}{\alpha} % alpha...
+\DeclareMathOperator{\betaoper}{\beta} % beta ...
+\DeclareMathOperator{\smallprimitivesoper}{\mu} % the number of small primitives
+
+\DeclareMathOperator{\ratiooper}{r} %ratio
+\DeclareMathOperator{\typeoper}{t} %type
+\DeclareMathOperator{\PFoper}{PF} %pseudo-Frobenius
+\DeclareMathOperator{\Aperyoper}{Ap} %Apery
+
+%\def\gcd{\mathop{\mathsf{gcd}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ``theorems`` (with sequential numbering) %%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{theorem}{Theorem} 
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%%\newtheorem{algorithm}[theorem]{Algorithm}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{fact}[theorem]{Fact}
+%
+%\newtheorem{defn}[theorem]{Definition}
+%
+%%\theoremstyle{remark} 
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{question}[theorem]{Question}
+%\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{definition}[theorem]{Definition}
+%%%
+%\newtheorem{claim}{Claim}
+%\newtheorem{code}[theorem]{GAP-code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ``theorems`` (numbering per section) %%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{fact}[theorem]{Fact}
+
+\newtheorem{defn}[theorem]{Definition}
+
+%\theoremstyle{remark} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{definition}[theorem]{Definition}
+%%
+\newtheorem{claim}{Claim}
+\newtheorem{code}[theorem]{GAP-code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% ``theorems`` (numbering per family) %%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}{Lemma}[section]
+%\newtheorem{corollary}{Corollary}[section]
+%\newtheorem{proposition}{Proposition}[section]
+%%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{conjecture}{Conjecture}[section]
+%\newtheorem{fact}{Fact}[section]
+%
+%\newtheorem{defn}{Definition}[section]
+%
+%%\theoremstyle{remark} 
+%\newtheorem{example}{Example}[section]
+%\newtheorem{remark}{Remark}[section]
+%\newtheorem{question}{Question}[section]
+%\newtheorem{problem}{Problem}[section]
+%\newtheorem{definition}{Definition}[section]
+%%%
+%\newtheorem{claim}{Claim}[section]
+%\newtheorem{code}{GAP-code}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% end of ``theorems`` %%%%%%%%%%%%%%%%%%%
+%opening
+\title{Conjecture of Wilf: a survey}
+\author{Manuel Delgado}
+\date{\today}
+%
+\date{\today}
+%
+\address{CMUP, Departamento de Matem\'atica, Faculdade de
+	Ci\^encias, Universidade do Porto, Rua do Campo Alegre 687, 4169-007 Porto,
+	Portugal} 
+\email{mdelgado@fc.up.pt} 
+\thanks{The author was partially supported by CMUP (UID/MAT/00144/2019), which is funded by FCT (Portugal) with national (MCTES) and European structural funds (FEDER), under the partnership agreement PT2020, and also by the Spanish project MTM2014-55367-P. Furthermore, the author acknowledges a sabbatical from the FCT: SFRH/BSAB/142918/2018.}
+
+\begin{document}
+\keywords{Numerical semigroup, Wilf's conjecture}
+
+\subjclass[2010]{20M14, 20--02, 05--02, 11--02}
+
+% 20M14 Commutative semigroups
+% 20--02 Group theory and generalizations -- survey articles
+% 05--02 Combinatorics -- survey articles
+% 11--02 Number theory -- survey articles
+
+\maketitle
+
+\begin{abstract}
+	\input{abstract}
+\end{abstract}
+
+%%%%%%%%%%% introduction %%%%%%%%%%
+\section{Introduction}\label{sec:introduction}
+\input{introduction}
+\subsection{Terminology and notation}\label{sec:notation}
+\input{notation}
+\input{visualization}
+%%%%%%%%%%% Wilf's problems %%%%%%%%%%
+\section{Two problems posed by Wilf}\label{sec:problems}
+\input{problems}
+%%%%%%%%%%% Particular cases %%%%%%%%%%
+\section{Some classes of Wilf semigroups}\label{sec:particular-cases}
+\input{particular-cases}
+\section{Quasi-generalization}\label{sec:quasi-generalization}
+\input{quasi-generalization}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%\section{drafts}
+%\input{sections/olds/drafts} %includes references
+%\input{sections/olds/visualization}
+%\input{sections/olds/counting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+`%%%%%%%%%%% Acknowledgements %%%%%%%%
+\subsubsection*{Acknowledgements}\label{sec:acknowledgements}
+\input{acknowledgements}
+%%%%%%%%%%% Acknowledgements %%%%%%%%
+% in order to use bibtex comment the following line and uncomment the others
+%% uncomment to use biblatex  
+%\printbibliography
+%%
+%%uncomment to use bibtex
+%\bibliographystyle{plainurl}
+%\bibliography{../../../../bib/NumericalS-bib/numericals.bib,../../../../bib/NumericalS-bib/preprints.bib,../../../../bib/NumericalS-bib/software.bib,../../../../bib/NumericalS-bib/slides.bib}
+%%%%%%%%%
+\input{references}
+\end{document}
