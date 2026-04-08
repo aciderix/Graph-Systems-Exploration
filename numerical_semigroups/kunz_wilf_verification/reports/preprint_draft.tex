@@ -125,25 +125,42 @@ Our experiments (Section~\ref{sec:num}) give Table~\ref{tab:mmin}.
 
 \begin{table}[h]
 \centering
-\begin{tabular}{c|cccccccccccccc}
+\small
+\begin{tabular}{c|l}
 \toprule
-$d$         & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13\\
+$d$ & best known bound on $m_{\min}(d)$ from $m \in \{20,22,23,24,25\}$ enumeration\\
 \midrule
-$m_{\min}(d)$ & 2 & 3 & 4 & 6 & 8 & 10 & 13 & 15 & 18 & 21 & 23 & $\le 24$ & $\le 24$ & $\le 24$\\
+0--9  & $\le 20$ \\
+10    & $= 23$ (not sharp at $m=22$, sharp at $m=23$)\\
+11    & $\le 20$ \\
+12    & $\le 20$ \\
+13    & $\le 22$ (sharp at $m=22$)\\
+14    & $> 25$ (not sharp up to $m=25$)\\
+15    & $> 25$ \\
+16    & $= 25$ (not sharp at $m=24$, sharp at $m=25$)\\
+17--20 & $> 25$ \\
 \bottomrule
 \end{tabular}
-\caption{Observed stabilization thresholds. For $d \le 10$ the values
-are confirmed to be sharp (i.e.\ the bound fails to be attained at
-$m = m_{\min}(d) - 1$). For $d \in \{11,12,13\}$ we only know the
-bound becomes sharp at $m = 24$; confirming it as a true threshold
-requires a complete enumeration at $m \in \{22, 23\}$.}
+\caption{Observed stabilization thresholds from complete enumerations
+at $m \in \{20,22,23,24,25\}$ with $K_{\max}=3$ (total: $2.3 \times
+10^{10}$ semigroup classes). Note the striking non-monotonicity:
+$m_{\min}(10)=23$, then $m_{\min}(11),m_{\min}(12) \le 20$, then
+$m_{\min}(13) \le 22$. Defects $d=11,12$ stabilize earlier than
+$d=10$; defect $d=16$ stabilizes earlier than $d=14,15$. The
+complete $m_{\min}$ function appears to depend on the position of
+$d$ within its $L$-step, not just on $d$.}
 \label{tab:mmin}
 \end{table}
 
-\begin{conjecture}[Growth of the threshold]\label{conj:mmin}
-m\_min(d) = 2d + O(√d); more precisely,
-m\_min(d) − 2d is monotone and grows like √(2d).
-\end{conjecture}
+\begin{remark}
+The earlier draft of this manuscript conjectured a smooth growth
+$m_{\min}(d) = 2d + O(\sqrt d)$. The m=25 data falsifies this: for
+$d=11$ we have $m_{\min}(11) \le 20 < 2d = 22$, and within each
+$L$-step (e.g.\ $d \in \{11,\ldots,15\}$ for $L=7$) $m_{\min}$ is
+non-monotone, dipping before the top of the step and then rising
+sharply. A refined conjecture on the shape of $m_{\min}$ is left as
+open.
+\end{remark}
 
 \section{Sharp witnesses}
 
