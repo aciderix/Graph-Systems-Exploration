@@ -1,0 +1,1499 @@
+=== BLOCK 0 ===
+CONJECTURE OF WILF: A S UR VEY
+MANUEL DELGADO
+Abstra ct. This pap er in tends to surv ey the v ast literature dev oted to a problem p osed b y Wilf
+in 1978 whi c h, despite the atten tion it attracted, remains unsolv ed. As it frequen tly happ ens with
+com binatorial problems, man y researc hers who got in v olv ed in the searc h for a solution though t at
+some p oin t that a solution w ould b e just around the corner, but in the presen t case that corner has
+nev er b een reac hed.
+By writing this pap er I in tend to giv e the reader a broad approac h on the problem and, when
+p ossible, c onn ec tion s b et w een t h e v arious a v ailable results. With the hop e of gathering som e more
+information than just using set inclusion, at the end of the pap er a sligh tly differen t w a y of comparing
+results i s dev elop ed.
+1. Intr oduction
+A t the b eginning, m y p ersonal motiv ation w as to build a list of referenc es, eac h with a summary
+of the results t herein re lated to Wilf ’s conjecture. This w ould ha v e help ed me b y not ha ving to
+div e in to a collection of pap ers eac h time I needed a result. Then I though t that making the list
+public could also b e a con tribution to Wilf ’s conjecture. This pro cess ended up in the wri ting of
+this pap er , whic h is in some sen se yet another survey . Another, b ecause most pap ers fully dedicated
+to the conjecture pro vide go o d literature re views. Although not aimi ng to b e co mplete, these could
+b e tak en as surv eys.
+As it frequen tly hap p ens with easy to state com binatori al prob lems, while w ork ing on them
+one t hinks that a solution is at reac h. This is cert ainly the case of the problem p osed b y Wilf,
+but nev ertheless no one has found the aimed so lution so far. T ac king in to accoun t the n um b er of
+published pap ers on th e them e, one can infer that m uc h time has globally b een dedicated to the
+problem. This ma y lead p eople to classify th e problem in the category of dangerous problems, in
+the sense that one risks to sp end to o m uc h time struggling with it and ha v e to giv e up withou t
+getting a solution. F ortun ately , partial results ma y b e of some in terest.
+The plan of the pap er follo ws.
+This in tro ductory section con tains most of the terminology and notation to b e used along the
+pap er. There are not man y differences to wha t is commonly used. This secti on con tain s also what
+I consider a con v enien t w a y to visualize n umerical semigroups. Although almost all further images
+app ear only in the last section, w e pro vided sufiicien t information to pro duce images of semigroups
+app earing in the remaini ng parts of the text.
+Some problems p osed b y Wilf are describ ed in the second section, whic h can b e seen as a kind
+of motiv ation for the pap er.
+=== BLOCK 1 ===
+Date : F ebruary 12, 2019.
+2010 Mathematics Subje ct Classific a tion. 20M14, 20–02, 05–02, 11–02.
+Key wor ds and phr a s es. Numerical semigroup, Wilf ’s conjecture.
+The author w as partially supp orted b y CMUP (UID/MA T/00144/2019), whic h is funded b y F CT (P ortugal)
+with national (MCTES) and Europ ean structural funds (FEDER), under the partnership agreemen t PT2 020, and
+also b y the Spanish pro ject M TM20 14-55367-P . F urthermore, the author ac kno wledges a sabbatical from the F CT:
+SFRH/BSAB/142918/201 8.
+1
+=== BLOCK 2 ===
+The third section is the r eal sur v ey . It con tains a l arge in tro ductory part and the n the statemen ts
+of results group ed in to s ev eral subsections.
+In t he final section w e in tro duce a notion of quasi gener alization (roughly sp eaking, a set quasi
+generalizes another if it con tains all its elemen ts, except p ossibly a finite n um b er of t hem). It all o ws
+to dra w a lattice in v olving som e imp ortan t prop erties that giv e rise to semigroups satisfying Wilf ’s
+conjecture.
+1.1. T erminology and notation. Most of t he notati on and terminology used app ea rs in the b o ok
+b y Rosales and García-Sánc hez [30]. Results referre d as w ell kno wn can b e found in the same
+reference.
+Let S b e a n umerical semigroup. Recall th at a n umerical semigroup S is a sub set of N (the set
+of nonnegativ e in tegers) suc h that 0 ∈ S , S is closed under addition and the complemen t N \ S is
+finite (p ossibly empt y). Throughout the pap er, when the letter S app e ars and nothing else is said,
+it should b e understo o d as b eing a n umeric al semigroup.
+The minimal gener ators of S are also kno wn as primitive elements of S . The set of primitiv e
+elemen ts of S is denoted P( S ) . It is w ell kno wn to b e finite. When there is no p ossible confusion on
+whic h is the semigroup in ha nd, the notation is often simplified and w e write P instead of P( S ) . This
+kind of simplification in the notation is made for all the other com binatorial in v arian ts in tro duced
+along the pap er.
+The multiplicity of S is the least p ositiv e in teger of S and is denoted m( S ) , or simply m . The
+F r ob enius numb er of S is the largest in teger that do es not b elong t o S , and is denoted F( S ) .
+The c onductor of S is simply F( S ) + 1 . Wilf ’s notation will b e used for the conductor: χ ( S ) , or
+simply χ . Note that χ ( S ) is the smallest in teger in S from whic h all the larger in tegers b elong
+to S . Let q( S ) = d χ ( S ) / m( S ) e b e the smallest in te ger greate r than or equal to χ ( S ) / m( S ) . This
+n um b er is call ed the depth of S and is frequen t ly denoted just b y q . It is w orth to k eep in mind
+that χ ( S ) ≤ m( S ) q( S ) .
+The set of left elements of S consists of the e lemen ts of S that are smalle r than χ ( S ) . It is
+denoted L( S ) (or simply L ). A p ositiv e i n teger that do es not b elo ng to S is said to b e a gap of S
+( omitting value in Wilf ’s termin ology). The ca rdinalit y of the set of gaps is said to b e the genus of
+S and, follo wing Wilf, is denoted b y Ω( S ) , or simply b y Ω .
+If x ∈ S , th en F( S ) − x 6∈ S . Th us, the follo wing w ell kno wn remark holds.
+Remark 1.1. L et S b e a numeric al semigr oup. Then Ω( S ) ≥ χ ( S ) / 2 .
+As usual, | X | denotes the c ardinalit y of a set X . It is immediate that Ω( S ) + | L( S ) | = χ ( S ) .
+F rom the ab o v e remark it follo ws that χ ( S ) ≥ 2 | L( S ) | .
+The n um b er of primitiv es of S is called the emb e ddin g dimension of S . As it is just the cardinalit y
+of P( S ) , it can b e denoted | P( S ) | , but in this pap er I will mainly use the no tation d( S ) , or simply d ;
+d stands for dimension (a short for em b edding di mension).
+An in teger x is said to b e a pseudo-F r ob enius n u m b er of S if x 6∈ S and x + s ∈ S , for all
+s ∈ S \ \{ 0 \} . The cardi nalit y of the set of pseudo-F rob enius n um b ers of S is said to b e the typ e of
+S and is denoted b y t( S ) . The notion of t yp e has b een an imp ortan t in gredien t in the disco v ery of
+v arious families of n u merical semigroups satisfying Wi lf ’s conjecture, due to Prop osition 3.1 b elo w.
+Another imp ortan t to ol, whic h is used in a crucial (and fre quen tly rath er tec hnical ) w a y in the
+pro ofs of some results presen ted in this sur v ey is the Ap éry set (with r esp e ct to the multiplicity) :
+Ap( S , m) = \{ s ∈ S | s − m 6∈ S \} .
+Let X b e a set of p ositiv e in tegers. The notation h X i is used to repr esen t the sma llest n umeri cal
+t
+semigroup that con tains X and all the in teger s greater than or equal to t .
+F or a n umer ical semigroup S , the in terv al of in tegers starting in χ ( S ) and ha ving m( S ) elemen ts
+is called the thr eshold interval of S (follo wing a suggestion of Eliahou).
+2
+=== BLOCK 3 ===
+1.2. A con v enien t w a y to visualize n ume r ic al semigroups. The pictures in this pap er w ere
+pro duced using the GAP [21] pac k age IntPic [10], whi le the c omputations ha v e b een carried out using
+the GAP pac k age numericalsgps [9].
+Let S b e a n umerica l semigroup. The set of nonnegativ e in tegers up to χ + m − 1 clearly con tains
+L and it is easy to see that it con tains P as w el l. It is helpful to disp ose the men tioned in tegers in to
+a t able and to highligh t those that, in some sense, are sp ecial.
+Sev eral figures will b e pres en ted to giv e pictorial views of n umerical semigroups. Eac h of them
+consists of a rectangular (q +1) × m -table and the en tries corresp onding t o elemen ts of the sem igroup
+are highligh ted in some w a y . S ome gaps can also b e emphasiz ed. The en tries in upp ermost ro w are
+those of the threshold in terv a l.
+Example 1.2. Figur e 1 is a pictorial r epr esentation of the numeric al semigr oup h 5 , 13 i = h 5 , 13 , 21 , 22 , 24 i .
+20
+The elements of the semigr oup ar e highlighte d and, among them, the primitive elements and th e c on-
+ductor ar e emphasize d. When a n element is highlighte d for mor e than one r e ason, gr adient c olours
+ar e use d.
+=== BLOCK 4 ===
+20
+=== BLOCK 5 ===
+21
+=== BLOCK 6 ===
+22
+=== BLOCK 7 ===
+23
+=== BLOCK 8 ===
+24
+=== BLOCK 9 ===
+15
+=== BLOCK 10 ===
+16
+=== BLOCK 11 ===
+17
+=== BLOCK 12 ===
+18
+=== BLOCK 13 ===
+19
+=== BLOCK 14 ===
+10
+=== BLOCK 15 ===
+11
+=== BLOCK 16 ===
+12
+=== BLOCK 17 ===
+13
+=== BLOCK 18 ===
+14
+=== BLOCK 19 ===
+5
+=== BLOCK 20 ===
+6
+=== BLOCK 21 ===
+7
+=== BLOCK 22 ===
+8
+=== BLOCK 23 ===
+9
+=== BLOCK 24 ===
+0
+=== BLOCK 25 ===
+1
+=== BLOCK 26 ===
+2
+=== BLOCK 27 ===
+3
+=== BLOCK 28 ===
+Figure 1. Pictorial repre sen tation of the n u-
+4
+merical semigroup h 5 , 13 , 21 , 22 , 24 i .
+Observ e that there is at most one primitiv e p er column. There is exactly one in eac h column
+when the semigroup is of maximal em b edding dimen sion.
+Note that all the in tegers in a giv en column a re cong ruen t mo dulo m . In particular, a n eleme n t
+b el ongs to the Ap éry set relat iv e to m if and only if it is the lo w est emphasized elemen t in some
+column (pro vid ed that no gaps (for instan ce the pseudo-F rob enius n um b e rs) are highligh ted).
+F or the b enefit of the reader, I ex plain the w a y I pr o duced Figu re 1, including the GAP co d e
+used. T o start, GAP is taugh t what m y n umerical semigroup is (see the man ual of numericalsgps for
+details).
+ns := NumericalSemigroup (5,13,21,22,24);
+Then one can use the follo wing commands to pro duce the TikZ co de fo r t he picture sho wn (whi c h
+A
+can b e i ncluded in a L T X d o cumen t):
+E
+GAP-co de 1.3. \#cls is given just to m ake a change to the default colors
+cls := [ "blue","-red","red!70" , "bla ck!40" ];
+P := MinimalGenerators(n s);
+m := Multiplicity(ns);
+c := Conductor(ns);
+q := CeilingOfRational(c /m);
+rho := q*m-c;
+list := [-rho .. c+m-1];
+ti := [c..c+m-1];
+importants := Union(Smal lElements(ns),ti);
+options := rec(colors := cls,highlight s:=[[c],importants,P] );
+tkz := IP\_TikzArrayOfInt egers(list,m,options); ;
+Print(tkz);
+The funct ion IP\_TikzArra yOfIntegers (whic h pro duces the TikZ co de from the i nformation
+previously computed using numericalsgps ) is part of the intpic pac k age. The man ual of the p ac k ag e
+3
+=== BLOCK 29 ===
+can b e consulted for details a nd examples. In particular, the man ual con tains a complete example
+A
+sho wing a p ossible w a y to include the pic ture (or its TikZ co de) in a L T X do cumen t.
+E
+Executing the f ollo wing command, the c reated pictu re should p op up. As this c ommand dep ends
+on s ome other soft w are, namely the op erating system, some extra w ork on the configuration ma y
+b e needed.
+IP\_Splash(t kz);
+A
+If ev erything go es w ell, the figure (in p df format) can b e sa v ed and included in the L T X do cumen t
+E
+in some standard w a y .
+Example 1.4. Figur e 2 is just another exampl e. The fol lowing GAP session shows some imp ortant
+data: a numeric al semigr oup an d its pseudo-F r ob enius numb ers. These ar e highlighte d in the figur e,
+in addition to elements of the semigr oup, as in Example 1.2.
+gap> ns := NumericalSemigroup(1 2, 19, 20, 22, 23, 26, 27, 28, 29);;
+gap> Conductor(ns) ;
+38
+gap> pf := PseudoFrobenius(ns);
+[ 16, 30, 33, 37 ]
+=== BLOCK 30 ===
+38
+=== BLOCK 31 ===
+39
+=== BLOCK 32 ===
+40
+=== BLOCK 33 ===
+41
+=== BLOCK 34 ===
+42
+=== BLOCK 35 ===
+43
+=== BLOCK 36 ===
+44
+=== BLOCK 37 ===
+45
+=== BLOCK 38 ===
+46
+=== BLOCK 39 ===
+47
+=== BLOCK 40 ===
+48
+=== BLOCK 41 ===
+49
+=== BLOCK 42 ===
+26
+=== BLOCK 43 ===
+27
+=== BLOCK 44 ===
+28
+=== BLOCK 45 ===
+29
+=== BLOCK 46 ===
+30
+=== BLOCK 47 ===
+31
+=== BLOCK 48 ===
+32
+=== BLOCK 49 ===
+33
+=== BLOCK 50 ===
+34
+=== BLOCK 51 ===
+35
+=== BLOCK 52 ===
+36
+=== BLOCK 53 ===
+37
+=== BLOCK 54 ===
+14
+=== BLOCK 55 ===
+15
+=== BLOCK 56 ===
+16
+=== BLOCK 57 ===
+17
+=== BLOCK 58 ===
+18
+=== BLOCK 59 ===
+19
+=== BLOCK 60 ===
+20
+=== BLOCK 61 ===
+21
+=== BLOCK 62 ===
+22
+=== BLOCK 63 ===
+23
+=== BLOCK 64 ===
+24
+=== BLOCK 65 ===
+25
+=== BLOCK 66 ===
+2
+=== BLOCK 67 ===
+3
+=== BLOCK 68 ===
+4
+=== BLOCK 69 ===
+5
+=== BLOCK 70 ===
+6
+=== BLOCK 71 ===
+7
+=== BLOCK 72 ===
+8
+=== BLOCK 73 ===
+9
+=== BLOCK 74 ===
+10
+=== BLOCK 75 ===
+11
+=== BLOCK 76 ===
+12
+=== BLOCK 77 ===
+13
+=== BLOCK 78 ===
+-10
+=== BLOCK 79 ===
+-9
+=== BLOCK 80 ===
+-8
+=== BLOCK 81 ===
+-7
+=== BLOCK 82 ===
+-6
+=== BLOCK 83 ===
+-5
+=== BLOCK 84 ===
+-4
+=== BLOCK 85 ===
+-3
+=== BLOCK 86 ===
+-2
+=== BLOCK 87 ===
+-1
+=== BLOCK 88 ===
+0
+=== BLOCK 89 ===
+Figure 2. Pictorial represen tation of
+h 12 , 19 , 20 , 22 , 23 , 26 , 27 , 28 , 29 i , with the
+1
+pseudo-F rob enius n um b ers hig hligh ted.
+The picture can b e obtaine d with just small c hanges from GAP -co d e 1.3. Besides redefining the
+n umerical semigroup, it sufiices to replace the line b eginning with options b y the follo wing t w o lines
+of co de:
+pf := PseudoFrobenius(ns );;
+options := rec(colors := cls,highligh ts:=[[c],importants,P, pf]);;
+In o rder to obtain an image ju st sho wing the shap e, the op tions can b e c hanged as fol lo ws:
+GAP-co de 1.5. \# options to produce the shape
+options := rec(
+highlights: =[[],[],[c],importants ,[],[],[],[],P],
+cell\_width := "6",colsep :="0",rowsep:="0",inne r\_sep:="2",
+shape\_only: =" ",li ne\_width:="0",line\_col or:="black!20");;
+=== BLOCK 90 ===
+Figure 3. Shap e of the semigroup
+h 20 , 49 , 58 , 67 , 76 , 85 , 94 , 103 , 112 i
+4
+=== BLOCK 91 ===
+2. Tw o pr oblems posed by Wilf
+This section starts with a few w ords on Wil f ’s pap er [35], including a transcript of the t w o
+problems that Wilf left o p en. Then, a little ab out eac h problem is said.
+2.1. Wilf ’s pap er. Wilf ’s concer n w as: to presen t an algorithm, whic h, giv en a n umeri cal semi-
+group S and a finite generating set for S , finds the conductor of S , decides whether a giv en in teger
+is repr esen table (in terms of the eleme n ts of the genera ting set), find s a represen tation of an elemen t
+of S , and determines the n um b er of omitted v alues of S .
+These ar e problems tha t man y researc hers in terested in com binatorial problems related to n u-
+merical semigroups are no w ada ys still concerned with. In a somewhat more mo de rn language, one
+w ould sa y that Wi lf w as concerned w ith the F r ob enius pr oblem (see [29]), the mem b ership prob -
+lem, facto rization pr oblems (see [22]) and the pro blem of determining the gen u s. These problems
+con tin ue to b e (are at t he base of ) activ e fi e lds of researc h.
+The circle of ligh ts algorithm explicitly giv en in [35] determines b oth the conductor a nd the gen us
+of a n umerical semigroup pro vided that a finite generating set is a t hand. Wilf also suggests a few
+c hanges to the circle of li gh ts a lgorithm in order test mem b ership and also to find a factoriza tion.
+He also observ ed that to test mem b ership, a suggestion of Brauer [6] should b e incorp orat ed: it
+in v olv es the use of the Ap éry set (relativ e to the m ultiplicit y). Another observ ation that I w ould lik e
+to mak e is that the (spac e and time) complexit y is explicitly giv e n, whic h is a relev an t con trib ution
+to the o v erall qualit y of Wilf ’s pap er. It is extremely agreeable to read and this w ithout doubt
+con tributes to the success of the problem s stated in it.
+A t the end of Wilf ’s article one finds the follo wing t w o problems. It should b e understo o d that
+the p ositiv e in teger k represen ts the em b edding dimension of some n umerical semigroup.
+Problem 2.1 ([35]) . Wilf aske d:
+( a ) Is it true that for a fixe d k the fr action Ω /χ of omitte d values is at most 1 − (1 /k ) with
+e quality only for the gener ators k , k + 1 , . . . , 2 k − 1 ?
+( b ) L et f ( n ) b e the numb er of semigr oups whose c onductor is n . What is the or der of magnitude
+of f ( n ) for n → ∞ ?
+The first problem consists in fact of t w o problems. They can b e stated explicitly as follo ws:
+Problem 2.2. Wilf ’s pr oblem (a) splits into two pr oblems.
+( a.i ) Is it true that for a fixe d k the fr action Ω /χ of omitte d values is at most 1 − (1 /k ) ?
+( a.ii ) Is it true that for a fixe d k the fr action Ω /χ of omitte d values is 1 − (1 /k ) only for the
+gener ators k , k + 1 , . . . , 2 k − 1 ?
+Problem ( a.i ) is no w a da ys kno wn as Wilf ’s c onje ctur e . Sylv ester’s result (whic h is men tioned in
+the first page of Wilf ’s pap er) giv es coun ter examples to Problem ( a.ii ) . Apparen tl y Wilf forgot
+ab o ut them. No w ada ys there are o ther coun ter examples kno wn, but a c haracterizatio n of those
+semigroups for whic h the equalit y ho lds is an op en problem (see Secti on 2.3).
+2.2. Problem ( a.i ): Wilf ’s conjecture. T o a n umerical semigroup S one can asso ciate the
+follo wing n um b er denoted W ( S ) and called the Wilf numb er of S :
+(1) W ( S ) = | P( S ) || L( S ) | − χ ( S ) .
+A n umerical semigro up is said to b e a Wilf semigr oup if and on ly if its Wilf n um b er is nonnegativ e.
+Wilf ’s c onje ctur e can b e s tated as follo ws:
+Conjecture 2.3 (Wilf, 1978) . Every numeric al semigr oup is a Wilf semigr oup.
+5
+=== BLOCK 92 ===
+It i s a si mple exercise to v erify that Conject ure 2.3 is precisely Problem 2.2 ( a.i ).
+There i s another n um b er that can b e asso ciated to a n umerical semigroup, just as Wi lf n um b er is,
+and whic h has rev ealed great imp ortance in recen t researc h (as the reader will b e able to confirm,
+in particul ar when reading S ection 3.8). Let S b e a n um erical semigroup and let D = P( S ) ∩
+\{ χ, . . . , χ + m − 1 \} b e the set of non primitiv es in t he threshol d in terv al. El iahou [16] asso ciated to
+S the n um b e r E( S ) that app ears in Equation (2) b elo w and used the notation W ( S ) to represen t
+0
+it. I prefer the notation E( S ) , an d use the terminology Eliahou numb er of S :
+(2) E( S ) = | P ∩ L || L | − q | D | + q m − χ .
+Eliahou [16, Pg. 2112] observ ed tha t there are n umerical semigroups with negativ e Eliahou n um b er
+and stated the follo wing problem whic h is still op en.
+Problem 2.4. Give a ch ar acterization of the class of numeric al semigr oups whose Eliahou numb er
+is ne gative.
+2.3. Problem ( a.ii ): another op en problem. A v ery ni ce result of Sylv ester [33] giv es a form ula
+for the F rob enius n um b er of a n umerical semigroup of em b edding dimension 2 . A closed for m ula (of
+a certa in t yp e) for the F rob eni us n um b er of a n umeric al semigroup of higher em b edd ing dimension
+is not at reac h for semigroups of bigger em b edding dimension (see [8] or [29, Cor . 2.2.2]). Sylv ester’s
+results can b e written as follo ws (see [30]): if S = h a, b i is a n umerica l semigroup of em b edding
+dimension 2 , then F( S ) = ab − a − b , and Ω( S ) = χ ( S ) / 2 . F rom this, it is immediate that for a
+n umerical semigroup S of em b edding dimension 2 , W ( S ) = 0 . The fact that n umerical semigroups of
+the form h m , k m +1 , . . . k m + m − 1 i (whic h are of maximal em b edding dimension and generated b y
+some generalized arit hmetic sequences) ha v e Wilf n um b er equal to 0 is straigh tforw ard (see [19, 28]).
+Whether these are t he only n umerical semigroups for wh ic h Wilf n um b er is 0 is a sli gh t mo difica-
+tion of Problem 2.2( a.ii ) a nd is op en. I reph rase the question stated b y Moscariello and Samm artano.
+Problem 2.5 ([28, Question 8]) . L et S = h m , g , . . . , g i b e a numeric al sem igr oup with multiplic-
+2 d
+ity m and emb e dding dimension d . Is it true that if W ( S ) = 0 , then d( S ) = 2 or d( S ) = m( S ) and
+ther e exists an inte ger k > 1 such that g = k m +( i − 1) , for i ∈ \{ 2 , . . . , d \} ?
+i
+Moscariello and Sammartano observ ed that in order to answ er afiirmativ ely this question it
+sufiices to pro v e that for a semigroup with Wilf n um b er equal to 0 , either its em b edding dimension
+is 2 or it has maximal em b eddi ng dimension.
+They al so observ ed that no n umerical semigroup of gen us up to 35 pro vides a negativ e answ e r to
+the question.
+Kaplan [23, Prop. 26] has sho w n that Problem 2.5 has a p ositi v e answ er in t he case of n umerical
+semigroups whose m u ltiplicit y is at least half of the co nductor. The same holds for n umerical
+semigroups of depth 3 (see a remark b y Sammartano in [16, Rem. 6.6]), th us conclud ing that there
+are no coun ter exam ples among the semigrou ps satisfying χ ≤ 3 m .
+2.4. Problem (b): coun ting n umerical semigroups. Wilf ’s Problem 2.1( b ) ca n b e view ed as a
+problem ab out coun ting n umeric al semigrou ps b y conductor. Bac k elin [1] add ressed this problem.
+A sligh t mo dification consists on c oun ting b y ge n us. Great atten tion has b ee n giv en to this prob lem
+after Bras-Amorós [5] prop osed s ome con jectures on the th eme. Some of these conjectures w er e
+solv ed b y Zhai [36], while other s remain op en. F or an excellen t surv ey ( whic h in particular con tains
+references for coun ting b y conductor and has an outline of Zh ai’s pro ofs), see Kaplan [24 ].
+Denote resp e ctiv ely b y N ( g ) and t ( g ) the n um b er of n umerical semigroup s of gen us g and the
+n um b er of n ume rical semigroups of ge n us g satisfying χ ( S ) ≤ 3 m( S ) .
+In the pap er where he pro v ed some of the co njectures of Bras-Amor ós (one of them b eing t hat
+? ?
+the sequence N ( g ) b eha v es lik e the Fib o nacci s equence), Zhai also pro v ed that the prop ortion of
+6
+=== BLOCK 93 ===
+n umerical semigroup s suc h that χ ( S ) ≤ 3 m( S ) tends to 1 as g tends to infinit y , as conjectured b y
+Zhao [37].
+Prop osition 2.6 ([36]) . With the notation intr o duc e d, the fol lowing holds:
+t ( g )
+lim
+g →∞
+=== BLOCK 94 ===
+= 1 .
+N ( g )
+I will lea v e here a question that can b e stated in a similar w a y t o Zhao’s conjecture. It will b e
+b et ter appreciated when reading Section 3.6 ( and confron ting with Section 3.8).
+Denote b y p ( g ) the n um b er of n umerical semigroups of gen us g satisfying d( S ) ≥ m( S ) / 3 .
+p ( g )
+Question 2.7. Do es lim
+g →∞
+=== BLOCK 95 ===
+exist?
+N ( g )
+3. Some classes of Wilf semigr oup s
+As already observ ed, it follo ws from a result of Sylv ester that semigroups of em b edding dimension
+2 ha v e Wilf n um b er equal to 0 . In particular, semigrou ps of em b edding dimensi on 2 are Wilf
+semigroups. Man y o ther classes are kno wn t o consist of Wilf semigroups. This section giv es an
+accoun t of a large n um b er of them.
+The theme is rather p opular a nd it is frequen t to c hec k a family of n umerical semigroups against
+Wilf ’s conjecture, whenev er t hat n ew fa mily of n umerical semigrou ps is in v estigated for some p os-
+sibly other reason. It ma y w ell happ en that some results are not referred to i n this pap er . This
+is f ar from meaning that I do not consider the idea s in v olv ed i mp ortan t. In a few cases this ma y
+b e a matter of c hoice, but most pr obably it simp ly means that the results are not part of m y v ery
+restricted kno wledge. F o r tha t, I h um bly express m y ap ologies b oth to the authors and the readers.
+The results are split in to sev eral subsections, according to a criterion that seems difiicult to
+explain. It finally j ust aims at putting results together so that they can b e co mpared with ease.
+Most of the families considered are d escrib ed through at least t w o com binatorial in v ar ian ts suc h
+as em b edding dimension, the m ultiplicit y or the con ductor. Exceptions (b esides finite sets) are
+families that are compl etely describ ed b y using only one in v arian t among the em b edding dimension,
+the m ultiplic it y or the n um b e r of left elemen ts.
+Inside eac h subsection sev er al results are men tioned (through precise n um b ered statemen ts or
+just in t he text) and there are cases in whic h the most general one is stated as a theor em. In a few
+cases there are results me n tioned in more than one subsection.
+In the first subsection, t here is an emphasis on a particular ingredien t used along the pro ofs
+of the v arious results. The ingredien t is an inequ alit y in v olv ing the t yp e. As illustrat ions of the
+results that can b e found there, w e shall see tha t semigrou ps with em b edding dimension up to three,
+almost symmetric n umerical semigroups and those semigroups generated b y generalized arithme tic
+sequences are Wilf semigroups.
+The se cond subsection is ab out families of semigr oups (someho w explici tly) giv en b y some sets
+of gen erators. The examples therein share the particular it y that all the mem b ers ha v e negativ e
+Eliahou n um b er.
+The third subsection refers to n umerical semigroups with nonnegativ e Eliahou n um b er.
+The fourth subsect ion is dedicated to construction s that are someho w natural. In fact, on ly one
+suc h construction is giv en here: dilations of n umerical semigroups. Thi s subsection could c ertainly
+b e filled with other constructions. My c hoice just reflects the feeling that p ossible generalizations
+could b e w orth exploring.
+Then there is a subsection dev oted to n ume rical semigroups of sm all m ultiplicit y .
+The sixth subsec tion is ab out results in whic h the main atten tion is giv en to semigroups with
+large em b edding dim ension, when compared t o the m ultiplic it y .
+7
+=== BLOCK 96 ===
+Next th ere app e ars a subsec tion con taining a result in v olving n umerical sem igroups with big
+m ultiplicities and p ossibly small em b edding dimensions.
+The eigh th s ubsection is si milar t o the sixth, but no w the results ha v e an emphasis on semigroups
+with large m ultiplicit y , when compared t o the conductor.
+In nin th subsection there is a result ta king in to accoun t an in v arian t not previo usly consi dered
+(at least in a fu ndamen tal w a y , to the b est of m y kno wledge). It is the second smallest primitiv e,
+sometimes called the r atio .
+The final subsec tion is concerned with families of n umerical semigroups that can b e d escrib ed
+using only one com bi natorial in v arian t.
+3.1. The t yp e as an imp ortan t ingredien t. The follo wing pro p osition, due to F röb erg, Gottlieb
+and Haeggk vist, is at the base of some results on Wilf ’s conjectur e. It implies that semi groups whose
+t yp e is smaller than its em b edding dimension ar e Wilf.
+Prop osition 3.1 ([19, Th eorem 20]) . L et S b e a numeric al semigr oup. Then χ ( S ) ≤ (t( S ) +
+1) | L( S ) | .
+By pro ving that the t y p e of a n umerical semigroup of em b edding dimensio n 3 is either 1 or 2
+([19, Th. 11]) and using the fact that χ ≥ 2 | L | referred in Section 1.1, they obtaine d that n umerical
+semigroups of em b edding dimensio n 3 are Wilf, a resu lt th at Dobb s and Matthew s [14, Cor. 2.6]
+repro v ed using a differen t approac h. Using Sy lv ester’s result fo r em b edding dimension 2 and the
+fact that N is Wilf, the same authors obtained the follo wing result.
+Theorem 3.2 ([19, Th. 20], [14, Th. 2.11]) . Numeric al semigr oups of emb e dding dimension smal ler
+than 4 ar e Wilf.
+Since there is n o upp er b ound for the t yp e of n umerical semigroups of em b edd ing dimensi on
+bigger than 3 , (see [19, pg. 75], for an example due to Bac k elin), Prop osition 3.1 can not b e used
+to obta in other gen eral results (but can, and has b een applied succ essfully to p articular families of
+semigroups).
+A n umerical semigroup S is said to b e irr e ducible if it cannot b e expressed as the in terse ction of
+t w o n umerical semigroups prop erly con taining it. S is said to b e symmetric if it is irreduc ible and
+F( S ) is o dd and it is said to b e pseudo-symmetric if it i s irreducib le and F( S ) is ev en. One could
+tak e the f ollo wing as definition (see [30, Cor 4.5]): S is symmetric if and only if Ω( S ) = χ ( S ) / 2 ,
+while S is pseudo-symmetric if and only if Ω( S ) = ( χ ( S ) + 1) / 2 .
+It can b e pro v ed as a simple exercise that irreducible n umerica l semigroups are Wilf. A more
+in v olvin g pro o f could b e to observ e that the t yp e of this class of semig roups do es not exceed 2 .
+Prop osition 3.3 ([14, Prop. 2.2]) . Irr e ducibl e n u m eric al semigr oups ar e Wilf.
+The ab o v e result w as gen eralized b y Marco La V alle in [3, Th. 5.5]. B e fore stati ng this gen-
+eralization, a further definiti on is needed. A n umerical semigroup is said t o b e almost symmetric
+if its gen us is the arithmetic mean of its F r ob enius n um b er and its t yp e (see [4]). It is a class of
+semigroups that incl udes the symmetric ones and the pseudo-symmetr ic.
+Prop osition 3.4 ([3, Th. 5.5]) . A lmost symmetric numeric al semigr oups ar e Wilf .
+As a consequence of Theorem 3.2 D o bbs and Matthews deriv ed an in teresting corollary:
+Corollary 3.5 ([14, Cor 2.7]) . If S is a numeric al semigr oup wit h χ ≤ 4 | L | , then S is Wilf.
+Also ma king use of Prop osi tion 3.1, Kunz [25] obtaine d the fol lo wing result (for p and q coprime).
+See also Kunz and W aldi [26] for some other generalization s.
+8
+=== BLOCK 97 ===
+Prop osition 3.6 ([26, Cor. 3.1]) . L et S b e a numeric al semigr oup with d( S ) ≥ 3 . L et p and q b e
+two di stinct primitives of S . If g + h ∈ ( p + S ) ∪ ( q + S ) , for any (non ne c essarily distinct) primitives
+g and h of S , then t( S ) ≤ d( S ) − 1 . In p articular, S is Wilf.
+A semigroup gene rated b y a generalized arithmetic sequence i s a semigroup of the form S =
+h m, hm + d, hm + 2 d, . . . , hm + \`d i , where m, d, h, \` are p ositiv e in tegers suc h that m ≥ 2 , gcd( m, d ) =
+1 and \` ≤ m − 2 . Note that m and d b e ing coprime ensu res that S is a n umerica l semigroup.
+F or a picture made up from a sem igroup generated b y a genera lized arithmetic seque nce with
+m = 20 , d = 9 , h = 2 , \` = 8 , see Figure 3. By using a result of Matthews [27, Cor. 3.4] that computes
+the t yp e of a n umerical semigroup generated b y a generalized arithmetic sequence, Sammartano
+observ ed the follo wing:
+Prop osition 3.7 ([31, Prop. 20]) . Numeric al semigr oups gener ate d by gener ali z e d arithmetic se-
+quenc es ar e Wilf.
+3.2. Semigroups giv en b y sets of generators. Let G b e an ab elian group. Let A ⊆ G b e a non
+empt y finite subset and let h b e a p ositiv e in teger. (F or the purp ose of this pap er the reader ma y
+think of the g roup as b eing a cyclic gr oup Z /m and t ak e h = 3 ; fo r more de tails, see [34, Chap. 4].)
+The set A is said to b e a B set if, for all a , . . . , a , b , . . . , b ∈ A , the equalit y
+1 1 h h h
+a + · · · + a = b + · · · + b
+1 1 h h
+holds if and only if ( a , . . . , a ) is a p erm utation of ( b , . . . , b ) .
+1 1 h h
+Let m, a, b, n ∈ N b e suc h that n ≥ 3 and
+> 0
+(3 m + 1) / 2 ≤ a < b ≤ (5 m − 1) / 3 .
+Let A ⊆ \{ a, . . . , b \} b e suc h that | A | = n − 1 and A induces a B set in Z /m . That suc h a set
+3
+exists follo ws from [17, Prop osition 3.1]. Finally , let
+S = h\{ m \} ∪ A i .
+4 m
+Eliahou and F romen tin pro v ed the follo wing result:
+Prop osition 3.8 ([17, Th. 4.1]) . L et S = h\{ m \} ∪ A i b e a semigr oup as c onstructe d ab ove. Then
+4 m
+W ( S ) ≥ 9 , in p articular S is a Wilf semigr oup.
+2
+p
+Let p b e an ev en p ositiv e in teger, le t µ = µ ( p ) =
+=== BLOCK 98 ===
+?
+p
++ 2 p + 2 and let γ = γ ( p ) = 2 µ ( p ) −
+4
+=== BLOCK 99 ===
+?
++ 4 .
+2
+The follo wing holds:
+Prop osition 3.9 ([11, Prop.6]) . L et S = S ( p ) = h µ, γ , γ + 1 i . Then W ( S ) > 0 , in p articular, S
+pµ
+is a Wilf semigr oup.
+Example 3.10. Figur e 4 is a pictorial r epr esenta tion of the numeric al semigr oup S (4) . Note that
+S (4) is of the form h\{ m \} ∪ A i , with m = 14 and A = \{ 22 , 23 \} .
+4 m
+=== BLOCK 100 ===
+56
+=== BLOCK 101 ===
+57
+=== BLOCK 102 ===
+58
+=== BLOCK 103 ===
+59
+=== BLOCK 104 ===
+60
+=== BLOCK 105 ===
+61
+=== BLOCK 106 ===
+62
+=== BLOCK 107 ===
+63
+=== BLOCK 108 ===
+64
+=== BLOCK 109 ===
+65
+=== BLOCK 110 ===
+66
+=== BLOCK 111 ===
+67
+=== BLOCK 112 ===
+68
+=== BLOCK 113 ===
+69
+=== BLOCK 114 ===
+42
+=== BLOCK 115 ===
+43
+=== BLOCK 116 ===
+44
+=== BLOCK 117 ===
+45
+=== BLOCK 118 ===
+46
+=== BLOCK 119 ===
+47
+=== BLOCK 120 ===
+48
+=== BLOCK 121 ===
+49
+=== BLOCK 122 ===
+50
+=== BLOCK 123 ===
+51
+=== BLOCK 124 ===
+52
+=== BLOCK 125 ===
+53
+=== BLOCK 126 ===
+54
+=== BLOCK 127 ===
+55
+=== BLOCK 128 ===
+28
+=== BLOCK 129 ===
+29
+=== BLOCK 130 ===
+30
+=== BLOCK 131 ===
+31
+=== BLOCK 132 ===
+32
+=== BLOCK 133 ===
+33
+=== BLOCK 134 ===
+34
+=== BLOCK 135 ===
+35
+=== BLOCK 136 ===
+36
+=== BLOCK 137 ===
+37
+=== BLOCK 138 ===
+38
+=== BLOCK 139 ===
+39
+=== BLOCK 140 ===
+40
+=== BLOCK 141 ===
+41
+=== BLOCK 142 ===
+14
+=== BLOCK 143 ===
+15
+=== BLOCK 144 ===
+16
+=== BLOCK 145 ===
+17
+=== BLOCK 146 ===
+18
+=== BLOCK 147 ===
+19
+=== BLOCK 148 ===
+20
+=== BLOCK 149 ===
+21
+=== BLOCK 150 ===
+22
+=== BLOCK 151 ===
+23
+=== BLOCK 152 ===
+24
+=== BLOCK 153 ===
+25
+=== BLOCK 154 ===
+26
+=== BLOCK 155 ===
+27
+=== BLOCK 156 ===
+0
+=== BLOCK 157 ===
+1
+=== BLOCK 158 ===
+2
+=== BLOCK 159 ===
+3
+=== BLOCK 160 ===
+4
+=== BLOCK 161 ===
+5
+=== BLOCK 162 ===
+6
+=== BLOCK 163 ===
+7
+=== BLOCK 164 ===
+8
+=== BLOCK 165 ===
+9
+=== BLOCK 166 ===
+10
+=== BLOCK 167 ===
+11
+=== BLOCK 168 ===
+12
+=== BLOCK 169 ===
+13
+Figure 4. Pictorial represen tation of S (4) = h 14 , 22 , 23 i .
+56
+T o end this sub section I w ould lik e to mak e the foll o wing observ ations:
+9
+=== BLOCK 170 ===
+Remark 3. 11. The numeric al semigr oups S = h\{ m \} ∪ A i and S ( p ) = h µ, γ , γ + 1 i define d
+4 m pµ
+ab ove have (p ossibly lar ge) n e gative Eliahou numb ers (se e [11, 17] ). The pr o of that they ar e Wilf
+involves explicit c ounting.
+Remark 3.12. The semigr oups h\{ m \} ∪ A i have depth 4 , while, sinc e the c onductor of S ( p ) is
+4 m
+pµ , ther e is no b ound for the depths of the semigr oups S ( p ) .
+Remark 3.13. Sever al other families obtaine d using similar c onstructions to the one in Pr op osi-
+tion 3.9 c an b e found in the same p ap er. In p articular, for any given inte ger n , an infinite family of
+numeric al semigr oups with Eliahou numb er e qual to n is obtaine d. A l l these fami lies c onsist entir ely
+of Wilf semigr oups.
+3.3. Semigroups with nonnegativ e Eliah o u n um b ers. Recall that the Eli ahou n um b er of a
+n umerical semigroup w as in tro duced in page 6. Th e follo wing result, whic h states that semigroups
+with nonnegativ e Eliahou n um b er are Wi lf, app ears in [16, Prop. 3.11] (see also [17, Cor. 2.3]).
+Prop osition 3.14. L et S b e a numeric al semigr oup with E( S ) ≥ 0 . Then W ( S ) ≥ 0 .
+This result is similar to Prop osition 3.1 in the sense that in ord er to pro v e that a n umerical semi-
+group is Wilf it sufiices to pro v e that it has nonnegativ e Eli ahou n um b er. The main consequences
+are referred to in Secti on 3.8.
+While w aiting fo r those consequen ces, let me refer a result obtain ed b y Eliahou and Ma rín-Aragón.
+As they observ ed, the n um b er 12 that app ears in the statemen t is the b est that can b e obtained in
+this w a y: Example 3.10 giv es a coun ter example for | L | = 13 .
+Prop osition 3.15 ([18]) . If S is a numeric al semigr oup with | L | ≤ 12 , then S has nonn e gative
+Eliahou numb er and ther efor e is Wilf.
+3.4. Natural constructions. Barucci and Strazzan ti ga v e i n [2] the defin ition of dilation of S with
+r esp e ct to a . Namely D ( S , a ) = \{ 0 \} ∪ \{ S + a | s ∈ S \ \{ 0 \}\} . Moreo v er they pro v ed the follo wing
+result.
+Prop osition 3.16 ([2]) . If S is a Wilf semigr oup S then so is any dilation of S .
+Th us, for eac h Wilf sem igroup S , the class \{ D ( S , a ) | a ∈ S \} is an infinite famil y of Wilf
+semigroups.
+3.5. Semigroups with small m ultiplicit y. Sammartano [31, Cor. 19] pro v ed that semigroups of
+m ultiplicit y not greater than 8 are Wilf. El iahou [15] announced the same kind of result but for
+m ultiplicit y 12 (with a simila r pro of; see the commen t just after Theor em 3.19). In the mean time,
+Dhan y [13, Cor. 4.10] had obtained the result f or m ultiplicit y 9 .
+A big breakthrough w as obtained b y Bruns, García-Sánc hez and O’Neil, who ac hiev ed m ulti plicit y
+16 . Their pro of in v olv es computational metho ds, com bined with geometrical ones, suc h as the use
+of Kunz p olytop es.
+Prop osition 3.17 ([7]) . L et S b e a numeric al semigr oup with m ≤ 16 . Then S is Wilf.
+3.6. Semigroups with large em b edding d im e nsion (compared to the m ultiplicit y). As
+stated in Theorem 3.2, n umerical se migroups with v e ry small ( ≤ 3 ) e m b edding dimensio n are Wilf.
+The same h app ens for t hose with large em b edding dimension (when compared to the m ultiplicit y).
+There ar e sev eral pro of s of the fact that semigr oups of maximal em b edding dimen sion (i.e., with
+em b edding d imension equal to the m ul tiplicit y) . The first one (to the b est of m y kno wledge) is due
+to Dobb s and Matt hews [14, Cor. 2.4]. Sammartano [31, Th. 18] , b y means of a rather tec hnical
+pro of in v olving Ap éry sets and the coun ting in in terv als of length m of elemen ts in the semigroup,
+pro v ed that n umerical se migroups with em b edding dimension at least half the m ultipli cit y are Wilf.
+With refined arg umen ts, Dha yni (see also her thesis [12, Th. 2.3.13]) ge neralized Sammartano’s
+result.
+10
+=== BLOCK 171 ===
+?
+1
+Prop osition 3.18 ([13, Th. 4.12]) . L et S b e a numeri c al semigr oup with 2 +
+=== BLOCK 172 ===
+?
+d ≥ m . Then S
+q
+is Wilf.
+Eliahou obtain ed the follo wing impressiv e generalizati on b y u sing a graph theoreti cal approac h.
+The concept of m atc hing (set of indep enden t edges) in a cer tain graph asso cia ted to the Ap éry set
+is used.
+Theorem 3.19 ([15]) . L et S b e a numeric al semigr oup with 3 d( S ) ≥ m( S ) . Then S is Wilf.
+Some c omments.
+(1) P r evious result implies that semigroups of m ultipli cit y up to 12 are Wilf, as already men-
+tioned. Note that a non Wilf semigroup S m ust satisfy d( S ) ≥ 4 b y Theorem 3.2. As it m ust
+also satisfy 3 d( S ) < m( S ) , it follo ws that if S is non Wilf, the n m( S ) > 12 . (Sammartano’s
+result implies m( S ) > 8 for S non Wilf.)
+(2) A p ositiv e answ er to Question 2.7 w ould lead to p ossibly i n teresting consequences. F or
+instance, if the limit w ere 1 / 2 , one could conclude that asymptotica lly , as Ω gro ws, half of
+the n umerical semigroups satisfy 3 d ≥ m , a nd consequen tly a re Wilf.
+T w o other simple consequences of T heorem 3.19 follo w. The first is a generalization of a result
+of Dhan y [13, Th. 4.9], who pro v ed that semigro ups satisfying m − d ≤ 5 are Wi lf. A t th is stage,
+this remark do es not giv e an ything new, but gi v es a v ery expli cit result.
+Remark 3.20. If d( S ) ≥ m( S ) − 10 , then S is Wilf.
+Pr o of. If m( S ) ≤ 16 , then Prop osit ion 3.17 can b e used. If m( S ) ≥ 16 , then m( S ) / 3 > 5 . But in
+this case m( S ) − 10 ≥ m( S ) / 3 . In fact, this l ast inequalit y is equiv a len t to 2 m( S ) ≥ 30 , whic h
+holds b y h yp othesis. ?
+Another consequence ( it sufiices Sammartano’s result to get it), w a s observ ed b y Elia hou.
+Prop osition 3 .21 ([16, Prop. 7.6]) . L et S b e a numeric al s em igr oup with gcd(L ∩ P) ≥ 2 . Then
+S is Wilf.
+3.7. Semigroups with big m ultiplicit y (and p ossibly small em b edding dimension). Moscariello
+and Sammarta no pro v ed that for ev e ry fixed v alue of d m / d e the conjectu re holds for all v alues of
+m whic h are sufiicien t ly l arge and a re no t div isible b y a finite set of primes. Reca ll f rom pr evious
+subsection that the cases d m / d e ≤ 3 ha v e b een solv ed.
+?
+m( S )
+Prop osition 3.22 ([28, Th. 1]) . L et S b e a numeric al semigr oup. L et ρ =
+=== BLOCK 173 ===
+?
+and let φ b e the
+d( S )
+2 2
+ρ (3 ρ − ρ − 4)(3 ρ − ρ − 2)
+pr o duct of prime factors of ρ . If ρ > 3 , m( S ) ≥
+=== BLOCK 174 ===
+and gcd(m( S ) , φ ) = 1 , then S
+8( ρ − 2)
+is Wilf.
+The m ultiplicities of the semigroup s t hat arise from Prop osition 3 .22 are large, as the follo wing
+GAP session suggests (b y sh o wing that for ρ = 4 the smallest m ultiplicit y is 1680 ).
+gap> mult := r - > (r*( 3*r\^2-r-4)*(3*r\^2-r-2) )/8*(r-2);
+function( r ) ... end
+gap> mult(4);
+1680
+3.8. Semigroups with large m ultiplicit y (compare d to the conductor). It w as pro v ed b y
+Kaplan [23, Th. 24] that n umerical semigroups with condu ctor not greater t han t wic e the m ultiplicit y
+are Wilf . This result w as generalized b y Eliahou. One of the ingredien t s he used is a theorem of
+Macaula y on the gro wth of Hilb ert functions of standard graded alge bras. In fact, he pro v ed the
+follo wing:
+11
+=== BLOCK 175 ===
+Prop osition 3.23 ([16, Th. 6.4]) . L et S b e a numeric al semigr oup with χ ( S ) ≤ 3 m( S ) . Then S
+has nonne gative Eliahou numb er.
+This re sult com bined with Prop osition 3.14 leads to the fol lo wing ma jor fact. (Its imp ortance
+can b e b etter appreciated b y seeing the commen ts that follo w the st atemen t.)
+Theorem 3.24 ([16, Cor. 6 .5]) . L et S b e a numeric al semi gr oup with χ ( S ) ≤ 3 m( S ) . Then S is
+Wilf.
+Some c omments.
+(1) D e note b y e ( g ) the n um b er of n umeri cal semigroup s of gen us g ha ving p ositiv e Eliahou n um-
+e ( g )
+b er . Com bining Prop osition 3.23 with Zhai’s Prop osition 2.6 one sees that lim
+g →∞
+=== BLOCK 176 ===
+= 1 .
+N ( g )
+Th us, in the sense giv en b y this li mit, one can sa y that asymptoti cally , as the gen us gro w s,
+all n u merical s emigroups ha v e nonnegativ e Eliahou n um b er. Consequen tly , asymptotica lly ,
+as t he gen us gro ws, all n umerical se migroups are Wilf.
+(2) I observ e that, despite th is asymptotic resu lt concerning Elia hou n u m b ers, there are infinit ely
+man y n umerical semi groups with negativ e Eliahou n um b er (see [11, 17]). All the examples
+giv en in the men tioned pap ers are Wilf semigroups (some of them app ear in Section 3.2).
+3.9. Considering un usual in v arian ts. The second smallest primitiv e is sometimes called th e
+r atio (see [30, Exercise 2.12]).
+Spirito pro v ed that if the ratio is lar ge and the m ultiplicit y is b ounded b y a quadratic function
+of the em b edd ing dimension, then S is Wilf. He also pro v ed v arious rel ated statemen ts. As an
+illustration, I c ho ose one that is rather expl icit:
+Prop osition 3.25 ([32, Prop 4.6]) . L et S b e a numeri c al semigr oup with r atio r and emb e dding
+dimension d ≥ 10 . If
+χ ( S ) + m( S )
+(3) r >
+=== BLOCK 177 ===
+8
+and m( S ) ≤
+3
+=== BLOCK 178 ===
+1
+2
+d +
+25
+=== BLOCK 179 ===
+5
+d −
+5
+=== BLOCK 180 ===
+4
+then S is a Wilf semigr oup.
+2
+Remark 3.26. It is str aightforwar d to che ck that that if d ≤ 9 , then 8 / 25 d + 1 / 5 d − 5 / 4 ≤ 3 d .
+The fol lowing GAP session may help to quickly c onvinc e the r e ader:
+gap> f := d -> 8/25*d\^ 2 + 1/5*d - 5/4;
+gap> Int(f(9));
+26
+One c oncludes by using The or em 3.19 that the r estriction d ≥ 10 c an b e r emove d fr om the statement
+of Pr op o s i tion 3.25. Mor e over, when d < 10 ther e is no ne e d to imp ose any r estriction on the r atio.
+3.10. F amilies describ ed through one in v arian t. F amilies of semig roups descri b ed b y limiting
+the m ultipli cit y of its mem b ers w ere already considered in Section 3.5. Prop osition 3.17 could ha v e
+b ee n stated in this subsection, as w ell as Prop osition 3.15 whic h refers to the n um b er of left elemen ts.
+Dobbs and Matthews [14, Th. 2.11] pro v ed that n umerical semig roups with | L | ≤ 4 are Wilf
+semigroups. As a corollary the y obtained that se migroups with χ ≤ 21 are Wilf. Eliahou [16,
+Prop. 7. 4] observ ed that n umerica l semigroups with less th an 7 left e lemen ts are Wilf. These re sults
+ha v e b een largely s up erseded.
+Recall that Prop osition 3.15 giv es a similar result, but the restriction on the n um b er of left
+elemen ts w as w eak ened: n umerical semi groups with | L | ≤ 12 are Wilf.
+Let S b e a non Wilf semigroup. By Prop osit ion 3. 17, m( S ) ≥ 17 . Using Prop osition 3.23, whic h
+guaran tees t hat non Wilf sem igroups satisfy χ ( S ) > 3 m( S ) , one gets that χ ( S ) > 54 . This pro v es
+that semigroups with conductor smaller tha n 53 are Wilf.
+12
+=== BLOCK 181 ===
+F romen tin and Hiv ert, through exhaustiv e computati on, ha v e sho wn that there a re no non Wilf
+semigroups with gen us smaller than 61 . The previous publi shed record, gen us 51 , had b een obtained
+b y Bras-Amorós[5] .
+Theorem 3.27 ([20]) . Every numeric al semigr oups of gen us up to 60 is Wilf.
+Since t he gen us of a n umer ical semigroup is not smal ler than it s conductor plus one, the follo wing
+consequence, whic h sup ersedes the ab o v e results concerning the conductor, is imm ediate.
+Corollary 3.28. Semigr oups whose c onductor do es not exc e e d 61 ar e Wilf.
+(I am curren tly dev eloping tec hniques to replace in Theorem 3.2 7 the in teger 60 b y a larger one.
+It will probably b e part of an exp erimen tal preprin t of mine whic h is in an adv anced phase of
+preparation and is pro visionally en titled ”Wilf ’s conjecture on n umerica l semigroups holds for small
+gen us”.)
+4. Quasi-generaliza tion
+Denote b y S the class of all n umerical semigroups. Let W = \{ S ∈ S | W ( S ) ≥ 0 \} and let
+E = \{ S ∈ S | E( S ) ≥ 0 \} .
+Whether S = W is presen tly not kno wn (Wilf ’s conjecture sa ys that the equalit y holds, but it
+is still a conjecture). That E ⊆ W follo ws fro m Prop osition 3.14, and up to gen us 60 there are
+exactly 5 n umerical semigroups not in E , th us sho wing that the inclusion is strict (the examples
+w ere obtained b y F romen tin and app ear in [16, pgs 2112,2113]). The follo wing is a consequence of
+Remark 3.11.
+F act 4.1. W \ E is infinite.
+Let P b e a prop ert y (ab out n umerical semigroups). F or instance, “ d ≥ 3 ” is suc h a prop ert y . Let
+P = \{ S ∈ S | S | = P \} b e the class of n umerical semigroups satisfying P . With this notation, most
+results in the p revious sections can b e written in the follo wing form: “If S ∈ P , then S ∈ W .”, or
+“If S satisfies P , then S is Wilf ”.
+I in vite the reader to think an all the results as if they had b een written in this form. Some
+prop erties cann ot b e as nicely written as in the ab o v e example (“ d ≥ 3 ”). Ho w ev er, for instance,
+the statemen t “W e sa y that S satisfies prop ert y P if and on ly if S is of th e form S ( p ) , with p an
+ev en p ositiv e in teger.” allo ws to write P r op osition 3.9 in the ab o v e form.
+By doing so , one can asso ciate a prop ert y to eac h result and con v ersely . Although I do not in tend
+to e xplicitly giv e na mes to all the prop erties corresp ondi ng to the results stated, there are some
+exceptions:
+D stands for t he prop ert y “ d ≥ 3 ”, whic h is asso ciated to Theorem 3.2. The corresp o nding class
+3
+of semigroups is D .
+3
+Similarly , one has the corresp ondences:
+D — “ 3 d ≥ m ” — Theorem 3.19 — D ;
+M — “ χ ≤ 3 m ” — Theorem 3.24 — M ;
+G — “ Ω ≤ 60 ” — Theorem 3.27 — G .
+60 60
+It seems reasona ble to add other excepti ons: S , W , E are the prop erties ab out n u merical semi-
+groups asso ciated, resp ec tiv ely , to S , W , E . (Note that S is trivial: it is satisfied b y all n umerical
+semigroups.)
+F act 4.2. A l l the classes D , D , M , G ar e strictly c ontaine d in W . F urthermor e, for every P ∈
+3 60
+\{ D , D , M , G \} , W \ P is infinite.
+3 60
+13
+=== BLOCK 182 ===
+Pr o of. By Prop osition 3.23, M ⊆ E . Th us W \ E ⊆ W \ M . Since, b y F act 4.1, W \ E is infini te, it
+follo ws that W \ M is infinite. The r eader will ha v e no difiicu lties in giving examples sho wing that
+also W \ D , W \ D and W \ G are infinite. ?
+3 60
+In what follo ws I will define a part ial orde r on prop erties (ab out n u merical s emigroups). It can
+b e used to partially order classes of n umerical semigroups, or ev en results taking in to accoun t the
+ab o v e corresp ondences. Note that I do not w an t to mak e an y jud gemen t on the results and ev en
+less on their pro ofs. It ma y w ell happ en that the id eas in v olv ed in the pro of of a giv en result will
+in the future ha v e a greater impact tha n the ideas in v o lv ed in a pro of of one of its generalizations.
+A p rop ert y P is said to b e a gener alization of a prop ert y Q if all the semigroups sati sfying Q also
+satisfy P , that is, Q ⊆ P (or Q \ P is empt y). It is clear that a result that pro v es a generalizatio n is
+b et ter, but this can not b e said in a d efinitiv e w a y when the argumen ts in the pro ofs are differen t.
+Except in some ob vious cases (suc h as hap p ens in se v eral subsections of Sectio n 3), j ust comparing
+through set inclusi on is not of great help.
+A prop ert y P is a quasi gener alization of a prop ert y Q if all but finitely man y n umerical semi-
+groups satis fying Q also satisfy P , tha t is, Q \ P is either empt y or finite. It is straigh tfo r-
+w ard to c hec k t hat quasi-general ization is a partial order i n the set of prop erties on n umerical
+semigroups. The notation Q ≺ P is used for “ P is a quasi generalization of Q ”. In sym b ols:
+Q ≺ P if and only if | Q \ P | < ∞ .
+I am far from sa yi ng that prop erties that are quasi generalized b y others are n ot imp ortan t (ev en
+without taking the pro ofs in to accoun t). A ccording to this definition, an y prop ert y defini ng an
+infinite class of n umerical semigrou ps quasi generaliz es all the prop e rties defin ing finite classes. F or
+instance, the prop ert y G is quasi generalized b y the prop erties asso ciated to the results stated in
+60
+previous section that define infinite c lasses. But none of these results generalize s G (as the reader
+60
+can easily c hec k), whic h, fro m m y p oin t of view, mak es it a prop ert y of high in terest.
+I encourage an y one who finds a new prop ert y (suc h th at all n umerical semi groups in the class
+of semigroups sa tisfying that prop ert y are Wilf ) to compare it with o ther prop erties for quasi
+generalizatio n. Observing that it is not k no wn an y quasi generalizati on P of the prop ert y und er
+consideration suc h that P ⊆ W probably will coun t in fa v our of t he results obtained.
+My aim no w is to compare, for quasi generalization, the prop e rties for whic h a name w as giv en:
+S , W , E , D , D , M , and G . They do not form a c hain, as it follo ws from next result. The impatien t
+3 60
+reader ma y already tak e a lo ok at the lattic e depicted in Figure 7.
+Prop osition 4.3. M and D ar e not c omp ar able under quasi gener alization.
+Pr o of. F or a giv en m > 1 , S = h m i = h m, k m + 1 , . . . , k m + m − 1 i is a semigro up of maximal
+mk
+em b edding dimension, th u s satisfies D and, for k > 3 , S do e s not satisfy M . As there are infinitely
+man y suc h semig roups, it follo w s that D \ M is infinite and therefore D ⊀ M .
+It r emains to pro v e t hat M ⊀ D , w hic h amoun t s to s ho w that there are infin itely man y semigr oups
+in M with small em b edding dimension.
+The pro of of this fact b e gins with a trivial observ ation. As us ual, for sets of in tegers A and B ,
+A + B denotes the set \{ a + b | a ∈ A, b ∈ B \} .
+Claim 1. L et X = \{ 0 , 1 , 2 , 3 \} ∪ \{ 7 k | k ∈ N \} . Then N ⊆ X + X + X .
+Pro of of the claim. Clearly \{ 0 , . . . , 6 \} ⊆ X + X . B y the Euclidean algorithm ev ery in teger can
+b e writt en in the form 7 k + ρ , with k an in teger and ρ ∈ \{ 0 , . . . , 6 \} . Consequen tly , an y nonnegativ e
+in teger b elongs to X + X + X , w hic h pro v es the claim.
+m
+Let m b e a p ositiv e in teger and let Y = \{ m, m + 1 , m + 2 , m + 3 \} ∪ \{ 7 k + m | 0 ≤ k ≤ b
+=== BLOCK 183 ===
+c\} .
+7
+Consider the semigro up S = h Y i . Example 4.4 helps to visu alize it for t w o p oss ible v alue s of m .
+14
+=== BLOCK 184 ===
+The set Y + Y + Y con tains m consecutiv e in tegers. Since Y + Y + Y = \{ 3 m \} + X + X + X , the
+?
+argumen t used in in the pro of of Claim 1 allo ws to conclude that Y + Y + Y con tains 3 m, . . . , 3 m +
+m
+b
+=== BLOCK 185 ===
+?
+c + 3 . It follo ws that χ ( S ) ≤ 3 m( S ) . Th us S satisfies M .
+7
+m
+It is straigh tforw a rd to c hec k that the em b edding dimension o f S is b
+=== BLOCK 186 ===
+m
+c + 5 . As
+7
+=== BLOCK 187 ===
+m
++ 5 <
+7
+=== BLOCK 188 ===
+if
+3
+and only if 7 m − 3 m > 3 × 7 × 5 . This implies m > 26 . 25 . Th us one concludes that, for m > 27 , S
+do e s not satisfy D . ?
+m
+Example 4.4. L et Y = \{ m, m + 1 , m + 2 , m + 3 \} ∪ \{ 7 k + m | 0 ≤ k ≤ b
+=== BLOCK 189 ===
+c\} b e the set intr o duc e d
+7
+in the pr o of of Pr op osition 4.3. Consider the semigr oup S = h Y i . Figur es 5 and 6 give a pictorial
+r epr esentatio n for the c ases m = 28 and m = 80 (in the latter c ase only the shap e is dr awn).
+The fol lowing GAP c o de c an b e use d to give the semigr oups.
+m := 28;;
+small\_gens := [m,m+1,m+2 ,m+3];
+other\_gens := List([1..I nt(m/7)], k -> 7*k+m );
+ns := NumericalSemigroup (Union(small\_gens,othe r\_gens));;
+Then an adaptati on of the GAP-c o de 1.3 c an b e use d to get the TikZ c o de. In or der to obtain an
+image just showing the shap e, one c an use the option s i n G AP-c o de 1.5.
+=== BLOCK 190 ===
+84
+=== BLOCK 191 ===
+85
+=== BLOCK 192 ===
+86
+=== BLOCK 193 ===
+87
+=== BLOCK 194 ===
+88
+=== BLOCK 195 ===
+89
+=== BLOCK 196 ===
+90
+=== BLOCK 197 ===
+91
+=== BLOCK 198 ===
+92
+=== BLOCK 199 ===
+93
+=== BLOCK 200 ===
+94
+=== BLOCK 201 ===
+95
+=== BLOCK 202 ===
+96
+=== BLOCK 203 ===
+97
+=== BLOCK 204 ===
+98
+=== BLOCK 205 ===
+99
+=== BLOCK 206 ===
+100
+=== BLOCK 207 ===
+101
+=== BLOCK 208 ===
+102
+=== BLOCK 209 ===
+103
+=== BLOCK 210 ===
+104
+=== BLOCK 211 ===
+105
+=== BLOCK 212 ===
+106
+=== BLOCK 213 ===
+107
+=== BLOCK 214 ===
+108
+=== BLOCK 215 ===
+109
+=== BLOCK 216 ===
+110
+=== BLOCK 217 ===
+111
+=== BLOCK 218 ===
+56
+=== BLOCK 219 ===
+57
+=== BLOCK 220 ===
+58
+=== BLOCK 221 ===
+59
+=== BLOCK 222 ===
+60
+=== BLOCK 223 ===
+61
+=== BLOCK 224 ===
+62
+=== BLOCK 225 ===
+63
+=== BLOCK 226 ===
+64
+=== BLOCK 227 ===
+65
+=== BLOCK 228 ===
+66
+=== BLOCK 229 ===
+67
+=== BLOCK 230 ===
+68
+=== BLOCK 231 ===
+69
+=== BLOCK 232 ===
+70
+=== BLOCK 233 ===
+71
+=== BLOCK 234 ===
+72
+=== BLOCK 235 ===
+73
+=== BLOCK 236 ===
+74
+=== BLOCK 237 ===
+75
+=== BLOCK 238 ===
+76
+=== BLOCK 239 ===
+77
+=== BLOCK 240 ===
+78
+=== BLOCK 241 ===
+79
+=== BLOCK 242 ===
+80
+=== BLOCK 243 ===
+81
+=== BLOCK 244 ===
+82
+=== BLOCK 245 ===
+83
+=== BLOCK 246 ===
+28
+=== BLOCK 247 ===
+29
+=== BLOCK 248 ===
+30
+=== BLOCK 249 ===
+31
+=== BLOCK 250 ===
+32
+=== BLOCK 251 ===
+33
+=== BLOCK 252 ===
+34
+=== BLOCK 253 ===
+35
+=== BLOCK 254 ===
+36
+=== BLOCK 255 ===
+37
+=== BLOCK 256 ===
+38
+=== BLOCK 257 ===
+39
+=== BLOCK 258 ===
+40
+=== BLOCK 259 ===
+41
+=== BLOCK 260 ===
+42
+=== BLOCK 261 ===
+43
+=== BLOCK 262 ===
+44
+=== BLOCK 263 ===
+45
+=== BLOCK 264 ===
+46
+=== BLOCK 265 ===
+47
+=== BLOCK 266 ===
+48
+=== BLOCK 267 ===
+49
+=== BLOCK 268 ===
+50
+=== BLOCK 269 ===
+51
+=== BLOCK 270 ===
+52
+=== BLOCK 271 ===
+53
+=== BLOCK 272 ===
+54
+=== BLOCK 273 ===
+55
+=== BLOCK 274 ===
+0
+=== BLOCK 275 ===
+1
+=== BLOCK 276 ===
+2
+=== BLOCK 277 ===
+3
+=== BLOCK 278 ===
+4
+=== BLOCK 279 ===
+5
+=== BLOCK 280 ===
+6
+=== BLOCK 281 ===
+7
+=== BLOCK 282 ===
+8
+=== BLOCK 283 ===
+9
+=== BLOCK 284 ===
+10
+=== BLOCK 285 ===
+11
+=== BLOCK 286 ===
+12
+=== BLOCK 287 ===
+13
+=== BLOCK 288 ===
+14
+=== BLOCK 289 ===
+15
+=== BLOCK 290 ===
+16
+=== BLOCK 291 ===
+17
+=== BLOCK 292 ===
+18
+=== BLOCK 293 ===
+19
+=== BLOCK 294 ===
+20
+=== BLOCK 295 ===
+21
+=== BLOCK 296 ===
+22
+=== BLOCK 297 ===
+23
+=== BLOCK 298 ===
+24
+=== BLOCK 299 ===
+25
+=== BLOCK 300 ===
+26
+=== BLOCK 301 ===
+27
+Figure 5. Pictorial represen tation of the semigr oup obtained with m = 28 .
+=== BLOCK 302 ===
+Figure 6. Shap e of the n umerical se migroup obtained with m = 80 .
+Most of the indicated relations in the lattice represen ted in Figure 7 ha v e b een treat ed al ong
+the text in this secti on. That D and M are not comparabl e under quasi-generalization is sho wn in
+Prop o sition 4.3. Th us, the follo wing has b e en pro v ed:
+Prop osition 4.5. With the notation intr o duc e d, one has the lattic e in Figur e 7.
+Other comparisons could b e made . As a n examp le, fix a Wilf semigroup S (p ossibly with s mall
+m ultiplicit y when compared to the conductor). It i s easy to c hec k that m( D ( S , a )) = m( S ) + a
+m( D ( S ,a ))
+and that χ ( D ( S , a )) = χ ( S ) + a . Th us,
+=== BLOCK 303 ===
+m( S )+ a
+=
+χ ( D ( S ,a ))
+=== BLOCK 304 ===
+tends to 1 when a tends to infinit y .
+χ ( S )+ a
+m
+In particular, from a certain p oi n t on, the quotien t
+=== BLOCK 305 ===
+is greater than 1 / 3 and so, f rom that p oin t
+χ
+on, all the semigroups sati sfy M . Therefore , M quasi generalizes the prop ert y corresp onding to
+Prop o sition 3.16, for an y fixed S .
+Denote b y P the prop ert y asso ciated to Prop osition 3.22 wit h ρ = 4 . As there are infinit ely
+4
+man y semigroups satisfying D whose m ultiplicit y is ev en , w e get that D ⊀ P . On the oth er hand,
+4
+it is straigh tforw ard to c hec k that there are infinitely man y semigroups satisfying P and with small
+4
+em b edding dimension (less than m / 3 ). Th us D ? P , a nd w e conclude t hat D and P , ar e not
+4 4
+comparable under qu asi generalizati on.
+Let d ≥ 10 b e an in t eger and denote b y S the class of n umeri cal semigroups with e m b edding
+(d ,χ )
+dimension d and cond uctor χ . Deno te b y r = r( S ) the rati o (second smallest primitiv e) of a
+15
+=== BLOCK 306 ===
+S
+W
+E
+D D
+3
+M
+G
+60
+=== BLOCK 307 ===
+( =? ) 4
+=== BLOCK 308 ===
+≺
+=== BLOCK 309 ===
+≺
+=== BLOCK 310 ===
+≺
+=== BLOCK 311 ===
+≺
+=== BLOCK 312 ===
+≺
+=== BLOCK 313 ===
+≺
+=== BLOCK 314 ===
+≺
+Figure 7. Latice of some n umerical semigroup
+prop erties (for quasi-generalizatio n)
+n umerical semi group S . F or fixed d and χ , consider the set
+?
+2
+8 d
+R = S ∈ S | m ≤
+(d ,χ ) (d ,χ )
+=== BLOCK 315 ===
+d
++
+25
+=== BLOCK 316 ===
+5
+−
+5
+=== BLOCK 317 ===
+?
+χ + m
+and r >
+4
+=== BLOCK 318 ===
+??
+.
+3
+Since no primitiv e of a n umerical semigroup exceeds χ + m − 1 , the ratio of a semigroup of em-
+b ed ding dimension d m ust b e at most χ + m − d +1 .
+Note that the class of n um erical semigroup s satisfying Equation 3 in Prop osition 3.25 is:
+[
+R . R =
+d (d ,χ )
+χ ≥ m
+Consider no w the cla ss R \ ( M ∪ D ) . In set notation it ma y b e wri tten as follo ws:
+d
+?
+8
+S ∈ S | 3 d < m ≤
+=== BLOCK 319 ===
+1
+2
+d +
+25
+=== BLOCK 320 ===
+5
+d −
+5
+=== BLOCK 321 ===
+?
+χ + m
+, χ > 3 m and
+4
+=== BLOCK 322 ===
+? ?
+< r ≤ χ + m − d +1 .
+3
+A natural question is w hether th is class is finite, that i s, the disjunction of the prop erties M and
+D quasi general izes the prop e rt y asso ciated to Prop osition 3.25 (with d fixed). Apparen tly there is
+no b ound for the c onductor, bu t a big conductor will fo rce a big ratio. On the other hand , a small
+em b edding dimension and a big ratio leads to a h uge conductor. Is the starting “conduct or” big
+enough?
+‘
+A cknow le dgements. I w ould lik e to thank m y colleges ate the F CUP’s Ma thematics departmen t
+who made p ossible for me to b en efit of a sabbatical y ear. The hospitalit y found in the Instituto de
+Matemáticas de la Univ ersidad de Granada ( IEMath-GR) w as amazin g, whic h made t he writing of
+this pap er a lot easier. Man y thanks to IEMath-GR and esp ecially to P edro García-Sanc hez who
+made p ossible this sta y in Granada to happ e n. I w an t a lso to thank Claude Marion whose in terest
+sho wn on the topic highly con tributed for m y decision on writing this surv ey . His commen ts greatly
+con tributed t o impro v e the pa p er.
+References
+[1] Jörgen Bac k elin. On the n um b er of semigroups of natural n um b ers. Math. Sc a nd. , 66(2 ):197–215, 1990. doi:
+10.7146/math.scand. a- 12304 .
+[2] V. Barucci and F. Strazzan ti. Dilatations of n umerical semigroups. Semigr oup F orum , F eb 2018. doi:10.1007/
+s00233- 018- 9922- 9 .
+16
+=== BLOCK 323 ===
+[3] V alen tina Barucci. On propinquit y of n umerica l semigroups and one-dimensional lo cal Cohen Macaula y rings.
+In Commutative algebr a and its applic at i o ns , p a ges 49–60. W alter de Gruyter, Berlin, 2009.
+[4] V alen tina Barucci and Ralf F rö b erg. One-d im en sio n al almost Gorenstein rings. J. A lgebr a , 188(2):418–442, 1997.
+doi:10.1006/jabr.19 96.6837 .
+[5] Maria Bras-Amorós. Fib onacci-lik e b eha vior of the n um b er of n umerical semigroups of a g i v en gen us. Semigr oup
+F orum , 76 (2):379–384, 2008. doi:10.1007/s00233- 007- 9014- 8 .
+[6] Alfred Brauer. On a problem of partitions. A mer. J. Math. , 64 :299–312, 1942. doi:10.2307/237168 4 .
+[7] Winfried Bruns, P edro A. García-Sánc hez, and Christopher O’Neill, 2019. P ersonal comm unication b y P edro A.
+García-Sánc hez.
+[8] F rank Curtis. On form ulas for the Frob enius n um b er of a n umerical semigroup. Math. Sc and. , 67(2):19 0–192,
+1990. doi:10.7146/math. scand.a- 12330 .
+[9] M. Delg ado, P .A. García-Sánc hez, a n d J. Morais. Numeric alsgps – a GAP p ackage on numeric al semigr oups , 3
+2018. V ersion n um b er 1.1.7. URL: http://www.gap- system.org/Packages/nu mericalsgps.html .
+[10] Man uel Delgado. IntPic – a GAP p ackage for dr awing inte gers , 9 2017. V ersion 0.2.3. URL: http://www.
+gap- system.org/Packages/intpic.html .
+[11] Man uel Delgado. On a question of Eliahou and a conjecture of Wilf. Math. Z. , 288(1-2):595–627, 2018. doi:
+10.1007/s00209- 017- 1902 - 3 .
+[12] Mariam Dha yni. Pr oblems in numeric al semigr oups . PhD thesis, Univ ersité d’Angers, 2017. URL: https://www.
+theses.fr/2017ANGE0 041.pdf .
+[13] Mariam Dha yni. Wilf ’s conjecture fo r n ume ri c al semigroups. Palest. J. Math. , 7(2):385–396, 2018.
+[14] Da vid E. Dobbs a n d Gretc hen L. Matthews. On a question of Wilf concerning n umerical semigroups. In F o cus
+on c ommutative rings r ese ar ch , pag es 193–202. No v a Sci. Publ., New Y ork, 200 6.
+[15] Shalom Eliahou. A graph-theoretic approac h to wilf ’s conjecture. Slides presen ted at the Meeting of the Catalan,
+Spanish, Sw edish Math So cieties, 6 2017. URL: http://www.ugr.es /~semigrupos/Umea- 2 017/ .
+[16] Shalom Eliahou. Wi lf ’s conjecture and Macaula y’s theo rem. J. Eur. Math. So c. (JEMS) , 20(9):2105–2129, 2018.
+doi:10.4171/JEMS/80 7 .
+[17] Shalom Eliahou and Jean F romen tin. Near-misses in wilf ’s conjecture. Semigr oup F orum , F eb 201 8. doi:10.
+1007/s00233- 018- 9926- 5 .
+[18] Shalom Eliahou and Daniel Marín-Aragón, 2019. P ersonal comm unication b y Shalom Eliahou.
+[19] R. F rö b erg, C. Gottlieb, and R. Häggkvist. On n umerical semigroups. Semigr oup F orum , 35(1):63–83, 1987.
+doi:10.1007/BF02573 091 .
+[20] Jean F romen tin and Floren t Hiv ert. Exploring the tree of n umerical semigroups. Math. Comp. , 85(301 ): 2 553–
+2568, 2016. doi:10.1090/mcom /3075 .
+[21] The GAP Group. GAP – Gr oup s , A lgorithms, and Pr o gr amming, V ersion 4.9.1 , 5 2018. URL: https://www.
+gap- system.org .
+[22] Alfred Geroldinger and F ranz Halter-K o c h. Non-unique factorizations: a surv ey . In Multiplic at i ve ide al the ory in
+c ommut ative algebr a , page s 207–226. Springer, New Y ork, 2006. doi:10.1007/978- 0- 387- 36717- 0\_13 .
+[23] Nathan Kaplan. Coun ting n umerical semigroups b y gen u s and some cases of a question of Wilf. J. Pur e Appl.
+A lgebr a , 2 16(5):1016–1032, 20 12. doi:10.1016/j.jpa a.2011.10.038 .
+[24] Nathan Kaplan. Coun ting n umerical semigroups. A mer. Math. M o n t hly , 124(9):862–875, 2017. doi:10.4169/
+amer.math.monthly.1 24.9.862 .
+[25] E. Kunz. On the t yp e of certain n umerical semigroups and a question of Wilf. Semigr o up F orum , 93(1):205–210,
+2016. doi:10.1007/s00233 - 015- 9755- 8 .
+[26] E. Kunz and R. W aldi. On the deviation a n d the t yp e of certain lo cal Cohen-Macaula y rings a n d n umerical
+semigroups. J. A lgebr a , 47 8:397–409, 2017. doi:10.1016/j.ja lgebra.2017.01.041 .
+[27] Gretc hen L. Matthews. On in tegers nonrepresen table b y a generalized arith m etic progre ssi o n . Inte g er s , 5(2):A12,
+6, 2 005.
+[28] Alessio Moscariello and Alessio Sammartano. On a conjecture b y Wilf ab out the Frob enius n um b er. Math. Z. ,
+280(1-2):47–53, 2015. doi:10.1007/s00209- 015- 1412- 0 .
+[29] J. L. Ramírez-Alfonsín. The Diophantine Fr ob en ius pr oblem , v olume 30 o f Oxfor d L e ctur e Series in M a thematics
+and its Applic ations . Oxf ord Univ ersit y Pre ss, Oxford, 2005. doi:10.1093/acpro f:oso/9780198568209.001.
+0001 .
+[30] J. C. Rosales and P . A. García Sánc hez. Numeric a l semigr oups , v olume 2 0 of Developments in Mathematics .
+Springer, New Y ork, 2009. doi:10.1007/978- 1- 4419- 0160- 6 .
+[31] Alessio Sammartano. Numerical semigroups with large em b edding dimension satisfy Wilf ’s conjecture. Semigr oup
+F orum , 85 (3):439–447, 2012. doi:10.1007/s00233- 011- 9370- 2 .
+[32] Dario Spirito. Wilf ’s co n je cture for n umerical semigroups with large seco n d generator. arXiv e-prints , page
+arXiv:1710.09245, Octob er 2017. arXiv:1710.09245 .
+17
+=== BLOCK 324 ===
+[33] J. J. Sylv ester. Mathematical questions with their solutions. Educ a tional Times , 41:21, 1884. Solution b y W.J.
+Curran Sharp.
+[34] T erence T ao and V an V u. A dditive c ombinatorics , v olume 105 of Cambridge Studies i n A dvanc e d Mathema tics .
+Cam brid g e Univ ersit y Press, Cam bridge, 2006. doi:10.1017/CBO978 0511755149 .
+[35] Herb ert S. Wilf. A circle-of -l igh ts algorithm for the “money-c hanging p ro b lem ”. A mer. Math. Monthly , 85(7):562–
+565, 1978. doi:10.2307/232086 4 .
+[36] Alex Zhai. Fib onacci-lik e gro wth of n umerical semigroups of a giv en gen us. Semigr o up F orum , 86(3):634–662,
+2013. doi:10.1007/s0023 3- 012- 9456- 5 .
+[37] Y ufei Zhao. Constructing n u me ri c al semigroups of a giv en g en us. Semigr oup F or um , 80:242–254, 2010. doi:
+10.1007/s00233- 009- 9190 - 9 .
+CMUP, Dep a r t amento de Ma temá tica, F a culd ade de Ciências, Universid ade do Por to, R ua do
+Campo Alegre 687, 4 169-007 Por to, Por tu gal
+E-mail addr ess : mdelgado@fc.up.pt
+18
