@@ -108,15 +108,28 @@ for a comprehensive account.
 
 \subsection{Known results}
 
-Sammartano~\cite{Sammartano2012} proved the conjecture for $e \ge m/2$,
-i.e., $d \le m/2$, and later
-Eliahou~\cite{Eliahou2018, Eliahou2020} extended this to $e \ge m/3$.
-In particular, Wilf's conjecture holds for all semigroups with $d \le 2$.
-These proofs establish $W(S) \ge 0$ but do not provide explicit positive lower bounds
-depending on $m$.
+Sammartano~\cite{Sammartano2012} proved the conjecture for $e \ge m/2$
+(i.e., $d \le m/2$).
+Dhayni~\cite{Dhayni2017, Dhayni2018} extended this to $d \le 5$
+and, more generally, to semigroups satisfying $(2 + 1/q)e \ge m$.
+Eliahou~\cite{Eliahou2018} proved the conjecture whenever $e \ge m/3$
+(equivalently $d \le 2m/3$), which subsumes all the previous results
+for small defect.
+In particular, $W(S) \ge 0$ is fully known for every fixed defect~$d$.
 
-Eliahou~\cite{Eliahou2024} further investigated structural properties
-using the Kunz coordinates and the depth of the Ap\'ery set.
+On the computational side,
+Bruns, Garc\'ia-S\'anchez, and O'Neill~\cite{Bruns2020} verified
+the conjecture for all semigroups with $m \le 18$ using Kunz polytopes,
+and Delgado, Eliahou, and Fromentin~\cite{DEF2023} verified it
+for all semigroups of genus up to~$100$.
+
+All of these results establish $W(S) \ge 0$ but do not provide explicit
+positive lower bounds on the Wilf number depending on~$m$.
+Dhayni's proofs~\cite{Dhayni2018} contain intermediate estimates
+of the form $W \ge m - 4 + \rho$ (for $d = 1$) but she does not
+extract them as explicit sharp bounds.
+To our knowledge, no prior work identifies the \emph{exact minimum}
+of $W(S)$ among semigroups of given multiplicity and defect.
 
 \subsection{Our contribution}
 
@@ -154,11 +167,13 @@ Moreover, this bound is sharp: for every $m \ge 7$, there exists a
 numerical semigroup with $d = 3$ achieving $W(S) = 2m - 12$.
 \end{theorem}
 
-As a corollary, for $d = 1$ and $m \ge 4$, one has $W(S) \ge 1 > 0$;
-for $d = 2$ and $m \ge 5$, $W(S) \ge 2 > 0$;
-and for $d = 3$ and $m \ge 7$, $W(S) \ge 2 > 0$.
-This provides strict positivity of the Wilf number in these families,
-contributing to a question raised by Moscariello and Sammartano.
+We emphasize that $W(S) \ge 0$ for small defect is already known
+(Dhayni~\cite{Dhayni2018} for $d \le 5$, Eliahou~\cite{Eliahou2018}
+for $d \le 2m/3$).
+Our contribution is the explicit linear growth: for instance,
+$W(S) \ge m - 3$ for $d = 1$ shows that the Wilf number grows
+unboundedly with the multiplicity, and the tight families identify
+the \emph{exact minimum} for each~$m$.
 
 All three theorems are verified computationally with zero violations
 (Section~\ref{sec:computation}).  An exhaustive Kunz-coordinate enumeration
@@ -781,7 +796,11 @@ The latter already exceeds $\Sigma\delta = 1$, so $a > r^*$ and $\delta_a = 1$,
 consuming the entire budget.
 
 For the remaining pairs $(a, b_j)$: $1 + k_{b_j} + \varepsilon \le 3$,
-so $k_{b_j} \le 2$.  If $b_j > r^*$, $\delta_{b_j} = \max(0, 2 - k_{b_j}) = 0$
+so $k_{b_j} \le 2$.  If $b_j \le r^*$, then $k_{b_j} \le k^* = 3$.
+For $k_{b_j} = 3$: $1 + 3 + \varepsilon = 4 + \varepsilon > 3$, impossible.
+For $k_{b_j} \le 2$: $\delta_{b_j} = 3 - k_{b_j} \ge 1$, but the budget
+is already exhausted by~$a$, contradiction.
+So $b_j > r^*$, and $\delta_{b_j} = \max(0, 2 - k_{b_j}) = 0$
 (since budget is exhausted), so $k_{b_j} = 2$.
 Then $1 + 2 + \varepsilon \le 3$ requires $\varepsilon = 0$.
 Both cross-sums need $a + b_j < m$, and the targets $a + b_j$ are
@@ -866,98 +885,72 @@ We prove the contrapositive: if $\Sigma\delta \le k^* - 2$, then $d \le 2$.
 
 For each decomposable residue~$r$, fix a witness pair $(a_r, b_r)$
 with $k_{a_r} + k_{b_r} + \varepsilon_{a_r, b_r} = k_r$.
-Let $\mathcal{S}$ denote the set of all residues appearing in these
-witness pairs that are \emph{not themselves decomposable}
-(the ``pure sources'').
+We distinguish two cases according to whether any witness pair is a
+cross-sum ($a_r \ne b_r$) or all three are self-sums.
 
 \medskip
-\textbf{Key observation.}
-Every pure source~$s$ contributes deficit $\delta_s \ge 1$: if $s \le r^*$,
-then $k_s \le k^* - 1$ (since $s$ participates in a sum $\le k_r \le k^*$
-with another element of level $\ge 1$, forcing $k_s < k^*$), so
-$\delta_s = k^* - k_s \ge 1$; if $s > r^*$, then $k_s \le k^* - 1$
-and the witness pair constraint forces $k_s \le k^* - 1 - \varepsilon$,
-giving $\delta_s = k^* - 1 - k_s \ge 0$, with $\delta_s \ge 1$
-whenever $k_s \le k^* - 2$.
-
-We analyze by the number of distinct pure sources.
+\textbf{Notation.}
+For each source~$s$, let $c_s$ denote its \emph{ceiling level}:
+$c_s = k^*$ if $s \le r^*$, and $c_s = k^* - 1$ if $s > r^*$.
+Then $\delta_s = c_s - k_s$.
 
 \medskip
-\emph{Case 1: $|\mathcal{S}| \ge 3$ with at least one source $s \le r^*$.}
-Then $\delta_s = k^* - k_s \ge k^* - 1$.  Since $k^* - 1 \ge 3 > k^* - 2$
-for $k^* \ge 4$, we already have $\Sigma\delta > k^* - 2$.
+\emph{Case A: at least one witness pair is a cross-sum $(a, b)$, $a \ne b$.}
+
+The pair decomposes some target~$r$ with $k_a + k_b + \varepsilon = k_r \le k^*$.
+We bound $\delta_a + \delta_b = c_a + c_b - (k_a + k_b) \ge c_a + c_b - k^* + \varepsilon$.
+
+\emph{Subcase A1: at least one of $a, b$ is $\le r^*$.}
+Without loss of generality $a \le r^*$, so $c_a = k^*$ and $c_b \ge k^* - 1$.
+Then $\delta_a + \delta_b \ge k^* + (k^* - 1) - k^* + \varepsilon = k^* - 1 + \varepsilon \ge k^* - 1$.
+For $k^* \ge 4$: $k^* - 1 > k^* - 2$, so $\Sigma\delta > k^* - 2$.
+
+\emph{Subcase A2: both $a, b > r^*$.}
+We show that $\delta_a + \delta_b \ge k^* - 1$ in all sub-subcases:
+\begin{itemize}
+\item If $\varepsilon = 0$ and $r = a + b < m$: since $a > r^*$ and $b > r^*$,
+  the target $r = a + b > 2r^*$.  If $r > r^*$ then $k_r \le k^* - 1$,
+  so $k_a + k_b \le k^* - 1$ and
+  $\delta_a + \delta_b = 2(k^*-1) - (k_a+k_b) \ge k^* - 1$.
+  If $r \le r^*$: this requires $a + b \le r^* < a$, impossible.
+\item If $\varepsilon = 1$ and $r = a + b - m$: then $k_a + k_b = k_r - 1$.
+  If $r \le r^*$: $k_r = k^*$, so $k_a + k_b = k^* - 1$ and
+  $\delta_a + \delta_b = 2(k^*-1) - (k^*-1) = k^* - 1$.
+  If $r > r^*$: $k_r \le k^* - 1$, so $k_a + k_b \le k^* - 2$ and
+  $\delta_a + \delta_b \ge 2(k^*-1) - (k^*-2) = k^*$.
+\end{itemize}
+In every sub-subcase, $\delta_a + \delta_b \ge k^* - 1 > k^* - 2$.
 
 \medskip
-\emph{Case 2: All pure sources $> r^*$ (any number).}
-For a pure source $s > r^*$, $\delta_s = k^* - 1 - k_s$.
-The witness pair constraint on a decomposable residue~$r$ (with $k_r \le k^*$)
-gives $k_{a_r} + k_{b_r} + \varepsilon \le k^*$.
+\emph{Case B: all three witness pairs are self-sums $(s_i, s_i)$ for $i = 1, 2, 3$.}
 
-\emph{Subcase 2a: Self-sum $(a, a)$ with target~$r$ and both $a, r > r^*$.}
-Then $2k_a + \varepsilon \le k_r \le k^* - 1$ (since $r > r^*$),
-so $k_a \le \lfloor(k^* - 2)/2\rfloor$ and
-$\delta_a \ge \lceil k^*/2 \rceil$.
+Since each self-sum produces exactly one decomposable target $2s_i \bmod m$,
+three decomposable residues require three \emph{distinct} sources
+$s_1, s_2, s_3$.  For each source, $2k_{s_i} + \varepsilon_i = k_{r_i} \le k^*$.
 
-\emph{Subcase 2b: Cross-sum $(a, b)$, $a \ne b$, target~$r$, all three $> r^*$.}
-Then $k_a + k_b + \varepsilon \le k^* - 1$, so $\delta_a + \delta_b \ge k^* - 1$.
+We claim $\delta_{s_i} \ge \lceil(k^* - 1)/2\rceil$ for each~$i$.
+Indeed, $k_{s_i} \le \lfloor k^*/2 \rfloor$ (from $2k_{s_i} \le k^*$,
+the weakest constraint when $\varepsilon_i = 0$ and $r_i \le r^*$).
+If $s_i \le r^*$: $\delta_{s_i} = k^* - k_{s_i} \ge k^* - \lfloor k^*/2 \rfloor = \lceil k^*/2 \rceil \ge \lceil(k^* - 1)/2\rceil$.
+If $s_i > r^*$: the self-sum target satisfies $2k_{s_i} + \varepsilon_i \le k^*$.
+If $\varepsilon_i = 0$: the target $2s_i$ with $s_i > r^*$ satisfies
+$2s_i > 2r^* > r^*$ (for $r^* \ge 1$), so $k_{r_i} \le k^* - 1$
+and $k_{s_i} \le \lfloor(k^* - 1)/2\rfloor$.
+If $\varepsilon_i = 1$: $k_{s_i} \le \lfloor(k^* - 1)/2\rfloor$ directly.
+Either way, $\delta_{s_i} = (k^* - 1) - k_{s_i} \ge \lceil(k^* - 1)/2\rceil$.
 
-\emph{Subcase 2c: Self-sum $(a, a)$ with target~$r \le r^*$.}
-Then $2k_a + \varepsilon \le k_r = k^*$, giving $k_a \le \lfloor(k^* - 1)/2\rfloor$
-and $\delta_a \ge \lceil(k^* - 1)/2\rceil$.
-
-\emph{Subcase 2d: Cross-sum $(a, b)$ with target~$r \le r^*$.}
-Then $k_a + k_b + \varepsilon \le k^*$, so $\delta_a + \delta_b \ge k^* - 2$.
-
-\medskip
-Now consider the three witness pairs under the budget $\Sigma\delta \le k^* - 2$.
-
-A single pair in Subcase~2a or~2b already costs $\ge \lceil k^*/2\rceil$
-or $\ge k^* - 1$, respectively.  For $k^* \ge 4$, two such pairs would
-cost $\ge k^* > k^* - 2$, leaving room for at most one.
-
-The cheapest configuration is two pure sources $j_1, j_2 > r^*$ with
-three self/cross-sums: $(j_1, j_1)$, $(j_2, j_2)$, $(j_1, j_2)$.
-All targets are $\le r^*$ (which minimizes the level constraint) or all
-targets are $> r^*$.
-
-\emph{If all three targets $> r^*$:}
-$(j_1, j_1)$: $\delta_{j_1} \ge \lceil k^*/2 \rceil$ (Subcase~2a).
-$(j_2, j_2)$: $\delta_{j_2} \ge \lceil k^*/2 \rceil$ (Subcase~2a).
-Total: $\Sigma\delta \ge 2\lceil k^*/2 \rceil \ge k^*$.
-For $k^* \ge 4$: $k^* > k^* - 2$.
-
-\emph{If all three targets $\le r^*$:}
-Each pair uses Subcase~2c or~2d.  The self-sums give
-$\delta_{j_i} \ge \lceil(k^* - 1)/2\rceil$, so
-$\Sigma\delta \ge 2\lceil(k^* - 1)/2\rceil = k^* - 1 > k^* - 2$
-for $k^* \ge 4$.
-
-\emph{Mixed targets:}
-At least one pair has target $> r^*$ (cost $\ge \lceil k^*/2\rceil$
-from one source), and another has target $\le r^*$ (cost
-$\ge \lceil(k^* - 1)/2\rceil$ from the other source).
-Total $\ge \lceil k^*/2\rceil + \lceil(k^* - 1)/2\rceil = k^* > k^* - 2$.
+Therefore
+\[
+  \Sigma\delta \ge 3\left\lceil\frac{k^* - 1}{2}\right\rceil.
+\]
+For $k^* = 4$: $\ge 3 \cdot 2 = 6 > 2 = k^* - 2$.
+For $k^* = 5$: $\ge 3 \cdot 2 = 6 > 3 = k^* - 2$.
+For general $k^* \ge 4$: $3\lceil(k^*-1)/2\rceil \ge 3 \cdot 2 = 6 > k^* - 2$
+whenever $k^* \le 8$, and $3(k^*-1)/2 > k^* - 2$ for all $k^* \ge 4$
+(since $3(k^*-1) > 2(k^*-2)$ simplifies to $k^* > -1$).
 
 \medskip
-\emph{Case 3: Two pure sources, one or both $\le r^*$, plus decomposable sources.}
-If a pure source $s \le r^*$ has $k_s = 1$: $\delta_s = k^* - 1 \ge 3$.
-This alone exceeds $k^* - 2$ (for $k^* \ge 4$).
-If $k_s \ge 2$: $\delta_s = k^* - k_s \ge k^* - (k^* - 2) = 2$
-(since $k_s \le k^* - 2$ is needed for any witness pair with this source
-and another element at level $\ge 1$ to produce a target at level $\le k^*$).
-Together with any second source deficit $\ge 1$,
-total $\ge 2 + 1 = 3 > k^* - 2$ only if $k^* \le 4$.
-For $k^* = 5$: need $\delta \ge 3$ from one source $\le r^*$.
-Since $k_s \le k^* - 2 = 3$ (forced by the witness pair), $\delta_s = 5 - 3 = 2$.
-A second source $\le r^*$ at level $\le 3$: total $\ge 4 > 3 = k^* - 2$. \checkmark
-For general $k^*$: two sources $\le r^*$ contribute
-$\ge 2(k^* - (k^* - 2)) = 4$ if both are forced to $k_s \le k^* - 2$;
-but also $\ge k^* - 1$ if either is at level~$1$.  In all cases,
-$\Sigma\delta > k^* - 2$.
-
-\medskip
-In every case, $\Sigma\delta \le k^* - 2$ forces $d \le 2$, completing
-the contrapositive.
+In both cases, $\Sigma\delta > k^* - 2$, so $d \le 2$.
 \end{proof}
 
 \begin{proof}[Completion of Theorem~C for $k^* \ge 4$]
@@ -1027,7 +1020,7 @@ For $d = 3$ and $m = 5, 6$, we have $W(S) \ge 0$.
 \section{Computational verification}\label{sec:computation}
 %% ====================================================================
 
-We performed computational verification at two scales.
+We performed computational verification at three scales.
 
 \emph{Small scale (genus-based).}  An exhaustive census of the 258{,}582
 numerical semigroups of genus~$\le 22$ (consistent with OEIS~A007323)
@@ -1045,6 +1038,18 @@ with \emph{zero violations} of the unified conjecture
 (Conjecture~\ref{conj:unified}).
 An independent BFS+Ap\'ery implementation agreed on $1000/1000$
 randomly sampled semigroups.
+
+\emph{Independent cross-validation (GAP).}
+As a further check using the domain-standard tool,
+GAP~\cite{GAP} with the \texttt{numericalsgps} package~\cite{NumericalSgps}
+was used to enumerate all 258{,}581 numerical semigroups of genus~$\le 22$,
+compute $W = eL - c$ for each, and compare with $W_{\min}(m,d)$.
+Result: zero violations.  The sharp bounds are confirmed for
+$d = 1$ ($m = 3, \ldots, 12$),
+$d = 2$ ($m = 4, \ldots, 13$),
+$d = 3$ ($m = 7, \ldots, 13$),
+and for all tested defects $d = 0, \ldots, 8$
+(see Table~\ref{tab:gap-sharp}).
 
 \subsection{Summary of results}
 
@@ -1179,6 +1184,38 @@ $m$ & Count & $W_{\min}$ & $2m-12$ & Tight \\
 \end{tabular}
 \end{table}
 
+\subsection{GAP cross-validation}
+
+Table~\ref{tab:gap-sharp} summarizes the GAP cross-validation by defect.
+For each defect~$d$, the range of multiplicities for which the bound is
+confirmed sharp (i.e., $W_{\mathrm{obs}} = W_{\min}(m,d)$) is shown.
+
+\begin{table}[ht]
+\centering
+\caption{GAP cross-validation (genus $\le 22$, 258{,}581 semigroups):
+sharp bound confirmation by defect.}\label{tab:gap-sharp}
+\begin{tabular}{rcrrl}
+\toprule
+$d$ & $\mathcal{L}(d)$ & $W_{\min}(m,d)$ & $m_{\min}(d)$ & Sharp confirmed ($m$ range) \\
+\midrule
+0 & 2 & $0$ & 2 & $m = 2, \ldots, 23$ \\
+1 & 3 & $m - 3$ & 3 & $m = 3, \ldots, 12$ \\
+2 & 4 & $2m - 8$ & 4 & $m = 4, \ldots, 13$ \\
+3 & 4 & $2m - 12$ & 7 & $m = 7, \ldots, 13$ \\
+4 & 5 & $3m - 20$ & 8 & $m = 8, \ldots, 13$ \\
+5 & 5 & $3m - 25$ & 9 & $m = 9, \ldots, 13$ \\
+6 & 5 & $3m - 30$ & 13 & $m = 13$ \\
+7 & 6 & $4m - 42$ & 12 & $m = 12, \ldots, 14$ \\
+8 & 6 & $4m - 48$ & 13 & $m = 13, 14$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The GAP and Kunz enumeration results are in complete agreement.
+For larger~$m$, GAP's genus-based enumeration does not capture
+the semigroups achieving the minimum (they have genus exceeding~$22$),
+while the Kunz enumeration confirms sharpness up to $m = 25$.
+
 \subsection{Tight examples}
 
 For Theorem~A, the tight examples ($W = m - 3$) arise from two families:
@@ -1211,8 +1248,9 @@ The bounds of Theorems~A, B, and~C fit into a larger pattern.
 Extensive computation for $d = 0, 1, \ldots, 15$ suggests the following:
 
 \begin{conjecture}[Unified sharp Wilf bound]\label{conj:unified}
-For every numerical semigroup $S$ with multiplicity $m$ and defect $d = m - e$,
-and for $m$ sufficiently large relative to $d$:
+For every defect $d \ge 0$, there exists a threshold $m_{\min}(d)$
+such that for every numerical semigroup $S$ with multiplicity $m \ge m_{\min}(d)$
+and defect $d(S) = d$:
 \begin{equation}\label{eq:unified}
   W(S) \ge W_{\min}(m, d) = (m - d) \cdot \mathcal{L}(d) - 2m,
 \end{equation}
@@ -1220,7 +1258,17 @@ where
 \begin{equation}\label{eq:L-function}
   \mathcal{L}(d) = \left\lceil \frac{\sqrt{8d + 1} - 1}{2} \right\rceil + 2.
 \end{equation}
+Moreover, the bound is sharp: for every $m \ge m_{\min}(d)$, there exists
+a semigroup achieving equality.
 \end{conjecture}
+
+\begin{remark}
+The threshold $m_{\min}(d)$ is necessary: for small $m$, the formula
+$W_{\min}(m,d)$ can be negative while $W(S) \ge 0$ always holds
+(e.g., for $m = d + 2$ and $e = 2$, the Sylvester formula gives $W = 0$
+but $W_{\min}(d+2, d) < 0$).
+Observed thresholds are listed in Table~\ref{tab:mmin}.
+\end{remark}
 
 \subsection{The triangular number connection}
 
@@ -1424,10 +1472,16 @@ Several directions for further investigation present themselves:
 
 \bigskip
 \noindent\textbf{Acknowledgments.}
+We thank P.~A.~Garc\'ia-S\'anchez and A.~Moscariello for helpful
+comments on an earlier version of this paper, in particular for
+pointing out the references~\cite{Dhayni2018, Delgado2019} and the
+need to restrict the unified conjecture to $m \ge m_{\min}(d)$.
+
 Computational verification was performed at two complementary scales:
-(i)~a genus-based census of 258{,}582 numerical semigroups of genus $\le 22$
-(cross-checked against OEIS sequence A007323), supplemented by a targeted
-Kunz-coordinate enumeration of 485{,}858 semigroups with $d = 3$; and
+(i)~an independent cross-validation using GAP~\cite{GAP} with the
+\texttt{numericalsgps} package~\cite{NumericalSgps}:
+258{,}581 numerical semigroups of genus $\le 22$ were enumerated,
+confirming all sharp bounds with zero violations; and
 (ii)~a large-scale Kunz polyhedron enumeration using a C/OpenMP kernel,
 covering multiplicities $m = 3, \ldots, 25$ at depth $k^* \le 4$,
 totalling $2.37 \times 10^{10}$ semigroup classes with zero violations
