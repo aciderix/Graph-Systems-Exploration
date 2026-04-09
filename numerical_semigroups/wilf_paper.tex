@@ -957,18 +957,24 @@ In both cases, $\Sigma\delta > k^* - 2$, so $d \le 2$.
 We use $c \le (k^* - 1)m + r^* + 1 \le k^* m$ and $L \ge 2k^* - 1$.
 
 \medskip
-\emph{Subcase $m \ge 7$:}
+\emph{Subcase $m \ge 9$:}
 \[
-  W \ge (m - 3)(2k^* - 1) - k^* m = k^*(m - 5) - (m - 3).
+  W \ge (m - 3)(2k^* - 1) - k^* m = k^*(m - 6) - (m - 3).
 \]
-For $k^* \ge 4$: $k^*(m - 5) - (m - 3) \ge 4(m - 5) - (m - 3) = 3m - 17$.
-And $3m - 17 \ge 2m - 12$ for $m \ge 5$.  \checkmark
+For $k^* \ge 4$: $k^*(m - 6) - (m - 3) \ge 4(m - 6) - (m - 3) = 3m - 21$.
+And $3m - 21 \ge 2m - 12$ for $m \ge 9$.  \checkmark
+
+\medskip
+\emph{Subcase $m \in \{7, 8\}$:}
+Direct Kunz-coordinate enumeration of all semigroups with $d = 3$
+and $m \in \{7, 8\}$ ($2{,}690 + 32{,}357 = 35{,}047$ semigroups)
+confirms $W \ge 2m - 12$ with zero violations
+(Table~\ref{tab:thC-stats}).
 
 \medskip
 \emph{Subcase $m = 6$:}
-Then $e = 3$ and $W = 3L - c$.  For $k^* \ge 4$, $L \ge 7$ and
-$c \le 6k^*$, so $W \ge 21 - 24 = -3$.  However, $d = 3$ with $m = 6$
-gives $e = 3$; a direct computation shows $W \ge 3$ in all cases.
+Then $e = 3$ and $W = 3L - c$.  Direct computation on all $151$
+semigroups with $d = 3$ and $m = 6$ shows $W \ge 3 > 0 = 2 \cdot 6 - 12$.
 
 \medskip
 \emph{Subcase $m = 5$:}
