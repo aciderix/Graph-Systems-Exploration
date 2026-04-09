@@ -1,0 +1,159 @@
+genus 1 done (1 total)
+genus 2 done (3 total)
+genus 3 done (7 total)
+genus 4 done (14 total)
+genus 5 done (26 total)
+genus 6 done (49 total)
+genus 7 done (88 total)
+genus 8 done (155 total)
+genus 9 done (273 total)
+genus 10 done (477 total)
+genus 11 done (820 total)
+genus 12 done (1412 total)
+genus 13 done (2413 total)
+genus 14 done (4106 total)
+genus 15 done (6963 total)
+genus 16 done (11769 total)
+genus 17 done (19814 total)
+genus 18 done (33281 total)
+genus 19 done (55745 total)
+genus 20 done (93141 total)
+genus 21 done (155335 total)
+genus 22 done (258581 total)
+Total: 258581, Violations: 0
+
+--- Defaut d=0 ---
+  m=2 Wobs=0 Wpred=0 SHARP
+  m=3 Wobs=0 Wpred=0 SHARP
+  m=4 Wobs=0 Wpred=0 SHARP
+  m=5 Wobs=0 Wpred=0 SHARP
+  m=6 Wobs=0 Wpred=0 SHARP
+  m=7 Wobs=0 Wpred=0 SHARP
+  m=8 Wobs=0 Wpred=0 SHARP
+  m=9 Wobs=0 Wpred=0 SHARP
+  m=10 Wobs=0 Wpred=0 SHARP
+  m=11 Wobs=0 Wpred=0 SHARP
+  m=12 Wobs=0 Wpred=0 SHARP
+  m=13 Wobs=0 Wpred=0 SHARP
+  m=14 Wobs=0 Wpred=0 SHARP
+  m=15 Wobs=0 Wpred=0 SHARP
+  m=16 Wobs=0 Wpred=0 SHARP
+  m=17 Wobs=0 Wpred=0 SHARP
+  m=18 Wobs=0 Wpred=0 SHARP
+  m=19 Wobs=0 Wpred=0 SHARP
+  m=20 Wobs=0 Wpred=0 SHARP
+  m=21 Wobs=0 Wpred=0 SHARP
+  m=22 Wobs=0 Wpred=0 SHARP
+  m=23 Wobs=0 Wpred=0 SHARP
+--- Defaut d=1 ---
+  m=3 Wobs=0 Wpred=0 SHARP
+  m=4 Wobs=1 Wpred=1 SHARP
+  m=5 Wobs=2 Wpred=2 SHARP
+  m=6 Wobs=3 Wpred=3 SHARP
+  m=7 Wobs=4 Wpred=4 SHARP
+  m=8 Wobs=5 Wpred=5 SHARP
+  m=9 Wobs=6 Wpred=6 SHARP
+  m=10 Wobs=7 Wpred=7 SHARP
+  m=11 Wobs=8 Wpred=8 SHARP
+  m=12 Wobs=9 Wpred=9 SHARP
+  m=13 Wobs=11 Wpred=10 above
+  m=14 Wobs=14 Wpred=11 above
+  m=15 Wobs=17 Wpred=12 above
+  m=16 Wobs=20 Wpred=13 above
+  m=17 Wobs=23 Wpred=14 above
+  m=18 Wobs=26 Wpred=15 above
+  m=19 Wobs=29 Wpred=16 above
+  m=20 Wobs=32 Wpred=17 above
+  m=21 Wobs=35 Wpred=18 above
+  m=22 Wobs=38 Wpred=19 above
+--- Defaut d=2 ---
+  m=4 Wobs=0 Wpred=0 SHARP
+  m=5 Wobs=2 Wpred=2 SHARP
+  m=6 Wobs=4 Wpred=4 SHARP
+  m=7 Wobs=6 Wpred=6 SHARP
+  m=8 Wobs=8 Wpred=8 SHARP
+  m=9 Wobs=10 Wpred=10 SHARP
+  m=10 Wobs=12 Wpred=12 SHARP
+  m=11 Wobs=14 Wpred=14 SHARP
+  m=12 Wobs=16 Wpred=16 SHARP
+  m=13 Wobs=18 Wpred=18 SHARP
+  m=14 Wobs=22 Wpred=20 above
+  m=15 Wobs=26 Wpred=22 above
+  m=16 Wobs=30 Wpred=24 above
+  m=17 Wobs=34 Wpred=26 above
+  m=18 Wobs=38 Wpred=28 above
+  m=19 Wobs=42 Wpred=30 above
+  m=20 Wobs=46 Wpred=32 above
+  m=21 Wobs=50 Wpred=34 above
+--- Defaut d=3 ---
+  m=5 Wobs=0 Wpred=-2 above
+  m=6 Wobs=3 Wpred=0 above
+  m=7 Wobs=2 Wpred=2 SHARP
+  m=8 Wobs=4 Wpred=4 SHARP
+  m=9 Wobs=6 Wpred=6 SHARP
+  m=10 Wobs=8 Wpred=8 SHARP
+  m=11 Wobs=10 Wpred=10 SHARP
+  m=12 Wobs=12 Wpred=12 SHARP
+  m=13 Wobs=14 Wpred=14 SHARP
+  m=14 Wobs=18 Wpred=16 above
+  m=15 Wobs=22 Wpred=18 above
+  m=16 Wobs=26 Wpred=20 above
+  m=17 Wobs=30 Wpred=22 above
+  m=18 Wobs=34 Wpred=24 above
+  m=19 Wobs=38 Wpred=26 above
+  m=20 Wobs=58 Wpred=28 above
+--- Defaut d=4 ---
+  m=6 Wobs=0 Wpred=-2 above
+  m=7 Wobs=5 Wpred=1 above
+  m=8 Wobs=4 Wpred=4 SHARP
+  m=9 Wobs=7 Wpred=7 SHARP
+  m=10 Wobs=10 Wpred=10 SHARP
+  m=11 Wobs=13 Wpred=13 SHARP
+  m=12 Wobs=16 Wpred=16 SHARP
+  m=13 Wobs=19 Wpred=19 SHARP
+  m=14 Wobs=23 Wpred=22 above
+  m=15 Wobs=28 Wpred=25 above
+  m=16 Wobs=33 Wpred=28 above
+  m=17 Wobs=38 Wpred=31 above
+  m=18 Wobs=43 Wpred=34 above
+  m=19 Wobs=48 Wpred=37 above
+--- Defaut d=5 ---
+  m=7 Wobs=0 Wpred=-4 above
+  m=8 Wobs=6 Wpred=-1 above
+  m=9 Wobs=2 Wpred=2 SHARP
+  m=10 Wobs=5 Wpred=5 SHARP
+  m=11 Wobs=8 Wpred=8 SHARP
+  m=12 Wobs=11 Wpred=11 SHARP
+  m=13 Wobs=14 Wpred=14 SHARP
+  m=14 Wobs=18 Wpred=17 above
+  m=15 Wobs=23 Wpred=20 above
+  m=16 Wobs=28 Wpred=23 above
+  m=17 Wobs=33 Wpred=26 above
+  m=18 Wobs=38 Wpred=29 above
+--- Defaut d=6 ---
+  m=9 Wobs=8 Wpred=-3 above
+  m=10 Wobs=5 Wpred=0 above
+  m=11 Wobs=8 Wpred=3 above
+  m=12 Wobs=12 Wpred=6 above
+  m=13 Wobs=9 Wpred=9 SHARP
+  m=14 Wobs=13 Wpred=12 above
+  m=15 Wobs=26 Wpred=15 above
+  m=16 Wobs=32 Wpred=18 above
+  m=17 Wobs=38 Wpred=21 above
+--- Defaut d=7 ---
+  m=10 Wobs=13 Wpred=-2 above
+  m=11 Wobs=10 Wpred=2 above
+  m=12 Wobs=6 Wpred=6 SHARP
+  m=13 Wobs=10 Wpred=10 SHARP
+  m=14 Wobs=14 Wpred=14 SHARP
+  m=15 Wobs=20 Wpred=18 above
+  m=16 Wobs=26 Wpred=22 above
+--- Defaut d=8 ---
+  m=12 Wobs=17 Wpred=0 above
+  m=13 Wobs=4 Wpred=4 SHARP
+  m=14 Wobs=8 Wpred=8 SHARP
+  m=15 Wobs=14 Wpred=12 above
+--- Defaut d=9 ---
+--- Defaut d=10 ---
+
+VERIFICATION PASSED
