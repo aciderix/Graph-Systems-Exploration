@@ -1092,9 +1092,12 @@ $m$ & $k^*_{\max}$ & Semigroup classes & Defect range & Violations \\
 \end{table}
 
 The results at $(m, k^*_{\max}) = (20, 4)$ match those at $(20, 3)$ for every
-$(m,d)$ slice, providing evidence that the minimum Wilf number is already
+$(m,d)$ slice in which $m \ge m_{\min}(d)$, providing evidence that
+\emph{above the stabilization threshold}, the minimum Wilf number is already
 captured by semigroups of depth~$k^* \le 3$ ($k^*$-\emph{saturation}).
-A proof of this saturation would substantially reduce enumeration complexity.
+However, this saturation does \emph{not} hold universally:
+a targeted search at $k^* \le 6$ revealed three counterexamples
+below the stabilization threshold (see Section~\ref{sec:sat-break}).
 
 \subsection{Statistics for Theorem~A ($d=1$)}
 
@@ -1406,6 +1409,55 @@ $m$ & $d$ & $e$ & $L$ & $W$ & Generators \\
 \end{tabular}
 \end{table}
 
+\subsection{Limits of $k^*$-saturation}\label{sec:sat-break}
+
+An exhaustive comparison of $W_{\min}(m,d)$ at different depth bounds
+($k^* \le 3$ versus $k^* \le 4, 5, 6$) revealed that $k^*$-saturation
+fails for certain $(m,d)$ pairs with $m < m_{\min}(d)$.
+Three counterexamples are listed in Table~\ref{tab:sat-break}.
+
+\begin{table}[ht]
+\centering
+\caption{Failure of $k^*$-saturation below the stabilization threshold.}\label{tab:sat-break}
+\begin{tabular}{rrrrrl}
+\toprule
+$m$ & $d$ & $W_{\min}(k^*\!\le\!3)$ & $W_{\min}(k^*\!\le\!6)$ & $k^*$ of minimizer & Kunz tuple \\
+\midrule
+ 7 & 4 & 6 & \textbf{5} & 4 & $(1,2,3,4,3,4)$ \\
+10 & 7 & --- & \textbf{12} & 6 & (new at $k^*>3$) \\
+13 & 9 & 13 & \textbf{10} & 4 & $(2,4,1,1,3,2,2,2,3,3,3,3)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In each case, the minimizer has depth~$k^* \ge 4$, producing a Wilf number
+strictly below the minimum achievable at~$k^* \le 3$.
+Crucially, all three breaks occur \emph{below} the stabilization threshold
+$m_{\min}(d)$: for $d = 4$, $m_{\min} = 8 > 7$; for $d = 7$,
+$m_{\min} = 12 > 10$; for $d = 9$, $m_{\min} \ge 14 > 13$.
+For $m \ge m_{\min}(d)$, the depth-$3$ minimum coincides with the overall
+minimum in all tested cases ($m \le 22$, $d \le 20$).
+
+\begin{remark}
+The $(m,d) = (7,4)$ counterexample is instructive.
+The minimizer at $k^* \le 3$ has Kunz vector $(1,1,2,2,3,3)$,
+giving $e = 3$, $L = 9$, $c = 21$, and $W = 6$.
+The minimizer at $k^* = 4$ has Kunz vector $(1,2,3,4,3,4)$,
+giving $e = 3$, $L = 11$, $c = 28$, and $W = 5$.
+Both semigroups have the same embedding dimension,
+but the deeper one has $c$ growing faster than $e \cdot L$,
+yielding a net decrease in~$W$.
+Since both values exceed the predicted bound $W_{\min}(7,4) = 1$,
+the unified conjecture is unaffected.
+\end{remark}
+
+We conjecture that $k^*$-saturation holds \emph{above the stabilization threshold}:
+
+\begin{conjecture}[$k^*$-saturation above threshold]\label{conj:sat}
+For every defect $d \ge 0$ and every $m \ge m_{\min}(d)$,
+the minimum Wilf number is achieved by a semigroup of depth~$k^* \le 3$.
+\end{conjecture}
+
 %% ====================================================================
 \section{Conclusion}\label{sec:conclusion}
 %% ====================================================================
@@ -1469,11 +1521,15 @@ Several directions for further investigation present themselves:
     into the ``difficulty frontier'' for Wilf's conjecture.
 
   \item \textbf{$k^*$-saturation.}
-    The Kunz enumeration shows that for $k^* \le 3$ (covering
-    $2.37 \times 10^{10}$ classes), the minimum Wilf number is already
-    captured: deeper semigroups ($k^* \ge 4$) never improve the bound.
-    Proving this $k^*$-saturation phenomenon would reduce the conjecture
-    to a finite-depth verification for each defect.
+    As shown in Section~\ref{sec:sat-break}, $k^*$-saturation fails
+    below the stabilization threshold: three counterexamples at
+    $(m,d) \in \{(7,4), (10,7), (13,9)\}$ exhibit minima at $k^* \ge 4$
+    that are strictly below the $k^* \le 3$ minimum.
+    However, for $m \ge m_{\min}(d)$, saturation is observed without exception
+    (Conjecture~\ref{conj:sat}).
+    Proving this \emph{conditional} $k^*$-saturation would reduce
+    the unified conjecture to a finite-depth verification for each defect
+    above the stabilization threshold.
 \end{enumerate}
 
 \bigskip
