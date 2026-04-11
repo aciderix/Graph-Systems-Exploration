@@ -1,0 +1,223 @@
+{
+  "experiment": "S1.1 cospectral separation",
+  "n_pairs": 6,
+  "results": [
+    {
+      "pair": [
+        "C6",
+        "K3+K3"
+      ],
+      "n": [
+        6,
+        6
+      ],
+      "m": [
+        6,
+        6
+      ],
+      "is_iso": false,
+      "adj_cospec": false,
+      "lap_cospec": false,
+      "tau_a": 6,
+      "tau_b": 0,
+      "K_a_factors": [
+        6
+      ],
+      "K_b_factors": [
+        3
+      ],
+      "K_a_order": 6,
+      "K_b_order": 3,
+      "K_a_cyclic": true,
+      "K_b_cyclic": true,
+      "K_a_str": "Z_6",
+      "K_b_str": "Z_3",
+      "snf_separates": true,
+      "tau_matches_snf_a": true,
+      "tau_matches_snf_b": false
+    },
+    {
+      "pair": [
+        "schwenk_11a",
+        "schwenk_11b"
+      ],
+      "n": [
+        11,
+        11
+      ],
+      "m": [
+        10,
+        10
+      ],
+      "is_iso": true,
+      "adj_cospec": true,
+      "lap_cospec": true,
+      "tau_a": 1,
+      "tau_b": 1,
+      "K_a_factors": [],
+      "K_b_factors": [],
+      "K_a_order": 1,
+      "K_b_order": 1,
+      "K_a_cyclic": true,
+      "K_b_cyclic": true,
+      "K_a_str": "trivial (Z_1)",
+      "K_b_str": "trivial (Z_1)",
+      "snf_separates": false,
+      "tau_matches_snf_a": true,
+      "tau_matches_snf_b": true
+    },
+    {
+      "pair": [
+        "shrikhande",
+        "L(K4,4)"
+      ],
+      "n": [
+        16,
+        16
+      ],
+      "m": [
+        48,
+        48
+      ],
+      "is_iso": false,
+      "adj_cospec": true,
+      "lap_cospec": true,
+      "tau_a": 34359738368,
+      "tau_b": 34359738368,
+      "K_a_factors": [
+        2,
+        8,
+        16,
+        8,
+        16,
+        32,
+        32,
+        32,
+        32
+      ],
+      "K_b_factors": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        32,
+        32,
+        32,
+        32
+      ],
+      "K_a_order": 34359738368,
+      "K_b_order": 34359738368,
+      "K_a_cyclic": false,
+      "K_b_cyclic": false,
+      "K_a_str": "Z_2\u00d7Z_8\u00d7Z_16\u00d7Z_8\u00d7Z_16\u00d7Z_32\u00d7Z_32\u00d7Z_32\u00d7Z_32",
+      "K_b_str": "Z_8\u00d7Z_8\u00d7Z_8\u00d7Z_8\u00d7Z_8\u00d7Z_32\u00d7Z_32\u00d7Z_32\u00d7Z_32",
+      "snf_separates": true,
+      "tau_matches_snf_a": true,
+      "tau_matches_snf_b": true
+    },
+    {
+      "pair": [
+        "G7a",
+        "G7b"
+      ],
+      "n": [
+        7,
+        7
+      ],
+      "m": [
+        7,
+        7
+      ],
+      "is_iso": false,
+      "adj_cospec": false,
+      "lap_cospec": false,
+      "tau_a": 3,
+      "tau_b": 3,
+      "K_a_factors": [
+        3
+      ],
+      "K_b_factors": [
+        3
+      ],
+      "K_a_order": 3,
+      "K_b_order": 3,
+      "K_a_cyclic": true,
+      "K_b_cyclic": true,
+      "K_a_str": "Z_3",
+      "K_b_str": "Z_3",
+      "snf_separates": false,
+      "tau_matches_snf_a": true,
+      "tau_matches_snf_b": true
+    },
+    {
+      "pair": [
+        "rand7a",
+        "rand7b"
+      ],
+      "n": [
+        7,
+        7
+      ],
+      "m": [
+        8,
+        8
+      ],
+      "is_iso": false,
+      "adj_cospec": true,
+      "lap_cospec": false,
+      "tau_a": 9,
+      "tau_b": 8,
+      "K_a_factors": [
+        3,
+        3
+      ],
+      "K_b_factors": [
+        8
+      ],
+      "K_a_order": 9,
+      "K_b_order": 8,
+      "K_a_cyclic": false,
+      "K_b_cyclic": true,
+      "K_a_str": "Z_3\u00d7Z_3",
+      "K_b_str": "Z_8",
+      "snf_separates": true,
+      "tau_matches_snf_a": true,
+      "tau_matches_snf_b": true
+    },
+    {
+      "pair": [
+        "rand8a",
+        "rand8b"
+      ],
+      "n": [
+        8,
+        8
+      ],
+      "m": [
+        12,
+        12
+      ],
+      "is_iso": false,
+      "adj_cospec": true,
+      "lap_cospec": false,
+      "tau_a": 195,
+      "tau_b": 162,
+      "K_a_factors": [
+        195
+      ],
+      "K_b_factors": [
+        162
+      ],
+      "K_a_order": 195,
+      "K_b_order": 162,
+      "K_a_cyclic": true,
+      "K_b_cyclic": true,
+      "K_a_str": "Z_195",
+      "K_b_str": "Z_162",
+      "snf_separates": true,
+      "tau_matches_snf_a": true,
+      "tau_matches_snf_b": true
+    }
+  ]
+}
