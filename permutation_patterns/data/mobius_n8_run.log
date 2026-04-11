@@ -1,0 +1,18 @@
+n=1   |Sn|=1        max|mu|=1     #extrema=1      time=0.00s
+   hist (top): [(1, 1)]
+n=2   |Sn|=2        max|mu|=1     #extrema=2      time=0.00s
+   hist (top): [(-1, 2)]
+n=3   |Sn|=6        max|mu|=1     #extrema=4      time=0.00s
+   hist (top): [(1, 4), (0, 2)]
+n=4   |Sn|=24       max|mu|=3     #extrema=2      time=0.00s
+   hist (top): [(-1, 12), (0, 10), (-3, 2)]
+n=5   |Sn|=120      max|mu|=6     #extrema=4      time=0.01s
+   hist (top): [(0, 58), (1, 40), (3, 8), (2, 8), (6, 4), (4, 2)]
+n=6   |Sn|=720      max|mu|=11    #extrema=2      time=0.08s
+   hist (top): [(0, 386), (-1, 172), (-2, 64), (-6, 36), (-3, 24), (-9, 12), (-5, 12), (-4, 8), (1, 4), (-11, 2)]
+n=7   |Sn|=5040     max|mu|=15    #extrema=8      time=1.04s
+   hist (top): [(0, 2894), (1, 994), (2, 384), (6, 236), (3, 124), (7, 96), (9, 80), (-1, 56), (5, 52), (8, 40), (4, 20), (12, 20)]
+n=8   |Sn|=40320    max|mu|=27    #extrema=2      time=17.09s
+   hist (top): [(0, 23958), (-1, 7190), (-2, 2542), (-7, 1242), (-6, 942), (-3, 910), (-8, 824), (1, 734), (-9, 560), (-5, 232), (2, 216), (-4, 204)]
+
+Saved to /home/user/Graph-Systems-Exploration/permutation_patterns/data/mobius.json
